@@ -1,0 +1,29 @@
+body{
+    padding: 25px;
+}
+
+#acpl-header{
+    float: auto;
+}
+
+#acpl-header h2{
+    text-align: center;
+}
+
+#acpl-header #acpl-left-header{
+    float: left;
+}
+
+#acpl-header #acpl-right-header{
+    float: right;
+}
+
+#radio-form-app{
+    clear: left;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+#statement{
+    padding: 50px;
+}
