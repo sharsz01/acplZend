@@ -18,7 +18,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         // Set the method for the display form to POST
         $this->setMethod('post');
-        
+
         // ============================================================ listener
         $listener->addElement('text', 'firstName', array(
             'label' => 'Your First Name:',
@@ -85,7 +85,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'EmailAddress',
             )
         ));
-
+        
         // ============================================================= contact
         $contact->addElement('text', 'firstName', array(
             'label' => 'First Name:',
@@ -149,9 +149,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'EmailAddress',
             )
         ));
-
+        
         // ========================================================== other info
-
         $otherInfo->addElement('text', 'disability', array(
             'label' => 'What is your print disability / reason requesting service?',
             'required' => true,
@@ -204,7 +203,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
         $numInHome->setRequired(false);
         $otherInfo->addElement($numInHome);
-        
+
         $otherInfo->addElement('radio', 'mailTo', array(
             'label' => 'Please Check One:',
             'multiOptions' => array(
@@ -212,7 +211,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'toContact' => 'Mail radio to contact person',
             ),
         ));
-
+        
         // =========================================================== statement
         $statement->addElement('hidden', 'plaintext', ['description' => 'I understand that the Audio Reading Service radio '
             . 'is on loan to me and remains the property of the Allen County '
@@ -223,13 +222,13 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array(
                 array('Description', array('escape' => false, 'tag' => 'statement')),
             ),
-            ]);
-        
+        ]);
+
         $statement->addElement('text', 'signature', array(
             'label' => 'Signature of responsible party: ',
             'required' => true
         ));
-        
+
         $statement->addElement('text', 'signatureDate', array(
             'label' => 'Date:',
             'required' => true,
@@ -238,8 +237,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
             'class' => 'form-date'
         ));
-
+        
         // =====================================================================
+        
         // Add subforms to main form
         $this->addSubForms(array(
             'listener' => $listener,
