@@ -23,7 +23,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         // ============================================================ listener
         $listener->addElement('text', 'firstName', array(
-            'label' => 'Name:',
+            'label' => 'Name',
             'placeholder' => 'first name',
             'required' => true,
             'filters' => array('StringTrim'),
@@ -38,7 +38,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('date', 'birthdate', array(
-            'label' => 'Date of Birth:',
+            'label' => 'Date of Birth',
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
@@ -64,11 +64,11 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         // ====================================================================
 
         $listener->addElement('text', 'address', array(
-            'label' => 'Address:',
+            'label' => 'Address',
             'placeholder' => 'street address',
             'required' => true,
             'filters' => array('StringTrim'),
-            'decorators' => array('ViewHelper', 'Errors'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
         ));
 
         $listener->addElement('text', 'address2', array(
@@ -144,7 +144,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         // ============================================================= contact
         $contact->addElement('text', 'firstName', array(
-            'label' => 'Name:',
+            'label' => 'Name',
             'placeholder' => 'first name',
             'required' => true,
             'filters' => array('StringTrim'),
@@ -168,7 +168,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'address', array(
-            'label' => 'Address:',
+            'label' => 'Address',
             'placeholder' => 'street address',
             'required' => true,
             'filters' => array('StringTrim'),
@@ -184,7 +184,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'primaryPhone', array(
-            'label' => 'Phone Number:',
+            'label' => 'Phone Number',
             'placeholder' => 'home phone',
             'required' => true,
             'filters' => array('StringTrim'),
