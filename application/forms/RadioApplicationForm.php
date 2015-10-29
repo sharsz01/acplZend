@@ -110,7 +110,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'primaryPhone', array(
-            'label' => 'Phone Number:',
+            'label' => 'Phone Number',
             'placeholder' => 'home phone',
             'required' => true,
             'filters' => array('StringTrim'),
@@ -134,7 +134,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $listener->addElement('text', 'email', array(
             'class' => 'lefty',
-            'placeholder' => 'e-mail:',
+            'placeholder' => 'e-mail',
             'required' => false,
             'filters' => array('StringTrim'),
             'validators' => array(
@@ -308,7 +308,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         
         $race = new Zend_Form_Element_Select('race');
         $race->setLabel("Race")->addMultiOptions(array(
-            '0' => '',
+            '--' => '',
             'Caucasian' => 'Caucasian',
             'African American' => 'African American',
             'Hispanic / Latino' => 'Hispanic / Latino',
@@ -321,15 +321,15 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $income = new Zend_Form_Element_Select('income');
         $income->setLabel("Income")->addMultiOptions(array(
-            '0' => '',
-            '1' => 'Under $10,000',
-            '2' => '$10,000 - 15,000',
-            '3' => '$15,001 - 20,000',
-            '4' => '$20,001 - 25,000',
-            '5' => '$25,001 - 30,000',
-            '6' => '$30,001 - 45,000',
-            '7' => '$45,001 - 55,000',
-            '8' => 'Over $55,000'
+            '--' => '',
+            'Under $10,000' => 'Under $10,000',
+            '$10,000 - 15,000' => '$10,000 - 15,000',
+            '$15,001 - 20,000' => '$15,001 - 20,000',
+            '$20,001 - 25,000' => '$20,001 - 25,000',
+            '25,001 - 30,000' => '$25,001 - 30,000',
+            '$30,001 - 45,000' => '$30,001 - 45,000',
+            '$45,001 - 55,000' => '$45,001 - 55,000',
+            'Over $55,000' => 'Over $55,000'
         ));
         $income->setDecorators(array('ViewHelper', 'Label'));
         $income->setRequired(false);
@@ -337,7 +337,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $numInHome = new Zend_Form_Element_Select('numInHome');
         $numInHome->setLabel("Number in Household")->addMultiOptions(array(
-            '0' => '',
+            '--' => '',
             '1' => '1',
             '2' => '2',
             '3' => '3',
@@ -357,7 +357,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         
         $format = new Zend_Form_Element_Select('format');
         $format->setLabel("Choose Your Preferred Format")->addMultiOptions(array(
-            '0' => '',
+            '--' => '',
             'Large Print' => 'Large Print',
             'Braille' => 'Braille',
             'Audio CD' => 'Audio CD',

@@ -55,10 +55,7 @@ ul.errors{
     font-size: 18px;
 }
 
-.zend_form input{
+.zend_form input, select{
     font-size: 18px;
 }
 
-.zend_form select{
-    font-size: 18px;
-}

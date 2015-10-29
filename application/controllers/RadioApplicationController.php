@@ -14,26 +14,37 @@ class RadioApplicationController extends Zend_Controller_Action {
         $request = $this->getRequest();
         $form = new Application_Form_RadioApplicationForm();
 
+        $listenerVals = $request->getPost()['listener'];
+        $contactVals = $request->getPost()['contact'];
+        $otherInfoVals = $request->getPost()['otherInfo'];
+        $statementVals = $request->getPost()['statement'];
+
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
 
                 $user = new Application_Model_User();
 
-                
-                
+                header("confirmation.phtml");
+
                 // ==============================================
                 // temp - refactor to diff method
                 //dbPostUser($user, $request);
+                // =============================================================
+                // convert to date format -- refactor to method later **
+                $bday = $listenerVals['birthdate']['year'] . '/' . $listenerVals['birthdate']['month'] . '/' . $listenerVals['birthdate']['day'];
+                $signDay = $statementVals['signatureDate']['year'] . '/' . $statementVals['signatureDate']['month'] . '/' . $statementVals['signatureDate']['day'];
 
-                $listenerVals = $request->getPost()['listener'];
-                $contactVals = $request->getPost()['contact'];
-                $otherInfoVals = $request->getPost()['otherInfo'];
-                $statementVals = $request->getPost()['statement'];
+                $time1 = strtotime($bday);
+                $time2 = strtotime($signDay);
+
+                $f1 = date('Y-m-d', $time1);
+                $f2 = date('Y-m-d', $time2);
+                // =============================================================
 
                 $user->createUser(array(
                     'firstName' => $listenerVals['firstName'],
                     'lastName' => $listenerVals['lastName'],
-                    'birthday' => $listenerVals['birthdate'],
+                    'birthday' => $f1,
                     'street' => $listenerVals['address'],
                     'streetLine2' => $listenerVals['address2'],
                     'phone' => $listenerVals['primaryPhone'],
@@ -58,7 +69,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                     'income' => $listenerVals['income'],
                     'inHomeNum' => $listenerVals['numInHome'],
                     'signature' => $statementVals['signature'],
-                    'dateSigned' => $statementVals['signatureDate'],
+                    'dateSigned' => $f2,
                     'mailTo' => $otherInfoVals['mailTo'],
                 ));
 
