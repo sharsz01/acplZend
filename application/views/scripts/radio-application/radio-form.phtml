@@ -10,3 +10,20 @@ echo "<p> To return or request replacement - take radio to any Allen County "
  . "Be Sure to include your name, address and reason for return. If a "
  . "replacement radio is needed please include a note to let us know. "
  . "Thank you! </p>";
+?>
+
+<script>
+    $(document).ready(function () {
+        $('#radio-form-app').submit(function (e) {
+            if (confirm("Are you sure you wish to submit your application?\n\
+Click Cancel to review before submission.\n\
+Click OK when ready to submit.")) {
+                window.scrollTo(0, 0);
+            }
+            else {
+                e.preventDefault();
+            }
+        });
+    });
+
+</script>
