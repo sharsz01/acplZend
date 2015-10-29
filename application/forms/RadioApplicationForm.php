@@ -11,6 +11,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $otherInfo = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
 
+        $listener->setElementDecorators(array('ViewHelper', 'Label'));
+        //$contact->setElementDecorators(array('ViewHelper', 'Label'));
         // subform section names
         $listener->setLegend("LISTENER");
         $contact->setLegend("ALTERNATIVE CONTACT");
@@ -21,152 +23,291 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         // ============================================================ listener
         $listener->addElement('text', 'firstName', array(
-            'label' => 'Your First Name:',
+            'label' => 'Name:',
+            'placeholder' => 'first name',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
         ));
 
         $listener->addElement('text', 'lastName', array(
-            'label' => 'Last Name:',
+            'placeholder' => 'last name',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
-        $listener->addElement('text', 'birthdate', array(
+        $listener->addElement('date', 'birthdate', array(
             'label' => 'Date of Birth:',
             'required' => true,
-            'validators' => array(
-                new Zend_Validate_Date(array('format' => 'yyyy/MM/dd'))
-            ),
-            'class' => 'form-date'
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+
+        $listener->addDisplayGroup(array('firstName', 'lastName', 'birthdate'), 'firstLine', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            ),
+        ));
+
+        // ============
+//        $listener->addElement('text', 'birthdate', array(
+//            'label' => 'Date of Birth:',
+//            'required' => true,
+//            'options' => array(
+//                'label' => 'Birth'
+//            ),
+//            'validators' => array(
+//                new Zend_Validate_Date(array('format' => 'yyyy/MM/dd'))
+//            ),
+//        ));
+        // ====================================================================
 
         $listener->addElement('text', 'address', array(
             'label' => 'Address:',
+            'placeholder' => 'street address',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
-        $listener->addElement('text', 'primaryPhone', array(
-            'label' => 'Primary Phone Number:',
-            'required' => true,
-            'filters' => array('StringTrim'),
-        ));
-
-        $listener->addElement('text', 'secondaryPhone', array(
-            'label' => 'Secondary Phone Number:',
+        $listener->addElement('text', 'address2', array(
+            'placeholder' => 'address line 2',
             'required' => false,
             'filters' => array('StringTrim'),
         ));
 
         $listener->addElement('text', 'city', array(
             'label' => 'City:',
+            'placeholder' => 'city',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $listener->addElement('text', 'state', array(
             'label' => 'State:',
+            'placeholder' => 'state',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $listener->addElement('text', 'zip', array(
             'label' => 'Zip:',
+            'placeholder' => 'zip',
+            'size' => 5,
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
+        ));
+
+        $listener->addDisplayGroup(array('city', 'state', 'zip'), 'csz', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            ),
+        ));
+
+        $listener->addElement('text', 'primaryPhone', array(
+            'label' => 'Phone Number:',
+            'placeholder' => 'home phone',
+            'required' => true,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
+        ));
+
+        $listener->addElement('text', 'secondaryPhone', array(
+            'label' => 'Secondary Phone Number:',
+            'placeholder' => 'cell phone',
+            'required' => false,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
+        ));
+
+        $listener->addDisplayGroup(array('primaryPhone', 'secondaryPhone'), 'phone', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            ),
         ));
 
         $listener->addElement('text', 'email', array(
-            'label' => 'E-mail:',
+            'class' => 'lefty',
+            'placeholder' => 'e-mail:',
             'required' => false,
             'filters' => array('StringTrim'),
             'validators' => array(
                 'EmailAddress',
-            )
+            ),
         ));
-        
+
         // ============================================================= contact
         $contact->addElement('text', 'firstName', array(
-            'label' => 'First Name:',
+            'label' => 'Name:',
+            'placeholder' => 'first name',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
         ));
 
         $contact->addElement('text', 'lastName', array(
             'label' => 'Last Name:',
+            'placeholder' => 'last name',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'relationship', array(
             'label' => 'Relationship to Listener:',
+            'placeholder' => 'relationship to listener',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'address', array(
             'label' => 'Address:',
+            'placeholder' => 'street address',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
+        ));
+
+        $contact->addElement('text', 'address2', array(
+            'label' => 'Address 2:',
+            'placeholder' => 'address line 2',
+            'required' => false,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'primaryPhone', array(
-            'label' => 'Primary Phone Number:',
+            'label' => 'Phone Number:',
+            'placeholder' => 'home phone',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label','Errors'),
         ));
 
         $contact->addElement('text', 'secondaryPhone', array(
             'label' => 'Secondary Phone Number:',
-            'required' => true,
+            'placeholder' => 'cell phone',
+            'required' => false,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'city', array(
             'label' => 'City:',
+            'placeholder' => 'city',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'state', array(
             'label' => 'State:',
+            'placeholder' => 'state',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'zip', array(
             'label' => 'Zip:',
+            'placeholder' => 'zip',
             'required' => true,
             'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Errors'),
         ));
 
         $contact->addElement('text', 'email', array(
             'label' => 'E-mail:',
+            'placeholder' => 'e-mail',
             'required' => false,
             'filters' => array('StringTrim'),
             'validators' => array(
                 'EmailAddress',
+            ),
+            'decorators' => array('ViewHelper', 'Errors'),
+        ));
+
+
+        $contact->addDisplayGroup(array('firstName', 'lastName', 'relationship'), 'first', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
+        $contact->addDisplayGroup(array('address', 'address2'), 'second', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+        $contact->addDisplayGroup(array('city', 'state', 'zip'), 'third', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+        $contact->addDisplayGroup(array('primaryPhone', 'secondaryPhone'), 'fourth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+        $contact->addDisplayGroup(array('email'), 'fifth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
+        // ========================================================== other info
+        $listener->addElement('text', 'disability', array(
+            'label' => 'What is your print disability/reason requesting service?',
+            'required' => true,
+            'size' => 50,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+        ));
+
+        $listener->addElement('text', 'howLearn', array(
+            'label' => ' How did you learn about the Audio Reading Service?',
+            'required' => true,
+            'size' => 50,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+        ));
+        
+        $listener->addDisplayGroup(array('disability'), 'fifth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
+        $listener->addDisplayGroup(array('howLearn'), 'sixth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             )
         ));
         
-        // ========================================================== other info
-        $otherInfo->addElement('text', 'disability', array(
-            'label' => 'What is your print disability / reason requesting service?',
-            'required' => true,
-            'size' => 50,
-            'filters' => array('StringTrim'),
-        ));
-
-        $otherInfo->addElement('text', 'howLearn', array(
-            'label' => 'How did you learn about the Audio Reading Service?',
-            'required' => true,
-            'size' => 50,
-            'filters' => array('StringTrim'),
-        ));
-
+        $listener->addElement('hidden', 'plaintext', ['description' => 'Optional '
+            . 'items for statistical purposes only.',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('escape' => false, 'tag' => 'statement')),
+            ),
+        ]);
+        
         $race = new Zend_Form_Element_Select('race');
-        $race->setLabel("Race (Leave blank if prefer not to say)")->addMultiOptions(array(
+        $race->setLabel("Race")->addMultiOptions(array(
             '0' => '',
             'Caucasian' => 'Caucasian',
             'African American' => 'African American',
@@ -174,11 +315,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'Native American' => 'Native American',
             'Other' => 'Other'
         ));
+        $race->setDecorators(array('ViewHelper', 'Label'));
         $race->setRequired(false);
-        $otherInfo->addElement($race);
+        $listener->addElement($race);
 
         $income = new Zend_Form_Element_Select('income');
-        $income->setLabel("Income (Leave blank if prefer not to say)")->addMultiOptions(array(
+        $income->setLabel("Income")->addMultiOptions(array(
             '0' => '',
             '1' => 'Under $10,000',
             '2' => '$10,000 - 15,000',
@@ -189,11 +331,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             '7' => '$45,001 - 55,000',
             '8' => 'Over $55,000'
         ));
+        $income->setDecorators(array('ViewHelper', 'Label'));
         $income->setRequired(false);
-        $otherInfo->addElement($income);
+        $listener->addElement($income);
 
         $numInHome = new Zend_Form_Element_Select('numInHome');
-        $numInHome->setLabel("Number in Household (Leave blank if prefer not to say)")->addMultiOptions(array(
+        $numInHome->setLabel("Number in Household")->addMultiOptions(array(
             '0' => '',
             '1' => '1',
             '2' => '2',
@@ -201,8 +344,36 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             '4' => '4',
             '5 or more' => '5 or more'
         ));
+        $numInHome->setDecorators(array('ViewHelper', 'Label'));
         $numInHome->setRequired(false);
-        $otherInfo->addElement($numInHome);
+        $listener->addElement($numInHome);
+        
+        $listener->addDisplayGroup(array('race', 'income', 'numInHome'), 'seventh', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+        
+        $format = new Zend_Form_Element_Select('format');
+        $format->setLabel("Choose Your Preferred Format")->addMultiOptions(array(
+            '0' => '',
+            'Large Print' => 'Large Print',
+            'Braille' => 'Braille',
+            'Audio CD' => 'Audio CD',
+            'Email' => 'Email',
+            'Other' => 'Other'
+        ));
+        $format->setDecorators(array('ViewHelper', 'Label'));
+        $format->setRequired(false);
+        $listener->addElement($format);    
+        
+         $listener->addDisplayGroup(array('format'), 'eighth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
 
         $otherInfo->addElement('radio', 'mailTo', array(
             'label' => 'Please Check One:',
@@ -210,8 +381,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'toListener' => 'Mail radio to listener',
                 'toContact' => 'Mail radio to contact person',
             ),
+            'required' => true,
         ));
-        
+
         // =========================================================== statement
         $statement->addElement('hidden', 'plaintext', ['description' => 'I understand that the Audio Reading Service radio '
             . 'is on loan to me and remains the property of the Allen County '
@@ -226,20 +398,33 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $statement->addElement('text', 'signature', array(
             'label' => 'Signature of responsible party: ',
-            'required' => true
+            'required' => true,
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
-
-        $statement->addElement('text', 'signatureDate', array(
+        
+        $statement->addElement('date', 'signatureDate', array(
             'label' => 'Date:',
             'required' => true,
-            'validators' => array(
-                new Zend_Validate_Date(array('format' => 'yyyy/MM/dd'))
-            ),
-            'class' => 'form-date'
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+
+//        $statement->addElement('text', 'signatureDate', array(
+//            'label' => 'Date:',
+//            'required' => true,
+//            'validators' => array(
+//                new Zend_Validate_Date(array('format' => 'yyyy/MM/dd'))
+//            ),
+//            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+//        ));
         
+        $statement->addDisplayGroup(array('signature', 'signatureDate'), 'sixth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
         // =====================================================================
-        
         // Add subforms to main form
         $this->addSubForms(array(
             'listener' => $listener,
@@ -259,4 +444,5 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 //            'ignore' => true,
 //        ));
     }
+
 }

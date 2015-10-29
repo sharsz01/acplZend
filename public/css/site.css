@@ -27,3 +27,38 @@ body{
 #statement{
     padding: 50px;
 }
+
+ul.errors{
+    color: red;
+}
+
+.zend_form input{
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.zend_form legend{
+    color: blue;
+}
+
+.zend_form select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.zend_form label{
+    color: #002EB8;
+}
+
+.zend_form{
+    font-size: 18px;
+}
+
+.zend_form input{
+    font-size: 18px;
+}
+
+.zend_form select{
+    font-size: 18px;
+}

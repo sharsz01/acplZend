@@ -19,6 +19,8 @@ class RadioApplicationController extends Zend_Controller_Action {
 
                 $user = new Application_Model_User();
 
+                
+                
                 // ==============================================
                 // temp - refactor to diff method
                 //dbPostUser($user, $request);
@@ -56,9 +58,17 @@ class RadioApplicationController extends Zend_Controller_Action {
 
                 // ==============================================
                 //$user->createUser($request->getPost());
+                //return $this->_helper->redirector('confirmation');
                 return $this->_helper->redirector('radio-form');
+            } else {
+                //return $this->_helper->redirector('confirmation');
             }
         }
         $this->view->form = $form;
     }
+
+    public function confirmationAction() {
+        
+    }
+
 }
