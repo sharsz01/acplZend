@@ -51,6 +51,10 @@ ul.errors{
     color: #002EB8;
 }
 
+label{
+    color: #002EB8;
+}
+
 .zend_form{
     font-size: 18px;
 }
