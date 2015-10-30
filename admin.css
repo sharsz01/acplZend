@@ -1,0 +1,31 @@
+#body {
+	margin: 1em;
+}
+
+#alertList {
+	height: 50em;
+	overflow: scroll;
+	border: 1px solid #bbb;
+	padding: 1em;
+	width: 100%;
+}
+
+#userList {
+	height: 50em;
+	overflow: scroll;
+	border: 1px solid #bbb;
+	padding: 1em;
+	width: 100%;
+}
+
+#tabRow button {
+	margin: 0.5em;
+}
+
+#saveBtn {
+	margin: 0.5em;
+}
+
+#cancelBtn {
+	margin: 0.5em;
+}
