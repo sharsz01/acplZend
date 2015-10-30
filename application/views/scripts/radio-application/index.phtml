@@ -3,6 +3,7 @@
     a:visited
     {
         color: #0398CA;
+        font-size: 18px;
     }
 
     div#view-content
@@ -13,6 +14,7 @@
         margin-left: 10%;
         margin-right: 10%;
     }
+    
 
 </style>
 
@@ -24,12 +26,17 @@
         <img src="http://www.acpl.lib.in.us/images/default-source/logos/ars-logo-blue-acpl-web-01-final.tmb-medium.png?sfvrsn=3" />
     </p>
     
-    <p><a href="<?php
+    <p>
+        <a href="<?php
         echo $this->url(
                 array(
             'controller' => 'RadioApplication',
             'action' => 'radio-form'
                 ), 'default', true)
-        ?>">Radio Application</a></p>
+        ?>">Radio Application
+        </a>
+        
+        
+    </p>
 
 </div>
