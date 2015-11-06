@@ -1,0 +1,55 @@
+<style>
+    .listener{
+        border: 1px solid black;
+    }
+</style>
+    
+
+<?php
+
+session_start();
+
+// get session variables from form
+$listenerData = $_SESSION['data']['postData']['listener'];
+$contactData = $_SESSION['data']['postData']['contact'];
+$otherInfoData = $_SESSION['data']['postData']['otherInfo'];
+$statementData = $_SESSION['data']['postData']['statement'];
+
+echo "<h2>Review Your Information and Submit</h2>";
+
+
+// ================================================= Listener
+echo "<div class='listener'>";
+echo "<h2>Listener</h2>";
+foreach($listenerData as $i){
+    //echo "<div class='listener'>" . $i . "</div>";
+    echo $i . "<br />";
+}
+echo "</div>";
+// ================================================= Contact
+echo "<div class='contact'>";
+echo "<h2>Contact</h2>";
+foreach($contactData as $i){
+    echo $i . "<br />";
+}
+echo "</div>";
+// ================================================= Other Info
+echo "<div class='otherInfo'>";
+echo "<h2>Other Info</h2>";
+foreach($otherInfoData as $l){
+    echo $i . "<br />";
+}
+echo "</div>";
+// ================================================= Statement
+echo "<div class='statement'>";
+echo "<h2>Statement</h2>";
+foreach($statementData as $i){
+    echo $i . "<br />";
+}
+echo "</div>";
+// =================================================
+
+
+$this->form->setAction($this->url());
+echo $this->form;
+

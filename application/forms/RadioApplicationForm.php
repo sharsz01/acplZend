@@ -138,6 +138,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->addElement('text', 'primaryPhone', array(
             'label' => 'Phone Number *',
             'placeholder' => 'home phone',
+            'size' => 10,
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label','Errors'),
@@ -149,6 +150,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->addElement('text', 'secondaryPhone', array(
             'label' => 'Secondary Phone Number:',
             'placeholder' => 'cell phone',
+            'size' => 10,
             'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Errors'),
@@ -244,6 +246,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact->addElement('text', 'primaryPhone', array(
             'label' => 'Phone Number *',
             'placeholder' => 'home phone',
+            'size' => 10,
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label','Errors'),
@@ -255,6 +258,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact->addElement('text', 'secondaryPhone', array(
             'label' => 'Secondary Phone Number:',
             'placeholder' => 'cell phone',
+            'size' => 10,
             'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Errors'),
@@ -290,6 +294,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact->addElement('text', 'zip', array(
             'label' => '*',
             'placeholder' => 'zip',
+            'size' => 5,
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
