@@ -1,14 +1,13 @@
 <style>
+    h1{
+        color: #002EB8;
+    }
+    
     .listener{
-        //border: 1px solid black;
         clear: left;
     }
 
-    label{
-        //display: inline-block;
-    }
-
-    .line{
+    .section{
         display: inline-block;
     }
 
@@ -24,7 +23,6 @@
         width: 300px;
         margin-left: 20px;
         float: left;
-        //display: inline-block;
     }
 </style>
 
@@ -38,43 +36,42 @@ $contactData = $_SESSION['data']['postData']['contact'];
 $otherInfoData = $_SESSION['data']['postData']['otherInfo'];
 $statementData = $_SESSION['data']['postData']['statement'];
 
-echo "<h2>Review Your Information and Submit</h2>";
+echo "<h1>Review Your Information and Submit</h1>";
 
 
 // ================================================= Listener
 echo "<div class='listener'>";
 echo "<h2>Listener</h2>";
 foreach ($listenerData as $key => $value) {
-    //echo "<div class='listener'>" . $i . "</div>";
-    echo "<div class='line'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
 }
 echo "</div>";
+
 // ================================================= Contact
 echo "<div class='contact'>";
 echo "<h2>Contact</h2>";
 foreach ($contactData as $key => $value) {
-    //echo $i . "<br />";
-    echo "<div class='line'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
 }
 echo "</div>";
+
 // ================================================= Other Info
 echo "<div class='otherInfo'>";
 echo "<h2>Other Info</h2>";
 foreach ($otherInfoData as $key => $value) {
-    //echo $i . "<br />";
-    echo "<div class='line'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
 }
 echo "</div>";
+
 // ================================================= Statement
 echo "<div class='statement'>";
 echo "<h2>Statement</h2>";
 foreach ($statementData as $key => $value) {
-    //echo $i . "<br />";
-    echo "<div class='line'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
 }
 echo "</div>";
-// =================================================
 
+// =================================================
 
 $this->form->setAction($this->url());
 echo $this->form;

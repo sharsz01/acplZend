@@ -51,7 +51,7 @@ ul.errors{
     color: #002EB8;
 }
 
-label{
+label, h1{
     color: #002EB8;
 }
 
@@ -59,7 +59,27 @@ label{
     font-size: 18px;
 }
 
+.zend_form .element{
+    display: inline-block;
+    width: 1000px;
+    clear: left;
+    text-align: left;
+}
+
+.zend_form .element input{
+    text-align: right;
+}
+
 .zend_form input, select, button{
     font-size: 18px;
 }
 
+.confirm-buttons{
+    padding: 30px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.confirm-buttons input{
+    margin-left: 25px;
+}

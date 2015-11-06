@@ -91,6 +91,13 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('StringLength', false, array(1, 30))
             ),
         ));
+        
+        $listener->addDisplayGroup(array('address', 'address2'), 'second', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
 
         $listener->addElement('text', 'city', array(
             'label' => '*',
