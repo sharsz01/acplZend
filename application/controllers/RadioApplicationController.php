@@ -73,47 +73,38 @@ class RadioApplicationController extends Zend_Controller_Action {
         
         $user = new Application_Model_User();
 
-        // convert to date format -- refactor to method later **
-        $bday = $listenerVals['birthdate']['year'] . '/' . $listenerVals['birthdate']['month'] . '/' . $listenerVals['birthdate']['day'];
-        $signDay = $statementVals['signatureDate']['year'] . '/' . $statementVals['signatureDate']['month'] . '/' . $statementVals['signatureDate']['day'];
-
-        $time1 = strtotime($bday);
-        $time2 = strtotime($signDay);
-
-        $f1 = date('Y-m-d', $time1);
-        $f2 = date('Y-m-d', $time2);
-        // =============================================================
+        
 
         $user->createUser(array(
-            'firstName' => $listenerVals['firstName'],
-            'lastName' => $listenerVals['lastName'],
-            'birthday' => $f1,
-            'street' => $listenerVals['address'],
-            'streetLine2' => $listenerVals['address2'],
-            'phone' => $listenerVals['primaryPhone'],
-            'altPhone' => $listenerVals['secondaryPhone'],
-            'city' => $listenerVals['city'],
-            'state' => $listenerVals['state'],
-            'zip' => $listenerVals['zip'],
-            'email' => $listenerVals['email'],
-            'contactName' => $contactVals['firstName'],
-            'contactRelationship' => $contactVals['relationship'],
-            'contactStreet' => $contactVals['address'],
-            'contactStreetLine2' => $contactVals['address2'],
-            'contactPhone' => $contactVals['primaryPhone'],
-            'contactAltPhone' => $contactVals['secondaryPhone'],
-            'contactCity' => $contactVals['city'],
-            'contactState' => $contactVals['state'],
-            'contactZip' => $contactVals['zip'],
-            'contactEmail' => $contactVals['email'],
-            'disability' => $listenerVals['disability'],
-            'howLearn' => $listenerVals['howLearn'],
-            'race' => $listenerVals['race'],
-            'income' => $listenerVals['income'],
-            'inHomeNum' => $listenerVals['numInHome'],
-            'signature' => $statementVals['signature'],
-            'dateSigned' => $f2,
-            'mailTo' => $otherInfoVals['mailTo'],
+            'firstName' => $listenerVals['FirstName'],
+            'lastName' => $listenerVals['LastName'],
+            'birthday' => $listenerVals['Birthdate'],
+            'street' => $listenerVals['Address'],
+            'streetLine2' => $listenerVals['AlternativeAddress'],
+            'phone' => $listenerVals['HomePhone'],
+            'altPhone' => $listenerVals['CellPhone'],
+            'city' => $listenerVals['City'],
+            'state' => $listenerVals['State'],
+            'zip' => $listenerVals['Zip'],
+            'email' => $listenerVals['Email'],
+            'contactName' => $contactVals['FirstName'],
+            'contactRelationship' => $contactVals['Relationship'],
+            'contactStreet' => $contactVals['Address'],
+            'contactStreetLine2' => $contactVals['AlternativeAddress'],
+            'contactPhone' => $contactVals['HomePhone'],
+            'contactAltPhone' => $contactVals['CellPhone'],
+            'contactCity' => $contactVals['City'],
+            'contactState' => $contactVals['State'],
+            'contactZip' => $contactVals['Zip'],
+            'contactEmail' => $contactVals['Email'],
+            'disability' => $listenerVals['Disability'],
+            'howLearn' => $listenerVals['HowLearn'],
+            'race' => $listenerVals['Race'],
+            'income' => $listenerVals['Income'],
+            'inHomeNum' => $listenerVals['NumberInHome'],
+            'signature' => $statementVals['Signature'],
+            'dateSigned' => $statementVals['SignatureDate'],
+            'mailTo' => $otherInfoVals['MailTo'],
         ));
     }
 }
