@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2015 at 12:25 AM
+-- Generation Time: Nov 12, 2015 at 08:58 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -37,8 +37,8 @@ CREATE TABLE `login_master` (
 --
 
 INSERT INTO `login_master` (`id`, `username`, `password`) VALUES
-(1, 'test', 'abcdef'),
-(2, 'user', '123456');
+(1, 'test', 'e80b5017098950fc58aad83c8c14978e'),
+(2, 'user', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Indexes for dumped tables
