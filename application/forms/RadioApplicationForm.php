@@ -154,7 +154,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 "Digits", array('StringLength', false, array(10, 1)),
             ),
         ));
-        
+
         $listener->addElement('text', 'Email', array(
             'label' => '',
             'placeholder' => 'E-mail',
@@ -174,7 +174,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
-        
+
 
 //        $listener->addDisplayGroup(array('Email'), 'email2', array(
 //            'decorators' => array(
@@ -182,7 +182,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 //                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
 //            ),
 //        ));
-
         // ============================================================= contact
         $contact->addElement('text', 'FirstName', array(
             'label' => 'Name *',
@@ -340,21 +339,20 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             )
         ));
-        
+
 //        $contact->addDisplayGroup(array('Email'), 'fifth', array(
 //            'decorators' => array(
 //                'FormElements',
 //                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
 //            )
 //        ));
-
         // ========================================================== other info
-        
+
         $listener->addElement('text', 'Disability', array(
             'label' => '*',
             'placeholder' => 'What is your print disability/reason requesting service? ',
             'required' => true,
-            'size' => 50,
+            'size' => 58,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -367,7 +365,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => '*',
             'placeholder' => 'How did you learn about the Audio Reading Service? ',
             'required' => true,
-            'size' => 50,
+            'size' => 58,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -447,8 +445,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'dropdowns')),
             )
         ));
-        
-        
+
+
         $listener->addElement('hidden', 'plaintext2', ['description' => 'Program '
             . 'Schedule (tells the day/time programs are aired)',
             'ignore' => true,
@@ -456,14 +454,14 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'color'))),
             ),
         ]);
-        
+
         $listener->addDisplayGroup(array('plaintext2'), 'ninth', array(
             'decorators' => array(
                 'FormElements',
                 array('HtmlTag', array('tag' => 'div', 'class' => 'color')),
             )
         ));
-        
+
         $listener->addElement('hidden', 'plaintext3', ['description' => 'Choose '
             . 'Your Preferred Format (Maximum of 2)',
             'ignore' => true,
@@ -471,27 +469,34 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
             ),
         ]);
-        
 
         $listener->addElement('checkbox', 'LargePrint', array(
             'label' => 'Large Print',
         ));
-        
-        $listener->addElement('checkbox', 'Baille', array(
+        $listener->getElement('LargePrint')->setCheckedValue('Yes');
+        $listener->getElement('LargePrint')->setUnCheckedValue('No');
+
+        $listener->addElement('checkbox', 'Braille', array(
             'label' => 'Braille',
         ));
-        
+        $listener->getElement('Braille')->setCheckedValue('Yes');
+        $listener->getElement('Braille')->setUnCheckedValue('No');
+
         $listener->addElement('checkbox', 'AudioCD', array(
             'label' => 'Audio CD',
         ));
-        
-        $listener->addElement('checkbox', 'EmailCheck', array(
+        $listener->getElement('AudioCD')->setCheckedValue('Yes');
+        $listener->getElement('AudioCD')->setUnCheckedValue('No');
+
+        $listener->addElement('checkbox', 'SendEmail', array(
             'label' => 'Email',
         ));
-        
-        
-        
-        
+        $listener->getElement('SendEmail')->setCheckedValue('Yes');
+        $listener->getElement('SendEmail')->setUnCheckedValue('No');
+
+
+
+
 //        $format = new Zend_Form_Element_Select('Format');
 //        $format->setLabel("Choose Your Preferred Format")->addMultiOptions(array(
 //            '--' => '',
@@ -504,8 +509,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 //        $format->setDecorators(array('ViewHelper', 'Label'));
 //        $format->setRequired(false);
 //        $listener->addElement($format);
-
-        
 //        $listener->addDisplayGroup(array('LargePrint'), 'eighth', array(
 //            'decorators' => array(
 //                'FormElements',
