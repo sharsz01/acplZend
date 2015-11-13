@@ -25,7 +25,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->addElement('text', 'FirstName', array(
             'label' => 'Name *',
             'class' => 'firstName',
-            'placeholder' => 'first name',
+            'placeholder' => 'First Name',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -35,8 +35,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'LastName', array(
-            'label' => '*',
-            'placeholder' => 'last name',
+            'label' => '',
+            'placeholder' => 'Last Name',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -61,7 +61,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $listener->addElement('text', 'Address', array(
             'label' => 'Address *',
-            'placeholder' => 'street address',
+            'placeholder' => 'Street Address',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -72,7 +72,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'AlternativeAddress', array(
-            'placeholder' => 'address line 2',
+            'placeholder' => 'Alternative Address',
             'required' => false,
             'filters' => array('StringTrim'),
             'validators' => array(
@@ -90,7 +90,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $listener->addElement('text', 'City', array(
             'label' => '*',
-            'placeholder' => 'city',
+            'placeholder' => 'City',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -101,8 +101,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'State', array(
-            'label' => '*',
-            'placeholder' => 'state',
+            'label' => '',
+            'placeholder' => 'State',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -113,8 +113,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'Zip', array(
-            'label' => '*',
-            'placeholder' => 'zip',
+            'label' => '',
+            'placeholder' => 'Zip',
             'size' => 5,
             'required' => true,
             'filters' => array('StringTrim'),
@@ -132,8 +132,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'HomePhone', array(
-            'label' => 'Phone Number *',
-            'placeholder' => 'home phone',
+            'label' => '*',
+            'placeholder' => 'Home Phone',
             'size' => 10,
             'required' => true,
             'filters' => array('StringTrim'),
@@ -145,7 +145,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $listener->addElement('text', 'CellPhone', array(
             'label' => 'Secondary Phone Number:',
-            'placeholder' => 'cell phone',
+            'placeholder' => 'Cell Phone',
             'size' => 10,
             'required' => false,
             'filters' => array('StringTrim'),
@@ -154,17 +154,11 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 "Digits", array('StringLength', false, array(10, 1)),
             ),
         ));
-
-        $listener->addDisplayGroup(array('HomePhone', 'CellPhone'), 'phone', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
-            ),
-        ));
-
+        
         $listener->addElement('text', 'Email', array(
-            'label' => '*',
-            'placeholder' => 'e-mail',
+            'label' => '',
+            'placeholder' => 'E-mail',
+            'size' => 25,
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -173,17 +167,26 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
-        $listener->addDisplayGroup(array('Email'), 'email2', array(
+        $listener->addDisplayGroup(array('HomePhone', 'CellPhone', 'Email'), 'phone', array(
             'decorators' => array(
                 'FormElements',
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             ),
         ));
 
+        
+
+//        $listener->addDisplayGroup(array('Email'), 'email2', array(
+//            'decorators' => array(
+//                'FormElements',
+//                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+//            ),
+//        ));
+
         // ============================================================= contact
         $contact->addElement('text', 'FirstName', array(
             'label' => 'Name *',
-            'placeholder' => 'first name',
+            'placeholder' => 'First Name',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -194,7 +197,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $contact->addElement('text', 'LastName', array(
             'label' => 'Last Name:',
-            'placeholder' => 'last name',
+            'placeholder' => 'Last Name',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Errors'),
@@ -204,8 +207,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'Relationship', array(
-            'label' => '*',
-            'placeholder' => 'relationship to listener',
+            'label' => '',
+            'placeholder' => 'Relationship To Listener',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -217,7 +220,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $contact->addElement('text', 'Address', array(
             'label' => 'Address *',
-            'placeholder' => 'street address',
+            'placeholder' => 'Street Address',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -229,7 +232,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $contact->addElement('text', 'AlternativeAddress', array(
             'label' => 'Address 2:',
-            'placeholder' => 'address line 2',
+            'placeholder' => 'Alternative Address',
             'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Errors'),
@@ -240,8 +243,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'HomePhone', array(
-            'label' => 'Phone Number *',
-            'placeholder' => 'home phone',
+            'label' => '*',
+            'placeholder' => 'Home Phone',
             'size' => 10,
             'required' => true,
             'filters' => array('StringTrim'),
@@ -253,7 +256,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $contact->addElement('text', 'CellPhone', array(
             'label' => 'Secondary Phone Number:',
-            'placeholder' => 'cell phone',
+            'placeholder' => 'Cell Phone',
             'size' => 10,
             'required' => false,
             'filters' => array('StringTrim'),
@@ -265,7 +268,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $contact->addElement('text', 'City', array(
             'label' => '*',
-            'placeholder' => 'city',
+            'placeholder' => 'City',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -276,8 +279,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'State', array(
-            'label' => '*',
-            'placeholder' => 'state',
+            'label' => '',
+            'placeholder' => 'State',
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -288,8 +291,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'Zip', array(
-            'label' => '*',
-            'placeholder' => 'zip',
+            'label' => '',
+            'placeholder' => 'Zip',
             'size' => 5,
             'required' => true,
             'filters' => array('StringTrim'),
@@ -300,8 +303,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'Email', array(
-            'label' => '*',
-            'placeholder' => 'e-mail',
+            'label' => '',
+            'placeholder' => 'E-mail',
+            'size' => 25,
             'required' => false,
             'filters' => array('StringTrim'),
             'validators' => array(
@@ -330,22 +334,25 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             )
         ));
-        $contact->addDisplayGroup(array('HomePhone', 'CellPhone'), 'fourth', array(
+        $contact->addDisplayGroup(array('HomePhone', 'CellPhone', 'Email'), 'fourth', array(
             'decorators' => array(
                 'FormElements',
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             )
         ));
-        $contact->addDisplayGroup(array('Email'), 'fifth', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
-            )
-        ));
+        
+//        $contact->addDisplayGroup(array('Email'), 'fifth', array(
+//            'decorators' => array(
+//                'FormElements',
+//                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+//            )
+//        ));
 
         // ========================================================== other info
+        
         $listener->addElement('text', 'Disability', array(
-            'label' => 'What is your print disability/reason requesting service? *',
+            'label' => '*',
+            'placeholder' => 'What is your print disability/reason requesting service? ',
             'required' => true,
             'size' => 50,
             'filters' => array('StringTrim'),
@@ -357,7 +364,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'HowLearn', array(
-            'label' => ' How did you learn about the Audio Reading Service? *',
+            'label' => '*',
+            'placeholder' => 'How did you learn about the Audio Reading Service? ',
             'required' => true,
             'size' => 50,
             'filters' => array('StringTrim'),
@@ -387,7 +395,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             . 'dollars to continue our service **',
             'ignore' => true,
             'decorators' => array(
-                array('Description', array('escape' => false, 'tag' => 'statement')),
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
             ),
         ]);
 
@@ -436,29 +444,74 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->addDisplayGroup(array('Race', 'Income', 'NumberInHome'), 'seventh', array(
             'decorators' => array(
                 'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+                array('HtmlTag', array('tag' => 'div', 'class' => 'dropdowns')),
             )
         ));
-
-        $format = new Zend_Form_Element_Select('Format');
-        $format->setLabel("Choose Your Preferred Format")->addMultiOptions(array(
-            '--' => '',
-            'Large Print' => 'Large Print',
-            'Braille' => 'Braille',
-            'Audio CD' => 'Audio CD',
-            'Email' => 'Email',
-            'Other' => 'Other'
-        ));
-        $format->setDecorators(array('ViewHelper', 'Label'));
-        $format->setRequired(false);
-        $listener->addElement($format);
-
-        $listener->addDisplayGroup(array('Format'), 'eighth', array(
+        
+        
+        $listener->addElement('hidden', 'plaintext2', ['description' => 'Program '
+            . 'Schedule (tells the day/time programs are aired)',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'color'))),
+            ),
+        ]);
+        
+        $listener->addDisplayGroup(array('plaintext2'), 'ninth', array(
             'decorators' => array(
                 'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+                array('HtmlTag', array('tag' => 'div', 'class' => 'color')),
             )
         ));
+        
+        $listener->addElement('hidden', 'plaintext3', ['description' => 'Choose '
+            . 'Your Preferred Format (Maximum of 2)',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
+            ),
+        ]);
+        
+
+        $listener->addElement('checkbox', 'LargePrint', array(
+            'label' => 'Large Print',
+        ));
+        
+        $listener->addElement('checkbox', 'Baille', array(
+            'label' => 'Braille',
+        ));
+        
+        $listener->addElement('checkbox', 'AudioCD', array(
+            'label' => 'Audio CD',
+        ));
+        
+        $listener->addElement('checkbox', 'EmailCheck', array(
+            'label' => 'Email',
+        ));
+        
+        
+        
+        
+//        $format = new Zend_Form_Element_Select('Format');
+//        $format->setLabel("Choose Your Preferred Format")->addMultiOptions(array(
+//            '--' => '',
+//            'Large Print' => 'Large Print',
+//            'Braille' => 'Braille',
+//            'Audio CD' => 'Audio CD',
+//            'Email' => 'Email',
+//            'Other' => 'Other'
+//        ));
+//        $format->setDecorators(array('ViewHelper', 'Label'));
+//        $format->setRequired(false);
+//        $listener->addElement($format);
+
+        
+//        $listener->addDisplayGroup(array('LargePrint'), 'eighth', array(
+//            'decorators' => array(
+//                'FormElements',
+//                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+//            )
+//        ));
 
         $otherInfo->addElement('radio', 'MailTo', array(
             'label' => 'Please Check One *',
@@ -497,19 +550,10 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
 
-//        $statement->addElement('text', 'signatureDate', array(
-//            'label' => 'Date:',
-//            'required' => true,
-//            'validators' => array(
-//                new Zend_Validate_Date(array('format' => 'yyyy/MM/dd'))
-//            ),
-//            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-//        ));
-
         $statement->addDisplayGroup(array('Signature', 'SignatureDate'), 'sixth', array(
             'decorators' => array(
                 'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+                array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
             )
         ));
 
