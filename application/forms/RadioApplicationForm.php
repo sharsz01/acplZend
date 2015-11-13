@@ -151,7 +151,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Errors'),
             'validators' => array(
-                "Digits", array('StringLength', false, array(10, 1)),
+                "Digits", array('StringLength', false, array(10, 11)),
             ),
         ));
 
