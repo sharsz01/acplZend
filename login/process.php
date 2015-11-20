@@ -14,7 +14,8 @@
 	
 	if(!empty($row))
 	{
-		if(md5($_POST['pass'])==$row['password'])
+                if(md5($_POST['pass'])==$row['password'])
+		//if(md5($_POST['pass'])==$row['password'])
 		{
 			//login
 			$_SESSION = array();

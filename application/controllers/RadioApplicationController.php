@@ -24,7 +24,10 @@ class RadioApplicationController extends Zend_Controller_Action {
 
                 // redirect to the second stage
                 return $this->_redirect('radio-application/confirm');
-            } 
+            }
+            else{
+                
+            }
         }
         $this->view->form = $form;
     }
