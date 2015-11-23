@@ -13,6 +13,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         $listener->setElementDecorators(array('ViewHelper', 'Label'));
         //$contact->setElementDecorators(array('ViewHelper', 'Label'));
+        
         // subform section names
         $listener->setLegend("LISTENER");
         $contact->setLegend("ALTERNATIVE CONTACT");
@@ -21,9 +22,34 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         // Set the method for the display form to POST
         $this->setMethod('post');
         
-        
+        // ========================================================== add fields
+        $this->addListenerFields($listener);
+        $this->addContactFields($contact);
+        $this->addOtherFields($otherInfo);
+        $this->addStatementFields($statement);
 
-        // ============================================================ listener
+        // =====================================================================
+        // Add subforms to main form
+        $this->addSubForms(array(
+            'listener' => $listener,
+            'contact' => $contact,
+            'otherInfo' => $otherInfo,
+            'statement' => $statement
+        ));
+
+        // Add the submit button
+        $this->addElement('submit', 'submit', array(
+            'ignore' => true,
+            'label' => 'Submit Application',
+        ));
+
+        // Add some CSRF protection
+//        $this->addElement('hash', 'csrf', array(
+//            'ignore' => true,
+//        ));
+    }
+    
+    public function addListenerFields($listener){
         $listener->addElement('text', 'FirstName', array(
             'label' => 'Name *',
             'class' => 'firstName',
@@ -178,16 +204,156 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             ),
         ));
+        
+        $listener->addElement('text', 'Disability', array(
+            'label' => '*',
+            'placeholder' => 'What is your print disability/reason requesting service? ',
+            'required' => true,
+            'size' => 58,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            'validators' => array(
+                array('Alnum', true, array('allowWhiteSpace' => true)),
+                array('StringLength', false, array(1, 40))
+            ),
+        ));
+
+        $listener->addElement('text', 'HowLearn', array(
+            'label' => '*',
+            'placeholder' => 'How did you learn about the Audio Reading Service? ',
+            'required' => true,
+            'size' => 58,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            'validators' => array(
+                array('Alnum', true, array('allowWhiteSpace' => true)),
+                array('StringLength', false, array(1, 40))
+            ),
+        ));
+
+        $listener->addDisplayGroup(array('Disability'), 'fifth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
+        $listener->addDisplayGroup(array('HowLearn'), 'sixth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
+
+        $listener->addElement('hidden', 'plaintext', ['description' => '** Optional '
+            . 'items for statistical purposes and to help us apply for grant '
+            . 'dollars to continue our service **',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
+            ),
+        ]);
+
+        $race = new Zend_Form_Element_Select('Race');
+        $race->setLabel("Race")->addMultiOptions(array(
+            '--' => '',
+            'Caucasian' => 'Caucasian',
+            'African American' => 'African American',
+            'Hispanic / Latino' => 'Hispanic / Latino',
+            'Native American' => 'Native American',
+            'Other' => 'Other'
+        ));
+        $race->setDecorators(array('ViewHelper', 'Label'));
+        $race->setRequired(false);
+        $listener->addElement($race);
+
+        $income = new Zend_Form_Element_Select('Income');
+        $income->setLabel("Income")->addMultiOptions(array(
+            '--' => '',
+            'Under $10,000' => 'Under $10,000',
+            '$10,000 - 15,000' => '$10,000 - 15,000',
+            '$15,001 - 20,000' => '$15,001 - 20,000',
+            '$20,001 - 25,000' => '$20,001 - 25,000',
+            '25,001 - 30,000' => '$25,001 - 30,000',
+            '$30,001 - 45,000' => '$30,001 - 45,000',
+            '$45,001 - 55,000' => '$45,001 - 55,000',
+            'Over $55,000' => 'Over $55,000'
+        ));
+        $income->setDecorators(array('ViewHelper', 'Label'));
+        $income->setRequired(false);
+        $listener->addElement($income);
+
+        $numInHome = new Zend_Form_Element_Select('NumberInHome');
+        $numInHome->setLabel("Number in Household")->addMultiOptions(array(
+            '--' => '',
+            '1' => '1',
+            '2' => '2',
+            '3' => '3',
+            '4' => '4',
+            '5 or more' => '5 or more'
+        ));
+        $numInHome->setDecorators(array('ViewHelper', 'Label'));
+        $numInHome->setRequired(false);
+        $listener->addElement($numInHome);
+
+        $listener->addDisplayGroup(array('Race', 'Income', 'NumberInHome'), 'seventh', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'dropdowns')),
+            )
+        ));
 
 
+        $listener->addElement('hidden', 'plaintext2', ['description' => 'Program '
+            . 'Schedule (tells the day/time programs are aired)',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'color'))),
+            ),
+        ]);
 
-//        $listener->addDisplayGroup(array('Email'), 'email2', array(
-//            'decorators' => array(
-//                'FormElements',
-//                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
-//            ),
-//        ));
-        // ============================================================= contact
+        $listener->addDisplayGroup(array('plaintext2'), 'ninth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'color')),
+            )
+        ));
+
+        $listener->addElement('hidden', 'plaintext3', ['description' => 'Choose '
+            . 'Your Preferred Format (Maximum of 2)',
+            'ignore' => true,
+            'decorators' => array(
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
+            ),
+        ]);
+
+        $listener->addElement('checkbox', 'LargePrint', array(
+            'label' => 'Large Print',
+        ));
+        $listener->getElement('LargePrint')->setCheckedValue('Yes');
+        $listener->getElement('LargePrint')->setUnCheckedValue('No');
+
+        $listener->addElement('checkbox', 'Braille', array(
+            'label' => 'Braille',
+        ));
+        $listener->getElement('Braille')->setCheckedValue('Yes');
+        $listener->getElement('Braille')->setUnCheckedValue('No');
+
+        $listener->addElement('checkbox', 'AudioCD', array(
+            'label' => 'Audio CD',
+        ));
+        $listener->getElement('AudioCD')->setCheckedValue('Yes');
+        $listener->getElement('AudioCD')->setUnCheckedValue('No');
+
+        $listener->addElement('checkbox', 'SendEmail', array(
+            'label' => 'Email',
+        ));
+        $listener->getElement('SendEmail')->setCheckedValue('Yes');
+        $listener->getElement('SendEmail')->setUnCheckedValue('No');
+        
+    }
+    
+    public function addContactFields($contact){
         $contact->addElement('text', 'FirstName', array(
             'label' => 'Name *',
             'placeholder' => 'First Name',
@@ -344,154 +510,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
             )
         ));
-
-        $listener->addElement('text', 'Disability', array(
-            'label' => '*',
-            'placeholder' => 'What is your print disability/reason requesting service? ',
-            'required' => true,
-            'size' => 58,
-            'filters' => array('StringTrim'),
-            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 40))
-            ),
-        ));
-
-        $listener->addElement('text', 'HowLearn', array(
-            'label' => '*',
-            'placeholder' => 'How did you learn about the Audio Reading Service? ',
-            'required' => true,
-            'size' => 58,
-            'filters' => array('StringTrim'),
-            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 40))
-            ),
-        ));
-
-        $listener->addDisplayGroup(array('Disability'), 'fifth', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
-            )
-        ));
-
-        $listener->addDisplayGroup(array('HowLearn'), 'sixth', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
-            )
-        ));
-
-        $listener->addElement('hidden', 'plaintext', ['description' => '** Optional '
-            . 'items for statistical purposes and to help us apply for grant '
-            . 'dollars to continue our service **',
-            'ignore' => true,
-            'decorators' => array(
-                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
-            ),
-        ]);
-
-        $race = new Zend_Form_Element_Select('Race');
-        $race->setLabel("Race")->addMultiOptions(array(
-            '--' => '',
-            'Caucasian' => 'Caucasian',
-            'African American' => 'African American',
-            'Hispanic / Latino' => 'Hispanic / Latino',
-            'Native American' => 'Native American',
-            'Other' => 'Other'
-        ));
-        $race->setDecorators(array('ViewHelper', 'Label'));
-        $race->setRequired(false);
-        $listener->addElement($race);
-
-        $income = new Zend_Form_Element_Select('Income');
-        $income->setLabel("Income")->addMultiOptions(array(
-            '--' => '',
-            'Under $10,000' => 'Under $10,000',
-            '$10,000 - 15,000' => '$10,000 - 15,000',
-            '$15,001 - 20,000' => '$15,001 - 20,000',
-            '$20,001 - 25,000' => '$20,001 - 25,000',
-            '25,001 - 30,000' => '$25,001 - 30,000',
-            '$30,001 - 45,000' => '$30,001 - 45,000',
-            '$45,001 - 55,000' => '$45,001 - 55,000',
-            'Over $55,000' => 'Over $55,000'
-        ));
-        $income->setDecorators(array('ViewHelper', 'Label'));
-        $income->setRequired(false);
-        $listener->addElement($income);
-
-        $numInHome = new Zend_Form_Element_Select('NumberInHome');
-        $numInHome->setLabel("Number in Household")->addMultiOptions(array(
-            '--' => '',
-            '1' => '1',
-            '2' => '2',
-            '3' => '3',
-            '4' => '4',
-            '5 or more' => '5 or more'
-        ));
-        $numInHome->setDecorators(array('ViewHelper', 'Label'));
-        $numInHome->setRequired(false);
-        $listener->addElement($numInHome);
-
-        $listener->addDisplayGroup(array('Race', 'Income', 'NumberInHome'), 'seventh', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'dropdowns')),
-            )
-        ));
-
-
-        $listener->addElement('hidden', 'plaintext2', ['description' => 'Program '
-            . 'Schedule (tells the day/time programs are aired)',
-            'ignore' => true,
-            'decorators' => array(
-                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'color'))),
-            ),
-        ]);
-
-        $listener->addDisplayGroup(array('plaintext2'), 'ninth', array(
-            'decorators' => array(
-                'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'color')),
-            )
-        ));
-
-        $listener->addElement('hidden', 'plaintext3', ['description' => 'Choose '
-            . 'Your Preferred Format (Maximum of 2)',
-            'ignore' => true,
-            'decorators' => array(
-                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
-            ),
-        ]);
-
-        $listener->addElement('checkbox', 'LargePrint', array(
-            'label' => 'Large Print',
-        ));
-        $listener->getElement('LargePrint')->setCheckedValue('Yes');
-        $listener->getElement('LargePrint')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'Braille', array(
-            'label' => 'Braille',
-        ));
-        $listener->getElement('Braille')->setCheckedValue('Yes');
-        $listener->getElement('Braille')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'AudioCD', array(
-            'label' => 'Audio CD',
-        ));
-        $listener->getElement('AudioCD')->setCheckedValue('Yes');
-        $listener->getElement('AudioCD')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'SendEmail', array(
-            'label' => 'Email',
-        ));
-        $listener->getElement('SendEmail')->setCheckedValue('Yes');
-        $listener->getElement('SendEmail')->setUnCheckedValue('No');
-
-
+    }
+    
+    public function addOtherFields($otherInfo){
         $otherInfo->addElement('radio', 'MailTo', array(
             'label' => 'Please Check One *',
             'multiOptions' => array(
@@ -500,8 +521,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
             'required' => true,
         ));
-
-        // =========================================================== statement
+    }
+    
+    public function addStatementFields($statement){
         $statement->addElement('hidden', 'plaintext', ['description' => 'I understand that the Audio Reading Service radio '
             . 'is on loan to me and remains the property of the Allen County '
             . 'Public Library and must be returned to the Audio Reading Service '
@@ -535,26 +557,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
             )
         ));
-
-        // =====================================================================
-        // Add subforms to main form
-        $this->addSubForms(array(
-            'listener' => $listener,
-            'contact' => $contact,
-            'otherInfo' => $otherInfo,
-            'statement' => $statement
-        ));
-
-        // Add the submit button
-        $this->addElement('submit', 'submit', array(
-            'ignore' => true,
-            'label' => 'Submit Application',
-        ));
-
-        // Add some CSRF protection
-//        $this->addElement('hash', 'csrf', array(
-//            'ignore' => true,
-//        ));
     }
 
 }
