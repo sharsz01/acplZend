@@ -13,7 +13,7 @@
 #userList {
 	height: 50em;
 	overflow: scroll;
-	border: 1px solid #bbb;
+	border: 1px solid #ccc;
 	padding: 1em;
 	width: 100%;
 }
@@ -28,4 +28,12 @@
 
 #cancelBtn {
 	margin: 0.5em;
+}
+
+#userRadios {
+	height: 10em;
+	overflow: scroll;
+	border: 1px solid #ccc;
+	padding: 1em;
+	width: 100%;
 }
