@@ -33,10 +33,19 @@
             'controller' => 'RadioApplication',
             'action' => 'radio-form'
                 ), 'default', true)
-        ?>">Radio Application
+        ?>">Individual Radio Application
         </a>
-        
-        
+    </p>
+    
+    <p>
+        <a href="<?php
+        echo $this->url(
+                array(
+            'controller' => 'RadioApplication',
+            'action' => 'organization-form'
+                ), 'default', true)
+        ?>">Organization Radio Application
+        </a>
     </p>
 
 </div>
