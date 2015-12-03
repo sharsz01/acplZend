@@ -36,7 +36,7 @@
     <script>
         var btn = document.getElementById('redirect');
         btn.addEventListener('click', function(){
-            document.location.href = "http://localhost/acpl/login/databaseView.php";
+            document.location.href = "http://localhost/login/databaseView.php";
         });
     </script>
 
