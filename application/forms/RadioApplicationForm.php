@@ -58,7 +58,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Alpha", array('StringLength', false, array(1, 20)),
+                "Alpha",
             ),
         ));
 
@@ -69,7 +69,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
             'validators' => array(
-                "Alpha", array('StringLength', false, array(1, 20)),
+                "Alpha",
             ),
         ));
         
@@ -96,7 +96,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 30))
             ),
         ));
 
@@ -108,7 +107,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', array('Label', array('class' => 'hide'))),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 30))
             ),
         ));
 
@@ -127,7 +125,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -139,7 +136,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -214,7 +210,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 40))
             ),
         ));
 
@@ -227,7 +222,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 40))
             ),
         ));
 
@@ -361,7 +355,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Alpha", array('StringLength', false, array(1, 20)),
+                "Alpha",
             ),
         ));
 
@@ -372,7 +366,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')),'Errors'),
             'validators' => array(
-                "Alpha", array('StringLength', false, array(1, 20)),
+                "Alpha",
             ),
         ));
 
@@ -384,7 +378,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 30))
             ),
         ));
 
@@ -396,7 +389,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -408,7 +400,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', array('Label', array('class' => 'hide')),'Errors'),
             'validators' => array(
                 array('Alnum', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -444,7 +435,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -456,7 +446,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 20))
             ),
         ));
 
@@ -476,7 +465,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => '*',
             'placeholder' => 'E-mail',
             'size' => 25,
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim'),
             'validators' => array(
                 'EmailAddress',
@@ -541,7 +530,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
                 array('Alpha', true, array('allowWhiteSpace' => true)),
-                array('StringLength', false, array(1, 40))
             ),
         ));
 
