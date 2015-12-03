@@ -1,0 +1,60 @@
+<style>
+    h1{
+        color: #002EB8;
+    }
+    
+    .listener{
+        clear: left;
+    }
+
+    .section{
+        display: inline-block;
+    }
+
+    label.key{
+        display: inline-block;
+        width: 200px;
+        float: left;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    label.value{
+        width: 160px;
+        margin-left: 20px;
+        float: left;
+    }
+</style>
+
+
+<?php
+session_start();
+
+// get session variables from form
+$organizationData = $_SESSION['data']['postData']['organization'];
+$statementData = $_SESSION['data']['postData']['statement'];
+
+echo "<h1>Review Your Information and Submit</h1>";
+
+
+// ================================================= Organization
+echo "<div class='organization'>";
+echo "<h2>Organization</h2>";
+foreach ($organizationData as $key => $value) {
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+}
+echo "</div>";
+
+// ================================================= Statement
+echo "<div class='statement'>";
+echo "<h2>Statement</h2>";
+foreach ($statementData as $key => $value) {
+    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+}
+echo "</div>";
+
+// =================================================
+
+$this->form->setAction($this->url());
+echo $this->form;
+

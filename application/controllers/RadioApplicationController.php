@@ -9,28 +9,6 @@ class RadioApplicationController extends Zend_Controller_Action {
     public function indexAction() {
         // action body
     }
-    
-    public function organizationFormAction(){
-        $request = $this->getRequest();
-        $form = new Application_Form_OrganizationForm();
-        
-        if ($this->getRequest()->isPost()) {
-            if ($form->isValid($request->getPost())) {
-
-                // if form is valid, then save submitted data in a session
-                $addRadioFormNamespace = new Zend_Session_Namespace('data');
-                $addRadioFormNamespace->postData = $form->getValues();
-                $addRadioFormNamespace->lock();
-
-                // redirect to the second stage
-                return $this->_redirect('radio-application/confirm');
-            }
-            else{
-                
-            }
-        }
-        $this->view->form = $form;
-    }
 
     public function radioFormAction() {
         $request = $this->getRequest();
@@ -53,7 +31,30 @@ class RadioApplicationController extends Zend_Controller_Action {
         }
         $this->view->form = $form;
     }
+    
+    public function organizationFormAction(){
+        $request = $this->getRequest();
+        $form = new Application_Form_OrganizationForm();
+        
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid($request->getPost())) {
 
+                // if form is valid, then save submitted data in a session
+                $addRadioFormNamespace = new Zend_Session_Namespace('data');
+                $addRadioFormNamespace->postData = $form->getValues();
+                $addRadioFormNamespace->lock();
+
+                // redirect to the second stage
+                return $this->_redirect('radio-application/confirm2');
+            }
+            else{
+                
+            }
+        }
+        $this->view->form = $form;
+    }
+
+    // ========================================================== confirmation actions
     public function confirmAction() {
         // retrieve data saved in the first stage
         $sessionData = new Zend_Session_Namespace('data');
@@ -73,7 +74,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $otherInfoVals = $sessionData->postData['otherInfo'];
                 $statementVals = $sessionData->postData['statement'];
 
-                $this->insertRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals);
+                $this->insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals);
 
                 // don't need session namespace anymore so delete
                 Zend_Session::namespaceUnset('data');
@@ -86,6 +87,38 @@ class RadioApplicationController extends Zend_Controller_Action {
         $this->view->form = $form;
     }
 
+    public function confirm2Action() {
+        // retrieve data saved in the first stage
+        $sessionData = new Zend_Session_Namespace('data');
+
+        if (null === $sessionData->postData) {
+            return $this->_redirect('radio-application/organization-form');
+        }
+
+        $form = new Application_Form_Confirm();
+
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid(filter_input_array(INPUT_POST))) {
+                
+                // add to database, etc.
+                $organizationVals = $sessionData->postData['organization'];
+                $statementVals = $sessionData->postData['statement'];
+                //$closingVals = $sessionData->postData['closing'];
+
+                //$this->insertRecord($organizationVals, $statementVals);
+
+                // don't need session namespace anymore so delete
+                Zend_Session::namespaceUnset('data');
+
+                // redirect to success confirmation page
+                return $this->_redirect('radio-application/success');
+            }
+        }
+
+        $this->view->form = $form;
+    }
+    // ==========================================================
+    
     public function successAction() {
         // returns the success message upon form submission
     }
@@ -94,7 +127,7 @@ class RadioApplicationController extends Zend_Controller_Action {
     // ========================================================== helper methods
     
     
-    public function insertRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
+    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
         
         $user = new Application_Model_User();
 

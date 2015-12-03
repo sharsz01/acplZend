@@ -303,10 +303,9 @@ class Application_Form_OrganizationForm extends Zend_Form {
     public function addClosingFields($closing) {
         $closing->addElement('checkbox', 'Agree', array(
             'label' => 'I have read and agree',
+            'required' => true,
+            'uncheckedValue' => null
         ));
-        $closing->getElement('Agree')->setCheckedValue('Yes');
-        $closing->getElement('Agree')->setUnCheckedValue('No');
-
-        $closing->setElementDecorators(array('ViewHelper', 'Label'));
+        $closing->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
     }
 }
