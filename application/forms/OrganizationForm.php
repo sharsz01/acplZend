@@ -289,7 +289,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         ));
         
         $statement->addElement('checkbox', 'Agree', array(
-            'label' => 'I have read and agree to statement terms',
+            'label' => 'I have read and agree to statement terms * ',
             'required' => true,
             'uncheckedValue' => null
         ));
