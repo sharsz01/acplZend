@@ -8,7 +8,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         // subforms
         $organization = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
-        $closing = new Zend_Form_SubForm();
+        //$closing = new Zend_Form_SubForm();
 
         $organization->setElementDecorators(array('ViewHelper', 'Label'));
 
@@ -22,14 +22,14 @@ class Application_Form_OrganizationForm extends Zend_Form {
         // ========================================================== add fields
         $this->addOrganizationFields($organization);
         $this->addStatementFields($statement);
-        $this->addClosingFields($closing);
+        //$this->addClosingFields($closing);
 
         // =====================================================================
         // Add subforms to main form
         $this->addSubForms(array(
             'organization' => $organization,
             'statement' => $statement,
-            'closing' => $closing
+            //'closing' => $closing
         ));
 
         // Add the submit button
@@ -99,9 +99,6 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alnum', true, array('allowWhiteSpace' => true)),
-            ),
         ));
 
         $organization->addElement('text', 'AlternativeAddress', array(
@@ -110,9 +107,6 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'hide')), 'Errors'),
-            'validators' => array(
-                array('Alnum', true, array('allowWhiteSpace' => true)),
-            ),
         ));
 
         $organization->addElement('text', 'City', array(
@@ -121,9 +115,9 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alpha', true, array('allowWhiteSpace' => true)),
-            ),
+//            'validators' => array(
+//                array('Alpha', true, array('allowWhiteSpace' => true)),
+//            ),
         ));
 
         $organization->addElement('text', 'State', array(
@@ -132,9 +126,9 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
-            'validators' => array(
-                array('Alpha', true, array('allowWhiteSpace' => true)),
-            ),
+//            'validators' => array(
+//                array('Alpha', true, array('allowWhiteSpace' => true)),
+//            ),
         ));
 
         $organization->addElement('text', 'Zip', array(
@@ -150,12 +144,13 @@ class Application_Form_OrganizationForm extends Zend_Form {
         ));
 
         $organization->addElement('text', 'HomePhone', array(
-            'label' => 'Contact Info *',
+            'label' => '*',
             'placeholder' => 'Home Phone ',
             'size' => 10,
             'required' => true,
-            'filters' => array('StringTrim'),
+            'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            
             'validators' => array(
                 "Digits", array('StringLength', false, array(10, 11)),
             ),
@@ -166,7 +161,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'placeholder' => 'Cell Phone ',
             'size' => 10,
             'required' => false,
-            'filters' => array('StringTrim'),
+            'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'hide')), 'Errors'),
             'validators' => array(
                 "Digits", array('StringLength', false, array(10, 11)),
@@ -291,6 +286,15 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+        
+        $statement->addElement('checkbox', 'Agree', array(
+            'label' => 'I have read and agree to statement terms',
+            'required' => true,
+            'uncheckedValue' => null
+        ));
+        $statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
+        $statement->getElement('Agree')->setCheckedValue('Yes');
+        $statement->getElement('Agree')->setUnCheckedValue('No');
 
         $statement->addDisplayGroup(array('Signature', 'SignatureDate'), 'sixth', array(
             'decorators' => array(
@@ -298,14 +302,21 @@ class Application_Form_OrganizationForm extends Zend_Form {
                 array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
             )
         ));
+        
+        $statement->addDisplayGroup(array('Agree'), 'seventh', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
+            )
+        ));
     }
 
-    public function addClosingFields($closing) {
-        $closing->addElement('checkbox', 'Agree', array(
-            'label' => 'I have read and agree',
-            'required' => true,
-            'uncheckedValue' => null
-        ));
-        $closing->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
-    }
+//    public function addClosingFields($closing) {
+//        $closing->addElement('checkbox', 'Agree', array(
+//            'label' => 'I have read and agree to statement terms',
+//            'required' => true,
+//            'uncheckedValue' => null
+//        ));
+//        $closing->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
+//    }
 }
