@@ -11,6 +11,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         //$closing = new Zend_Form_SubForm();
 
         $organization->setElementDecorators(array('ViewHelper', 'Label'));
+        $statement->setElementDecorators(array('ViewHelper', 'Label'));
 
         // subform section names
         $organization->setLegend("ORGANIZATION");
@@ -268,7 +269,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             . 'the Audio Reading Service when they are no longer needed.',
             'ignore' => true,
             'decorators' => array(
-                array('Description', array('escape' => false, 'tag' => 'statement')),
+                array('Description', array('HtmlTag', array('tag' => 'div', 'class' => 'element'))),
             ),
         ]);
 
@@ -292,9 +293,16 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'uncheckedValue' => null
         ));
-        $statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
+        //$statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
         $statement->getElement('Agree')->setCheckedValue('Yes');
         $statement->getElement('Agree')->setUnCheckedValue('No');
+        
+        $statement->addDisplayGroup(array('plaintext'), 'ninth', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+            )
+        ));
 
         $statement->addDisplayGroup(array('Signature', 'SignatureDate'), 'sixth', array(
             'decorators' => array(
@@ -306,7 +314,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         $statement->addDisplayGroup(array('Agree'), 'seventh', array(
             'decorators' => array(
                 'FormElements',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
+                array('HtmlTag', array('tag' => 'div', 'class' => 'agree')),
             )
         ));
     }

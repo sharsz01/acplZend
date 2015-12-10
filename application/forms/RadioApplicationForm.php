@@ -12,7 +12,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $statement = new Zend_Form_SubForm();
 
         $listener->setElementDecorators(array('ViewHelper', 'Label'));
-        //$contact->setElementDecorators(array('ViewHelper', 'Label'));
+        $statement->setElementDecorators(array('ViewHelper', 'Label'));
         
         // subform section names
         $listener->setLegend("LISTENER");
@@ -529,11 +529,27 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+        
+        $statement->addElement('checkbox', 'Agree', array(
+            'label' => 'I have read and agree to statement terms',
+            'required' => true,
+            'uncheckedValue' => null
+        ));
+        //$statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
+        $statement->getElement('Agree')->setCheckedValue('Yes');
+        $statement->getElement('Agree')->setUnCheckedValue('No');
 
         $statement->addDisplayGroup(array('Signature', 'SignatureDate'), 'sixth', array(
             'decorators' => array(
                 'FormElements',
                 array('HtmlTag', array('tag' => 'div', 'class' => 'signElement')),
+            )
+        ));
+        
+        $statement->addDisplayGroup(array('Agree'), 'seventh', array(
+            'decorators' => array(
+                'FormElements',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'agree')),
             )
         ));
     }
