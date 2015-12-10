@@ -27,11 +27,11 @@
 		}
 		else
 		{
-			echo "<script>alert('Wrong username and/or password');window.location.href='loginForm.php';</script>";
+			echo "<script>alert('Wrong username and/or password');window.location.href='loginForm.html';</script>";
 		}
 	}
 	else
 	{
-		echo "<script>alert('No such user');window.location.href='loginForm.php';</script>";
+		echo "<script>alert('No such user');window.location.href='loginForm.html';</script>";
 	}
 ?>
