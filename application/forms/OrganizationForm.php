@@ -37,6 +37,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         $this->addElement('submit', 'submit', array(
             'ignore' => true,
             'label' => 'Submit Application',
+            'class' => 'btn btn-primary'
         ));
     }
 
@@ -171,15 +172,15 @@ class Application_Form_OrganizationForm extends Zend_Form {
 
 
         $organization->addElement('text', 'Email', array(
-            'label' => '*',
+            'label' => '-',
             'placeholder' => 'E-mail ',
-            'size' => 30,
+            'size' => 32,
             'required' => true,
             'filters' => array('StringTrim'),
             'validators' => array(
                 'EmailAddress',
             ),
-            'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
+            'decorators' => array('ViewHelper', array('Label', array('class' => 'hide')), 'Errors'),
         ));
 
         $organization->addElement('text', 'RadioNum', array(

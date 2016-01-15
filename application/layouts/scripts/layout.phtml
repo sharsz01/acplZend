@@ -6,26 +6,24 @@
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('/css/site.css')) ?>
         <?php echo $this->headScript()->prependFile($this->baseUrl('/css/jquery-1.11.3.min.js')) ?>
         <?php echo $this->headScript()->prependFile($this->baseUrl('/js/jquery.js')) ?>
-        <?php echo $this->headScript()->prependFile($this->baseUrl('/js/jquery.maskedinput.js')) ?>
+
+        <?php echo $this->headScript()->prependFile("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css") ?>
+
+        <?php echo $this->headScript()->prependFile('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') ?>
     </head>
     <body>
-        <div id="header" style="background-color: #EEEEEE; height: 30px; font-size: 20px;">
-            <div id="header-logo" style="float: left">
-                <b>Allen County Public Library</b>
-            </div>
-            <div id="header-navigation" style="float: right">
-                <a href="<?php
-                echo $this->url(
-                        array('controller' => 'Index'), 'default', true)
-                ?>">Home</a>
-                
-                <?php echo " | " ?>
-                
-                <a href="<?php
-                echo $this->url(
-                        array('controller' => 'RadioApplication'), 'default', true)
-                ?>">Audio Reading Service</a>
-            </div>
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation">Allen County Public Library</li>
+                <li role="presentation"><a href="<?php
+                    echo $this->url(
+                            array('controller' => 'Index'), 'default', true)
+                    ?>">Home</a></li>
+                <li role="presentation" ><a href="<?php
+                    echo $this->url(
+                            array('controller' => 'RadioApplication'), 'default', true)
+                    ?>">Audio Reading Service</a></li>
+            </ul>
         </div>
 
         <br /><br />

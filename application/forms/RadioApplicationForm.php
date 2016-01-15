@@ -41,6 +41,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $this->addElement('submit', 'submit', array(
             'ignore' => true,
             'label' => 'Submit Application',
+            'class' => 'btn btn-primary'
         ));
 
         // Add some CSRF protection
@@ -51,8 +52,10 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
     
     public function addListenerFields($listener){
         $listener->addElement('text', 'FirstName', array(
+            
             'label' => 'Name *',
-            'class' => 'firstName',
+            'class' => 'form-group',
+            //'class' => 'firstName',
             'placeholder' => 'First Name ',
             'required' => true,
             'filters' => array('StringTrim'),
@@ -63,6 +66,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'LastName', array(
+            'class' => 'form-group',
             'label' => '*',
             'placeholder' => 'Last Name ',
             'required' => true,
@@ -74,6 +78,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
         
         $listener->addElement('date', 'Birthdate', array(
+            'class' => 'form-group',
             'label' => 'Date of Birth *',
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -84,11 +89,13 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'FormElements',
                 //'Fieldset',
                 array('HtmlTag', array('tag' => 'div', 'class' => 'element')),
+                'Form'
             ),
         ));
 
 
         $listener->addElement('text', 'Address', array(
+            'class' => 'form-group',
             'label' => 'Address *',
             'placeholder' => 'Street Address ',
             'required' => true,
@@ -97,6 +104,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'AlternativeAddress', array(
+            //'class' => 'form-group',
             'label' => '-',
             'placeholder' => 'Alternative Address ',
             'required' => false,
@@ -179,7 +187,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->addElement('text', 'Email', array(
             'label' => '*',
             'placeholder' => 'E-mail ',
-            'size' => 25,
+            'size' => 27,
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
@@ -199,7 +207,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => '*',
             'placeholder' => 'What is your print disability/reason requesting service? ',
             'required' => true,
-            'size' => 58,
+            'size' => 62,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -211,7 +219,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => '*',
             'placeholder' => 'How did you learn about the Audio Reading Service? ',
             'required' => true,
-            'size' => 58,
+            'size' => 62,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -455,7 +463,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact->addElement('text', 'Email', array(
             'label' => '*',
             'placeholder' => 'E-mail',
-            'size' => 25,
+            'size' => 27,
             'required' => true,
             'filters' => array('StringTrim'),
             'validators' => array(
@@ -496,8 +504,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $otherInfo->addElement('radio', 'MailTo', array(
             'label' => 'Please Check One *',
             'multiOptions' => array(
-                'toListener' => 'Mail radio to listener',
-                'toContact' => 'Mail radio to contact person',
+                'toListener' => ' Mail radio to listener',
+                'toContact' => ' Mail radio to contact person',
             ),
             'required' => true,
         ));

@@ -2,6 +2,7 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
+    
     protected function _initMysql() {
         $this->bootstrap('db');
         switch (APPLICATION_ENV) {

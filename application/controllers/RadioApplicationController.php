@@ -105,7 +105,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $statementVals = $sessionData->postData['statement'];
                 //$closingVals = $sessionData->postData['closing'];
 
-                //$this->insertRecord($organizationVals, $statementVals);
+                $this->insertOrganizationRecord($organizationVals, $statementVals);
 
                 // don't need session namespace anymore so delete
                 Zend_Session::namespaceUnset('data');
@@ -126,12 +126,33 @@ class RadioApplicationController extends Zend_Controller_Action {
     
     // ========================================================== helper methods
     
+    public function insertOrganizationRecord($organizationVals, $statementVals){
+        $org = new Application_Model_User('organization');
+        
+        $org->createUser(array(
+            'organizationName' => $organizationVals['OrgName'],
+            'organizationType' => $organizationVals['OrgType'],
+            'firstName' => $organizationVals['FirstName'],
+            'lastName' => $organizationVals['LastName'],
+            'positionTitle' => $organizationVals['PositionTitle'],
+            'streetAddress' => $organizationVals['Address'],
+            'altAddress' => $organizationVals['AlternativeAddress'],
+            'city' => $organizationVals['City'],
+            'state' => $organizationVals['State'],
+            'zip' => $organizationVals['Zip'],
+            'phone' => $organizationVals['HomePhone'],
+            'altPhone' => $organizationVals['CellPhone'],
+            'email' => $organizationVals['Email'],
+            'numRadios' => $organizationVals['RadioNum'],
+            'howLearn' => $organizationVals['HowLearn'],
+            'signature' => $statementVals['Signature'],
+            'dateSigned' => $statementVals['SignatureDate'],
+        ));
+    }
     
-    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
-        
-        $user = new Application_Model_User();
-
-        
+    
+    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {        
+        $user = new Application_Model_User('user');
 
         $user->createUser(array(
             'firstName' => $listenerVals['FirstName'],

@@ -1,3 +1,9 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <?php
 include "header2.phtml";
 
@@ -6,12 +12,14 @@ echo "<label>Fields marked with * are required</label>";
 $this->form->setAction($this->url());
 echo $this->form;
 
-// =================
-
-
-echo "<p> To return or request replacement - take radio to any Allen County "
- . "Public Library branch, staff will forward to the Audio Reading Service. "
- . "Be Sure to include your name, address and reason for return. If a "
- . "replacement radio is needed please include a note to let us know. "
- . "Thank you! </p>";
 ?>
+
+<div class="container">
+    <p class="text-info">
+        To return or request replacement - take radio to any Allen County
+        Public Library branch, staff will forward to the Audio Reading Service.
+        Be Sure to include your name, address and reason for return. If a 
+        replacement radio is needed please include a note to let us know.
+        Thank you! 
+    </p>
+</div>
