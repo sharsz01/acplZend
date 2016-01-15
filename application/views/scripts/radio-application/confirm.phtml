@@ -4,81 +4,71 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<style>
-    h1{
-        color: #002EB8;
-    }
-    
-    .listener{
-        clear: left;
-    }
-
-    .section{
-        display: inline-block;
-    }
-
-    label.key{
-        display: inline-block;
-        width: 200px;
-        float: left;
-        font-weight: bold;
-        text-align: right;
-    }
-
-    label.value{
-        width: 160px;
-        margin-left: 20px;
-        float: left;
-    }
-</style>
-
-
-<?php
-session_start();
+<div class="container">
+    <?php
+    session_start();
 
 // get session variables from form
-$listenerData = $_SESSION['data']['postData']['listener'];
-$contactData = $_SESSION['data']['postData']['contact'];
-$otherInfoData = $_SESSION['data']['postData']['otherInfo'];
-$statementData = $_SESSION['data']['postData']['statement'];
+    $listenerData = $_SESSION['data']['postData']['listener'];
+    $contactData = $_SESSION['data']['postData']['contact'];
+    $otherInfoData = $_SESSION['data']['postData']['otherInfo'];
+    $statementData = $_SESSION['data']['postData']['statement'];
 
-echo "<h1>Review Your Information and Submit</h1>";
+    echo "<h1>Review Your Information and Submit</h1>";
+    echo "<hr />"
+    ?>
 
+    <!--================================================= Listener-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Listener</div>
+        <div class="panel-body">
+            <?php
+            foreach ($listenerData as $key => $value) {
+                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+            }
+            ?>
+        </div>
+    </div>
 
-// ================================================= Listener
-echo "<div class='listener'>";
-echo "<h2>Listener</h2>";
-foreach ($listenerData as $key => $value) {
-    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-}
-echo "</div>";
+    <!--// ================================================= Contact-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Contact</div>
+        <div class="panel-body">
+            <?php
+            foreach ($contactData as $key => $value) {
+                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+            }
+            ?>
+        </div>
+    </div>
 
-// ================================================= Contact
-echo "<div class='contact'>";
-echo "<h2>Contact</h2>";
-foreach ($contactData as $key => $value) {
-    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-}
-echo "</div>";
+    <!--// ================================================= Other Info-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Other Info</div>
+        <div class="panel-body">
+            <?php
+            foreach ($otherInfoData as $key => $value) {
+                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+            }
+            ?>
+        </div>
+    </div>
 
-// ================================================= Other Info
-echo "<div class='otherInfo'>";
-echo "<h2>Other Info</h2>";
-foreach ($otherInfoData as $key => $value) {
-    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-}
-echo "</div>";
+    <!--// ================================================= Statement-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Statement</div>
+        <div class="panel-body">
+            <?php
+            foreach ($statementData as $key => $value) {
+                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+            }
+            ?>
+        </div>
+    </div>
 
-// ================================================= Statement
-echo "<div class='statement'>";
-echo "<h2>Statement</h2>";
-foreach ($statementData as $key => $value) {
-    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-}
-echo "</div>";
-
-// =================================================
-
-$this->form->setAction($this->url());
-echo $this->form;
-
+    <!--// =================================================-->
+    <?php
+    $this->form->setAction($this->url());
+    echo $this->form;
+    ?>
+</div>

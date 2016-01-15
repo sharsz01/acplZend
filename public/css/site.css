@@ -1,5 +1,5 @@
 body{
-    padding: 25px;
+    padding: 10px;
 }
 
 p, a, li, label{
@@ -9,7 +9,6 @@ p, a, li, label{
 
 #radio-form-app{
     clear: left;
-    margin-right: 25px;
     margin-bottom: 50px;
 }
 
@@ -52,7 +51,7 @@ ul.errors{
 
 .zend_form .element .hide{
     width: 10px;
-    visibility: visible;
+    visibility: hidden;
 }
 
 .zend_form .dropdowns select{
@@ -65,7 +64,7 @@ ul.errors{
     display: inline-block;
     width: 120px;
     text-align: right;
-    
+
 }
 
 .zend_form .element{
@@ -82,12 +81,45 @@ ul.errors{
     font-size: 18px;
 }
 
-.confirm-buttons{
-    padding: 30px;
-    margin-left: 50px;
-    text-align: left;
-}
+// ================================ confirmation and success
 
 .confirm-buttons input{
-    margin-left: 25px;
+    margin-left: 15px;
 }
+
+// ==
+
+h1{
+    color: #002EB8;
+}
+
+.panel-heading{
+    font-size: 18px;   
+}
+
+.listener{
+    clear: left;
+}
+
+.section{
+    display: inline-block;
+}
+
+label.key{
+    display: inline-block;
+    width: 200px;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+}
+
+label.value{
+    width: 160px;
+    font-size: 16px;
+    margin-left: 20px;
+    float: left;
+}
+
+// =================== header
+

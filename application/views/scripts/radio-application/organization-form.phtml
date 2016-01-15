@@ -6,13 +6,16 @@
 
 <?php
 include "header2.phtml";
-
-echo "<label>Fields marked with * are required</label>";
-
-$this->form->setAction($this->url());
-echo $this->form;
-
 ?>
+
+<div class="container">
+    <?php
+    echo "<label>Fields marked with * are required</label>";
+
+    $this->form->setAction($this->url());
+    echo $this->form;
+    ?>
+</div>
 
 <div class="container">
     <p class="text-info">

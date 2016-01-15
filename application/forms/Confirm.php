@@ -2,7 +2,6 @@
 
 class Application_Form_Confirm extends Zend_Form
 {
-
     public function init()
     {
         $this->setAttrib('id', 'confirm-form');
@@ -11,7 +10,8 @@ class Application_Form_Confirm extends Zend_Form
         // Set the method for the display form to POST
         $this->setMethod('post');
         
-        $this->addElement('button', 'cancel', array(
+        $this->addElement('submit', 'cancel', array(
+            'class' => 'btn btn-primary',
             'ignore' => true,
             'label' => "Go Back and Edit",
             'onclick' => "history.back()",
@@ -20,6 +20,7 @@ class Application_Form_Confirm extends Zend_Form
         
         // Add the submit button
         $this->addElement('submit', 'submit', array(
+            'class' => 'btn btn-primary',
             'ignore' => true,
             'label' => 'Confirm',
             'decorators' => array('ViewHelper'),

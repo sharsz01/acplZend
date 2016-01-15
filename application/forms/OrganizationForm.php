@@ -172,7 +172,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
 
 
         $organization->addElement('text', 'Email', array(
-            'label' => '-',
+            'label' => '*',
             'placeholder' => 'E-mail ',
             'size' => 32,
             'required' => true,
@@ -180,7 +180,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'validators' => array(
                 'EmailAddress',
             ),
-            'decorators' => array('ViewHelper', array('Label', array('class' => 'hide')), 'Errors'),
+            'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
         ));
 
         $organization->addElement('text', 'RadioNum', array(

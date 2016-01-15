@@ -5,21 +5,16 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<?php
-include "header.phtml";
+<?php include "header.phtml"; ?>
 
-echo "<label>Fields marked with * are required</label>";
+<div class="container">
+    <?php
+    echo "<label>Fields marked with * are required</label>";
 
-$this->form->setAction($this->url());
-echo $this->form;
-
-
-//echo "<p> To return or request replacement - take radio to any Allen County "
-// . "Public Library branch, staff will forward to the Audio Reading Service. "
-// . "Be Sure to include your name, address and reason for return. If a "
-// . "replacement radio is needed please include a note to let us know. "
-// . "Thank you! </p>";
-?>
+    $this->form->setAction($this->url());
+    echo $this->form;
+    ?>
+</div>
 
 <div class="container">
     <p class="text-info">
