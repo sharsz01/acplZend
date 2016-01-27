@@ -8,16 +8,245 @@
 <?php include "header.phtml"; ?>
 
 <div class="container">
-    <?php
-    echo "<label>Fields marked with * are required</label>";
-
-    $this->form->setAction($this->url());
-    echo $this->form;
-    ?>
+    <label class="bg-font">Fields marked with * are required</label>
+    
+    <form role="form" class="form-horizontal" method="post" <?php $this->form->setAction($this->url()); ?> >
+        
+        <!-- ============================================================== -->
+        <!-- Listener -->
+        
+        <div class="form-group">
+            <hr class="col-sm-9" />
+            <label class="col-sm-9 lbl text-center">Listener</label>
+            <hr class="col-sm-9" />
+            
+            <label class="col-sm-10 lbl">Name</label>
+            
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->FirstName; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->LastName; ?>
+            </div>
+            <div class="col-sm-5">
+                <?php echo $this->form->listener->Birthdate; ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-10 lbl">Address</label>
+            
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->Address; ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->AlternativeAddress; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->City; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->State; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->Zip; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-5">
+                <?php echo $this->form->listener->HomePhone; ?>
+            </div>
+            <div class="col-sm-4">
+                <?php echo $this->form->listener->CellPhone; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->Email; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->Disability; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->HowLearn; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <label class="col-sm-9 lbl text-center">
+                Optional items for statistical purposes and to help us apply 
+                for grant dollars to continue our service.
+            </label>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->Race; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->Income; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->listener->NumberInHome; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <label class="col-sm-9 lbl text-center">
+                Program Schedule (tells the day/time programs are aired)
+            </label>
+        </div> 
+        
+        <div class="form-group">
+            <label class="col-sm-9 lbl">
+                Choose Your Preferred Format (Maximum of 2)
+            </label>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-2">
+                <?php echo $this->form->listener->LargePrint; ?>
+            </div>
+            <div class="col-sm-2">
+                <?php echo $this->form->listener->Braille; ?>
+            </div>
+            <div class="col-sm-2">
+                <?php echo $this->form->listener->AudioCD; ?>
+            </div>
+            <div class="col-sm-2">
+                <?php echo $this->form->listener->SendEmail; ?>
+            </div>
+        </div>
+        
+        <!-- ============================================================== -->
+        <!-- Alternative Contact -->
+        
+        <div class="form-group">
+            <hr class="col-sm-9"/>
+            <label class="col-sm-9 lbl text-center">
+                Alternative Contact
+            </label>
+            <hr class="col-sm-9"/>
+        </div>
+        
+        
+        <div class="form-group">
+            <label class="col-sm-10 lbl">
+                Name
+            </label>
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->FirstName; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->LastName; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->Relationship; ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-10 lbl">Address</label>
+            <div class="col-sm-9">
+                <?php echo $this->form->contact->Address; ?>
+            </div>
+            
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->contact->AlternativeAddress; ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->City; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->State; ?>
+            </div>
+            <div class="col-sm-3">
+                <?php echo $this->form->contact->Zip; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-5">
+                <?php echo $this->form->contact->HomePhone; ?>
+            </div>
+            <div class="col-sm-4">
+                <?php echo $this->form->contact->CellPhone; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->contact->Email; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->otherInfo->MailTo; ?>
+            </div>
+        </div> 
+        
+        <!-- ============================================================== -->
+        <!-- Statement -->
+        
+        <div class="form-group">
+            <label class="col-sm-10 lbl">
+                STATEMENT OF AGREEMENT AND RESPONSIBILITY
+            </label>
+            <p class="col-sm-9 bg-font">
+                I understand that the Audio Reading Service radio is on loan to 
+                me and remains the property of the Allen County Public Library 
+                and must be returned to the Audio Reading Service when it is no 
+                longer needed. I agree to return the radio or that my contact or 
+                family will return the radio when no longer needed.
+            </p>
+            
+            <div class="col-sm-4">
+                <?php echo $this->form->statement->Signature; ?>
+            </div>
+            <div class="col-sm-5">
+                <?php echo $this->form->statement->SignatureDate; ?>
+            </div>
+        </div> 
+        
+        <div class="form-group">
+            <div class="col-sm-5">
+                <?php echo $this->form->statement->Agree; ?>
+            </div>
+        </div> 
+        
+        <!-- Submit -->
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->submit; ?>
+            </div> 
+        </div>
+        
+    </form>
 </div>
 
 <div class="container">
-    <p class="text-info">
+    <p class="col-sm-12 text-info bg-font">
         To return or request replacement - take radio to any Allen County
         Public Library branch, staff will forward to the Audio Reading Service. 
         Be Sure to include your name, address and reason for return. If a 
@@ -26,19 +255,3 @@
     </p>
 </div>
 
-
-<script>
-    $(document).ready(function () {
-        $('#radio-form-app2').submit(function (e) {
-            if (confirm("Are you sure you wish to submit your application?\n\
-Click Cancel to review before submission.\n\
-Click OK when ready to submit.")) {
-                window.scrollTo(0, 0);
-            }
-            else {
-                e.preventDefault();
-            }
-        });
-    });
-
-</script>

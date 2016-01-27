@@ -2,10 +2,28 @@ body{
     padding: 10px;
 }
 
-p, a, li, label{
+p, a, li, label, select{
+    font-size: 14px;
+}
+
+.lbl{
+    color: #002EB8;
     font-size: 18px;
 }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.bg-font{
+    font-size: 16px;
+}
+
+.big-checkbox{
+    width: 20px;
+    height: 20px;
+}
 
 #radio-form-app{
     clear: left;
@@ -38,11 +56,11 @@ ul.errors{
 
 
 .zend_form .color, label, h1{
-    color: #002EB8;
+    //color: #002EB8;
 }
 
-.zend_form{
-    font-size: 18px;
+.zend_form label{
+    font-size: 11px;
 }
 
 .zend_form .element .align{

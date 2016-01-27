@@ -10,6 +10,7 @@ class Application_Form_Confirm extends Zend_Form
         // Set the method for the display form to POST
         $this->setMethod('post');
         
+        // Go back and edit
         $this->addElement('submit', 'cancel', array(
             'class' => 'btn btn-primary',
             'ignore' => true,

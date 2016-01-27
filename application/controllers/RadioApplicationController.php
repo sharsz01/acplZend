@@ -15,6 +15,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $form = new Application_Form_RadioApplicationForm();
 
         if ($this->getRequest()->isPost()) {
+            
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -37,6 +38,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $form = new Application_Form_OrganizationForm();
         
         if ($this->getRequest()->isPost()) {
+            
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -55,6 +57,8 @@ class RadioApplicationController extends Zend_Controller_Action {
     }
 
     // ========================================================== confirmation actions
+    
+    // Confirmation for individual form
     public function confirmAction() {
         // retrieve data saved in the first stage
         $sessionData = new Zend_Session_Namespace('data');
@@ -87,6 +91,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $this->view->form = $form;
     }
 
+    // Confirmation for organizational form
     public function confirm2Action() {
         // retrieve data saved in the first stage
         $sessionData = new Zend_Session_Namespace('data');
