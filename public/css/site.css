@@ -11,6 +11,11 @@ p, a, li, label, select{
     font-size: 18px;
 }
 
+.lbl-head{
+    color: #002EB8;
+    font-size: 22px;
+    font-weight: bold;
+}
 
 .m-left{
     margin-left: 40px;
