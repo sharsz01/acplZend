@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2016 at 05:58 PM
+-- Generation Time: Jan 29, 2016 at 06:33 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -40,6 +40,32 @@ CREATE TABLE `radio` (
   `notes` varchar(512) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Dumping data for table `radio`
+--
+
+INSERT INTO `radio` (`radioId`, `controlNum`, `modelNum`, `manufacturer`, `dateOfPurchase`, `status`, `headphones`, `battery`, `wave`, `radioCondition`, `notes`) VALUES
+(1, 1, '1234', 'Radio Electronics', '2010-01-01', 'active', 'yes', 'yes', 'short', 'good', '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `radio`
+--
+ALTER TABLE `radio`
+  ADD PRIMARY KEY (`radioId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `radio`
+--
+ALTER TABLE `radio`
+  MODIFY `radioId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
