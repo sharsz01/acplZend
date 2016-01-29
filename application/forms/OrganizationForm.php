@@ -179,10 +179,39 @@ class Application_Form_OrganizationForm extends Zend_Form {
                 'EmailAddress',
             ),
         ));
-
+        
         $organization->addElement('text', 'RadioNum', array(
+            'id' => 'radioNum',
             'class' => 'form-control',
             'label' => 'How many radios are you requesting? *',
+            'placeholder' => ' ',
+            'size' => 48,
+            'required' => true,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            'validators' => array(
+                "Digits"
+            ),
+        ));
+
+        $organization->addElement('text', 'LicBedsNum', array(
+            'id' => 'licBedsNum',
+            'class' => 'form-control',
+            'label' => 'Number of Licensed Beds: ',
+            'placeholder' => ' ',
+            'size' => 48,
+            'required' => true,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            'validators' => array(
+                "Digits"
+            ),
+        ));
+        
+        $organization->addElement('text', 'ResUnitsNum', array(
+            'id' => 'resUnitsNum',
+            'class' => 'form-control',
+            'label' => 'Number of Residential Units: ',
             'placeholder' => ' ',
             'size' => 48,
             'required' => true,
@@ -202,6 +231,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+        
     }
 
     public function addStatementFields($statement) {

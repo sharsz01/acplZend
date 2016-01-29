@@ -11,10 +11,11 @@ include "header2.phtml";
 <div class="container">
     <label class="bg-font">Fields marked with * are required</label>
 
-    <hr/><hr/>
-    <form role="form" class="form-horizontal" method="post" <?php $this->form->setAction($this->url()); ?> >
+    
+    <form role="form" class="form-horizontal center" method="post" <?php $this->form->setAction($this->url()); ?> >
         
         <div class="form-group">
+            <label class="col-sm-10 lbl">Organization</label>
             <div class="col-sm-9">
                 <?php echo $this->form->organization->OrgName; ?>
             </div>
@@ -27,7 +28,7 @@ include "header2.phtml";
         </div>
 
         <div class="form-group">
-            <label class="col-sm-10">Staff Representing Organization</label>
+            <label class="col-sm-10 lbl">Staff Representing Organization</label>
             <div class="col-sm-3">
                 <?php echo $this->form->organization->FirstName; ?>
             </div>
@@ -41,7 +42,7 @@ include "header2.phtml";
 
 
         <div class="form-group">
-            <label class="col-sm-9">Address</label>
+            <label class="col-sm-9 lbl">Address</label>
             <div class="col-sm-9">
                 <?php echo $this->form->organization->Address; ?>
             </div>
@@ -81,19 +82,58 @@ include "header2.phtml";
                 <?php echo $this->form->organization->Email; ?>
             </div>
         </div>
-
+        
+        <!-- ================================================== Check boxes -->
+        
         <div class="form-group">
-            <div class="col-sm-5">
+            <div class="col-sm-9">
+                <label>
+                    <input id="rNum" class="sel" type="checkbox" value="">
+                    I am requesting individual radios for my organization.
+                </label>
+            </div>
+            
+            <div class="col-sm-5 m-left">
                 <?php echo $this->form->organization->RadioNum; ?>
             </div>
         </div>
-
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <label>
+                    <input id="bNum" class="sel" type="checkbox" value="">
+                    My hospital provides a system-wide signal.
+                </label>
+            </div>
+            
+            <div class="col-sm-5 m-left">
+                <?php echo $this->form->organization->LicBedsNum; ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-9">
+                <label>
+                    <input id="uNum" class="sel" type="checkbox" value="">
+                    My long-term facility/retirement community provides a system-wide signal.
+                </label>
+            </div>
+            
+            <div class="col-sm-5 m-left">
+                <?php echo $this->form->organization->ResUnitsNum; ?>
+            </div>
+        </div>
+        
+        
+        
+        <!-- ================================================== Check boxes -->
+        
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->organization->HowLearn; ?>
             </div>
         </div>
-
+        
         <hr/>
 
         <div class="form-group">
@@ -126,10 +166,8 @@ include "header2.phtml";
             </div> 
         </div>
     </form>
-</div>
-
-<div class="container">
-    <p class="col-sm-12 text-info bg-font">
+    
+    <p class="col-sm-9 text-info bg-font">
         To return or request replacement - take radio to any Allen County
         Public Library branch, staff will forward to the Audio Reading Service.
         Be Sure to include your name, address and reason for return. If a 
@@ -137,3 +175,60 @@ include "header2.phtml";
         Thank you! 
     </p>
 </div>
+
+
+
+<script>
+    // Refactor script to a script file =====================================
+    $(document).ready(function(){
+        
+        disableDefaults();
+        
+        
+        // chosen inputs disabled by default
+        function disableDefaults(){
+            $('#radioNum').attr('disabled', 'disabled');
+            $('#licBedsNum').attr('disabled', 'disabled');
+            $('#resUnitsNum').attr('disabled', 'disabled');
+        }
+        
+        // Remove text from input field
+        function clearText(id){
+            $(id).val('');
+        }
+        
+        // ================================================ Refactor to function
+        $('#rNum').click(function(){
+           if($('#rNum').is(':checked')){
+               $('#radioNum').removeAttr('disabled');
+           } 
+           else{
+               $('#radioNum').attr('disabled', 'disabled');
+               clearText('#radioNum');
+           }
+        });
+        
+        $('#bNum').click(function(){
+           if($('#bNum').is(':checked')){
+               $('#licBedsNum').removeAttr('disabled');
+           } 
+           else{
+               $('#licBedsNum').attr('disabled', 'disabled');
+               clearText('#licBedsNum');
+           }
+        });
+        
+        $('#uNum').click(function(){
+           if($('#uNum').is(':checked')){
+               $('#resUnitsNum').removeAttr('disabled');
+           } 
+           else{
+               $('#resUnitsNum').attr('disabled', 'disabled');
+               clearText('#resUnitsNum');
+           }
+        });
+        // ================================================ Refactor to function
+        
+    });
+    
+</script>

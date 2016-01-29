@@ -430,11 +430,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $statement->addElement('checkbox', 'Agree', array(
-            'class' => 'big-checkbox',
+            //'class' => 'big-checkbox',
             'label' => 'I have read and agree to statement terms * ',
             'required' => true,
             'uncheckedValue' => null
         ));
+        $statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
         $statement->getElement('Agree')->setCheckedValue('Yes');
         $statement->getElement('Agree')->setUnCheckedValue('No');
 

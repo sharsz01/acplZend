@@ -11,10 +11,15 @@ p, a, li, label, select{
     font-size: 18px;
 }
 
+
+.m-left{
+    margin-left: 40px;
+}/*
+
 .col-centered{
     float: none;
     margin: 0 auto;
-}
+}*/
 
 .bg-font{
     font-size: 16px;
