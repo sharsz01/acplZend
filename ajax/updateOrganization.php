@@ -16,7 +16,7 @@ $SQL = "UPDATE organization SET dateRegistered='" . isset($_REQUEST['dateRegiste
         . "', email='" . isset($_REQUEST['email']) . "', numRadios='" . isset($_REQUEST['numRadios'])
         . "', howLearn='" . isset($_REQUEST['howLearn']) . "', signature='" . isset($_REQUEST['signature'])
         . "', dateSigned='" . isset($_REQUEST['dateSigned']) . "', notes='" . isset($_REQUEST['notes'])
-        . "';";
+        . "' WHERE organizationId='" . $_REQUEST['organizationId'] . "';";
 
 $result = mysqli_query($db, $SQL);
 

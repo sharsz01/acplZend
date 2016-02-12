@@ -4,8 +4,9 @@ $db = mysqli_connect('localhost', 'root', '', 'audioreadingservice') or die('Err
 
 $return = array();
 
-$SQL = "INSERT INTO user (firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, altPhone, email, contactName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactAltPhone, contactEmail, disability, howLearn, race, income, inHomeNum, signature, dateSigned, mailTo)" .
-        "VALUES ('" . isset($_REQUEST['firstName']) . "', '" . isset($_REQUEST['lastName'])
+$SQL = "INSERT INTO user (dateRegistered, ipRegistered, firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, altPhone, email, contactName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactAltPhone, contactEmail, disability, howLearn, race, income, inHomeNum, signature, dateSigned, mailTo, notes)" .
+        "VALUES ('" . isset($_REQUEST['dateRegistered']) . "', '" . isset($_REQUEST['ipRegistered'])
+        . "', '" . isset($_REQUEST['firstName']) . "', '" . isset($_REQUEST['lastName'])
         . "', '" . isset($_REQUEST['birthday']) . "', '" . isset($_REQUEST['street'])
         . "', '" . isset($_REQUEST['streetLine2']) . "', '" . isset($_REQUEST['city']) 
         . "', '" . isset($_REQUEST['state']) . "', '" . isset($_REQUEST['zip']) 
@@ -19,7 +20,8 @@ $SQL = "INSERT INTO user (firstName, lastName, birthday, street, streetLine2, ci
         . "', '" . isset($_REQUEST['disability']) . "', '" . isset($_REQUEST['howLearn'])
         . "', '" . isset($_REQUEST['race']) . "', '" . isset($_REQUEST['income'])
         . "', '" . isset($_REQUEST['inHomeNum']) . "', '" . isset($_REQUEST['signature'])
-        . "', '" . isset($_REQUEST['dateSigned']) . "', '" . isset($_REQUEST['mailTo']) . "')";
+        . "', '" . isset($_REQUEST['dateSigned']) . "', '" . isset($_REQUEST['mailTo'])
+        . "', '" . isset($_REQUEST['notes']) . "')";
 
 $result = mysqli_query($db, $SQL);
 
