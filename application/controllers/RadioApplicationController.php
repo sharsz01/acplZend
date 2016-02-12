@@ -84,7 +84,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 Zend_Session::namespaceUnset('data');
 
                 // redirect to success confirmation page
-                return $this->_redirect('radio-application/success');
+                return $this->_redirect('radio-application/success?page=ind');
             }
         }
 
@@ -116,7 +116,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 Zend_Session::namespaceUnset('data');
 
                 // redirect to success confirmation page
-                return $this->_redirect('radio-application/success');
+                return $this->_redirect('radio-application/success?page=org');
             }
         }
 
