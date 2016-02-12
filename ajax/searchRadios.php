@@ -11,7 +11,7 @@ foreach ($_REQUEST as $key => $value) {
 	if($count == 1)
 		$SQL .= "WHERE ";
 	else
-	$SQL .= "AND ";
+	$SQL .= " AND ";
 	$SQL .= "$key LIKE '%$value%'";
 	$count++;
 }
