@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Populate</title>
+	
+	
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" />
+	<!--<link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.css" />-->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="jquery.dataTables.js" type="text/javascript"></script>
+
+	<script src="http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	
+	
+	
+	
+<script type="text/javascript">
+$(document).ready(function() {
+
+var userTable = $('#userTable').dataTable();  //Initialize the datatable
+
+$.ajax({
+	url: 'process.php?method=fetchdata',
+	dataType: 'json',
+	success: function(s){
+		console.log(s);
+		userTable.fnClearTable();
+		for(var i = 0; i < s.length; i++){
+			userTable.fnAddData([
+					s[i][0], s[i][1], s[i][2], s[i][3], s[i][4],
+					s[i][5], s[i][6], s[i][7], s[i][8], s[i][9],
+					s[i][10], s[i][11], s[i][12], s[i][13], s[i][14],
+					s[i][15], s[i][16], s[i][17], s[i][18], s[i][19],
+					s[i][20], s[i][21], s[i][22], s[i][23], s[i][24],
+					s[i][25], s[i][26], s[i][27], s[i][28], s[i][29]
+					]);
+		}
+	}, 
+	error: function(e){
+		console.log(e.responseText);	
+	}
+});
+
+});
+</script>
+</head>
+<body>
+
+<!--<div class="container">-->
+
+	<h1>Header</h1>
+	
+	<table id="userTable" class="display table table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Birthday</th>
+				<th>Street Address</th>
+				<th>Alternative Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Home Phone</th>
+				<th>Cell Phone</th>
+				<th>Email</th>
+				<th>Contact Name</th>
+				<th>Contact Relationship</th>
+				<th>Contact Street Address</th>
+				<th>Contact Alternative Address</th>
+				<th>Contact City</th>
+				<th>Contact State</th>
+				<th>Contact Zip</th>
+				<th>Contact Home Phone</th>
+				<th>Contact Cell Phone</th>
+				<th>Contact Email</th>
+				<th>Disability</th>
+				<th>How Learn</th>
+				<th>Race</th>
+				<th>Income</th>
+				<th>Number In Home</th>
+				<th>Signature</th>
+				<th>Date Signed</th>
+				<th>Mail To</th>
+			</tr>
+		</thead>
+	</table>
+
+<!--</div>-->
+
+
+
+</body>
+</html>
