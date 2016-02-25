@@ -2,10 +2,23 @@ body{
     padding: 10px;
 }
 
-p, a, li, label, select{
+/*p, a, li, label, select{
     font-size: 14px;
+}*/
+
+// ============================ nav
+
+
+.navLinks a{
+    font-size: 22px;
 }
 
+.navLinks label.brand{
+    font-size: 18px;
+}
+
+
+// ==============================
 .lbl{
     color: #002EB8;
     font-size: 18px;
@@ -19,18 +32,27 @@ p, a, li, label, select{
 
 .m-left{
     margin-left: 40px;
-}/*
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}*/
+}
 
 .bg-font{
     font-size: 16px;
 }
 
+dt#Multi-label label{
+    font-size: 16px;
+}
+
+dd#Multi-element label{
+    padding: 10px;
+    //border: 1px solid red;
+}
+
 .big-checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.big-radio{
     width: 20px;
     height: 20px;
 }
@@ -46,7 +68,12 @@ p, a, li, label, select{
 }
 
 ul.errors{
+    margin-top: 10px;
     color: red;
+}
+
+ul.errors li{
+    list-style-type: none; 
 }
 
 .zend_form input{
@@ -149,5 +176,8 @@ label.value{
     float: left;
 }
 
-// =================== header
+// =======================================================================
+
+
+
 
