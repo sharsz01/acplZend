@@ -12,7 +12,7 @@ class Application_Form_Confirm extends Zend_Form
         
         // Go back and edit
         $this->addElement('submit', 'cancel', array(
-            'class' => 'btn btn-primary',
+            'class' => 'btn btn-default',
             'ignore' => true,
             'label' => "Go Back and Edit",
             'onclick' => "history.back()",

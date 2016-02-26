@@ -142,6 +142,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         ));
 
         $organization->addElement('text', 'HomePhone', array(
+            'id' => 'HomePhone',
             'class' => 'form-control',
             'label' => 'Office Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
@@ -200,7 +201,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'label' => 'Number of Licensed Beds: ',
             'placeholder' => ' ',
             'size' => 48,
-            'required' => true,
+            'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -214,7 +215,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'label' => 'Number of Residential Units: ',
             'placeholder' => ' ',
             'size' => 48,
-            'required' => true,
+            'required' => false,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
@@ -246,15 +247,16 @@ class Application_Form_OrganizationForm extends Zend_Form {
             ),
         ));
 
-        $statement->addElement('date', 'SignatureDate', array(
-            'class' => 'form-control',
+        $statement->addElement('text', 'SignatureDate', array(
+            'class' => 'dateselector-fdt',
             'label' => 'Date *',
-            'required' => true,
+            //'required' => true,   // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
         
         $statement->addElement('checkbox', 'Agree', array(
-            //'class' => 'big-checkbox',
+            'id' => 'agree',
+            'class' => 'checkbox-inline big-checkbox',
             'label' => 'I have read and agree to statement terms * ',
             'required' => true,
             'uncheckedValue' => null
