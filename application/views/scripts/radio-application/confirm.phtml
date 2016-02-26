@@ -1,8 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<!-- Confirmation page for Individual radio applications -->
 
 <div class="container">
     <?php
@@ -14,29 +10,54 @@
     $otherInfoData = $_SESSION['data']['postData']['otherInfo'];
     $statementData = $_SESSION['data']['postData']['statement'];
 
+    // =============================================== format phone numbers - refactor
+
+    function formatPhone($phone) {
+        //$phone = 12343435556; // 11-digit phone number
+        if (strlen($phone) < 11) {  // area code and phone number
+            return substr($phone, 0, 3) . '.' . substr($phone, 3, 3) . '.' . substr($phone, 6);
+        } else {
+            return substr($phone, 0, 1) . '.' . substr($phone, 1, 3) . '.' . substr($phone, 4, 3) . '.' . substr($phone, 7);
+        }
+    }
+
+    // ===============================================
+
     echo "<h1>Review Your Information and Submit</h1>";
     echo "<hr />"
     ?>
 
+    <!--refactor later-->
     <!--================================================= Listener-->
     <div class="panel panel-primary">
         <div class="panel-heading">Listener</div>
         <div class="panel-body">
             <?php
             foreach ($listenerData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                if (strpos($key, 'phone') !== false || strpos($key, 'Phone') !== false) {
+                    $value = formatPhone($value);
+                    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                } else {
+                    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                }
             }
             ?>
         </div>
     </div>
 
+    <!--refactor later-->
     <!--// ================================================= Contact-->
     <div class="panel panel-primary">
         <div class="panel-heading">Contact</div>
         <div class="panel-body">
             <?php
             foreach ($contactData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                if (strpos($key, 'phone') !== false || strpos($key, 'Phone') !== false) {
+                    $value = formatPhone($value);
+                    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                } else {
+                    echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
+                }
             }
             ?>
         </div>

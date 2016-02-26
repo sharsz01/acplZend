@@ -1,24 +1,18 @@
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
 <?php include "header.phtml"; ?>
 
 <div class="container">
     <label class="bg-font">Fields marked with * are required</label>
-    
+
     <form role="form" class="form-horizontal" method="post" <?php $this->form->setAction($this->url()); ?> >
-        
+
         <!-- ============================================================== -->
         <!-- Listener -->
-        
+
         <div class="form-group">
             <label class="col-sm-9 lbl-head">Listener</label>
-            <label class="col-sm-10 lbl">Name</label>
-            
+            <label class="col-sm-10 lbl-head">Name</label>
+
             <div class="col-sm-3">
                 <?php echo $this->form->listener->FirstName; ?>
             </div>
@@ -29,21 +23,21 @@
                 <?php echo $this->form->listener->Birthdate; ?>
             </div>
         </div>
-        
+
         <div class="form-group">
-            <label class="col-sm-10 lbl">Address</label>
-            
+            <label class="col-sm-10 lbl-head">Address</label>
+
             <div class="col-sm-9">
                 <?php echo $this->form->listener->Address; ?>
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->listener->AlternativeAddress; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-3">
                 <?php echo $this->form->listener->City; ?>
@@ -55,7 +49,7 @@
                 <?php echo $this->form->listener->Zip; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-5">
                 <?php echo $this->form->listener->HomePhone; ?>
@@ -64,13 +58,13 @@
                 <?php echo $this->form->listener->CellPhone; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->listener->Email; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->listener->Disability; ?>
@@ -79,17 +73,23 @@
         
         <div class="form-group">
             <div class="col-sm-9">
+                <?php echo $this->form->listener->OtherConditions; ?>
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <div class="col-sm-9">
                 <?php echo $this->form->listener->HowLearn; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
-            <label class="col-sm-9 lbl text-center">
+            <label class="col-sm-9 lbl-head text-center">
                 Optional items for statistical purposes and to help us apply 
                 for grant dollars to continue our service.
             </label>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-3">
                 <?php echo $this->form->listener->Race; ?>
@@ -101,42 +101,27 @@
                 <?php echo $this->form->listener->NumberInHome; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
-            <label class="col-sm-9 lbl text-center">
+            <label class="col-sm-9 lbl-head text-center">
                 Program Schedule (tells the day/time programs are aired)
             </label>
         </div> 
-        
+
         <div class="form-group">
-            <label class="col-sm-9 lbl">
-                Choose Your Preferred Format (Maximum of 2)
-            </label>
-        </div> 
-        
-        <div class="form-group">
-            <div class="col-sm-2">
-                <?php echo $this->form->listener->LargePrint; ?>
-            </div>
-            <div class="col-sm-2">
-                <?php echo $this->form->listener->Braille; ?>
-            </div>
-            <div class="col-sm-2">
-                <?php echo $this->form->listener->AudioCD; ?>
-            </div>
-            <div class="col-sm-2">
-                <?php echo $this->form->listener->SendEmail; ?>
+            <div class="col-sm-9">
+                <?php echo $this->form->listener->Multi; ?>
             </div>
         </div>
-        
+
         <!-- ============================================================== -->
         <!-- Alternative Contact -->
-        
+
         <div class="form-group">
             <label class="col-sm-9 lbl-head">
                 Alternative Contact
             </label>
-            <label class="col-sm-10 lbl">
+            <label class="col-sm-10 lbl-head">
                 Name
             </label>
             <div class="col-sm-3">
@@ -149,21 +134,21 @@
                 <?php echo $this->form->contact->Relationship; ?>
             </div>
         </div>
-        
+
         <div class="form-group">
-            <label class="col-sm-10 lbl">Address</label>
+            <label class="col-sm-10 lbl-head">Address</label>
             <div class="col-sm-9">
                 <?php echo $this->form->contact->Address; ?>
             </div>
-            
+
         </div>
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->contact->AlternativeAddress; ?>
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-sm-3">
                 <?php echo $this->form->contact->City; ?>
@@ -175,7 +160,7 @@
                 <?php echo $this->form->contact->Zip; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-5">
                 <?php echo $this->form->contact->HomePhone; ?>
@@ -184,24 +169,24 @@
                 <?php echo $this->form->contact->CellPhone; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->contact->Email; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->otherInfo->MailTo; ?>
             </div>
         </div> 
-        
+
         <!-- ============================================================== -->
         <!-- Statement -->
-        
+
         <div class="form-group">
-            <label class="col-sm-10 lbl">
+            <label class="col-sm-10 lbl-head">
                 STATEMENT OF AGREEMENT AND RESPONSIBILITY
             </label>
             <p class="col-sm-9 bg-font">
@@ -211,7 +196,7 @@
                 longer needed. I agree to return the radio or that my contact or 
                 family will return the radio when no longer needed.
             </p>
-            
+
             <div class="col-sm-4">
                 <?php echo $this->form->statement->Signature; ?>
             </div>
@@ -219,22 +204,26 @@
                 <?php echo $this->form->statement->SignatureDate; ?>
             </div>
         </div> 
-        
+
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->statement->Agree; ?>
             </div>
-        </div> 
+        </div>
         
+
         <!-- Submit -->
         <div class="form-group">
             <div class="col-sm-9">
                 <?php echo $this->form->submit; ?>
             </div> 
         </div>
-        
+
     </form>
+
     
+   
+
     <p class="col-sm-9 text-info bg-font">
         To return or request replacement - take radio to any Allen County
         Public Library branch, staff will forward to the Audio Reading Service. 
@@ -244,5 +233,32 @@
     </p>
 </div>
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        
+        $('#submit').attr('disabled', 'disabled');
+
+        $('#agree').click(function () {
+            if (!$(this).is(':checked')) {
+                $('#submit').attr('disabled', 'disabled');
+            }
+            else {
+                $('#submit').removeAttr('disabled');
+            }
+        });
+
+
+        // ======== date dropdowns
+        
+        $('.dateselector-fdt').dateSelector({
+           cssFramework: 'bootstrap',
+           minYear: 1930,
+        });
+        
+        
+    });
+</script>
 
 
