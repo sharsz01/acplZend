@@ -6,27 +6,40 @@ body{
     font-size: 14px;
 }*/
 
+form#return label{
+    font-size: 18px;
+}
+
+img{
+    padding-right: 20px;
+}
+
+nav{
+    margin-top: 50px;
+}
+
+nav label{
+    font-size: 20px;
+}
+
+nav a{
+    font-size: 16px;
+}
+
 // ============================ nav
 
 
-.navLinks a{
-    font-size: 22px;
-}
-
-.navLinks label.brand{
-    font-size: 18px;
-}
 
 
 // ==============================
 .lbl{
-    color: #002EB8;
-    font-size: 18px;
+   color: #002EB8;
+    font-size: 18px; 
 }
 
 .lbl-head{
     color: #002EB8;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -170,6 +183,13 @@ label.key{
 }
 
 label.value{
+    width: 160px;
+    font-size: 16px;
+    margin-left: 20px;
+    float: left;
+}
+
+label.phoneValue{
     width: 160px;
     font-size: 16px;
     margin-left: 20px;
