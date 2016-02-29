@@ -434,7 +434,7 @@
 							<input type="submit" name="exportUsers" value="Export">
 						</form>
 						<br>
-						<form action="importExport/mport.php" method="POST" enctype="multipart/form-data">
+						<form action="importExport/import.php" method="POST" enctype="multipart/form-data">
 							<input type="file" name="userFile">
 							<input type="submit" name="importUsers" value="Upload">
 						</form>
