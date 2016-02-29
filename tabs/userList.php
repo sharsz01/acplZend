@@ -428,5 +428,16 @@
 							</table>
 						</div>
 					</div>
+					<div id="importExport">
+						<br>
+						<form method="POST" action="importExport/export.php">
+							<input type="submit" name="exportUsers" value="Export">
+						</form>
+						<br>
+						<form action="importExport/mport.php" method="POST" enctype="multipart/form-data">
+							<input type="file" name="userFile">
+							<input type="submit" name="importUsers" value="Upload">
+						</form>
+					</div>
 				</div>
 				
