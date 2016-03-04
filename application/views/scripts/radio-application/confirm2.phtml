@@ -37,7 +37,7 @@
 
             foreach ($organizationData as $key => $value) {
                 if (strpos($key, 'phone') !== false || strpos($key, 'Phone') !== false) {
-                    //$value = formatPhone($value);
+                    $value = formatPhone($value);
                     echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
                 } else {
                     echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";

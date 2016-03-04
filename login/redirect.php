@@ -25,6 +25,7 @@
 	<?php if(isset($_SESSION['userid'])) { echo $_SESSION['user'];}
         
         //header("location:databaseView.php");
+        header("location:../admin.php");
         
         ?>
         
