@@ -1,23 +1,24 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '', 'audioreadingservice') or die('Error: ' . mysqli_connect_error($db));
+require('config/dbConnect.php');
 
 $return = array();
 
 $SQL = "INSERT INTO organization (dateRegistered, ipRegistered, organizationName,"
-        . "organizationType, firstName, lastName, positionTitle, streetAddress,"
-        . "altAddress, city, state, zip, phone, altPhone, email, numRadios,"
-        . "howLearn, signature, dateSigned, notes)" .
-        "VALUES ('" . isset($_REQUEST['dateRegistered']) . "', '" . isset($_REQUEST['ipRegistered'])
-        . "', '" . isset($_REQUEST['organizationName']) . "', '" . isset($_REQUEST['organizationType'])
-        . "', '" . isset($_REQUEST['firstName']) . "', '" . isset($_REQUEST['lastName']) 
-        . "', '" . isset($_REQUEST['positionTitle']) . "', '" . isset($_REQUEST['streetAddress']) 
-        . "', '" . isset($_REQUEST['altAddress']) . "', '" . isset($_REQUEST['city']) 
-        . "', '" . isset($_REQUEST['state']) . "', '" . isset($_REQUEST['zip'])
-        . "', '" . isset($_REQUEST['phone']) . "', '" . isset($_REQUEST['altPhone'])
-        . "', '" . isset($_REQUEST['email']) . "', '" . isset($_REQUEST['numRadios'])
-        . "', '" . isset($_REQUEST['howLearn']) . "', '" . isset($_REQUEST['signature'])
-        . "', '" . isset($_REQUEST['dateSigned']) . "', '" . isset($_REQUEST['notes'])
+        . "organizationType, firstName, lastName, positionTitle, street, streetLine2"
+        . "city, state, zip, phone, phone2, email, numRadios, numLicensedBeds,"
+        . "numResidentialUnits, howLearn, signature, dateSigned, notes)" .
+        "VALUES ('" . $_REQUEST['dateRegistered'] . "', '" . $_REQUEST['ipRegistered']
+        . "', '" . $_REQUEST['organizationName'] . "', '" . $_REQUEST['organizationType']
+        . "', '" . $_REQUEST['firstName'] . "', '" . $_REQUEST['lastName']
+        . "', '" . $_REQUEST['positionTitle'] . "', '" . $_REQUEST['street']
+        . "', '" . $_REQUEST['streetLine2'] . "', '" . $_REQUEST['city']
+        . "', '" . $_REQUEST['state'] . "', '" . $_REQUEST['zip']
+        . "', '" . $_REQUEST['phone'] . "', '" . $_REQUEST['phone2']
+        . "', '" . $_REQUEST['email'] . "', '" . $_REQUEST['numRadios']
+		. "', '" . $_REQUEST['numLicensedBeds'] . "', '" . $_REQUEST['numResidentialUnits']
+        . "', '" . $_REQUEST['howLearn'] . "', '" . $_REQUEST['signature']
+        . "', '" . $_REQUEST['dateSigned'] . "', '" . $_REQUEST['notes']
         . "')";
 
 $result = mysqli_query($db, $SQL);

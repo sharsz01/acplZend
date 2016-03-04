@@ -1,23 +1,32 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '', 'audioreadingservice') or die('Error: '.mysqli_connect_error($db));
+require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "SELECT * FROM radio ";
+//echo var_dump($_REQUEST);
+
+$SQL = "SELECT * FROM radio";
 $count = 1;
 
 foreach ($_REQUEST as $key => $value) {
 	if($count == 1)
-		$SQL .= "WHERE ";
+		$SQL .= " WHERE ";
 	else
 	$SQL .= " AND ";
-	$SQL .= "$key LIKE '%$value%'";
+	
+	if($value['type'] = 'binary') {
+		$SQL .= $key.'='.$value['value'];
+	} else if ($value['type'] = 'range') {
+		$SQL .= $key.' BETWEEN '.$value['value'];
+	} else {
+		$SQL .= $key.' LIKE %'.$value['value'].'%';
+	}
 	$count++;
 }
 $SQL .= ";";
 
-echo $SQL;
+//echo $SQL;
 
 $result = mysqli_query($db, $SQL);
 
