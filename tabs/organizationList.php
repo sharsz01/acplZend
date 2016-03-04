@@ -45,8 +45,8 @@
                             <button type="button" class="btn btn-default">State</button>
                             <button type="button" class="btn btn-default">Zip</button>
                             <button type="button" class="btn btn-default">Cell Phone #</button>
-							<div style="clear: both;"></div>
-                            
+                            <div style="clear: both;"></div>
+
                         </div>
                     </div>
                 </div>

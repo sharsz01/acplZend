@@ -1,10 +1,10 @@
 <div id="radio-details" class="tab-pane fade">
     <h3>Radio Details <button id="newRadio" type="button" class="btn btn-primary btn-sm">New Radio</button></h3>
-    
-	<form id="radio-details-form">
+
+    <form id="radio-details-form">
         <input type="hidden" name="radioId" id="radioId" />
-        
-		<div class="row">
+
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="controlNum">Control Number:</label>
@@ -66,41 +66,41 @@
                     <textarea class="form-control" rows="2" name="notes" id="notes"></textarea>
                 </div>
             </div>
-		</form>
-		<div class="col-sm-6">
-			<label for="radioCheckouts">Check Outs:</label>
-			<div id="radioCheckouts">
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered table-hover table-condensed">
-						<thead>
-							<tr>
-								<th>Checked Out To</th>
-								<th>Checked Out</th>
-								<th>Checked In</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>John Doe</td>
-								<td>01/01/2015</td>
-								<td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-							</tr>
-							<tr>
-								<td>Jane Doe</td>
-								<td>01/01/2013</td>
-								<td>01/01/2014</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<button id="checkOut" type="button" class="btn btn-inactive">Check Out Radio</button>
-		</div>
-	</div>
-	
-	<button id="newRadioSaveBtn" type="button" class="btn btn-primary hidden">Save New Radio</button>
-	<button id="newRadioCancelBtn" type="button" class="btn btn-default hidden">Cancel New Radio</button>
-	<button id="radioSaveBtn" type="button" class="btn btn-primary">Save Changes</button>
-	<button id="radioCancelBtn" type="button" class="btn btn-default">Cancel Changes</button>
+    </form>
+    <div class="col-sm-6">
+        <label for="radioCheckouts">Check Outs:</label>
+        <div id="radioCheckouts">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Checked Out To</th>
+                            <th>Checked Out</th>
+                            <th>Checked In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>01/01/2015</td>
+                            <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>01/01/2013</td>
+                            <td>01/01/2014</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button id="checkOut" type="button" class="btn btn-inactive">Check Out Radio</button>
+    </div>
+</div>
+
+<button id="newRadioSaveBtn" type="button" class="btn btn-primary hidden">Save New Radio</button>
+<button id="newRadioCancelBtn" type="button" class="btn btn-default hidden">Cancel New Radio</button>
+<button id="radioSaveBtn" type="button" class="btn btn-primary">Save Changes</button>
+<button id="radioCancelBtn" type="button" class="btn btn-default">Cancel Changes</button>
 
 </div>

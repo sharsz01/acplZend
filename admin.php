@@ -37,7 +37,7 @@
                 <li><a id="user-details-tab" data-toggle="tab" href="#user-details">User Details</a></li>
 
                 <li><a id="organizations-tab" data-toggle="tab" href="#organizations">Organizations</a></li>
-				<li><a id="organization-details-tab" data-toggle="tab" href="#organization-details">Organization Details</a></li>
+                <li><a id="organization-details-tab" data-toggle="tab" href="#organization-details">Organization Details</a></li>
 
                 <li><a id="radios-tab" data-toggle="tab" href="#radios">Radios</a></li>
                 <li><a id="radio-details-tab" data-toggle="tab" href="#radio-details">Radio Details</a></li>
@@ -50,7 +50,7 @@
                 require('tabs/userList.php');
                 require('tabs/userDetails.php');
                 require('tabs/organizationList.php');
-				require('tabs/organizationDetails.php');
+                require('tabs/organizationDetails.php');
                 require('tabs/radioList.php');
                 require('tabs/radioDetails.php');
                 ?>

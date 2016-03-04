@@ -165,7 +165,7 @@
                 </thead>
                 <tbody>
                     <?php
-					//$fields = array("controlNum", "modelNum", "manufacturer");
+                    //$fields = array("controlNum", "modelNum", "manufacturer");
                     $fields = array("controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition");
                     $SQL = "SELECT * FROM radio;";
                     $result = mysqli_query($db, $SQL);

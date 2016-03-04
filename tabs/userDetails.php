@@ -3,10 +3,10 @@
 
     <form id="user-details-form">
         <input type="hidden" name="userId" id="userId" />
-		
+
         <div class="row">
-		
-			<!----------------------- Left Column -------------------------->
+
+            <!----------------------- Left Column -------------------------->
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-6">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-				<!-- Double check - dobFrom is not name from database - -->
+                <!-- Double check - dobFrom is not name from database - -->
                 <div class="form-group">
                     <label for="ind-birthday">Date of Birth (mm/dd/yyyy):</label>
                     <input type="text" class="form-control" name="birthday" id="ind-birthday">
@@ -73,49 +73,49 @@
                         </div>
                     </div>
                 </div>
-				
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="ind-race">Race:</label>
-							<input type="text" class="form-control" name="race" id="ind-race">
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="ind-income">Income:</label>
-							<input type="text" class="form-control" name="income" id="ind-income">
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="ind-inHomeNum"># in Home:</label>
-							<input type="text" class="form-control" name="inHomeNum" id="ind-inHomeNum">
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="ind-disability">Disability/Reason for Service:</label>
-					<input type="text" class="form-control" name="disability" id="ind-disability">
-				</div>
-				<div class="form-group">
-					<label for="ind-otherDisability">Other Disability/Reason for Service:</label>
-					<input type="text" class="form-control" name="otherDisability" id="ind-otherDisability">
-				</div>
-				<div class="form-group">
-					<label for="ind-howLearn">How User Learned About Service:</label>
-					<input type="text" class="form-control" name="howLearn" id="ind-howLearn">
-				</div>
-				
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="ind-race">Race:</label>
+                            <input type="text" class="form-control" name="race" id="ind-race">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="ind-income">Income:</label>
+                            <input type="text" class="form-control" name="income" id="ind-income">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="ind-inHomeNum"># in Home:</label>
+                            <input type="text" class="form-control" name="inHomeNum" id="ind-inHomeNum">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ind-disability">Disability/Reason for Service:</label>
+                    <input type="text" class="form-control" name="disability" id="ind-disability">
+                </div>
+                <div class="form-group">
+                    <label for="ind-otherDisability">Other Disability/Reason for Service:</label>
+                    <input type="text" class="form-control" name="otherDisability" id="ind-otherDisability">
+                </div>
+                <div class="form-group">
+                    <label for="ind-howLearn">How User Learned About Service:</label>
+                    <input type="text" class="form-control" name="howLearn" id="ind-howLearn">
+                </div>
+
                 <div class="form-group">
                     <label for="ind-notes">Notes:</label>
                     <textarea class="form-control" rows="5" name="notes" id="ind-notes"></textarea>
                 </div>
             </div>
-			
-			<!----------------------- Right Column -------------------------->
-			
+
+            <!----------------------- Right Column -------------------------->
+
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-6">
@@ -124,7 +124,7 @@
                             <input type="text" class="form-control" name="contactFirstName" id="ind-contactFirstName">
                         </div>
                     </div>
-					
+
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="ind-contactLastName">Contact Last Name:</label>
@@ -214,17 +214,17 @@
                         </div>
                     </div>
                 </div>
-				<div class="form-group">
+                <div class="form-group">
                     <label for="ind-mailTo">Mail Radio To:</label>
                     <input type="text" class="form-control" name="mailTo" id="ind-mailTo">
                 </div>
-				
-				<div class="form-group">
-					<label for="org-signature">User Signature:</label>
-					<input type="text" class="form-control" name="signature" id="org-signature">
-				</div>
-				
-				<div class="row">
+
+                <div class="form-group">
+                    <label for="org-signature">User Signature:</label>
+                    <input type="text" class="form-control" name="signature" id="org-signature">
+                </div>
+
+                <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="org-dateRegistered">Date Registered:</label>
@@ -244,36 +244,36 @@
                         </div>
                     </div>
                 </div>
-				
-				<label for="userRadios">Radios:</label>
-				<div id="userRadios">
-					<div class="table-responsive">
-						<table class="table table-striped table-bordered table-hover table-condensed">
-							<thead>
-								<tr>
-									<th>Radio ID</th>
-									<th>Checked Out</th>
-									<th>Check In</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>123456</td>
-									<td>01/01/2015</td>
-									<td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
-       
-			</div>
-		</div>
-	</form>
-	
-	<button id="newUserSaveBtn" type="button" class="btn btn-primary hidden">Save New User</button>
-	<button id="newUserCancelBtn" type="button" class="btn btn-default hidden">Cancel New User</button>
+
+                <label for="userRadios">Radios:</label>
+                <div id="userRadios">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Radio ID</th>
+                                    <th>Checked Out</th>
+                                    <th>Check In</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>123456</td>
+                                    <td>01/01/2015</td>
+                                    <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
+
+            </div>
+        </div>
+    </form>
+
+    <button id="newUserSaveBtn" type="button" class="btn btn-primary hidden">Save New User</button>
+    <button id="newUserCancelBtn" type="button" class="btn btn-default hidden">Cancel New User</button>
     <button id="userSaveBtn" type="button" class="btn btn-primary">Save Changes</button>
     <button id="userCancelBtn" type="button" class="btn btn-default">Cancel Changes</button>
 

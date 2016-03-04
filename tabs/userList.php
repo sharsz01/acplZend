@@ -211,25 +211,25 @@
                 <div id="user-inactive-collapse" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div id="tabRow">
-							<div style="float: left;"><button type="button" class="btn btn-default">Address Line 2</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">City</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">State</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Zip</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Phone</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Alternate Phone</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Address Line 2</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">City</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">State</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Zip</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Phone</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Alternate Phone</button></div>
 
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact First</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Last</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Address</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Address Line 2</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact City</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact State</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Zip</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Email</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Phone</button></div>
-							<div style="float: left;"><button type="button" class="btn btn-default">Contact Alternate Phone</button></div>
-							<div style="clear: both;"></div>
-							
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact First</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Last</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Address</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Address Line 2</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact City</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact State</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Zip</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Email</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Phone</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Contact Alternate Phone</button></div>
+                            <div style="clear: both;"></div>
+
                         </div>
                     </div>
                 </div>
@@ -258,12 +258,12 @@
                 </thead>
                 <tbody>
                     <?php
-					$fields = array("firstName", "lastName", "email", "birthday", "street");
-					
-					/*
-                    $fields = array("firstName", "lastName", "email", "birthday", "address", "address2", "city", "state", "zip", "phone", "altPhone", "email", "contactName", "contactRelationship", "contactAddress", "contactAddress2", "contactCity", "contactState", "contactZip", "contactPhone", "contactAltPhone", "contactEmail", "disability", "howLearn", "race", "income", "inHomeNum", "signature", "dateSigned", "mailTo");
-					*/
-					
+                    $fields = array("firstName", "lastName", "email", "birthday", "street");
+
+                    /*
+                      $fields = array("firstName", "lastName", "email", "birthday", "address", "address2", "city", "state", "zip", "phone", "altPhone", "email", "contactName", "contactRelationship", "contactAddress", "contactAddress2", "contactCity", "contactState", "contactZip", "contactPhone", "contactAltPhone", "contactEmail", "disability", "howLearn", "race", "income", "inHomeNum", "signature", "dateSigned", "mailTo");
+                     */
+
                     $SQL = "SELECT * FROM user;";
                     $result = mysqli_query($db, $SQL);
 

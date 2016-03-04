@@ -3,10 +3,10 @@
 
     <form id="organization-details-form">
         <input type="hidden" name="organizationId" id="organizationId" />
-		
+
         <div class="row">
-		
-			<!----------------------- Left Column -------------------------->
+
+            <!----------------------- Left Column -------------------------->
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-6">
@@ -22,8 +22,8 @@
                         </div>
                     </div>
                 </div>
-				
-				
+
+
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
@@ -37,15 +37,15 @@
                             <input type="text" class="form-control" name="lastName" id="org-lastName">
                         </div>
                     </div>
-					<div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label for="org-positionTitle">Position Title:</label>
                             <input type="text" class="form-control" name="positionTitle" id="org-positionTitle">
                         </div>
                     </div>
                 </div>
-				
-				<div class="form-group">
+
+                <div class="form-group">
                     <label for="org-street">Address:</label>
                     <input type="text" class="form-control" name="street" id="org-street">
                 </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -88,49 +88,49 @@
                         </div>
                     </div>
                 </div>
-				
-				<div class="form-group">
+
+                <div class="form-group">
                     <label for="org-email">Email:</label>
                     <input type="email" class="form-control" name="email" id="org-email">
                 </div>
-				
-				<div class="form-group">
+
+                <div class="form-group">
                     <label for="org-notes">Notes:</label>
                     <textarea class="form-control" rows="3" name="notes" id="org-notes"></textarea>
                 </div>
-				
-			</div>
-			
-			<!----------------------- Right Column -------------------------->
-			
+
+            </div>
+
+            <!----------------------- Right Column -------------------------->
+
             <div class="col-sm-6">
-                
-				<div class="form-group">
-					<label for="org-howLearn">How Organization Learned About Service:</label>
-					<input type="text" class="form-control" name="howLearn" id="org-howLearn">
-				</div>
-				
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="org-numRadios"># of Radios:</label>
-							<input type="text" class="form-control" name="numRadios" id="org-numRadios">
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="org-numLicensedBeds"># of License Beds:</label>
-							<input type="text" class="form-control" name="numLicensedBeds" id="org-numLicensedBeds">
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
-							<label for="org-numResidentialUnits"># of Res. Units:</label>
-							<input type="text" class="form-control" name="numResidentialUnits" id="org-numResidentialUnits">
-						</div>
-					</div>
-				</div>
-				
+
+                <div class="form-group">
+                    <label for="org-howLearn">How Organization Learned About Service:</label>
+                    <input type="text" class="form-control" name="howLearn" id="org-howLearn">
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="org-numRadios"># of Radios:</label>
+                            <input type="text" class="form-control" name="numRadios" id="org-numRadios">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="org-numLicensedBeds"># of License Beds:</label>
+                            <input type="text" class="form-control" name="numLicensedBeds" id="org-numLicensedBeds">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="org-numResidentialUnits"># of Res. Units:</label>
+                            <input type="text" class="form-control" name="numResidentialUnits" id="org-numResidentialUnits">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
@@ -163,13 +163,13 @@
                         </div>
                     </div>
                 </div>
-				
-				<div class="form-group">
-					<label for="org-signature">Staff Signature:</label>
-					<input type="text" class="form-control" name="signature" id="org-signature">
-				</div>
-				
-				<div class="row">
+
+                <div class="form-group">
+                    <label for="org-signature">Staff Signature:</label>
+                    <input type="text" class="form-control" name="signature" id="org-signature">
+                </div>
+
+                <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="org-dateRegistered">Date Registered:</label>
@@ -189,36 +189,36 @@
                         </div>
                     </div>
                 </div>
-				
-				<label for="organizationRadios">Radios:</label>
-				<div id="organizationRadios">
-					<div class="table-responsive">
-						<table class="table table-striped table-bordered table-hover table-condensed">
-							<thead>
-								<tr>
-									<th>Radio ID</th>
-									<th>Checked Out</th>
-									<th>Check In</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>123456</td>
-									<td>01/01/2015</td>
-									<td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
-       
-			</div>
-		</div>
-	</form>
-	
-	<button id="newOrganizationSaveBtn" type="button" class="btn btn-primary hidden">Save New Organization</button>
-	<button id="newOrganizationCancelBtn" type="button" class="btn btn-default hidden">Cancel New Organization</button>
+
+                <label for="organizationRadios">Radios:</label>
+                <div id="organizationRadios">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Radio ID</th>
+                                    <th>Checked Out</th>
+                                    <th>Check In</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>123456</td>
+                                    <td>01/01/2015</td>
+                                    <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
+
+            </div>
+        </div>
+    </form>
+
+    <button id="newOrganizationSaveBtn" type="button" class="btn btn-primary hidden">Save New Organization</button>
+    <button id="newOrganizationCancelBtn" type="button" class="btn btn-default hidden">Cancel New Organization</button>
     <button id="organizationSaveBtn" type="button" class="btn btn-primary">Save Changes</button>
     <button id="organizationCancelBtn" type="button" class="btn btn-default">Cancel Changes</button>
 
