@@ -140,7 +140,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Digits", array('StringLength', false, array(10, 11)),
+                "Digits", array('StringLength', false, array(10, 10)),
             ),
         ));
 
@@ -153,7 +153,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Digits", array('StringLength', false, array(10, 11)),
+                "Digits", array('StringLength', false, array(10, 10)),
             ),
         ));
 
@@ -183,7 +183,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
         
-        $listener->addElement('text', 'OtherConditions', array(
+        $listener->addElement('text', 'OtherDisability', array(
             'class' => 'form-control',
             'label' => 'Are there any other medical conditions we should know about? ',
             'placeholder' => 'Other medical conditions? ',

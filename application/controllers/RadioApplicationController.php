@@ -135,23 +135,31 @@ class RadioApplicationController extends Zend_Controller_Action {
         $org = new Application_Model_User('organization');
         
         $org->createUser(array(
+            'dateRegistered' => '0000-00-00',   // Default
+            'ipRegistered' => '',               // Default
             'organizationName' => $organizationVals['OrgName'],
             'organizationType' => $organizationVals['OrgType'],
             'firstName' => $organizationVals['FirstName'],
             'lastName' => $organizationVals['LastName'],
             'positionTitle' => $organizationVals['PositionTitle'],
-            'streetAddress' => $organizationVals['Address'],
-            'altAddress' => $organizationVals['AlternativeAddress'],
+            'street' => $organizationVals['Address'],
+            'streetLine2' => $organizationVals['AlternativeAddress'],
             'city' => $organizationVals['City'],
             'state' => $organizationVals['State'],
             'zip' => $organizationVals['Zip'],
             'phone' => $organizationVals['HomePhone'],
-            'altPhone' => $organizationVals['CellPhone'],
+            'phone2' => $organizationVals['CellPhone'],
             'email' => $organizationVals['Email'],
             'numRadios' => $organizationVals['RadioNum'],
+            'numLicensedBeds' => $organizationVals['LicBedsNum'],
+            'numResidentialUnits' => $organizationVals['ResUnitsNum'],
             'howLearn' => $organizationVals['HowLearn'],
+            'status' => 'Applicant',    // Default
+            'type' => 'Organization',     // Default
+            'medium' => 'Radio',        // Default
             'signature' => $statementVals['Signature'],
             'dateSigned' => $statementVals['SignatureDate'],
+            'notes' => '',
         ));
     }
     
@@ -160,35 +168,43 @@ class RadioApplicationController extends Zend_Controller_Action {
         $user = new Application_Model_User('user');
 
         $user->createUser(array(
+            'dateRegistered' => '0000-00-00',   // Default
+            'ipRegistered' => '',               // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
             'birthday' => $listenerVals['Birthdate'],
             'street' => $listenerVals['Address'],
             'streetLine2' => $listenerVals['AlternativeAddress'],
             'phone' => $listenerVals['HomePhone'],
-            'altPhone' => $listenerVals['CellPhone'],
+            'phone2' => $listenerVals['CellPhone'],
             'city' => $listenerVals['City'],
             'state' => $listenerVals['State'],
             'zip' => $listenerVals['Zip'],
             'email' => $listenerVals['Email'],
-            'contactName' => $contactVals['FirstName'],
+            'contactFirstName' => $contactVals['FirstName'],
+            'contactLastName' => $contactVals['LastName'],
             'contactRelationship' => $contactVals['Relationship'],
             'contactStreet' => $contactVals['Address'],
             'contactStreetLine2' => $contactVals['AlternativeAddress'],
             'contactPhone' => $contactVals['HomePhone'],
-            'contactAltPhone' => $contactVals['CellPhone'],
+            'contactPhone2' => $contactVals['CellPhone'],
             'contactCity' => $contactVals['City'],
             'contactState' => $contactVals['State'],
             'contactZip' => $contactVals['Zip'],
             'contactEmail' => $contactVals['Email'],
             'disability' => $listenerVals['Disability'],
+            'otherDisability' => $listenerVals['OtherDisability'],
             'howLearn' => $listenerVals['HowLearn'],
             'race' => $listenerVals['Race'],
             'income' => $listenerVals['Income'],
             'inHomeNum' => $listenerVals['NumberInHome'],
+            'status' => 'Applicant',    // Default
+            'type' => 'Individual',     // Default
+            'medium' => 'Radio',        // Default
             'signature' => $statementVals['Signature'],
             'dateSigned' => $statementVals['SignatureDate'],
             'mailTo' => $otherInfoVals['MailTo'],
+            'notes' => '',
         ));
     }
 }
