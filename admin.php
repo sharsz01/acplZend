@@ -29,6 +29,7 @@
 
     <body>
         <div id="body">
+			<button type="submit" value="Logout" class="btn btn-primary" style="float: right;" onClick="self.location='login/logout.php'">Logout</button>
             <div class="page-header"><img src="http://www.acpl.lib.in.us/images/default-source/logos/ars-logo-blue-acpl-web-01-final.tmb-medium.png?sfvrsn=3"></div>
 
             <ul class="nav nav-tabs">
