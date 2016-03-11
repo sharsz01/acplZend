@@ -1,5 +1,17 @@
 <div id="radios" class="tab-pane fade">
-    <h3>Radios</h3>
+    <h3 style="float: left;">Radios</h3>
+    
+    <div id="importExport" style="float: right; margin: 10px 0px;">
+        <form method="POST" action="importExport/export.php" style="float: right;">
+            <input type="submit" class="btn btn-primary" name="exportRadios" value="Export" style="float: right;">
+        </form>
+
+        <form action="importExport/import.php" method="POST" enctype="multipart/form-data" style="float: right;">
+            <input type="submit" class="btn btn-default" name="importRadios" value="Upload" style="float: right; margin-right: 20px;">
+            <input type="file" class="btn btn-default" name="userFile" style="float: right; margin-right: 20px;">
+        </form>
+    </div>
+    
     <div id="radioList">
         <div class="panel-group">
             <div class="panel panel-default">
@@ -182,16 +194,6 @@
             </table>
         </div>
     </div>
-    <div id="importExport">
-        <br>
-        <form method="POST" action="importExport/export.php">
-            <input type="submit" name="exportRadios" value="Export">
-        </form>
-        <br>
-        <form action="importExport/import.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="userFile">
-            <input type="submit" name="importRadios" value="Upload">
-        </form>
-    </div>
+    
 </div>
 
