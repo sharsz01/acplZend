@@ -12,6 +12,10 @@ class LoginController extends Zend_Controller_Action
     {
         // action body
     }
+    
+    public function loginAction(){
+        $this->_redirect('../../application/login/loginForm.php');
+    }
 
 
 }

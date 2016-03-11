@@ -1,0 +1,36 @@
+<?php $db = mysqli_connect('localhost', 'root', '', 'audioreadingservice') or die('Error: ' . mysqli_connect_error($db)); ?>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+
+<div id="view-content">
+    <div id="body">
+        <ul class="nav nav-tabs">
+            <li class="active"><a id="home-tab" data-toggle="tab" href="#home">Home</a></li>
+            <li><a id="users-tab" data-toggle="tab" href="#users">Users</a></li>
+            <li><a id="user-details-tab" data-toggle="tab" href="#user-details">User Details</a></li>
+
+            <li><a id="organizations-tab" data-toggle="tab" href="#organizations">Organizations</a></li>
+            <li><a id="organization-details-tab" data-toggle="tab" href="#organization-details">Organization Details</a></li>
+
+            <li><a id="radios-tab" data-toggle="tab" href="#radios">Radios</a></li>
+            <li><a id="radio-details-tab" data-toggle="tab" href="#radio-details">Radio Details</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <?php
+            require('tabs/home.phtml');
+            require('tabs/userList.phtml');
+            require('tabs/userDetails.phtml');
+            require('tabs/organizationList.phtml');
+            require('tabs/organizationDetails.phtml');
+            require('tabs/radioList.phtml');
+            require('tabs/radioDetails.phtml');
+            ?>
+        </div>
+    </div>
+</div>

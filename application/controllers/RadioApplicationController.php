@@ -23,7 +23,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->postData = $form->getValues();
                 $addRadioFormNamespace->lock();
 
-                // redirect to the second stage
+                // redirect to the confirmation page
                 return $this->_redirect('radio-application/confirm');
             }
             else{
@@ -46,7 +46,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->postData = $form->getValues();
                 $addRadioFormNamespace->lock();
 
-                // redirect to the second stage
+                // redirect to the confirmation
                 return $this->_redirect('radio-application/confirm2');
             }
             else{

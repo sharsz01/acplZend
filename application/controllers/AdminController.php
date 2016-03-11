@@ -8,11 +8,15 @@ class AdminController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
-    public function indexAction()
+    public function adminAction()
     {
         // action body
+        $this->_redirect('../../application/admin/admin.php');
+        
     }
 
 
 }
+
+
 
