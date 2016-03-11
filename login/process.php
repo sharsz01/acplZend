@@ -1,37 +1,51 @@
 
 <?php
-
-@session_start();
-
 	$link = mysql_connect("localhost", "root", "") or die("Cannot Connect");
 	mysql_select_db("audioreadingservice", $link) or die("Cannot select database");
-	
-	$q = "select * from login_master where username = '".$_POST['user']."'";
-	
-	$res = mysql_query($q,$link) or die("Wrong query");
-	
-	$row = mysql_fetch_assoc($res);
-	
-	if(!empty($row))
+		
+	if(isset($_COOKIE["user"]) && isset($_COOKIE["pass"]))
 	{
-                if(md5($_POST['pass'])==$row['password'])
-		//if(md5($_POST['pass'])==$row['password'])
+		$res = mysql_query("select * from login_master where username = '".$_COOKIE['user']."'");
+		$row = mysql_fetch_assoc($res);
+		
+		if(md5($_COOKIE["pass"])==$row['password'])
 		{
-			//login
-			$_SESSION = array();
-			
+			$_SESSION["authenticated"] = true;
 			$_SESSION["user"] = $row['username'];
-			$_SESSION["userid"] = $row["id"];
+			$_SESSION["userid"] = $row['id'];
+			
+			setcookie("user", $_POST["user"], time() + 7 * 24 * 60 * 60);
+			setcookie("pass", $_POST["pass"], time() + 7 * 24 * 60 * 60);
 			
 			header("location:redirect.php");
 		}
 		else
 		{
-			echo "<script>alert('Wrong username and/or password');window.location.href='loginForm.html';</script>";
+			echo "<script>alert('Wrong username and/or password');window.location.href='loginForm.php';</script>";
 		}
 	}
-	else
+	else if(isset($_POST['submit']))
 	{
-		echo "<script>alert('No such user');window.location.href='loginForm.html';</script>";
+		$res = mysql_query("select * from login_master where username = '".$_POST['user']."'");
+		$row = mysql_fetch_assoc($res);
+		
+		if(md5($_POST['pass'])==$row['password'])
+		{
+			$_SESSION["authenticated"] = true;
+			$_SESSION["user"] = $row['username'];
+			$_SESSION["userid"] = $row['id'];
+			
+			setcookie("user", $_POST["user"], time() + 7 * 24 * 60 * 60);
+			if($_POST["keep"])
+			{
+				setcookie("pass", $_POST["pass"], time() + 7 * 24 * 60 * 60);
+			}
+			
+			header("location:redirect.php");
+		}
+		else
+		{
+			echo "<script>alert('Wrong username and/or password');window.location.href='loginForm.php';</script>";
+		}
 	}
 ?>
