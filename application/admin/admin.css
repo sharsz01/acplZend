@@ -1,0 +1,56 @@
+body {
+	background-color: #fefefe;
+}
+
+#body {
+	margin: 1em;
+}
+
+#alertList {
+	height: 50em;
+	overflow: scroll;
+	border: 1px solid #bbb;
+	padding: 1em;
+	width: 100%;
+}
+
+#userList, #radioList {
+	height: 50em;
+	overflow: scroll;
+	border: 1px solid #ccc;
+	padding: 1em;
+	width: 100%;
+	cursor: pointer; 
+}
+
+#tabRow button {
+	margin: 0.5em;
+}
+
+#saveBtn {
+	margin: 0.5em;
+}
+
+#cancelBtn {
+	margin: 0.5em;
+}
+
+#userRadios {
+	height: 10em;
+	overflow: scroll;
+	border: 1px solid #ccc;
+	padding: 1em;
+	width: 100%;
+}
+
+#radioCheckouts {
+	height: 30em;
+	overflow: scroll;
+	border: 1px solid #ccc;
+	padding: 1em;
+	width: 100%;
+}
+
+.hidden {
+	display: hidden;
+}
