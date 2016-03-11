@@ -8,17 +8,17 @@ $SQL = "INSERT INTO organization (dateRegistered, ipRegistered, organizationName
         . "organizationType, firstName, lastName, positionTitle, street, streetLine2"
         . "city, state, zip, phone, phone2, email, numRadios, numLicensedBeds,"
         . "numResidentialUnits, howLearn, signature, dateSigned, notes)" .
-        "VALUES ('" . $_REQUEST['dateRegistered'] . "', '" . $_REQUEST['ipRegistered']
-        . "', '" . $_REQUEST['organizationName'] . "', '" . $_REQUEST['organizationType']
-        . "', '" . $_REQUEST['firstName'] . "', '" . $_REQUEST['lastName']
-        . "', '" . $_REQUEST['positionTitle'] . "', '" . $_REQUEST['street']
-        . "', '" . $_REQUEST['streetLine2'] . "', '" . $_REQUEST['city']
-        . "', '" . $_REQUEST['state'] . "', '" . $_REQUEST['zip']
-        . "', '" . $_REQUEST['phone'] . "', '" . $_REQUEST['phone2']
-        . "', '" . $_REQUEST['email'] . "', '" . $_REQUEST['numRadios']
-		. "', '" . $_REQUEST['numLicensedBeds'] . "', '" . $_REQUEST['numResidentialUnits']
-        . "', '" . $_REQUEST['howLearn'] . "', '" . $_REQUEST['signature']
-        . "', '" . $_REQUEST['dateSigned'] . "', '" . $_REQUEST['notes']
+        "VALUES ('" . $_REQUEST['org-dateRegistered'] . "', '" . $_REQUEST['org-ipRegistered']
+        . "', '" . $_REQUEST['org-organizationName'] . "', '" . $_REQUEST['org-organizationType']
+        . "', '" . $_REQUEST['org-firstName'] . "', '" . $_REQUEST['org-lastName']
+        . "', '" . $_REQUEST['org-positionTitle'] . "', '" . $_REQUEST['org-street']
+        . "', '" . $_REQUEST['org-streetLine2'] . "', '" . $_REQUEST['org-city']
+        . "', '" . $_REQUEST['org-state'] . "', '" . $_REQUEST['org-zip']
+        . "', '" . $_REQUEST['org-phone'] . "', '" . $_REQUEST['org-phone2']
+        . "', '" . $_REQUEST['org-email'] . "', '" . $_REQUEST['org-numRadios']
+        . "', '" . $_REQUEST['org-numLicensedBeds'] . "', '" . $_REQUEST['org-numResidentialUnits']
+        . "', '" . $_REQUEST['org-howLearn'] . "', '" . $_REQUEST['org-signature']
+        . "', '" . $_REQUEST['org-dateSigned'] . "', '" . $_REQUEST['org-notes']
         . "')";
 
 $result = mysqli_query($db, $SQL);

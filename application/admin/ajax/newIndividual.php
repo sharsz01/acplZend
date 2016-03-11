@@ -5,25 +5,25 @@ require('config/dbConnect.php');
 $return = array();
 
 $SQL = "INSERT INTO user (dateRegistered, ipRegistered, firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, phone2, email, contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, status, type, medium, signature, dateSigned, mailTo, notes)" .
-        "VALUES ('" . isset($_REQUEST['dateRegistered']) . "', '" . isset($_REQUEST['ipRegistered'])
-        . "', '" . isset($_REQUEST['firstName']) . "', '" . isset($_REQUEST['lastName'])
-        . "', '" . isset($_REQUEST['birthday']) . "', '" . isset($_REQUEST['street'])
-        . "', '" . isset($_REQUEST['streetLine2']) . "', '" . isset($_REQUEST['city']) 
-        . "', '" . isset($_REQUEST['state']) . "', '" . isset($_REQUEST['zip']) 
-        . "', '" . isset($_REQUEST['phone']) . "', '" . isset($_REQUEST['phone2']) 
-        . "', '" . isset($_REQUEST['email']) . "', '" . isset($_REQUEST['contactFirstName']) 
-        . "', '" . isset($_REQUEST['contactLastName']) . "', '" . isset($_REQUEST['contactRelationship'])
-        . "', '" . isset($_REQUEST['contactStreet']) . "', '" . isset($_REQUEST['contactStreetLine2'])
-        . "', '" . isset($_REQUEST['contactCity']) . "', '" . isset($_REQUEST['contactState'])
-        . "', '" . isset($_REQUEST['contactZip']) . "', '" . isset($_REQUEST['contactPhone'])
-        . "', '" . isset($_REQUEST['contactPhone2']) . "', '" . isset($_REQUEST['contactEmail'])
-        . "', '" . isset($_REQUEST['disability']) . "', '" . isset($_REQUEST['otherDisability'])
-		. "', '" . isset($_REQUEST['howLearn']) . "', '" . isset($_REQUEST['race']) 
-		. "', '" . isset($_REQUEST['income']) . "', '" . isset($_REQUEST['inHomeNum']) 
-		. "', '" . isset($_REQUEST['status']) . "', '" . isset($_REQUEST['type'])
-		. "', '" . isset($_REQUEST['medium']) . "', '" . isset($_REQUEST['signature'])
-        . "', '" . isset($_REQUEST['dateSigned']) . "', '" . isset($_REQUEST['mailTo'])
-        . "', '" . isset($_REQUEST['notes']) . "')";
+        "VALUES ('" . $_REQUEST['ind-dateRegistered'] . "', '" . $_REQUEST['ind-ipRegistered']
+        . "', '" . $_REQUEST['ind-firstName'] . "', '" . $_REQUEST['ind-lastName']
+        . "', '" . $_REQUEST['ind-birthday'] . "', '" . $_REQUEST['ind-street']
+        . "', '" . $_REQUEST['ind-streetLine2'] . "', '" . $_REQUEST['ind-city']
+        . "', '" . $_REQUEST['ind-state'] . "', '" . $_REQUEST['ind-zip']
+        . "', '" . $_REQUEST['ind-phone'] . "', '" . $_REQUEST['ind-phone2']
+        . "', '" . $_REQUEST['ind-email'] . "', '" . $_REQUEST['ind-contactFirstName']
+        . "', '" . $_REQUEST['ind-contactLastName'] . "', '" . $_REQUEST['ind-contactRelationship']
+        . "', '" . $_REQUEST['ind-contactStreet'] . "', '" . $_REQUEST['ind-contactStreetLine2']
+        . "', '" . $_REQUEST['ind-contactCity'] . "', '" . $_REQUEST['ind-contactState']
+        . "', '" . $_REQUEST['ind-contactZip'] . "', '" . $_REQUEST['ind-contactPhone']
+        . "', '" . $_REQUEST['ind-contactPhone2'] . "', '" . $_REQUEST['ind-contactEmail']
+        . "', '" . $_REQUEST['ind-disability'] . "', '" . $_REQUEST['ind-otherDisability']
+        . "', '" . $_REQUEST['ind-howLearn'] . "', '" . $_REQUEST['ind-race']
+        . "', '" . $_REQUEST['ind-income'] . "', '" . $_REQUEST['ind-inHomeNum']
+        . "', '" . $_REQUEST['ind-status'] . "', '" . $_REQUEST['ind-type']
+        . "', '" . $_REQUEST['ind-medium'] . "', '" . $_REQUEST['ind-signature']
+        . "', '" . $_REQUEST['ind-dateSigned'] . "', '" . $_REQUEST['ind-mailTo']
+        . "', '" . $_REQUEST['ind-notes'] . "')";
 
 $result = mysqli_query($db, $SQL);
 

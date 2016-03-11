@@ -5,18 +5,18 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['dateRegistered'] . "', ipRegistered='" . $_REQUEST['ipRegistered']
-        . "', organizationName='" . $_REQUEST['organizationName'] . "', organizationType='" . $_REQUEST['organizationType']
-        . "', firstName='" . $_REQUEST['firstName'] . "', lastName='" . $_REQUEST['lastName']
-        . "', positionTitle='" . $_REQUEST['positionTitle'] . "', street='" . $_REQUEST['street']
-        . "', streetLine2='" . $_REQUEST['streetLine2'] . "', city='" . $_REQUEST['city']
-        . "', state='" . $_REQUEST['state'] . "', zip='" . $_REQUEST['zip']
-        . "', phone='" . $_REQUEST['phone'] . "', phone2='" . $_REQUEST['phone2']
-        . "', email='" . $_REQUEST['email'] . "', numRadios='" . $_REQUEST['numRadios']
-		. "', numLicensedBeds='" . $_REQUEST['numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['numResidentialUnits']
-        . "', howLearn='" . $_REQUEST['howLearn'] . "', signature='" . $_REQUEST['signature']
-        . "', dateSigned='" . $_REQUEST['dateSigned'] . "', notes='" . $_REQUEST['notes']
-        . "' WHERE organizationId='" . $_REQUEST['organizationId'] . "';";
+$SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistered'] . "', ipRegistered='" . $_REQUEST['org-ipRegistered']
+        . "', organizationName='" . $_REQUEST['org-organizationName'] . "', organizationType='" . $_REQUEST['org-organizationType']
+        . "', firstName='" . $_REQUEST['org-firstName'] . "', lastName='" . $_REQUEST['org-lastName']
+        . "', positionTitle='" . $_REQUEST['org-positionTitle'] . "', street='" . $_REQUEST['org-street']
+        . "', streetLine2='" . $_REQUEST['org-streetLine2'] . "', city='" . $_REQUEST['org-city']
+        . "', state='" . $_REQUEST['org-state'] . "', zip='" . $_REQUEST['org-zip']
+        . "', phone='" . $_REQUEST['org-phone'] . "', phone2='" . $_REQUEST['org-phone2']
+        . "', email='" . $_REQUEST['org-email'] . "', numRadios='" . $_REQUEST['org-numRadios']
+		. "', numLicensedBeds='" . $_REQUEST['org-numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['org-numResidentialUnits']
+        . "', howLearn='" . $_REQUEST['org-howLearn'] . "', signature='" . $_REQUEST['org-signature']
+        . "', dateSigned='" . $_REQUEST['org-dateSigned'] . "', notes='" . $_REQUEST['org-notes']
+        . "' WHERE organizationId='" . $_REQUEST['org-organizationId'] . "';";
 
 $result = mysqli_query($db, $SQL);
 

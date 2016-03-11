@@ -5,30 +5,29 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE user SET dateRegistered='".$_REQUEST['dateRegistered']."', ipRegistered='".$_REQUEST['ipRegistered']
-        . "', firstName='".$_REQUEST['firstName']."', lastName='".$_REQUEST['lastName']
-        . "', birthday='".$_REQUEST['birthday']."', street='".$_REQUEST['street']
-        . "', streetLine2='".$_REQUEST['streetLine2']."', city='".$_REQUEST['city']
-	    . "', state='".$_REQUEST['state']."', zip='".$_REQUEST['zip']
-        . "', phone='".$_REQUEST['phone']."', phone='".$_REQUEST['phone2']
-        . "', email='" . $_REQUEST['email'] . "', contactFirstName='" . $_REQUEST['contactFirstName']
-        . "', contactFirstName='" . $_REQUEST['contactFirstName'] . "', contactRelationship='" . $_REQUEST['contactRelationship']
-        . "', contactStreet='" . $_REQUEST['contactStreet'] . "', contactStreetLine2='" . $_REQUEST['contactStreetLine2']
-        . "', contactCity='" . $_REQUEST['contactCity'] . "', contactState='" . $_REQUEST['contactState']
-        . "', contactZip='" . $_REQUEST['contactZip'] . "', contactPhone='" . $_REQUEST['contactPhone']
-        . "', contactPhone2='" . $_REQUEST['contactPhone2'] . "', contactEmail='" . $_REQUEST['contactEmail']
-        . "', disability='" . $_REQUEST['disability'] . "', otherDisability='" . $_REQUEST['otherDisability'] . "', howLearn='" . $_REQUEST['howLearn']
-        . "', race='" . $_REQUEST['race'] . "', income='" . $_REQUEST['income']
-        . "', inHomeNum='" . $_REQUEST['inHomeNum'] . "', status='" . $_REQUEST['status'] 
-		. "', type='" . $_REQUEST['type'] . "', medium='" . $_REQUEST['medium']
-		. "', signature='" . $_REQUEST['signature'] . "', dateSigned='" . $_REQUEST['dateSigned']
-        . "', mailTo='" . $_REQUEST['mailTo'] . "', notes='" . $_REQUEST['notes']
-	. "' WHERE userId='".$_REQUEST['userId']."';";
+$SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered'] . "', ipRegistered='" . $_REQUEST['ind-ipRegistered']
+        . "', firstName='" . $_REQUEST['ind-firstName'] . "', lastName='" . $_REQUEST['ind-lastName']
+        . "', birthday='" . $_REQUEST['ind-birthday'] . "', street='" . $_REQUEST['ind-street']
+        . "', streetLine2='" . $_REQUEST['ind-streetLine2'] . "', city='" . $_REQUEST['ind-city']
+        . "', state='" . $_REQUEST['ind-state'] . "', zip='" . $_REQUEST['ind-zip']
+        . "', phone='" . $_REQUEST['ind-phone'] . "', phone='" . $_REQUEST['ind-phone2']
+        . "', email='" . $_REQUEST['ind-email'] . "', contactFirstName='" . $_REQUEST['ind-contactFirstName']
+        . "', contactFirstName='" . $_REQUEST['ind-contactFirstName'] . "', contactRelationship='" . $_REQUEST['ind-contactRelationship']
+        . "', contactStreet='" . $_REQUEST['ind-contactStreet'] . "', contactStreetLine2='" . $_REQUEST['ind-contactStreetLine2']
+        . "', contactCity='" . $_REQUEST['ind-contactCity'] . "', contactState='" . $_REQUEST['ind-contactState']
+        . "', contactZip='" . $_REQUEST['ind-contactZip'] . "', contactPhone='" . $_REQUEST['ind-contactPhone']
+        . "', contactPhone2='" . $_REQUEST['ind-contactPhone2'] . "', contactEmail='" . $_REQUEST['ind-contactEmail']
+        . "', disability='" . $_REQUEST['ind-disability'] . "', otherDisability='" . $_REQUEST['ind-otherDisability'] . "', howLearn='" . $_REQUEST['ind-howLearn']
+        . "', race='" . $_REQUEST['ind-race'] . "', income='" . $_REQUEST['ind-income']
+        . "', inHomeNum='" . $_REQUEST['ind-inHomeNum'] . "', status='" . $_REQUEST['ind-status']
+        . "', type='" . $_REQUEST['ind-type'] . "', medium='" . $_REQUEST['ind-medium']
+        . "', signature='" . $_REQUEST['ind-signature'] . "', dateSigned='" . $_REQUEST['ind-dateSigned']
+        . "', mailTo='" . $_REQUEST['ind-mailTo'] . "', notes='" . $_REQUEST['ind-notes']
+        . "' WHERE userId='" . $_REQUEST['ind-userId'] . "';";
 
 $result = mysqli_query($db, $SQL);
 
 $return['success'] = $result;
 
 echo json_encode($return);
-
 ?>
