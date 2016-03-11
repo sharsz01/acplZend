@@ -75,6 +75,15 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
+        /*
+        $listener->addElement('date', 'Birthdate', array(
+            'class' => 'form-control',
+            'label' => 'Date of Birth *',
+            'required' => false,    // change to true when ready
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+        ));
+        */
+        
         $listener->addElement('text', 'Birthdate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date of Birth *',
