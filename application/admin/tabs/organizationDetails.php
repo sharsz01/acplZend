@@ -147,7 +147,7 @@
                             <label for="org-type">Type:</label>
                             <select class="form-control" name="org-type" id="org-type">
                                 <option>Individual</option>
-                                <option>Organization</option>
+                                <option selected="selected">Organization</option>
                             </select>
                         </div>
                     </div>
@@ -170,22 +170,16 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="org-dateRegistered">Date Registered:</label>
                             <input type="text" class="form-control" name="org-dateRegistered" id="org-dateRegistered">
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="org-ipRegistered">IP Registered:</label>
                             <input type="text" class="form-control" name="org-ipRegistered" id="org-ipRegistered">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="org-dateSigned">Date Signed:</label>
-                            <input type="text" class="form-control" name="org-dateSigned" id="org-dateSigned">
                         </div>
                     </div>
                 </div>
