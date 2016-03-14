@@ -14,7 +14,7 @@ body {
 	width: 100%;
 }
 
-#userList, #radioList {
+#userList, #radioList, #organizationList {
 	height: 50em;
 	overflow: scroll;
 	border: 1px solid #ccc;

@@ -1,5 +1,5 @@
 <div id = "organizations" class="tab-pane fade">
-    <h3>Organizations</h3>
+    <h3 style="float: left;">Organizations</h3>
 
     <div id="importExport" style="float: right; margin: 10px 0px;">
         <form method="POST" action="importExport/export.php" style="float: right;">
