@@ -15,7 +15,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $form = new Application_Form_RadioApplicationForm();
 
         if ($this->getRequest()->isPost()) {
-            
+
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -25,20 +25,19 @@ class RadioApplicationController extends Zend_Controller_Action {
 
                 // redirect to the confirmation page
                 return $this->_redirect('radio-application/confirm');
-            }
-            else{
+            } else {
                 
             }
         }
         $this->view->form = $form;
     }
-    
-    public function organizationFormAction(){
+
+    public function organizationFormAction() {
         $request = $this->getRequest();
         $form = new Application_Form_OrganizationForm();
-        
+
         if ($this->getRequest()->isPost()) {
-            
+
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -48,8 +47,7 @@ class RadioApplicationController extends Zend_Controller_Action {
 
                 // redirect to the confirmation
                 return $this->_redirect('radio-application/confirm2');
-            }
-            else{
+            } else {
                 
             }
         }
@@ -57,7 +55,6 @@ class RadioApplicationController extends Zend_Controller_Action {
     }
 
     // ========================================================== confirmation actions
-    
     // Confirmation for individual form
     public function confirmAction() {
         // retrieve data saved in the first stage
@@ -71,7 +68,7 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid(filter_input_array(INPUT_POST))) {
-                
+
                 // add to database, etc.
                 $listenerVals = $sessionData->postData['listenerForm'];
                 $contactVals = $sessionData->postData['contactForm'];
@@ -104,10 +101,10 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid(filter_input_array(INPUT_POST))) {
-                
+
                 // add to database, etc.
-                $organizationVals = $sessionData->postData['organization'];
-                $statementVals = $sessionData->postData['statement'];
+                $organizationVals = $sessionData->postData['organizationForm'];
+                $statementVals = $sessionData->postData['statementForm'];
                 //$closingVals = $sessionData->postData['closing'];
 
                 $this->insertOrganizationRecord($organizationVals, $statementVals);
@@ -122,21 +119,21 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         $this->view->form = $form;
     }
+
     // ==========================================================
-    
+
     public function successAction() {
         // returns the success message upon form submission
     }
 
-    
     // ========================================================== helper methods
-    
-    public function insertOrganizationRecord($organizationVals, $statementVals){
+
+    public function insertOrganizationRecord($organizationVals, $statementVals) {
         $org = new Application_Model_User('organization');
-        
+
         $org->createUser(array(
-            'dateRegistered' => '0000-00-00',   // Default
-            'ipRegistered' => '',               // Default
+            'dateRegistered' => '0000-00-00', // Default
+            'ipRegistered' => '', // Default
             'organizationName' => $organizationVals['OrgName'],
             'organizationType' => $organizationVals['OrgType'],
             'firstName' => $organizationVals['FirstName'],
@@ -147,29 +144,28 @@ class RadioApplicationController extends Zend_Controller_Action {
             'city' => $organizationVals['City'],
             'state' => $organizationVals['State'],
             'zip' => $organizationVals['Zip'],
-            'phone' => $organizationVals['HomePhone'],
+            'phone' => $organizationVals['OfficePhone'],
             'phone2' => $organizationVals['CellPhone'],
             'email' => $organizationVals['Email'],
             'numRadios' => $organizationVals['RadioNum'],
             'numLicensedBeds' => $organizationVals['LicBedsNum'],
             'numResidentialUnits' => $organizationVals['ResUnitsNum'],
             'howLearn' => $organizationVals['HowLearn'],
-            'status' => 'Applicant',    // Default
-            'type' => 'Organization',     // Default
-            'medium' => 'Radio',        // Default
+            'status' => 'Applicant', // Default
+            'type' => 'Organization', // Default
+            'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => $statementVals['SignatureDate'],
+            'dateSigned' => date("Y-m-d"),
             'notes' => '',
         ));
     }
-    
-    
-    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {        
+
+    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
         $user = new Application_Model_User('user');
 
         $user->createUser(array(
-            'dateRegistered' => '0000-00-00',   // Default
-            'ipRegistered' => '',               // Default
+            'dateRegistered' => '0000-00-00', // Default
+            'ipRegistered' => '', // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
             'birthday' => $listenerVals['Birthdate'],
@@ -198,13 +194,14 @@ class RadioApplicationController extends Zend_Controller_Action {
             'race' => $listenerVals['Race'],
             'income' => $listenerVals['Income'],
             'inHomeNum' => $listenerVals['NumberInHome'],
-            'status' => 'Applicant',    // Default
-            'type' => 'Individual',     // Default
-            'medium' => 'Radio',        // Default
+            'status' => 'Applicant', // Default
+            'type' => 'Individual', // Default
+            'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => $statementVals['SignatureDate'],
+            'dateSigned' => date("Y-m-d"),
             'mailTo' => $otherInfoVals['MailTo'],
             'notes' => '',
         ));
     }
+
 }
