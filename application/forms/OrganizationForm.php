@@ -9,6 +9,10 @@ class Application_Form_OrganizationForm extends Zend_Form {
         $organization = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
         
+        // Set subform where elements belong to avoid name clashing
+        $organization->setElementsBelongTo('organizationForm');
+        $statement->setElementsBelongTo('statementForm');
+        
         // subform section names
         //$organization->setLegend("ORGANIZATION");
         //$statement->setLegend("STATEMENT OF AGREEMENT AND RESPONSIBILITY");
@@ -141,8 +145,8 @@ class Application_Form_OrganizationForm extends Zend_Form {
             ),
         ));
 
-        $organization->addElement('text', 'HomePhone', array(
-            'id' => 'HomePhone',
+        $organization->addElement('text', 'OfficePhone', array(
+            'id' => 'OfficePhone',
             'class' => 'form-control',
             'label' => 'Office Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
@@ -180,6 +184,14 @@ class Application_Form_OrganizationForm extends Zend_Form {
                 'EmailAddress',
             ),
         ));
+        
+        /*
+        $organization->addElement('checkbox', 'LicBedsCheck', array(
+           'id' => 'bNum',
+           'class' => 'checkbox-inline big-checkbox',
+           'label' => 'My hospital provides a system-wide signal',
+        ));
+        */
         
         $organization->addElement('text', 'RadioNum', array(
             'id' => 'radioNum',
@@ -247,12 +259,14 @@ class Application_Form_OrganizationForm extends Zend_Form {
             ),
         ));
 
+        /*
         $statement->addElement('text', 'SignatureDate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date *',
             //'required' => true,   // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
+        */
         
         $statement->addElement('checkbox', 'Agree', array(
             'id' => 'agree',

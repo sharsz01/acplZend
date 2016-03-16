@@ -10,12 +10,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact = new Zend_Form_SubForm();
         $otherInfo = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
-		
-		// Set subform where elements belong to avoid name clashing
-		$listener->setElementsBelongTo('listenerForm');
-		$contact->setElementsBelongTo('contactForm');
-		$otherInfo->setElementsBelongTo('otherInfoForm');
-		$statement->setElementsBelongTo('statmentForm');
+
+        // Set subform where elements belong to avoid name clashing
+        $listener->setElementsBelongTo('listenerForm');
+        $contact->setElementsBelongTo('contactForm');
+        $otherInfo->setElementsBelongTo('otherInfoForm');
+        $statement->setElementsBelongTo('statmentForm');
 
         //$listener->setElementDecorators(array('ViewHelper', 'Label'));
         //$statement->setElementDecorators(array('ViewHelper', 'Label'));
@@ -82,18 +82,18 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         /*
-        $listener->addElement('date', 'Birthdate', array(
-            'class' => 'form-control',
-            'label' => 'Date of Birth *',
-            'required' => false,    // change to true when ready
-            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-        ));
-        */
-        
+          $listener->addElement('date', 'Birthdate', array(
+          'class' => 'form-control',
+          'label' => 'Date of Birth *',
+          'required' => false,    // change to true when ready
+          'decorators' => array('ViewHelper', 'Label', 'Errors'),
+          ));
+         */
+
         $listener->addElement('text', 'Birthdate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date of Birth *',
-            'required' => false,    // change to true when ready
+            'required' => false, // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
 
@@ -197,7 +197,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('Alnum', true, array('allowWhiteSpace' => true)),
             ),
         ));
-        
+
         $listener->addElement('text', 'OtherDisability', array(
             'class' => 'form-control',
             'label' => 'Are there any other medical conditions we should know about? ',
@@ -292,7 +292,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 //        ));
 //        $listener->getElement('LargePrint')->setCheckedValue('Yes');
 //        $listener->getElement('LargePrint')->setUnCheckedValue('No');
-
     }
 
     public function addContactFields($contact) {
@@ -443,7 +442,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('Alpha', true, array('allowWhiteSpace' => true)),
             ),
         ));
-        
+
         $statement->addElement('text', 'SignatureDate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date * ',
