@@ -115,13 +115,13 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Signature of Responsible Party:</div>
         <div class="panel-body">
-            <?php echo $statementData['Signature']; ?>
+            <?php echo $statementData['Signature'] . " submitted form on: " . date("F j, Y"); ?>
         </div>
     </div>
 
     <!--// =================================================-->
     <?php
-    $this->form->setAction($this->url());
-    echo $this->form;
+        $this->form->setAction($this->url());
+        echo $this->form;
     ?>
 </div>

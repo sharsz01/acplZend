@@ -63,7 +63,7 @@ include "header2.phtml";
 
         <div class="form-group">
             <div class="col-sm-5">
-                <?php echo $this->form->organization->HomePhone; ?>
+                <?php echo $this->form->organization->OfficePhone; ?>
             </div>
 
             <div class="col-sm-4">
@@ -102,10 +102,12 @@ include "header2.phtml";
         
         <div class="form-group">
             <div class="col-sm-9">
+                
                 <input id="bNum" class="checkbox-inline big-checkbox" type="checkbox" value="">
                 <label for="bNum" class="side-label">
                     My hospital provides a system-wide signal.
                 </label>
+                
             </div>
             
             <div class="col-sm-5 m-left">
@@ -151,7 +153,7 @@ include "header2.phtml";
                 <?php echo $this->form->statement->Signature; ?>
             </div>
             <div class="col-sm-5">
-                <?php echo $this->form->statement->SignatureDate; ?>
+                <?php //echo $this->form->statement->SignatureDate; ?>
             </div>
         </div>
 
@@ -198,10 +200,11 @@ include "header2.phtml";
         
         // chosen inputs disabled by default
         function disableDefaults(){
-            $('#radioNum').attr('disabled', 'disabled');
-            $('#licBedsNum').attr('disabled', 'disabled');
-            $('#resUnitsNum').attr('disabled', 'disabled');
+            //$('#radioNum').attr('disabled', 'disabled');
+            //$('#licBedsNum').attr('disabled', 'disabled');
+            //$('#resUnitsNum').attr('disabled', 'disabled');
             
+            $('#agree').attr('checked', false);
             $('#submit').attr('disabled', 'disabled');
         }
         
@@ -217,7 +220,7 @@ include "header2.phtml";
            } 
            else{
                $('#radioNum').attr('disabled', 'disabled');
-               clearText('#radioNum');
+               //clearText('#radioNum');
            }
         });
         
@@ -227,7 +230,7 @@ include "header2.phtml";
            } 
            else{
                $('#licBedsNum').attr('disabled', 'disabled');
-               clearText('#licBedsNum');
+               //clearText('#licBedsNum');
            }
         });
         
@@ -237,7 +240,7 @@ include "header2.phtml";
            } 
            else{
                $('#resUnitsNum').attr('disabled', 'disabled');
-               clearText('#resUnitsNum');
+               //clearText('#resUnitsNum');
            }
         });
         
@@ -249,6 +252,18 @@ include "header2.phtml";
             else {
                 $('#submit').removeAttr('disabled');
             }
+        });
+        
+        $('#submit').click(function(){
+           if(!$('#rNum').is(':checked')){
+               clearText('#radioNum');
+           }
+           if(!$('#bNum').is(':checked')){
+               clearText('#licBedsNum');
+           }
+           if(!$('#uNum').is(':checked')){
+               clearText('#resUnitsNum');
+           }
         });
         
         // ================================================ Refactor to function
