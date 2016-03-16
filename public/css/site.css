@@ -28,12 +28,24 @@ nav a{
 
 // ============================ nav
 
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th{  
+    border-collapse: collapse;
+    border: none;
+}
 
+
+.panel{
+    margin: 20px;
+}
+
+.review-label{
+    text-align: right;
+}
 
 
 // ==============================
 .lbl{
-   color: #002EB8;
+    color: #002EB8;
     font-size: 18px; 
 }
 
