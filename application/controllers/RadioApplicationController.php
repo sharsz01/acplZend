@@ -73,10 +73,10 @@ class RadioApplicationController extends Zend_Controller_Action {
             if ($form->isValid(filter_input_array(INPUT_POST))) {
                 
                 // add to database, etc.
-                $listenerVals = $sessionData->postData['listener'];
-                $contactVals = $sessionData->postData['contact'];
-                $otherInfoVals = $sessionData->postData['otherInfo'];
-                $statementVals = $sessionData->postData['statement'];
+                $listenerVals = $sessionData->postData['listenerForm'];
+                $contactVals = $sessionData->postData['contactForm'];
+                $otherInfoVals = $sessionData->postData['otherInfoForm'];
+                $statementVals = $sessionData->postData['statementForm'];
 
                 $this->insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals);
 

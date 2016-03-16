@@ -10,6 +10,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $contact = new Zend_Form_SubForm();
         $otherInfo = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
+		
+		// Set subform where elements belong to avoid name clashing
+		$listener->setElementsBelongTo('listenerForm');
+		$contact->setElementsBelongTo('contactForm');
+		$otherInfo->setElementsBelongTo('otherInfoForm');
+		$statement->setElementsBelongTo('statmentForm');
 
         //$listener->setElementDecorators(array('ViewHelper', 'Label'));
         //$statement->setElementDecorators(array('ViewHelper', 'Label'));
@@ -274,10 +280,10 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'class' => 'checkbox-inline big-checkbox',
             'label' => 'Choose Your Preferred Format (Maximum of 2)',
             'multioptions' => array(
-                '1' => ' Large Print',
-                '2' => ' Braille',
-                '3' => ' Audio CD',
-                '4' => ' Email',
+                'Large Print' => ' Large Print',
+                'Braille' => ' Braille',
+                'Audio CD' => ' Audio CD',
+                'Email' => ' Email',
             )
         ));
 //
