@@ -15,7 +15,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $listener->setElementsBelongTo('listenerForm');
         $contact->setElementsBelongTo('contactForm');
         $otherInfo->setElementsBelongTo('otherInfoForm');
-        $statement->setElementsBelongTo('statmentForm');
+        $statement->setElementsBelongTo('statementForm');
 
         //$listener->setElementDecorators(array('ViewHelper', 'Label'));
         //$statement->setElementDecorators(array('ViewHelper', 'Label'));
@@ -90,13 +90,23 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
           ));
          */
 
+        /*
         $listener->addElement('text', 'Birthdate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date of Birth *',
             'required' => false, // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
-
+        */
+        
+        $listener->addElement('text', 'Birthdate', array(
+            'class' => 'form-control date',
+            'placeholder' => 'ex. mm-dd-YYYY',
+            'label' => 'Date of Birth *',
+            'required' => false,    // change to true
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+        ));
+        
         $listener->addElement('text', 'Address', array(
             'class' => 'form-control',
             'label' => 'Street Address *',
@@ -147,7 +157,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'HomePhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Home Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
@@ -160,7 +170,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'CellPhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Cell Phone ',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
@@ -350,9 +360,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'HomePhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Home Phone *',
-            'placeholder' => 'Home Phone ',
+            'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
             'required' => true,
             'filters' => array('Digits', 'StringTrim'),
@@ -363,9 +373,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'CellPhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Cell Phone',
-            'placeholder' => 'Cell Phone ',
+            'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
             'required' => false,
             'filters' => array('Digits', 'StringTrim'),
@@ -425,8 +435,8 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'class' => 'radio-inline big-radio',
             'label' => 'Please Check One *',
             'multiOptions' => array(
-                'toListener' => ' Mail radio to listener',
-                'toContact' => ' Mail radio to contact person',
+                'Listener' => ' Mail radio to listener',
+                'Contact' => ' Mail radio to contact person',
             ),
             'required' => true,
         ));
@@ -443,12 +453,13 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
+        /*
         $statement->addElement('text', 'SignatureDate', array(
             'class' => 'dateselector-fdt',
             'label' => 'Date * ',
             //'required' => true,   // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-        ));
+        ));*/
 
 //        $statement->addElement('date', 'SignatureDate', array(
 //            'class' => 'form-control',
