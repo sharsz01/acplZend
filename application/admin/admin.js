@@ -306,5 +306,77 @@ $(document).ready(function () {
     });
 
 
+    // ====================================================== UI functionality
+    var userDTable = $('#usersTable').DataTable({
+        "scrollCollapse": true,
+        "paging": false,
+        "bFilter": false,
+        "bInfo": false
+    });
+    
+    var userDTable = $('#organizationsTable').DataTable({
+        "scrollCollapse": true,
+        "paging": false,
+        "bFilter": false,
+        "bInfo": false
+    });
+    
+    var userDTable = $('#radiosTable').DataTable({
+        "scrollCollapse": true,
+        "paging": false,
+        "bFilter": false,
+        "bInfo": false
+    });
+
+    //addSortable('#usersTable');
+    /*
+    function addSortable(id) {
+        // sort users
+        $(id).click(function () {
+            var table = $(this).parents('table').eq(0);
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()));
+            this.asc = !this.asc;
+            if (!this.asc) {
+                rows = rows.reverse();
+            }
+            for (var i = 0; i < rows.length; i++) {
+                table.append(rows[i]);
+            }
+        });
+        function comparer(index) {
+            return function (a, b) {
+                var valA = getCellValue(a, index), valB = getCellValue(b, index);
+                return $.isNumerc(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB);
+            }
+        }
+        function getCellValue(row, index) {
+            return $(row).children('td').eq(index).html();
+        }
+    }
+    */
+
+
+    // =============================
+
+    // rearrange columns
+    addDraggable();
+
+    // add draggable functionality to rearrange columns
+    function addDraggable() {
+        $('#usersTable').dragtable({
+            dragHandle: '.handle'
+        });
+
+        $('#organizationsTable').dragtable({
+            dragHandle: '.handle'
+        });
+
+        $('#radiosTable').dragtable({
+            dragHandle: '.handle'
+        });
+    }
+
+
+
 });
 

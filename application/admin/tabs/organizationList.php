@@ -177,31 +177,31 @@
             <table id="organizationsTable" class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>
+                        <th><div class="handle"></div>
                             Organization Name<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
+                        <th><div class="handle"></div>
                             Staff First Name<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
+                        <th><div class="handle"></div>
                             Staff Last Name<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
-                            Street<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>
+                            Street Line<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
+                        <th><div class="handle"></div>
                             Office Phone #<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
+                        <th><div class="handle"></div>
                             # of Radios<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>
-                        <th>
+                        <th><div class="handle"></div>
                             Email<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span></button>
                         </th>

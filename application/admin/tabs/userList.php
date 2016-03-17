@@ -251,19 +251,19 @@
             <table id="usersTable" class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>First<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>First<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button></th>
-                        <th>Last<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>Last<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button></th>
-                        <th>Email<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>Email<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button></th>
-                        <th>DOB<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>DOB<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button></th>
-                        <th>Street<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>Street Line<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
                             </button></th>
                     </tr>

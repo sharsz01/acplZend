@@ -55,3 +55,7 @@ body {
 .hidden {
 	display: hidden;
 }
+
+.handle{
+    padding: 10px;
+}

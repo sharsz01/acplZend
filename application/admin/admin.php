@@ -8,6 +8,13 @@
 
         <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+        <!-- Drag tables -->
+        <script src="jquery.dragtable.js"></script>
+        <link rel="stylesheet" type="text/css" href="dragtable.css" />
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -29,7 +36,7 @@
 
     <body>
         <div id="body">
-            <button type="submit" value="Logout" class="btn btn-primary" style="float: right;" onClick="self.location='../login/logout.php'">Logout</button>
+            <button type="submit" value="Logout" class="btn btn-primary" style="float: right;" onClick="self.location = '../login/logout.php'">Logout</button>
             <div class="page-header"><img src="http://www.acpl.lib.in.us/images/default-source/logos/ars-logo-blue-acpl-web-01-final.tmb-medium.png?sfvrsn=3"></div>
 
             <ul class="nav nav-tabs">
