@@ -116,6 +116,7 @@ class Zend_View_Helper_FormSelect extends Zend_View_Helper_FormElement
         $xhtml = '<select'
                 . ' name="' . $this->view->escape($name) . '"'
                 . ' id="' . $this->view->escape($id) . '"'
+                . 'class="form-control"'
                 . $multiple
                 . $disabled
                 . $this->_htmlAttribs($attribs)

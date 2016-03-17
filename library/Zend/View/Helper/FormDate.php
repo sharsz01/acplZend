@@ -25,12 +25,12 @@ class Zend_View_Helper_FormDate extends Zend_View_Helper_FormElement {
         $monthAttribs = isset($attribs['monthAttribs']) ? $attribs['monthAttribs'] : array();
         $yearAttribs = isset($attribs['yearAttribs']) ? $attribs['yearAttribs'] : array();
 
-        $dayMultiOptions = array('' => '');
+        $dayMultiOptions = array('' => 'Day');
         for ($i = 1; $i < 32; $i ++) {
             $index = str_pad($i, 2, '0', STR_PAD_LEFT);
             $dayMultiOptions[$index] = str_pad($i, 2, '0', STR_PAD_LEFT);
         }
-        $monthMultiOptions = array('' => '');
+        $monthMultiOptions = array('' => 'Month');
         for ($i = 1; $i < 13; $i ++) {
             $index = str_pad($i, 2, '0', STR_PAD_LEFT);
             $monthMultiOptions[$index] = date('F', mktime(null, null, null, $i, 01));
@@ -48,7 +48,7 @@ class Zend_View_Helper_FormDate extends Zend_View_Helper_FormElement {
             unset($attribs['stopYear']);
         }
 
-        $yearMultiOptions = array('' => '');
+        $yearMultiOptions = array('' => 'Year');
 
         if ($stopYear < $startYear) {
             for ($i = $startYear; $i >= $stopYear; $i--) {
