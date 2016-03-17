@@ -81,12 +81,6 @@ dd#Multi-element label{
     height: 20px;
 }
 
-#radio-form-app{
-    clear: left;
-    margin-bottom: 50px;
-}
-
-
 #statement{
     padding: 50px;
 }
@@ -100,65 +94,7 @@ ul.errors li{
     list-style-type: none; 
 }
 
-.zend_form input{
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
-.zend_form legend{
-    color: blue;
-}
-
-.zend_form select{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-.zend_form .color, label, h1{
-    //color: #002EB8;
-}
-
-.zend_form label{
-    font-size: 11px;
-}
-
-.zend_form .element .align{
-    width: 10px;
-}
-
-.zend_form .element .hide{
-    width: 10px;
-    visibility: hidden;
-}
-
-.zend_form .dropdowns select{
-    display: inline-block;
-    margin-right: 30px;
-    text-align: right;
-}
-
-.zend_form .element label{
-    display: inline-block;
-    width: 120px;
-    text-align: right;
-
-}
-
-.zend_form .element{
-    display: inline-block;
-    width: 1000px;
-    text-align: left;
-}
-
-.zend_form .element input{
-    text-align: right;
-}
-
-.zend_form input, select, button{
-    font-size: 18px;
-}
 
 // ================================ confirmation and success
 
@@ -207,8 +143,11 @@ label.phoneValue{
     float: left;
 }
 
-// =======================================================================
+// =============================== headers
 
+form{
+    border: 1px solid black;
+}
 
 
 
