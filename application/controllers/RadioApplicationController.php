@@ -163,12 +163,18 @@ class RadioApplicationController extends Zend_Controller_Action {
     public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
         $user = new Application_Model_User('user');
 
+        // convert date to db format --- refactor later
+        $bday = strtotime($listenerVals['Birthdate']);
+        $bdayFormat = date("Y-m-d", $bday);
+        // ============================================
+        
         $user->createUser(array(
             'dateRegistered' => '0000-00-00', // Default
             'ipRegistered' => '', // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
             'birthday' => $listenerVals['Birthdate'],
+            'birthday' => $bdayFormat,
             'street' => $listenerVals['Address'],
             'streetLine2' => $listenerVals['AlternativeAddress'],
             'phone' => $listenerVals['HomePhone'],
