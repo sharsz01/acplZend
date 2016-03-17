@@ -4,246 +4,242 @@ include "header2.phtml";
 ?>
 
 <div class="container">
-    <label class="bg-font">Fields marked with * are required</label>
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-12">
 
-    
-    <form role="form" class="form-horizontal center" method="post" <?php $this->form->setAction($this->url()); ?> >
-        
-        <div class="form-group">
-            <label class="col-sm-10 lbl-head">Organization</label>
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->OrgName; ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->OrgType; ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-10 lbl-head">Staff Representing Organization</label>
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->FirstName; ?>
-            </div>
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->LastName; ?>
-            </div>
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->PositionTitle; ?>
-            </div>
-        </div>
+            <label class="bg-font">Fields marked with * are required</label>
 
 
-        <div class="form-group">
-            <label class="col-sm-9 lbl-head">Address</label>
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->Address; ?>
-            </div>
-        </div>
+            <form role="form" class="form-horizontal center" method="post" <?php $this->form->setAction($this->url()); ?> >
 
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->AlternativeAddress; ?>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-sm-10 lbl-head">Organization</label>
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->OrgName; ?>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->City; ?>
-            </div>
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->State; ?>
-            </div>
-            <div class="col-sm-3">
-                <?php echo $this->form->organization->Zip; ?>
-            </div>
-        </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->OrgType; ?>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-sm-5">
-                <?php echo $this->form->organization->OfficePhone; ?>
-            </div>
-
-            <div class="col-sm-4">
-                <?php echo $this->form->organization->CellPhone; ?>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-sm-10 lbl-head">Staff Representing Organization</label>
+                    <div class="col-sm-3">
+                        <?php echo $this->form->organization->FirstName; ?>
+                    </div>
+                    <div class="col-sm-3">
+                        <?php echo $this->form->organization->LastName; ?>
+                    </div>
+                    <div class="col-sm-4">
+                        <?php echo $this->form->organization->PositionTitle; ?>
+                    </div>
+                </div>
 
 
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->Email; ?>
-            </div>
-        </div>
-        
-        <!-- ================================================== Check boxes -->
-        
-        <div class="form-group">
-            <div class="col-sm-9">
-                
-                <input type="checkbox" id="rNum" class="checkbox-inline big-checkbox" >
-                <label for="rNum" class="css-label">
-                    I am requesting individual radios for my organization.
-                </label>
-                
-<!--                <label>
-                    <input id="rNum" class="sel" type="checkbox" value="">
-                    I am requesting individual radios for my organization.
-                </label>-->
-                
-            </div>
-            
-            <div class="col-sm-5 m-left">
-                <?php echo $this->form->organization->RadioNum; ?>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <div class="col-sm-9">
-                
-                <input id="bNum" class="checkbox-inline big-checkbox" type="checkbox" value="">
-                <label for="bNum" class="side-label">
-                    My hospital provides a system-wide signal.
-                </label>
-                
-            </div>
-            
-            <div class="col-sm-5 m-left">
-                <?php echo $this->form->organization->LicBedsNum; ?>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <div class="col-sm-9">
-                <input id="uNum" class="checkbox-inline big-checkbox" type="checkbox" value="">
-                <label for="uNum" class="side-label">
-                    My long-term facility/retirement community provides a system-wide signal.
-                </label>
-            </div>
-            
-            <div class="col-sm-5 m-left">
-                <?php echo $this->form->organization->ResUnitsNum; ?>
-            </div>
-        </div>
-        
-        
-        
-        <!-- ================================================== Check boxes -->
-        
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->organization->HowLearn; ?>
-            </div>
-        </div>
-        
-        <hr/>
+                <div class="form-group">
+                    <label class="col-sm-9 lbl-head">Address</label>
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->Address; ?>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label class="col-sm-9 lbl-head">STATEMENT OF AGREEMENT AND RESPONSIBILITY</label>
-            <p class="col-sm-9">
-                I understand that the Audio Reading Service radios are on loan 
-                to my organization and remain the property of the Allen County
-                Public Library. I understand I must return radios to the Audio
-                Reading Service when they are no longer needed.
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->AlternativeAddress; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <?php echo $this->form->organization->City; ?>
+                    </div>
+                    <div class="col-sm-2">
+                        <?php echo $this->form->organization->State; ?>
+                    </div>
+                    <div class="col-sm-3">
+                        <?php echo $this->form->organization->Zip; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <?php echo $this->form->organization->OfficePhone; ?>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <?php echo $this->form->organization->CellPhone; ?>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->Email; ?>
+                    </div>
+                </div>
+
+                <!-- ================================================== Check boxes -->
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+
+                        <input type="checkbox" id="rNum" class="checkbox-inline big-checkbox" >
+                        <label for="rNum" class="css-label">
+                            I am requesting individual radios for my organization.
+                        </label>
+
+
+                    </div>
+
+                    <div class="col-sm-5 m-left">
+                        <?php echo $this->form->organization->RadioNum; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+
+                        <input id="bNum" class="checkbox-inline big-checkbox" type="checkbox" value="">
+                        <label for="bNum" class="side-label">
+                            My hospital provides a system-wide signal.
+                        </label>
+
+                    </div>
+
+                    <div class="col-sm-5 m-left">
+                        <?php echo $this->form->organization->LicBedsNum; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input id="uNum" class="checkbox-inline big-checkbox" type="checkbox" value="">
+                        <label for="uNum" class="side-label">
+                            My long-term facility/retirement community provides a system-wide signal.
+                        </label>
+                    </div>
+
+                    <div class="col-sm-5 m-left">
+                        <?php echo $this->form->organization->ResUnitsNum; ?>
+                    </div>
+                </div>
+
+
+
+                <!-- ================================================== Check boxes -->
+
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php echo $this->form->organization->HowLearn; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-9 lbl-head">STATEMENT OF AGREEMENT AND RESPONSIBILITY</label>
+                    <p class="col-sm-10">
+                        I understand that the Audio Reading Service radios are on loan 
+                        to my organization and remain the property of the Allen County
+                        Public Library. I understand I must return radios to the Audio
+                        Reading Service when they are no longer needed.
+                    </p>
+
+                    <div class="col-sm-4">
+                        <?php echo $this->form->statement->Signature; ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <?php echo $this->form->statement->Agree; ?>
+                    </div> 
+                </div>
+
+                <!-- Submit -->
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php echo $this->form->submit; ?>
+                    </div> 
+                </div>
+            </form>
+
+            <p class="col-sm-10 text-info bg-font">
+                To return or request replacement - take radio to any Allen County
+                Public Library branch, staff will forward to the Audio Reading Service.
+                Be Sure to include your name, address and reason for return. If a 
+                replacement radio is needed please include a note to let us know.
+                Thank you! 
             </p>
-
-            <div class="col-sm-4">
-                <?php echo $this->form->statement->Signature; ?>
-            </div>
-            <div class="col-sm-5">
-                <?php //echo $this->form->statement->SignatureDate; ?>
-            </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->statement->Agree; ?>
-            </div> 
-        </div>
-
-        <!-- Submit -->
-        <div class="form-group">
-            <div class="col-sm-9">
-                <?php echo $this->form->submit; ?>
-            </div> 
-        </div>
-    </form>
-    
-    <p class="col-sm-9 text-info bg-font">
-        To return or request replacement - take radio to any Allen County
-        Public Library branch, staff will forward to the Audio Reading Service.
-        Be Sure to include your name, address and reason for return. If a 
-        replacement radio is needed please include a note to let us know.
-        Thank you! 
-    </p>
+    </div> 
 </div>
-
 
 
 <script type="text/javascript">
     // Refactor script to a script file =====================================
-    $(document).ready(function(){
-        
+    $(document).ready(function () {
+
         // ======== date dropdowns
-        
-        $('.dateselector-fdt').dateSelector({
-           cssFramework: 'bootstrap',
-           minYear: 1930,
-        });
-        
+        /*
+         $('.dateselector-fdt').dateSelector({
+         cssFramework: 'bootstrap',
+         minYear: 1930,
+         });*/
+
         // ==========
-        
+
         disableDefaults();
-        
-        
+
+
         // chosen inputs disabled by default
-        function disableDefaults(){
+        function disableDefaults() {
             //$('#radioNum').attr('disabled', 'disabled');
             //$('#licBedsNum').attr('disabled', 'disabled');
             //$('#resUnitsNum').attr('disabled', 'disabled');
-            
+
             $('#agree').attr('checked', false);
             $('#submit').attr('disabled', 'disabled');
         }
-        
+
         // Remove text from input field
-        function clearText(id){
+        function clearText(id) {
             $(id).val('');
         }
-        
+
         // ================================================ Refactor to function
-        $('#rNum').click(function(){
-           if($('#rNum').is(':checked')){
-               $('#radioNum').removeAttr('disabled');
-           } 
-           else{
-               $('#radioNum').attr('disabled', 'disabled');
-               //clearText('#radioNum');
-           }
+        $('#rNum').click(function () {
+            if ($('#rNum').is(':checked')) {
+                $('#radioNum').removeAttr('disabled');
+            }
+            else {
+                $('#radioNum').attr('disabled', 'disabled');
+                //clearText('#radioNum');
+            }
         });
-        
-        $('#bNum').click(function(){
-           if($('#bNum').is(':checked')){
-               $('#licBedsNum').removeAttr('disabled');
-           } 
-           else{
-               $('#licBedsNum').attr('disabled', 'disabled');
-               //clearText('#licBedsNum');
-           }
+
+        $('#bNum').click(function () {
+            if ($('#bNum').is(':checked')) {
+                $('#licBedsNum').removeAttr('disabled');
+            }
+            else {
+                $('#licBedsNum').attr('disabled', 'disabled');
+                //clearText('#licBedsNum');
+            }
         });
-        
-        $('#uNum').click(function(){
-           if($('#uNum').is(':checked')){
-               $('#resUnitsNum').removeAttr('disabled');
-           } 
-           else{
-               $('#resUnitsNum').attr('disabled', 'disabled');
-               //clearText('#resUnitsNum');
-           }
+
+        $('#uNum').click(function () {
+            if ($('#uNum').is(':checked')) {
+                $('#resUnitsNum').removeAttr('disabled');
+            }
+            else {
+                $('#resUnitsNum').attr('disabled', 'disabled');
+                //clearText('#resUnitsNum');
+            }
         });
-        
+
         // enable-disable submit
         $('#agree').click(function () {
             if (!$(this).is(':checked')) {
@@ -253,21 +249,21 @@ include "header2.phtml";
                 $('#submit').removeAttr('disabled');
             }
         });
-        
-        $('#submit').click(function(){
-           if(!$('#rNum').is(':checked')){
-               clearText('#radioNum');
-           }
-           if(!$('#bNum').is(':checked')){
-               clearText('#licBedsNum');
-           }
-           if(!$('#uNum').is(':checked')){
-               clearText('#resUnitsNum');
-           }
+
+        $('#submit').click(function () {
+            if (!$('#rNum').is(':checked')) {
+                clearText('#radioNum');
+            }
+            if (!$('#bNum').is(':checked')) {
+                clearText('#licBedsNum');
+            }
+            if (!$('#uNum').is(':checked')) {
+                clearText('#resUnitsNum');
+            }
         });
-        
+
         // ================================================ Refactor to function
-        
+
     });
-    
+
 </script>
