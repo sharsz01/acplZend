@@ -1,4 +1,3 @@
-
 <div id = "organizations" class="tab-pane fade">
     <h3 style="float: left;">Organizations</h3>
 
@@ -140,7 +139,7 @@
                                     <label for="org-search-email">Email:</label>
                                     <input type="email" class="form-control" id="org-search-email">
                                 </div>
-
+								
                                 <button id="org-search-Btn" type="button" class="btn btn-primary btn-block">Search</button>
                             </div>
                         </div>
