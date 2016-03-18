@@ -147,7 +147,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
 
         $organization->addElement('text', 'OfficePhone', array(
             'id' => 'OfficePhone',
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Office Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
@@ -160,7 +160,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
         ));
 
         $organization->addElement('text', 'CellPhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Cell Phone',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
