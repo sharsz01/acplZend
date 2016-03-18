@@ -43,6 +43,7 @@
                         <div class="col-sm-12">
                             <div class="table-responsive">
 
+<<<<<<< HEAD
                                 <table class="table table-condensed table-borderless">
                                     <td>
 
@@ -81,11 +82,52 @@
                                                 <tr>
                                                     <th scope="row" class="review-label">Email:</th>
                                                     <td><?php echo $listenerData['Email']; ?></td>
+=======
+                                <table class="table table-condensed table-borderless" style="border:none;">
+                                    <td style="border:none;">
+
+                                        <table class="table table-condensed table-borderless" style="border:none;">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Name:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['FirstName'] . " " . $listenerData['LastName']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Date of Birth:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Birthdate']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Address Line 1:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Address']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Address Line 2:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['AlternativeAddress']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">City/State/Zipcode:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['City'] . ", " . $listenerData['State'] . " " . $listenerData['Zip']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Home Phone #:</th>
+                                                    <td style="border:none;"><?php echo formatPhone($listenerData['HomePhone']); ?></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Cell Phone #:</th>
+                                                    <td style="border:none;"><?php echo formatPhone($listenerData['CellPhone']); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Email:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Email']; ?></td>
+>>>>>>> origin/master
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
 
+<<<<<<< HEAD
                                     <td>
                                         <table class="table table-condensed table-borderless">
                                             <tbody>
@@ -118,6 +160,40 @@
                                                 <tr>
                                                     <th scope="row" class="review-label">Your Chosen Reading Format:</th>
                                                     <td>
+=======
+                                    <td style="border:none;">
+                                        <table class="table table-condensed table-borderless" style="border:none;">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Disability:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Disability']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Other Disability:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['OtherDisability']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">How Did You Learn About Our Service:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['HowLearn']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Race:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Race']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Income:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['Income']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Number in Household:</th>
+                                                    <td style="border:none;"><?php echo $listenerData['NumberInHome']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row" class="review-label" style="border:none;">Your Chosen Reading Format:</th>
+                                                    <td style="border:none;">
+>>>>>>> origin/master
                                                         <?php
                                                         $last_key = end(array_keys($listenerData['Multi']));
 
@@ -160,6 +236,7 @@
                                 <div class="col-sm-10">
                                     <div class="table-responsive">
 
+<<<<<<< HEAD
                                         <table class="table table-condensed table-borderless">
                                             <td>
 
@@ -198,6 +275,46 @@
                                                         <tr>
                                                             <th scope="row" class="review-label">Email:</th>
                                                             <td><?php echo $contactData['Email']; ?></td>
+=======
+                                        <table class="table table-condensed table-borderless" style="border:none;">
+                                            <td style="border:none;">
+
+                                                <table class="table table-condensed table-borderless" style="border:none;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Name:</th>
+                                                            <td style="border:none;"><?php echo $contactData['FirstName'] . " " . $contactData['LastName']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Relationship to Listener:</th>
+                                                            <td style="border:none;"><?php echo $contactData['Relationship']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Address Line 1:</th>
+                                                            <td style="border:none;"><?php echo $contactData['Address']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Address Line 2:</th>
+                                                            <td style="border:none;"><?php echo $contactData['AlternativeAddress']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">City/State/Zipcode:</th>
+                                                            <td style="border:none;"><?php echo $contactData['City'] . ", " . $contactData['State'] . " " . $contactData['Zip']; ?></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Home Phone #:</th>
+                                                            <td style="border:none;"><?php echo formatPhone($contactData['HomePhone']); ?></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Cell Phone #:</th>
+                                                            <td style="border:none;"><?php echo formatPhone($contactData['CellPhone']); ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label" style="border:none;">Email:</th>
+                                                            <td style="border:none;"><?php echo $contactData['Email']; ?></td>
+>>>>>>> origin/master
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -226,6 +343,7 @@
                         <div class="panel-body">
                             <div class="col-sm-10">
                                 <div class="table table-responsive">
+<<<<<<< HEAD
                                     <table class="table table-condensed table-borderless">
                                         <tbody>
                                             <tr>
@@ -239,6 +357,21 @@
                                             <tr>
                                                 <th scope="row" class="review-label">Today's Date:</th>
                                                 <td><?php echo date("F j, Y"); //echo $otherInfoData['SignatureDate']; ?></td>
+=======
+                                    <table class="table table-condensed table-borderless" style="border:none;">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="review-label" style="border:none;">Mail To:</th>
+                                                <td style="border:none;"><?php echo $otherInfoData['MailTo']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="review-label" style="border:none;">Signature:</th>
+                                                <td style="border:none;"><?php echo $statementData['Signature']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="review-label" style="border:none;">Today's Date:</th>
+                                                <td style="border:none;"><?php echo date("F j, Y"); //echo $otherInfoData['SignatureDate']; ?></td>
+>>>>>>> origin/master
                                             </tr>
                                         </tbody>
                                     </table>
