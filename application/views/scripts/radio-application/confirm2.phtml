@@ -1,5 +1,9 @@
 <!-- Confirmation page for Organization radio applications -->
-
+<style>
+    .borderless{
+        border: none;
+    }
+</style>
 
 <div class="container">
     <?php
@@ -34,72 +38,72 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-condensed table-borderless">
+                        <table class="table table-condensed" style="border:none;">
 
                             <td> 
-                                <table class="table table-condensed table-borderless">
+                                <table class="table table-condensed " style="border:none;">
                                     <tbody>
                                         <tr>
-                                            <th scope="row" class="review-label">Organization Name:</th>
-                                            <td><?php echo $organizationData['OrgName']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">Organization Name:</th>
+                                            <td style="border:none;"><?php echo $organizationData['OrgName']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="review-label">Organization Type:</th>
-                                            <td><?php echo $organizationData['OrgType']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">Organization Type:</th>
+                                            <td style="border:none;"><?php echo $organizationData['OrgType']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="review-label">Staff Rep. Organization:</th>
-                                            <td><?php echo $organizationData['FirstName'] . " " . $organizationData['LastName'] . " / " . $organizationData['PositionTitle']; ?></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th scope="row" class="review-label">Address Line 1:</th>
-                                            <td><?php echo $organizationData['Address']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="review-label">Address Line 2:</th>
-                                            <td><?php echo $organizationData['AlternativeAddress']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="review-label">City/State/Zipcode:</th>
-                                            <td><?php echo $organizationData['City'] . ", " . $organizationData['State'] . " " . $organizationData['Zip']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">Staff Rep. Organization:</th>
+                                            <td style="border:none;"><?php echo $organizationData['FirstName'] . " " . $organizationData['LastName'] . " / " . $organizationData['PositionTitle']; ?></td>
                                         </tr>
 
                                         <tr>
-                                            <th scope="row" class="review-label">Office Phone #:</th>
-                                            <td><?php echo $organizationData['OfficePhone']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">Address Line 1:</th>
+                                            <td style="border:none;"><?php echo $organizationData['Address']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="review-label">Cell Phone #:</th>
-                                            <td><?php echo $organizationData['CellPhone']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">Address Line 2:</th>
+                                            <td style="border:none;"><?php echo $organizationData['AlternativeAddress']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scope="row" class="review-label">Email:</th>
-                                            <td><?php echo $organizationData['Email']; ?></td>
+                                            <th scope="row" class="review-label" style="border:none;">City/State/Zipcode:</th>
+                                            <td style="border:none;"><?php echo $organizationData['City'] . ", " . $organizationData['State'] . " " . $organizationData['Zip']; ?></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="review-label" style="border:none;">Office Phone #:</th>
+                                            <td style="border:none;"><?php echo $organizationData['OfficePhone']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label" style="border:none;">Cell Phone #:</th>
+                                            <td style="border:none;"><?php echo $organizationData['CellPhone']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label" style="border:none;">Email:</th>
+                                            <td style="border:none;"><?php echo $organizationData['Email']; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </td>
 
                             <td>
-                                <table class="table table-condensed table-borderless">
+                                <table class="table table-condensed table-borderless" style="border:none;">
                                     <tbody>
                                         <tr>
-                                            <th scopre="row" class="review-label">Radios Requested:</th>
-                                            <td><?php echo $organizationData['RadioNum']; ?></td>
+                                            <th scopre="row" class="review-label" style="border:none;">Radios Requested:</th>
+                                            <td style="border:none;"><?php echo $organizationData['RadioNum']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scopre="row" class="review-label">Number of Licensed Beds:</th>
-                                            <td><?php echo $organizationData['LicBedsNum']; ?></td>
+                                            <th scopre="row" class="review-label" style="border:none;">Number of Licensed Beds:</th>
+                                            <td style="border:none;"><?php echo $organizationData['LicBedsNum']; ?></td>
                                         </tr>
                                         <tr>
-                                            <th scopre="row" class="review-label">Number of Residential Units:</th>
-                                            <td><?php echo $organizationData['ResUnitsNum']; ?></td>
+                                            <th scopre="row" class="review-label" style="border:none;">Number of Residential Units:</th>
+                                            <td style="border:none;"><?php echo $organizationData['ResUnitsNum']; ?></td>
                                         </tr>
 
                                         <tr>
-                                            <th scopre="row" class="review-label">How You Learned About Our Service:</th>
-                                            <td><?php echo $organizationData['HowLearn']; ?></td>
+                                            <th scopre="row" class="review-label" style="border:none;">How You Learned About Our Service:</th>
+                                            <td style="border:none;"><?php echo $organizationData['HowLearn']; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
