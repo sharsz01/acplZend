@@ -147,11 +147,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
 
         $organization->addElement('text', 'OfficePhone', array(
             'id' => 'OfficePhone',
-<<<<<<< HEAD
-            'class' => 'form-control',
-=======
             'class' => 'form-control phone',
->>>>>>> origin/master
             'label' => 'Office Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
