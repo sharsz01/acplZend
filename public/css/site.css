@@ -28,9 +28,11 @@ nav a{
 
 // ============================ nav
 
-.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th{  
+/*
+.borderless{  
     border: none;
 }
+*/
 
 
 .panel{
