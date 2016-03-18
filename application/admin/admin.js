@@ -140,17 +140,20 @@ $(document).ready(function () {
                     alert("Organization Saved.");
                 }
                 else {
-                    alert("Fail");
+                    //alert("Fail");
                 }
             },
             error: function (e) {
-                alert("Fail to save");
+                //alert("Fail to save");
                 console.log(e);
             }
         });
     });
 
     // =============================================
+    // Cancel button for radios is working, but for some reason the value of the
+    // id for users and organizations is undefined, causing the cancel feature
+    // for those two to not work as expected
 
     $('#radioCancelBtn').on('click', function () {
         var id = $('#radioId').val();

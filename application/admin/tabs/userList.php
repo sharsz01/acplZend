@@ -251,21 +251,13 @@
             <table id="usersTable" class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th><div class="handle"></div>First<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>First<!--<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Last<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Email<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>DOB<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Street Line<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
+                            </button>--></th>
+                        <th><div class="handle"></div>Last</th>
+                        <th><div class="handle"></div>Email</th>
+                        <th><div class="handle"></div>DOB</th>
+                        <th><div class="handle"></div>Street Line</th>
                     </tr>
                 </thead>
                 <tbody>

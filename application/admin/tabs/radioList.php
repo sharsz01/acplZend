@@ -146,33 +146,17 @@
             <table id="radiosTable" class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th><div class="handle"></div>Control Number<button type="button" class="btn btn-default btn-xs" style="float: right;">
+                        <th><div class="handle"></div>Control Number<!--<button type="button" class="btn btn-default btn-xs" style="float: right;">
                                 <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Model Number<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Manufacturer<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>DOP<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Status<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Headphones<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Battery<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Wave<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
-                        <th><div class="handle"></div>Condition<button type="button" class="btn btn-default btn-xs" style="float: right;">
-                                <span class="glyphicon glyphicon-sort"></span>
-                            </button></th>
+                            </button>--></th>
+                        <th><div class="handle"></div>Model Number</th>
+                        <th><div class="handle"></div>Manufacturer</th>
+                        <th><div class="handle"></div>DOP</th>
+                        <th><div class="handle"></div>Status</th>
+                        <th><div class="handle"></div>Headphones</th>
+                        <th><div class="handle"></div>Battery</th>
+                        <th><div class="handle"></div>Wave</th>
+                        <th><div class="handle"></div>Condition</th>
                     </tr>
                 </thead>
                 <tbody>
