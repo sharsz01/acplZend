@@ -1,7 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Confirmation page for Organization radio applications -->
 
 
 <div class="container">
@@ -9,41 +6,122 @@
     session_start();
 
     // get session variables from form
-    $organizationData = $_SESSION['data']['postData']['organization'];
-    $statementData = $_SESSION['data']['postData']['statement'];
+    $organizationData = $_SESSION['data']['postData']['organizationForm'];
+    $statementData = $_SESSION['data']['postData']['statementForm'];
+
+    // =============================================== format phone numbers - refactor
+
+    function formatPhone($phone) {
+        //$phone = 12343435556; // 11-digit phone number
+        if (strlen($phone) < 11) {  // area code and phone number
+            return substr($phone, 0, 3) . '.' . substr($phone, 3, 3) . '.' . substr($phone, 6);
+        } else {
+            return substr($phone, 0, 1) . '.' . substr($phone, 1, 3) . '.' . substr($phone, 4, 3) . '.' . substr($phone, 7);
+        }
+    }
+
+    // ===============================================
 
     echo "<h1>Review Your Information and Submit</h1>";
     echo "<hr/>";
     ?>
 
+    <div id="organizationReview">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Organization Information
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-borderless">
 
-    <!-- ================================================= Organization -->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Organization</div>
-        <div class="panel-body">
-            <?php
-            foreach ($organizationData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
+                            <td> 
+                                <table class="table table-condensed table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="review-label">Organization Name:</th>
+                                            <td><?php echo $organizationData['OrgName']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">Organization Type:</th>
+                                            <td><?php echo $organizationData['OrgType']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">Staff Rep. Organization:</th>
+                                            <td><?php echo $organizationData['FirstName'] . " " . $organizationData['LastName'] . " / " . $organizationData['PositionTitle']; ?></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="review-label">Address Line 1:</th>
+                                            <td><?php echo $organizationData['Address']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">Address Line 2:</th>
+                                            <td><?php echo $organizationData['AlternativeAddress']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">City/State/Zipcode:</th>
+                                            <td><?php echo $organizationData['City'] . ", " . $organizationData['State'] . " " . $organizationData['Zip']; ?></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="review-label">Office Phone #:</th>
+                                            <td><?php echo $organizationData['OfficePhone']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">Cell Phone #:</th>
+                                            <td><?php echo $organizationData['CellPhone']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="review-label">Email:</th>
+                                            <td><?php echo $organizationData['Email']; ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table class="table table-condensed table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th scopre="row" class="review-label">Radios Requested:</th>
+                                            <td><?php echo $organizationData['RadioNum']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scopre="row" class="review-label">Number of Licensed Beds:</th>
+                                            <td><?php echo $organizationData['LicBedsNum']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scopre="row" class="review-label">Number of Residential Units:</th>
+                                            <td><?php echo $organizationData['ResUnitsNum']; ?></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scopre="row" class="review-label">How You Learned About Our Service:</th>
+                                            <td><?php echo $organizationData['HowLearn']; ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ================================================= Statement -->
+    <!-- ================================================= Organization -->
     <div class="panel panel-primary">
-        <div class="panel-heading">Statement</div>
+        <div class="panel-heading">Signature of Responsible Party:</div>
         <div class="panel-body">
-            <?php
-            foreach ($statementData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
+            <?php echo $statementData['Signature'] . " submitted form on: " . date("F j, Y"); ?>
         </div>
     </div>
 
     <!--// =================================================-->
     <?php
-    $this->form->setAction($this->url());
-    echo $this->form;
+        $this->form->setAction($this->url());
+        echo $this->form;
     ?>
 </div>

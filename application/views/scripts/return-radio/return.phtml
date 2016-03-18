@@ -1,0 +1,45 @@
+
+<div class="container">
+    <h2 class="">Radio Return Sheet</h2>
+
+    <form id="return" role="form" class="form-horizontal center" method="post" <?php $this->form->setAction($this->url()); ?> >
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="col-sm-8">Radios may be returned at any branch of the Allen County Public Library 
+                    or by mailing to: Audio Reading Service, 7615 DiSalle Boulevard, 
+                    Fort Wayne, IN, 46825.
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?php echo $this->form->ListenerName; ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->ReturnReason; ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-12 text-info bg-font">
+                Please include any comments you wish.
+            </label>
+            <div class="col-sm-6">
+                <textarea class="form-control" rows="4" id="comments"></textarea>
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <div class="col-sm-9">
+                <?php echo $this->form->submit; ?>
+            </div> 
+        </div>
+    </form>
+
+</div>

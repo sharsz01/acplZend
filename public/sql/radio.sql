@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2016 at 06:33 PM
+-- Generation Time: Feb 26, 2016 at 09:13 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -32,7 +32,7 @@ CREATE TABLE `radio` (
   `modelNum` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `manufacturer` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `dateOfPurchase` date NOT NULL,
-  `status` varchar(10) COLLATE latin1_general_ci NOT NULL,
+  `radioStatus` varchar(12) COLLATE latin1_general_ci NOT NULL,
   `headphones` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `battery` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `wave` varchar(10) COLLATE latin1_general_ci NOT NULL,
@@ -44,8 +44,14 @@ CREATE TABLE `radio` (
 -- Dumping data for table `radio`
 --
 
-INSERT INTO `radio` (`radioId`, `controlNum`, `modelNum`, `manufacturer`, `dateOfPurchase`, `status`, `headphones`, `battery`, `wave`, `radioCondition`, `notes`) VALUES
-(1, 1, '1234', 'Radio Electronics', '2010-01-01', 'active', 'yes', 'yes', 'short', 'good', '');
+INSERT INTO `radio` (`radioId`, `controlNum`, `modelNum`, `manufacturer`, `dateOfPurchase`, `radioStatus`, `headphones`, `battery`, `wave`, `radioCondition`, `notes`) VALUES
+(1, 1, '123456', 'Radio Electronics', '2010-01-02', 'Checked In', 'yes', 'no', 'long', 'fair', ''),
+(2, 2, '111111', 'Radio Research Inc.', '2016-02-10', 'Checked Out', 'no', 'no', 'short', 'good', ''),
+(3, 3, '222222', 'United Radio Systems, LLC', '2016-02-03', 'inactive', 'yes', 'no', 'long', 'poor', ''),
+(4, 4, '131313', 'Acme Radios', '2010-01-01', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
+(5, 5, '321321', 'Radio Inc.', '2016-02-26', 'Checked In', 'yes', 'no', 'short', 'good', ''),
+(15, 6, '151515', 'Acme Radios', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
+(16, 7, '161616', 'Radio manufacturers', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', '');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +71,7 @@ ALTER TABLE `radio`
 -- AUTO_INCREMENT for table `radio`
 --
 ALTER TABLE `radio`
-  MODIFY `radioId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `radioId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

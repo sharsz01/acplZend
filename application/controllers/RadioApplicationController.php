@@ -15,7 +15,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $form = new Application_Form_RadioApplicationForm();
 
         if ($this->getRequest()->isPost()) {
-            
+
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -23,22 +23,21 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->postData = $form->getValues();
                 $addRadioFormNamespace->lock();
 
-                // redirect to the second stage
+                // redirect to the confirmation page
                 return $this->_redirect('radio-application/confirm');
-            }
-            else{
+            } else {
                 
             }
         }
         $this->view->form = $form;
     }
-    
-    public function organizationFormAction(){
+
+    public function organizationFormAction() {
         $request = $this->getRequest();
         $form = new Application_Form_OrganizationForm();
-        
+
         if ($this->getRequest()->isPost()) {
-            
+
             if ($form->isValid($request->getPost())) {
 
                 // if form is valid, then save submitted data in a session
@@ -46,10 +45,9 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->postData = $form->getValues();
                 $addRadioFormNamespace->lock();
 
-                // redirect to the second stage
+                // redirect to the confirmation
                 return $this->_redirect('radio-application/confirm2');
-            }
-            else{
+            } else {
                 
             }
         }
@@ -57,7 +55,6 @@ class RadioApplicationController extends Zend_Controller_Action {
     }
 
     // ========================================================== confirmation actions
-    
     // Confirmation for individual form
     public function confirmAction() {
         // retrieve data saved in the first stage
@@ -71,12 +68,12 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid(filter_input_array(INPUT_POST))) {
-                
+
                 // add to database, etc.
-                $listenerVals = $sessionData->postData['listener'];
-                $contactVals = $sessionData->postData['contact'];
-                $otherInfoVals = $sessionData->postData['otherInfo'];
-                $statementVals = $sessionData->postData['statement'];
+                $listenerVals = $sessionData->postData['listenerForm'];
+                $contactVals = $sessionData->postData['contactForm'];
+                $otherInfoVals = $sessionData->postData['otherInfoForm'];
+                $statementVals = $sessionData->postData['statementForm'];
 
                 $this->insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals);
 
@@ -104,10 +101,10 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid(filter_input_array(INPUT_POST))) {
-                
+
                 // add to database, etc.
-                $organizationVals = $sessionData->postData['organization'];
-                $statementVals = $sessionData->postData['statement'];
+                $organizationVals = $sessionData->postData['organizationForm'];
+                $statementVals = $sessionData->postData['statementForm'];
                 //$closingVals = $sessionData->postData['closing'];
 
                 $this->insertOrganizationRecord($organizationVals, $statementVals);
@@ -122,73 +119,95 @@ class RadioApplicationController extends Zend_Controller_Action {
 
         $this->view->form = $form;
     }
+
     // ==========================================================
-    
+
     public function successAction() {
         // returns the success message upon form submission
     }
 
-    
     // ========================================================== helper methods
-    
-    public function insertOrganizationRecord($organizationVals, $statementVals){
+
+    public function insertOrganizationRecord($organizationVals, $statementVals) {
         $org = new Application_Model_User('organization');
-        
+
         $org->createUser(array(
+            'dateRegistered' => '0000-00-00', // Default
+            'ipRegistered' => '', // Default
             'organizationName' => $organizationVals['OrgName'],
             'organizationType' => $organizationVals['OrgType'],
             'firstName' => $organizationVals['FirstName'],
             'lastName' => $organizationVals['LastName'],
             'positionTitle' => $organizationVals['PositionTitle'],
-            'streetAddress' => $organizationVals['Address'],
-            'altAddress' => $organizationVals['AlternativeAddress'],
+            'street' => $organizationVals['Address'],
+            'streetLine2' => $organizationVals['AlternativeAddress'],
             'city' => $organizationVals['City'],
             'state' => $organizationVals['State'],
             'zip' => $organizationVals['Zip'],
-            'phone' => $organizationVals['HomePhone'],
-            'altPhone' => $organizationVals['CellPhone'],
+            'phone' => $organizationVals['OfficePhone'],
+            'phone2' => $organizationVals['CellPhone'],
             'email' => $organizationVals['Email'],
             'numRadios' => $organizationVals['RadioNum'],
+            'numLicensedBeds' => $organizationVals['LicBedsNum'],
+            'numResidentialUnits' => $organizationVals['ResUnitsNum'],
             'howLearn' => $organizationVals['HowLearn'],
+            'status' => 'Applicant', // Default
+            'type' => 'Organization', // Default
+            'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => $statementVals['SignatureDate'],
+            'dateSigned' => date("Y-m-d"),
+            'notes' => '',
         ));
     }
-    
-    
-    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {        
+
+    public function insertIndividualRecord($listenerVals, $contactVals, $otherInfoVals, $statementVals) {
         $user = new Application_Model_User('user');
 
+        // convert date to db format --- refactor later
+        $bday = strtotime($listenerVals['Birthdate']);
+        $bdayFormat = date("Y-m-d", $bday);
+        // ============================================
+        
         $user->createUser(array(
+            'dateRegistered' => '0000-00-00', // Default
+            'ipRegistered' => '', // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
             'birthday' => $listenerVals['Birthdate'],
+            'birthday' => $bdayFormat,
             'street' => $listenerVals['Address'],
             'streetLine2' => $listenerVals['AlternativeAddress'],
             'phone' => $listenerVals['HomePhone'],
-            'altPhone' => $listenerVals['CellPhone'],
+            'phone2' => $listenerVals['CellPhone'],
             'city' => $listenerVals['City'],
             'state' => $listenerVals['State'],
             'zip' => $listenerVals['Zip'],
             'email' => $listenerVals['Email'],
-            'contactName' => $contactVals['FirstName'],
+            'contactFirstName' => $contactVals['FirstName'],
+            'contactLastName' => $contactVals['LastName'],
             'contactRelationship' => $contactVals['Relationship'],
             'contactStreet' => $contactVals['Address'],
             'contactStreetLine2' => $contactVals['AlternativeAddress'],
             'contactPhone' => $contactVals['HomePhone'],
-            'contactAltPhone' => $contactVals['CellPhone'],
+            'contactPhone2' => $contactVals['CellPhone'],
             'contactCity' => $contactVals['City'],
             'contactState' => $contactVals['State'],
             'contactZip' => $contactVals['Zip'],
             'contactEmail' => $contactVals['Email'],
             'disability' => $listenerVals['Disability'],
+            'otherDisability' => $listenerVals['OtherDisability'],
             'howLearn' => $listenerVals['HowLearn'],
             'race' => $listenerVals['Race'],
             'income' => $listenerVals['Income'],
             'inHomeNum' => $listenerVals['NumberInHome'],
+            'status' => 'Applicant', // Default
+            'type' => 'Individual', // Default
+            'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => $statementVals['SignatureDate'],
+            'dateSigned' => date("Y-m-d"),
             'mailTo' => $otherInfoVals['MailTo'],
+            'notes' => '',
         ));
     }
+
 }

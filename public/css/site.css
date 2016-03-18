@@ -2,32 +2,73 @@ body{
     padding: 10px;
 }
 
-p, a, li, label, select{
+/*p, a, li, label, select{
     font-size: 14px;
+}*/
+
+form#return label{
+    font-size: 18px;
 }
 
+img{
+    padding-right: 20px;
+}
+
+nav{
+    margin-top: 50px;
+}
+
+nav label{
+    font-size: 20px;
+}
+
+nav a{
+    font-size: 16px;
+}
+
+// ============================ nav
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th{  
+    border: none;
+}
+
+
+.panel{
+    margin: 20px;
+}
+
+.review-label{
+    text-align: right;
+}
+
+
+// ==============================
 .lbl{
     color: #002EB8;
-    font-size: 18px;
+    font-size: 18px; 
 }
 
 .lbl-head{
     color: #002EB8;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .m-left{
     margin-left: 40px;
-}/*
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}*/
+}
 
 .bg-font{
     font-size: 16px;
+}
+
+dt#Multi-label label{
+    font-size: 16px;
+}
+
+dd#Multi-element label{
+    padding: 10px;
+    //border: 1px solid red;
 }
 
 .big-checkbox{
@@ -35,79 +76,25 @@ p, a, li, label, select{
     height: 20px;
 }
 
-#radio-form-app{
-    clear: left;
-    margin-bottom: 50px;
+.big-radio{
+    width: 20px;
+    height: 20px;
 }
-
 
 #statement{
     padding: 50px;
 }
 
 ul.errors{
+    margin-top: 10px;
     color: red;
 }
 
-.zend_form input{
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.zend_form legend{
-    color: blue;
-}
-
-.zend_form select{
-    margin-top: 10px;
-    margin-bottom: 10px;
+ul.errors li{
+    list-style-type: none; 
 }
 
 
-.zend_form .color, label, h1{
-    //color: #002EB8;
-}
-
-.zend_form label{
-    font-size: 11px;
-}
-
-.zend_form .element .align{
-    width: 10px;
-}
-
-.zend_form .element .hide{
-    width: 10px;
-    visibility: hidden;
-}
-
-.zend_form .dropdowns select{
-    display: inline-block;
-    margin-right: 30px;
-    text-align: right;
-}
-
-.zend_form .element label{
-    display: inline-block;
-    width: 120px;
-    text-align: right;
-
-}
-
-.zend_form .element{
-    display: inline-block;
-    width: 1000px;
-    text-align: left;
-}
-
-.zend_form .element input{
-    text-align: right;
-}
-
-.zend_form input, select, button{
-    font-size: 18px;
-}
 
 // ================================ confirmation and success
 
@@ -149,5 +136,18 @@ label.value{
     float: left;
 }
 
-// =================== header
+label.phoneValue{
+    width: 160px;
+    font-size: 16px;
+    margin-left: 20px;
+    float: left;
+}
+
+// =============================== headers
+
+form{
+    border: 1px solid black;
+}
+
+
 

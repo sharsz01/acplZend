@@ -1,74 +1,259 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<!-- Confirmation page for Individual radio applications -->
 
 <div class="container">
     <?php
     session_start();
 
-// get session variables from form
-    $listenerData = $_SESSION['data']['postData']['listener'];
-    $contactData = $_SESSION['data']['postData']['contact'];
-    $otherInfoData = $_SESSION['data']['postData']['otherInfo'];
-    $statementData = $_SESSION['data']['postData']['statement'];
+    // get session variables from form
+    $listenerData = $_SESSION['data']['postData']['listenerForm'];
+    $contactData = $_SESSION['data']['postData']['contactForm'];
+    $otherInfoData = $_SESSION['data']['postData']['otherInfoForm'];
+    $statementData = $_SESSION['data']['postData']['statementForm'];
+
+    // =============================================== format phone numbers - refactor
+
+    function formatPhone($phone) {
+        if (strlen($phone) < 10) { // Phone number not given
+            return "";
+        } else if (strlen($phone) < 11) {  // area code and phone number
+            return substr($phone, 0, 3) . '.' . substr($phone, 3, 3) . '.' . substr($phone, 6);
+        } else {
+            return substr($phone, 0, 1) . '.' . substr($phone, 1, 3) . '.' . substr($phone, 4, 3) . '.' . substr($phone, 7);
+        }
+    }
+
+    // ===============================================
 
     echo "<h1>Review Your Information and Submit</h1>";
     echo "<hr />"
     ?>
 
+    <!--refactor later-->
     <!--================================================= Listener-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Listener</div>
-        <div class="panel-body">
-            <?php
-            foreach ($listenerData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
-        </div>
-    </div>
 
-    <!--// ================================================= Contact-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Contact</div>
-        <div class="panel-body">
-            <?php
-            foreach ($contactData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
-        </div>
-    </div>
+    <div id="individualReview">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Listener 
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- left column  -->
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
 
-    <!--// ================================================= Other Info-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Other Info</div>
-        <div class="panel-body">
-            <?php
-            foreach ($otherInfoData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
-        </div>
-    </div>
+                                <table class="table table-condensed table-borderless">
+                                    <td>
 
-    <!--// ================================================= Statement-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Statement</div>
-        <div class="panel-body">
-            <?php
-            foreach ($statementData as $key => $value) {
-                echo "<div class='section'><label class='key'>$key : </label> <label class='value'>$value</label></div>";
-            }
-            ?>
-        </div>
-    </div>
+                                        <table class="table table-condensed table-borderless">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Name:</th>
+                                                    <td><?php echo $listenerData['FirstName'] . " " . $listenerData['LastName']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Date of Birth:</th>
+                                                    <td><?php echo $listenerData['Birthdate']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Address Line 1:</th>
+                                                    <td><?php echo $listenerData['Address']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Address Line 2:</th>
+                                                    <td><?php echo $listenerData['AlternativeAddress']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">City/State/Zipcode:</th>
+                                                    <td><?php echo $listenerData['City'] . ", " . $listenerData['State'] . " " . $listenerData['Zip']; ?></td>
+                                                </tr>
 
-    <!--// =================================================-->
-    <?php
-    $this->form->setAction($this->url());
-    echo $this->form;
-    ?>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Home Phone #:</th>
+                                                    <td><?php echo formatPhone($listenerData['HomePhone']); ?></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Cell Phone #:</th>
+                                                    <td><?php echo formatPhone($listenerData['CellPhone']); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Email:</th>
+                                                    <td><?php echo $listenerData['Email']; ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td>
+                                        <table class="table table-condensed table-borderless">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Disability:</th>
+                                                    <td><?php echo $listenerData['Disability']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Other Disability:</th>
+                                                    <td><?php echo $listenerData['OtherDisability']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">How Did You Learn About Our Service:</th>
+                                                    <td><?php echo $listenerData['HowLearn']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row" class="review-label">Race:</th>
+                                                    <td><?php echo $listenerData['Race']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Income:</th>
+                                                    <td><?php echo $listenerData['Income']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="review-label">Number in Household:</th>
+                                                    <td><?php echo $listenerData['NumberInHome']; ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row" class="review-label">Your Chosen Reading Format:</th>
+                                                    <td>
+                                                        <?php
+                                                        $last_key = end(array_keys($listenerData['Multi']));
+
+                                                        foreach ($listenerData['Multi'] as $key => $value) {
+                                                            if ($key == $last_key) {
+                                                                // last element reached - do not add comma
+                                                                echo $value;
+                                                            } else {
+                                                                // separate values by comma
+                                                                echo $value . ", ";
+                                                            }
+                                                        }
+                                                        //echo print_r($listenerData['Multi']); 
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Contact
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <!-- left column  -->
+                                <div class="col-sm-10">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-condensed table-borderless">
+                                            <td>
+
+                                                <table class="table table-condensed table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Name:</th>
+                                                            <td><?php echo $contactData['FirstName'] . " " . $contactData['LastName']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Relationship to Listener:</th>
+                                                            <td><?php echo $contactData['Relationship']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Address Line 1:</th>
+                                                            <td><?php echo $contactData['Address']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Address Line 2:</th>
+                                                            <td><?php echo $contactData['AlternativeAddress']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">City/State/Zipcode:</th>
+                                                            <td><?php echo $contactData['City'] . ", " . $contactData['State'] . " " . $contactData['Zip']; ?></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Home Phone #:</th>
+                                                            <td><?php echo formatPhone($contactData['HomePhone']); ?></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Cell Phone #:</th>
+                                                            <td><?php echo formatPhone($contactData['CellPhone']); ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row" class="review-label">Email:</th>
+                                                            <td><?php echo $contactData['Email']; ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </td>
+
+                                            <td></td>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Signature and Person to Mail Radio to
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-sm-10">
+                                <div class="table table-responsive">
+                                    <table class="table table-condensed table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="review-label">Mail To:</th>
+                                                <td><?php echo $otherInfoData['MailTo']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="review-label">Signature:</th>
+                                                <td><?php echo $statementData['Signature']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="review-label">Today's Date:</th>
+                                                <td><?php echo date("F j, Y"); //echo $otherInfoData['SignatureDate']; ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--// =================================================-->
+        <?php
+        $this->form->setAction($this->url());
+        echo $this->form;
+        ?>
+    </div>
 </div>

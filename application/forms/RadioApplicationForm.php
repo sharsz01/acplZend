@@ -11,9 +11,14 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         $otherInfo = new Zend_Form_SubForm();
         $statement = new Zend_Form_SubForm();
 
+        // Set subform where elements belong to avoid name clashing
+        $listener->setElementsBelongTo('listenerForm');
+        $contact->setElementsBelongTo('contactForm');
+        $otherInfo->setElementsBelongTo('otherInfoForm');
+        $statement->setElementsBelongTo('statementForm');
+
         //$listener->setElementDecorators(array('ViewHelper', 'Label'));
         //$statement->setElementDecorators(array('ViewHelper', 'Label'));
-
         // subform section names
         $listener->setLegend("LISTENER");
         $contact->setLegend("ALTERNATIVE CONTACT");
@@ -39,6 +44,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
         // Add the submit button
         $this->addElement('submit', 'submit', array(
+            'id' => 'submit',
             'ignore' => true,
             'label' => 'Submit Application',
             'class' => 'btn btn-info pull-right'
@@ -75,13 +81,32 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
-        $listener->addElement('date', 'Birthdate', array(
-            'class' => 'form-control',
+        /*
+          $listener->addElement('date', 'Birthdate', array(
+          'class' => 'form-control',
+          'label' => 'Date of Birth *',
+          'required' => false,    // change to true when ready
+          'decorators' => array('ViewHelper', 'Label', 'Errors'),
+          ));
+         */
+
+        /*
+        $listener->addElement('text', 'Birthdate', array(
+            'class' => 'dateselector-fdt',
             'label' => 'Date of Birth *',
-            'required' => true,
+            'required' => false, // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
-
+        */
+        
+        $listener->addElement('text', 'Birthdate', array(
+            'class' => 'form-control date',
+            'placeholder' => 'ex. mm-dd-YYYY',
+            'label' => 'Date of Birth *',
+            'required' => false,    // change to true
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+        ));
+        
         $listener->addElement('text', 'Address', array(
             'class' => 'form-control',
             'label' => 'Street Address *',
@@ -132,7 +157,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $listener->addElement('text', 'HomePhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Home Phone *',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
@@ -140,12 +165,12 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Digits", array('StringLength', false, array(10, 11)),
+                "Digits", array('StringLength', false, array(10, 10)),
             ),
         ));
 
         $listener->addElement('text', 'CellPhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Cell Phone ',
             'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
@@ -153,7 +178,7 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'filters' => array('Digits', 'StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
             'validators' => array(
-                "Digits", array('StringLength', false, array(10, 11)),
+                "Digits", array('StringLength', false, array(10, 10)),
             ),
         ));
 
@@ -175,6 +200,19 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => 'What is your print disability/reason requesting service? *',
             'placeholder' => 'What is your print disability/reason requesting service? ',
             'required' => true,
+            'size' => 62,
+            'filters' => array('StringTrim'),
+            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+            'validators' => array(
+                array('Alnum', true, array('allowWhiteSpace' => true)),
+            ),
+        ));
+
+        $listener->addElement('text', 'OtherDisability', array(
+            'class' => 'form-control',
+            'label' => 'Are there any other medical conditions we should know about? ',
+            'placeholder' => 'Other medical conditions? ',
+            'required' => false,
             'size' => 62,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
@@ -248,29 +286,22 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             )
         ));
 
-        $listener->addElement('checkbox', 'LargePrint', array(
-            'label' => 'Large Print',
+        $listener->addElement('MultiCheckbox', 'Multi', array(
+            'class' => 'checkbox-inline big-checkbox',
+            'label' => 'Choose Your Preferred Format (Maximum of 2)',
+            'multioptions' => array(
+                'Large Print' => ' Large Print',
+                'Braille' => ' Braille',
+                'Audio CD' => ' Audio CD',
+                'Email' => ' Email',
+            )
         ));
-        $listener->getElement('LargePrint')->setCheckedValue('Yes');
-        $listener->getElement('LargePrint')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'Braille', array(
-            'label' => 'Braille',
-        ));
-        $listener->getElement('Braille')->setCheckedValue('Yes');
-        $listener->getElement('Braille')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'AudioCD', array(
-            'label' => 'Audio CD',
-        ));
-        $listener->getElement('AudioCD')->setCheckedValue('Yes');
-        $listener->getElement('AudioCD')->setUnCheckedValue('No');
-
-        $listener->addElement('checkbox', 'SendEmail', array(
-            'label' => 'Email',
-        ));
-        $listener->getElement('SendEmail')->setCheckedValue('Yes');
-        $listener->getElement('SendEmail')->setUnCheckedValue('No');
+//
+//        $listener->addElement('checkbox', 'LargePrint', array(
+//            'label' => 'Large Print',
+//        ));
+//        $listener->getElement('LargePrint')->setCheckedValue('Yes');
+//        $listener->getElement('LargePrint')->setUnCheckedValue('No');
     }
 
     public function addContactFields($contact) {
@@ -329,9 +360,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'HomePhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Home Phone *',
-            'placeholder' => 'Home Phone ',
+            'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
             'required' => true,
             'filters' => array('Digits', 'StringTrim'),
@@ -342,9 +373,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
         ));
 
         $contact->addElement('text', 'CellPhone', array(
-            'class' => 'form-control',
+            'class' => 'form-control phone',
             'label' => 'Cell Phone',
-            'placeholder' => 'Cell Phone ',
+            'placeholder' => 'ex. (xxx) xxx-xxxx ',
             'size' => 10,
             'required' => false,
             'filters' => array('Digits', 'StringTrim'),
@@ -401,11 +432,11 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
 
     public function addOtherFields($otherInfo) {
         $otherInfo->addElement('radio', 'MailTo', array(
-            'class' => 'radio-inline',
+            'class' => 'radio-inline big-radio',
             'label' => 'Please Check One *',
             'multiOptions' => array(
-                'toListener' => ' Mail radio to listener',
-                'toContact' => ' Mail radio to contact person',
+                'Listener' => ' Mail radio to listener',
+                'Contact' => ' Mail radio to contact person',
             ),
             'required' => true,
         ));
@@ -422,22 +453,31 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
-        $statement->addElement('date', 'SignatureDate', array(
-            'class' => 'form-control',
-            'label' => 'Date *',
-            'required' => true,
+        /*
+        $statement->addElement('text', 'SignatureDate', array(
+            'class' => 'dateselector-fdt',
+            'label' => 'Date * ',
+            //'required' => true,   // change to true when ready
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-        ));
+        ));*/
+
+//        $statement->addElement('date', 'SignatureDate', array(
+//            'class' => 'form-control',
+//            'label' => 'Date *',
+//            'required' => true,
+//            'decorators' => array('ViewHelper', 'Label', 'Errors'),
+//        ));
 
         $statement->addElement('checkbox', 'Agree', array(
-            //'class' => 'big-checkbox',
+            'id' => 'agree',
+            'class' => 'checkbox-inline big-checkbox',
             'label' => 'I have read and agree to statement terms * ',
-            'required' => true,
+            'required' => false,
             'uncheckedValue' => null
         ));
         $statement->setElementDecorators(array('ViewHelper', 'Label', 'Errors'));
         $statement->getElement('Agree')->setCheckedValue('Yes');
         $statement->getElement('Agree')->setUnCheckedValue('No');
-
     }
+
 }
