@@ -4,7 +4,6 @@ require('config/dbConnect.php');
 
 $return = array();
 
-<<<<<<< HEAD
 $SQL = "SELECT * FROM radio";
 $count = 1;
 
@@ -24,27 +23,6 @@ if(array_key_exists('search', $_REQUEST)) {
 		}
 		$count++;
 	}
-=======
-//echo var_dump($_REQUEST);
-
-$SQL = "SELECT * FROM radio";
-$count = 1;
-
-foreach ($_REQUEST as $key => $value) {
-	if($count == 1)
-		$SQL .= " WHERE ";
-	else
-	$SQL .= " AND ";
-	
-	if($value['type'] = 'binary') {
-		$SQL .= $key.'='.$value['value'];
-	} else if ($value['type'] = 'range') {
-		$SQL .= $key.' BETWEEN '.$value['value'];
-	} else {
-		$SQL .= $key.' LIKE %'.$value['value'].'%';
-	}
-	$count++;
->>>>>>> origin/master
 }
 $SQL .= ";";
 

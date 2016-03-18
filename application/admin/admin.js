@@ -5,11 +5,7 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'json',
             url: 'ajax/searchRadios.php',
-<<<<<<< HEAD
             data: {search: {radioId: radioId}},
-=======
-            data: {radioId: radioId},
->>>>>>> origin/master
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
                     var result = ajaxValues.result[0];
@@ -33,11 +29,7 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'json',
             url: 'ajax/searchIndividualUsers.php',
-<<<<<<< HEAD
             data: {search: {userId: userId}},
-=======
-            data: {userId: userId},
->>>>>>> origin/master
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
                     var result = ajaxValues.result[0];
@@ -49,11 +41,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-<<<<<<< HEAD
                 console.log(e);
-=======
-                console.log(e.message);
->>>>>>> origin/master
             }
         });
     }
@@ -65,11 +53,7 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'json',
             url: 'ajax/searchOrganizationUsers.php',
-<<<<<<< HEAD
             data: {search: {organizationId: organizationId}},
-=======
-            data: {organizationId: organizationId},
->>>>>>> origin/master
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
                     var result = ajaxValues.result[0];
@@ -88,35 +72,20 @@ $(document).ready(function () {
 
     // =============================================
 
-<<<<<<< HEAD
     $('#userList').on('click', '.userRow', function () {
         var id = $(this).attr('data-id');
-=======
-    $('.userRow').on('click', function () {
-        var id = $(this).attr('id');
->>>>>>> origin/master
         $('#user-details-tab').click();
         populateIndividualDetails(id);
     });
 
-<<<<<<< HEAD
     $('#organizationList').on('click', '.organizationRow', function () {
         var id = $(this).attr('data-id');
-=======
-    $('.organizationRow').on('click', function () {
-        var id = $(this).attr('id');
->>>>>>> origin/master
         $('#organization-details-tab').click();
         populateOrganizationDetails(id);
     });
 
-<<<<<<< HEAD
     $('#radioList').on('click', '.radioRow', function () {
         var id = $(this).attr('data-id');
-=======
-    $('.radioRow').on('click', function () {
-        var id = $(this).attr('id');
->>>>>>> origin/master
         $('#radio-details-tab').click();
         populateRadioDetails(id);
     });
@@ -136,10 +105,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-<<<<<<< HEAD
 				alert("Fail to save");
-=======
->>>>>>> origin/master
                 console.log(e);
             }
         });
@@ -158,10 +124,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-<<<<<<< HEAD
 				alert("Fail to save");
-=======
->>>>>>> origin/master
                 console.log(e);
             }
         });
@@ -178,30 +141,15 @@ $(document).ready(function () {
                     $('#organizationList').load(location.href + " #organizationList>*", "");
                     alert("Organization Saved.");
                 }
-<<<<<<< HEAD
             },
             error: function (e) {
                 alert("Fail to save");
-=======
-                else {
-                    //alert("Fail");
-                }
-            },
-            error: function (e) {
-                //alert("Fail to save");
->>>>>>> origin/master
                 console.log(e);
             }
         });
     });
 
     // =============================================
-<<<<<<< HEAD
-=======
-    // Cancel button for radios is working, but for some reason the value of the
-    // id for users and organizations is undefined, causing the cancel feature
-    // for those two to not work as expected
->>>>>>> origin/master
 
     $('#radioCancelBtn').on('click', function () {
         var id = $('#radioId').val();
@@ -209,20 +157,12 @@ $(document).ready(function () {
     });
 
     $('#userCancelBtn').on('click', function () {
-<<<<<<< HEAD
         var id = $('#ind-userId').val();
-=======
-        var id = $('#userId').val();
->>>>>>> origin/master
         populateIndividualDetails(id);
     });
 
     $('#organizationCancelBtn').on('click', function () {
-<<<<<<< HEAD
         var id = $('#org-organizationId').val();
-=======
-        var id = $('#organizationId').val();
->>>>>>> origin/master
         populateOrganizationDetails(id);
     });
 
@@ -276,11 +216,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-<<<<<<< HEAD
 				alert("Fail the new radio");
-=======
-
->>>>>>> origin/master
                 console.log(e);
             }
         });
@@ -305,11 +241,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-<<<<<<< HEAD
 				alert("Fail the new user");
-=======
-
->>>>>>> origin/master
                 console.log(e);
             }
         });
@@ -332,12 +264,6 @@ $(document).ready(function () {
                     $('#newOrganization').removeClass('hidden');
                     alert("New Organization Saved.");
                 }
-<<<<<<< HEAD
-=======
-                else {
-                    alert('oh');
-                }
->>>>>>> origin/master
             },
             error: function (e) {
                 alert("Fail the new org");
@@ -375,7 +301,6 @@ $(document).ready(function () {
         $('#newOrganization').removeClass('hidden');
     });
 
-<<<<<<< HEAD
 	// ======================================================
 	
 	function reloadRadios() {
@@ -439,9 +364,6 @@ $(document).ready(function () {
 		reloadRadios();
     });
 	
-=======
-
->>>>>>> origin/master
     // ====================================================== UI functionality
     var userDTable = $('#usersTable').DataTable({
         "scrollCollapse": true,

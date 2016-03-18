@@ -121,21 +121,11 @@ include "header2.phtml";
                             My long-term facility/retirement community provides a system-wide signal.
                         </label>
                     </div>
-<<<<<<< HEAD
 
                     <div class="col-sm-5 m-left">
                         <?php echo $this->form->organization->ResUnitsNum; ?>
                     </div>
                 </div>
-
-=======
-
-                    <div class="col-sm-5 m-left">
-                        <?php echo $this->form->organization->ResUnitsNum; ?>
-                    </div>
-                </div>
-
->>>>>>> origin/master
 
 
                 <!-- ================================================== Check boxes -->
@@ -227,54 +217,6 @@ include "header2.phtml";
                 $('#radioNum').attr('disabled', 'disabled');
                 //clearText('#radioNum');
             }
-<<<<<<< HEAD
-        });
-
-        $('#bNum').click(function () {
-            if ($('#bNum').is(':checked')) {
-                $('#licBedsNum').removeAttr('disabled');
-            }
-            else {
-                $('#licBedsNum').attr('disabled', 'disabled');
-                //clearText('#licBedsNum');
-            }
-        });
-
-        $('#uNum').click(function () {
-            if ($('#uNum').is(':checked')) {
-                $('#resUnitsNum').removeAttr('disabled');
-            }
-            else {
-                $('#resUnitsNum').attr('disabled', 'disabled');
-                //clearText('#resUnitsNum');
-            }
-        });
-
-        // enable-disable submit
-        $('#agree').click(function () {
-            if (!$(this).is(':checked')) {
-                $('#submit').attr('disabled', 'disabled');
-            }
-            else {
-                $('#submit').removeAttr('disabled');
-            }
-        });
-
-        $('#submit').click(function () {
-            if (!$('#rNum').is(':checked')) {
-                clearText('#radioNum');
-            }
-            if (!$('#bNum').is(':checked')) {
-                clearText('#licBedsNum');
-            }
-            if (!$('#uNum').is(':checked')) {
-                clearText('#resUnitsNum');
-            }
-        });
-
-        // ================================================ Refactor to function
-
-=======
         });
 
         $('#bNum').click(function () {
@@ -325,7 +267,6 @@ include "header2.phtml";
         // =========== masked input
         $(".phone").mask("(999) 999-9999");
 
->>>>>>> origin/master
     });
 
 </script>
