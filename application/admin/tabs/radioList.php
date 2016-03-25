@@ -15,7 +15,7 @@
     <div id="radioList">
         <div class="panel-group">
             <div class="panel panel-default">
-                <a data-toggle="collapse" href="#collapse3">
+                <a data-toggle="collapse" href="#radio-search-collapse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             Search
@@ -23,7 +23,7 @@
                         </h4>
                     </div>
                 </a>
-                <div id="collapse3" class="panel-collapse collapse">
+                <div id="radio-search-collapse" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-sm-6">
@@ -115,7 +115,14 @@
                                     <label for="radio-search-notes">Notes:</label>
                                     <textarea class="form-control" rows="2" id="radio-search-notes"></textarea>
                                 </div>
-                                <button id="radio-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="radio-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="radio-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>

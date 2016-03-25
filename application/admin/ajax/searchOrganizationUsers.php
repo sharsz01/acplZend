@@ -7,20 +7,22 @@ $return = array();
 $SQL = "SELECT * FROM organization ";
 $count = 1;
 
-foreach ($_REQUEST['search'] as $key => $value) {
-	if($count == 1)
-		$SQL .= " WHERE ";
-	else
-	$SQL .= " AND ";
-	
-	if($value['type'] == 'binary') {
-		$SQL .= $key."='".$value['value']."'";
-	} else if ($value['type'] == 'range') {
-		$SQL .= $key." BETWEEN '".$value['value1']."' AND '".$value['value2']."'";
-	} else {
-		$SQL .= $key." LIKE '%".$value['value']."%'";
+if(array_key_exists('search', $_REQUEST)) {
+	foreach ($_REQUEST['search'] as $key => $value) {
+		if($count == 1)
+			$SQL .= " WHERE ";
+		else
+		$SQL .= " AND ";
+		
+		if($value['type'] == 'binary') {
+			$SQL .= $key."='".$value['value']."'";
+		} else if ($value['type'] == 'range') {
+			$SQL .= $key." BETWEEN '".$value['value1']."' AND '".$value['value2']."'";
+		} else {
+			$SQL .= $key." LIKE '%".$value['value']."%'";
+		}
+		$count++;
 	}
-	$count++;
 }
 $SQL .= ";";
 

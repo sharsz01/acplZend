@@ -140,7 +140,34 @@
                                     <input type="email" class="form-control" id="org-search-email">
                                 </div>
 								
-                                <button id="org-search-Btn" type="button" class="btn btn-primary btn-block">Search</button>
+								<div class="row">
+									<div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="org-search-howLearn">How Learn:</label>
+                                            <input type="text" class="form-control" id="org-search-howLearn">
+                                        </div>
+                                    </div>
+									<div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="org-search-status">Status:</label>
+                                            <select class="form-control" id="org-search-status">
+												<option></option>
+                                                <option>Applicant</option>
+                                                <option>Active</option>
+                                                <option>Inactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="org-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="org-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
