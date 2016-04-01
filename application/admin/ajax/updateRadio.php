@@ -4,10 +4,12 @@ require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "UPDATE radio SET controlNum='".$_REQUEST['controlNum']."', modelNum='".$_REQUEST['modelNum']."', manufacturer='".$_REQUEST['manufacturer'].
-	"', dateOfPurchase='".$_REQUEST['dateOfPurchase']."', headphones='".$_REQUEST['headphones'].
-	"', battery='".$_REQUEST['battery']."', wave='".$_REQUEST['wave']."', radioCondition='".$_REQUEST['radioCondition']."', notes='".$_REQUEST['notes'].
-	"' WHERE radioId='".$_REQUEST['radioId']."';";
+$SQL = "UPDATE radio SET controlNum='".$_REQUEST['radio-controlNum']."', modelNum='".$_REQUEST['radio-modelNum']
+	."', manufacturer='".$_REQUEST['radio-manufacturer']."', dateOfPurchase='".$_REQUEST['radio-dateOfPurchase']
+	."', headphones='".$_REQUEST['radio-headphones']."', battery='".$_REQUEST['radio-battery']
+	."', wave='".$_REQUEST['radio-wave']."', radioCondition='".$_REQUEST['radio-radioCondition']
+	."', notes='".$_REQUEST['radio-notes'].
+	"' WHERE radioId='".$_REQUEST['radio-radioId']."';";
 
 $result = mysqli_query($db, $SQL);
 

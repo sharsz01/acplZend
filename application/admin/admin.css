@@ -20,8 +20,11 @@ body {
 	border: 1px solid #ccc;
 	padding: 1em;
 	width: 100%;
-        float: left;
-	cursor: pointer; 
+    float: left;
+}
+
+#usersTable, #radiosTable, #organizationsTable {
+	cursor: pointer;
 }
 
 #tabRow button {
@@ -36,7 +39,7 @@ body {
 	margin: 0.5em;
 }
 
-#userRadios {
+#userRadios, #organizationRadios {
 	height: 10em;
 	overflow: scroll;
 	border: 1px solid #ccc;

@@ -21,8 +21,8 @@ $SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered'] . "'
         . "', race='" . $_REQUEST['ind-race'] . "', income='" . $_REQUEST['ind-income']
         . "', inHomeNum='" . $_REQUEST['ind-inHomeNum'] . "', status='" . $_REQUEST['ind-status']
         . "', type='" . $_REQUEST['ind-type'] . "', medium='" . $_REQUEST['ind-medium']
-        . "', signature='" . $_REQUEST['ind-signature'] . "', dateSigned='" . $_REQUEST['ind-dateSigned']
-        . "', mailTo='" . $_REQUEST['ind-mailTo'] . "', notes='" . $_REQUEST['ind-notes']
+        . "', signature='" . $_REQUEST['ind-signature'] . "', mailTo='" . $_REQUEST['ind-mailTo']
+		. "', notes='" . $_REQUEST['ind-notes']
         . "' WHERE userId='" . $_REQUEST['ind-userId'] . "';";
 		
 $result = mysqli_query($db, $SQL);

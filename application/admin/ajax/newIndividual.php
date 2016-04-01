@@ -22,8 +22,7 @@ $SQL = "INSERT INTO user (dateRegistered, ipRegistered, firstName, lastName, bir
         . "', '" . $_REQUEST['ind-income'] . "', '" . $_REQUEST['ind-inHomeNum']
         . "', '" . $_REQUEST['ind-status'] . "', '" . $_REQUEST['ind-type']
         . "', '" . $_REQUEST['ind-medium'] . "', '" . $_REQUEST['ind-signature']
-        . "', '" . $_REQUEST['ind-dateSigned'] . "', '" . $_REQUEST['ind-mailTo']
-        . "', '" . $_REQUEST['ind-notes'] . "')";
+        . "', '" . $_REQUEST['ind-mailTo'] . "', '" . $_REQUEST['ind-notes'] . "')";
 
 $result = mysqli_query($db, $SQL);
 

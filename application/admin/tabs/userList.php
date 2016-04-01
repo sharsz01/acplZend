@@ -30,152 +30,153 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="SfirstName">First Name:</label>
-                                            <input type="text" class="form-control" id="SfirstName">
+                                            <label for="user-search-firstName">First Name:</label>
+                                            <input type="text" class="form-control" id="user-search-firstName">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="SlastName">Last Name:</label>
-                                            <input type="text" class="form-control" id="SlastName">
+                                            <label for="user-search-lastName">Last Name:</label>
+                                            <input type="text" class="form-control" id="user-search-lastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="dobFrom">Date of Birth (from) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="dobFrom">
+                                            <label for="user-search-dobFrom">Date of Birth (from) (mm/dd/yyyy):</label>
+                                            <input type="text" class="form-control" id="user-search-dobFrom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="dobTo">Date of Birth (to) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="dobTo">
+                                            <label for="user-search-dobTo">Date of Birth (to) (mm/dd/yyyy):</label>
+                                            <input type="text" class="form-control" id="user-search-dobTo">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Saddress">Address:</label>
-                                    <input type="text" class="form-control" id="Saddress">
+                                    <label for="user-search-address">Address:</label>
+                                    <input type="text" class="form-control" id="user-search-address">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Saddress2">Address Line 2:</label>
-                                    <input type="text" class="form-control" id="Saddress2">
+                                    <label for="user-search-address2">Address Line 2:</label>
+                                    <input type="text" class="form-control" id="user-search-address2">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Scity">City:</label>
-                                            <input type="text" class="form-control" id="Scity">
+                                            <label for="user-search-city">City:</label>
+                                            <input type="text" class="form-control" id="user-search-city">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <label for="Sstate">State:</label>
-                                            <input type="text" class="form-control" id="Sstate">
+                                            <label for="user-search-state">State:</label>
+                                            <input type="text" class="form-control" id="user-search-state">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="Szip">Zip:</label>
-                                            <input type="number" class="form-control" id="Szip">
+                                            <label for="user-search-zip">Zip:</label>
+                                            <input type="number" class="form-control" id="user-search-zip">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Semail">Email:</label>
-                                    <input type="email" class="form-control" id="Semail">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Sphone">Phone:</label>
-                                            <input type="tel" class="form-control" id="Sphone">
+                                            <label for="user-search-phone">Phone:</label>
+                                            <input type="tel" class="form-control" id="user-search-phone">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Sphone2">Alternate Phone:</label>
-                                            <input type="tel" class="form-control" id="Sphone2">
+                                            <label for="user-search-phone2">Alternate Phone:</label>
+                                            <input type="tel" class="form-control" id="user-search-phone2">
                                         </div>
                                     </div>
                                 </div>
+								<div class="form-group">
+                                    <label for="user-search-email">Email:</label>
+                                    <input type="email" class="form-control" id="user-search-email">
+                                </div>
                                 <div class="form-group">
-                                    <label for="Snotes">Notes:</label>
-                                    <textarea class="form-control" rows="2" id="Snotes"></textarea>
+                                    <label for="user-search-notes">Notes:</label>
+                                    <textarea class="form-control" rows="5" id="user-search-notes"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="ScontactFirstName">Contact First Name:</label>
-                                            <input type="text" class="form-control" id="ScontactFirstName">
+                                            <label for="user-search-contactFirstName">Contact First Name:</label>
+                                            <input type="text" class="form-control" id="user-search-contactFirstName">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="ScontactLastName">Contact Last Name:</label>
-                                            <input type="text" class="form-control" id="ScontactLastName">
+                                            <label for="user-search-contactLastName">Contact Last Name:</label>
+                                            <input type="text" class="form-control" id="user-search-contactLastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="ScontactAddress">Contact Address:</label>
-                                    <input type="text" class="form-control" id="ScontactAddress">
+                                    <label for="user-search-contactAddress">Contact Address:</label>
+                                    <input type="text" class="form-control" id="user-search-contactAddress">
                                 </div>
                                 <div class="form-group">
-                                    <label for="ScontactAddress2">Contact Address Line 2:</label>
-                                    <input type="text" class="form-control" id="ScontactAddress2">
+                                    <label for="user-search-contactAddress2">Contact Address Line 2:</label>
+                                    <input type="text" class="form-control" id="user-search-contactAddress2">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="ScontactCity">Contact City:</label>
-                                            <input type="text" class="form-control" id="ScontactCity">
+                                            <label for="user-search-contactCity">Contact City:</label>
+                                            <input type="text" class="form-control" id="user-search-contactCity">
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <label for="ScontactState">State:</label>
-                                            <input type="text" class="form-control" id="ScontactState">
+                                            <label for="user-search-contactState">State:</label>
+                                            <input type="text" class="form-control" id="user-search-contactState">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="ScontactZip">Contact Zip:</label>
-                                            <input type="number" class="form-control" id="ScontactZip">
+                                            <label for="user-search-contactZip">Contact Zip:</label>
+                                            <input type="number" class="form-control" id="user-search-contactZip">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ScontactEmail">Contact Email:</label>
-                                    <input type="email" class="form-control" id="ScontactEmail">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="ScontactPhone">Contact Phone:</label>
-                                            <input type="tel" class="form-control" id="ScontactPhone">
+                                            <label for="user-search-contactPhone">Contact Phone:</label>
+                                            <input type="tel" class="form-control" id="user-search-contactPhone">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="ScontactPhone2">Contact Alternate Phone:</label>
-                                            <input type="tel" class="form-control" id="ScontactPhone2">
+                                            <label for="user-search-contactPhone2">Contact Alternate Phone:</label>
+                                            <input type="tel" class="form-control" id="user-search-contactPhone2">
                                         </div>
                                     </div>
                                 </div>
+								<div class="form-group">
+                                    <label for="user-search-contactEmail">Contact Email:</label>
+                                    <input type="email" class="form-control" id="user-search-contactEmail">
+                                </div>
                                 <div class="form-group">
-                                    <label for="ScontactRelationship">Relationship:</label>
-                                    <input type="text" class="form-control" id="ScontactRelationship">
+                                    <label for="user-search-contactRelationship">Relationship:</label>
+                                    <input type="text" class="form-control" id="user-search-contactRelationship">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="Sstatus">Status:</label>
-                                            <select class="form-control" id="Sstatus">
+                                            <label for="user-search-status">Status:</label>
+                                            <select class="form-control" id="user-search-status">
+												<option></option>
                                                 <option>Applicant</option>
                                                 <option>Active</option>
                                                 <option>Inactive</option>
@@ -184,17 +185,9 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="Stype">Type:</label>
-                                            <select class="form-control" id="Stype">
-                                                <option>Individual</option>
-                                                <option>Organization</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="Smedium">Medium:</label>
-                                            <select class="form-control" id="Smedium">
+                                            <label for="user-search-medium">Medium:</label>
+                                            <select class="form-control" id="user-search-medium">
+												<option></option>
                                                 <option>Radio</option>
                                                 <option>Mobile App</option>
                                                 <option>PBS 39.4</option>
@@ -202,8 +195,65 @@
                                             </select>
                                         </div>
                                     </div>
+									<div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-mailTo">Mail To:</label>
+                                            <select class="form-control" id="user-search-mailTo">
+												<option></option>
+                                                <option>toListener</option>
+                                                <option>toContact</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button id="userSearchBtn" type="button" class="btn btn-primary btn-block">Search</button>
+								<div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-disability">Disability:</label>
+                                            <input type="text" class="form-control" id="user-search-disability">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-otherDisability">Other Disability:</label>
+                                            <input type="text" class="form-control" id="user-search-otherDisability">
+                                        </div>
+                                    </div>
+									<div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-howLearn">How Learn:</label>
+                                            <input type="text" class="form-control" id="user-search-howLearn">
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-race">Race:</label>
+                                            <input type="text" class="form-control" id="user-search-race">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-income">Income:</label>
+                                            <input type="text" class="form-control" id="user-search-income">
+                                        </div>
+                                    </div>
+									<div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="user-search-inHomeNum">People in Home:</label>
+                                            <input type="text" class="form-control" id="user-search-inHomeNum">
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="user-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="user-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
