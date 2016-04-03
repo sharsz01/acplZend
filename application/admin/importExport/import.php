@@ -1,3 +1,10 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
 <?php
 	if (isset($_POST['importUsers']))
 	{
@@ -10,6 +17,40 @@
 		$row = 1;
 		//set file location sent from the html page
 		$file = $_FILES['userFile']['tmp_name'];		
+		
+		//check if the file exists, if not alert the user
+		if (!file_exists($file))
+		{
+			echo '<!-- Modal -->
+					<div id="myModal" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Error</h4>
+						  </div>
+						  <div class="modal-body">
+							<p>No file chosen or the file does not exists</p>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" id="closeBtn" class="btn btn-default" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+
+					  </div>
+					</div>
+					
+					<script>
+						$(\'#myModal\').modal({ show: true});
+						document.getElementById("closeBtn").onclick = function () {
+							location.href = "../admin.php";
+						};
+					</script>
+					';
+			return;
+		}
 		
 		//opens the file
 		if (($handle = fopen($file, "r")) !== FALSE) 
@@ -56,6 +97,40 @@
 		//set file location sent from the html page
 		$file = $_FILES['userFile']['tmp_name'];		
 		
+		//check if the file exists, if not alert the user
+		if (!file_exists($file))
+		{
+			echo '<!-- Modal -->
+					<div id="myModal" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Error</h4>
+						  </div>
+						  <div class="modal-body">
+							<p>No file chosen or the file does not exists</p>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" id="closeBtn" class="btn btn-default" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+
+					  </div>
+					</div>
+					
+					<script>
+						$(\'#myModal\').modal({ show: true});
+						document.getElementById("closeBtn").onclick = function () {
+							location.href = "../admin.php";
+						};
+					</script>
+					';
+			return;
+		}
+		
 		//opens the file
 		if (($handle = fopen($file, "r")) !== FALSE) 
 		{
@@ -100,6 +175,40 @@
 		$row = 1;
 		//set file location sent from the html page
 		$file = $_FILES['userFile']['tmp_name'];		
+		
+		//check if the file exists, if not alert the user
+		if (!file_exists($file))
+		{
+			echo '<!-- Modal -->
+					<div id="myModal" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Error</h4>
+						  </div>
+						  <div class="modal-body">
+							<p>No file chosen or the file does not exists</p>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" id="closeBtn" class="btn btn-default" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+
+					  </div>
+					</div>
+					
+					<script>
+						$(\'#myModal\').modal({ show: true});
+						document.getElementById("closeBtn").onclick = function () {
+							location.href = "../admin.php";
+						};
+					</script>
+					';
+			return;
+		}
 		
 		//opens the file
 		if (($handle = fopen($file, "r")) !== FALSE) 
