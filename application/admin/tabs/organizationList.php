@@ -2,8 +2,8 @@
     <h3 style="float: left;">Organizations</h3>
 
     <div id="importExport" style="float: right; margin: 10px 0px;">
-        <form method="POST" action="importExport/export.php" style="float: right;">
-            <input type="submit" class="btn btn-primary" name="exportOrganization" value="Export" style="float: right;">
+        <form method="POST" action="" style="float: right;">
+            <input type="submit" onclick="exportOrg()" class="btn btn-primary" name="exportOrganization" value="Export" style="float: right;">
         </form>
 
         <form action="importExport/import.php" method="POST" enctype="multipart/form-data" style="float: right;">
@@ -246,3 +246,45 @@
         </div>
     </div>
 </div>
+
+<script>
+	function exportOrg()
+	{
+		//get the organization table as displayed on the web page
+		var table = document.getElementById("organizationsTable").innerHTML;
+		//this is used to strip html code out of the table.
+		//this is needed to properly export
+		var data = table.replace(/<td>/g, '')
+						.replace(/<tr>/g, '')
+						.replace(/<thead>/g, '')
+						.replace(/<\/thead>/g, '')
+						.replace(/<tr role="row">/g, '')
+						.replace(/<div class="handle">/g, '')
+						.replace(/<\/div>/g, '')
+						.replace(/<\/th>/g, ',')
+						.replace(/<tbody>/g, '')
+						.replace(/<\/tbody>/g, '')
+						.replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable odd" role="row">)/g, '')
+						.replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable even" role="row">)/g, '')
+						.replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable odd" role="row">)/g, '')
+						.replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable even" role="row">)/g, '')
+						.replace(/<\/td>/g, ',')
+						.replace(/\t/g, '')
+						.replace(/   */g, '')
+						.replace(/\r?\n|\r/g, '')
+						.replace(/<\/tr>/g, '\r\n')
+						.replace(/<th class=.sort.{0,200}px.../g, '')
+						.replace(/<tr data-id.{1,50}>/g, '')
+						.replace(/<td class="sorting_1">/g, '');
+		//get the date
+		var date = new Date();
+		//prepare a link for the .csv file to be downloaded from
+		var link = document.createElement('a');
+		//create the file
+		link.download = "organizationExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+		//populate the file with data
+		link.href = "data:application/csv," + escape(data);
+		//simulate the user clicking, and thus downloading the file
+		link.click();
+	}
+</script>
