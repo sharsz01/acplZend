@@ -2,8 +2,8 @@
     <h3 style="float: left;">Users</h3>
     
     <div id="importExport" style="float: right; margin: 10px 0px;">
-        <form method="POST" action="importExport/export.php" style="float: right;">
-            <input type="submit" class="btn btn-primary" name="exportUsers" value="Export" style="float: right;">
+        <form method="POST" action="" style="float: right;">
+            <input type="submit" onclick="exportUser()" class="btn btn-primary" name="exportUsers" value="Export" style="float: right;">
         </form>
 
         <form action="importExport/import.php" method="POST" enctype="multipart/form-data" style="float: right;">
@@ -320,7 +320,7 @@
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo('<tr data-id="' . $row['userId'] . '" class="userRow">');
+                        echo('<tr id="userRow" data-id="' . $row['userId'] . '" class="userRow">');
                         foreach ($fields as $field) {
                             echo('<td>' . $row[$field] . '</td>');
                         }
@@ -331,5 +331,47 @@
             </table>
         </div>
     </div>
-    
+	
 </div>
+
+<script>
+	function exportUser()
+	{
+		//get the users table as diaplyed on the web page
+		var table = document.getElementById("usersTable").innerHTML;
+		//this is used to strip heml code out of the table
+		//this is needed to properly export
+		var data = table.replace(/<td>/g, '')
+						.replace(/<tr>/g, '')
+						.replace(/<thead>/g, '')
+						.replace(/<\/thead>/g, '')
+						.replace(/<tr role="...">/g, '')
+						.replace(/<th class="sort.{0,170};">/g, '')
+						.replace(/<div class="handle">/g, '')
+						.replace(/<\/div>/g, '')
+						.replace(/<\/th>/g, ',')
+						.replace(/<tbody>/g, '')
+						.replace(/<\/tbody>/g, '')
+						.replace(/(<tr id="userRow" data-id=".." class="userRow odd" role="row">)/g, '')
+						.replace(/(<tr id="userRow" data-id=".." class="userRow even" role="row">)/g, '')
+						.replace(/(<tr id="userRow" data-id="." class="userRow odd" role="row">)/g, '')
+						.replace(/(<tr id="userRow" data-id="." class="userRow even" role="row">)/g, '')
+						.replace(/<\/td>/g, ',')
+						.replace(/\t/g, '')
+						.replace(/                    /g, '')
+						.replace(/                /g, '')
+						.replace(/\r?\n|\r/g, '')
+						.replace(/<\/tr>/g, '\r\n')
+						.replace(/<td class="sorting_1">/g, '');
+		//get the date
+		var date = new Date();
+		//prepare a link for the .csv file to be downloaded from
+		var link = document.createElement('a');
+		//create the file
+		link.download = "userExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+		//populate the file with data
+		link.href = "data:application/csv," + escape(data);
+		//simulate the user clicking, and thus downloading the file
+		link.click();
+	}
+</script>
