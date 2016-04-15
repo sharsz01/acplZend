@@ -2,31 +2,31 @@
     <h3>Radio Details <button id="newRadio" type="button" class="btn btn-primary btn-sm">New Radio</button></h3>
 
     <form id="radio-details-form">
-        <input type="hidden" name="radioId" id="radioId" />
+        <input type="hidden" name="radio-radioId" id="radio-radioId" />
 
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="controlNum">Control Number:</label>
-                    <input type="text" class="form-control" name="controlNum" id="controlNum">
+                    <label for="radio-controlNum">Control Number:</label>
+                    <input type="text" class="form-control" name="radio-controlNum" id="radio-controlNum">
                 </div>
                 <div class="form-group">
-                    <label for="modelNum">Model Number:</label>
-                    <input type="text" class="form-control" name="modelNum" id="modelNum">
+                    <label for="radio-modelNum">Model Number:</label>
+                    <input type="text" class="form-control" name="radio-modelNum" id="radio-modelNum">
                 </div>
                 <div class="form-group">
-                    <label for="manufacturer">Manufacturer:</label>
-                    <input type="text" class="form-control" name="manufacturer" id="manufacturer">
+                    <label for="radio-manufacturer">Manufacturer:</label>
+                    <input type="text" class="form-control" name="radio-manufacturer" id="radio-manufacturer">
                 </div>
                 <div class="form-group">
-                    <label for="dateOfPurchase">Date of Purchase (mm/dd/yyyy):</label>
-                    <input type="text" class="form-control" name="dateOfPurchase" id="dateOfPurchase">
+                    <label for="radio-dateOfPurchase">Date of Purchase (mm/dd/yyyy):</label>
+                    <input type="text" class="form-control" name="radio-dateOfPurchase" id="radio-dateOfPurchase">
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="headphones">Headphones:</label>
-                            <select class="form-control" name="headphones" id="headphones">
+                            <label for="radio-headphones">Headphones:</label>
+                            <select class="form-control" name="radio-headphones" id="radio-headphones">
                                 <option>yes</option>
                                 <option>no</option>
                             </select>
@@ -34,8 +34,8 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="battery">Battery:</label>
-                            <select class="form-control" name="battery" id="battery">
+                            <label for="radio-battery">Battery:</label>
+                            <select class="form-control" name="radio-battery" id="radio-battery">
                                 <option>yes</option>
                                 <option>no</option>
                             </select>
@@ -43,8 +43,8 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="wave">Wave:</label>
-                            <select class="form-control" name="wave" id="wave">
+                            <label for="radio-wave">Wave:</label>
+                            <select class="form-control" name="radio-wave" id="radio-wave">
                                 <option>short</option>
                                 <option>long</option>
                             </select>
@@ -52,8 +52,8 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="radioCondition">Condition:</label>
-                            <select class="form-control" name="radioCondition" id="radioCondition">
+                            <label for="radio-radioCondition">Condition:</label>
+                            <select class="form-control" name="radio-radioCondition" id="radio-radioCondition">
                                 <option>good</option>
                                 <option>fair</option>
                                 <option>poor</option>
@@ -62,8 +62,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="notes">Notes:</label>
-                    <textarea class="form-control" rows="2" name="notes" id="notes"></textarea>
+                    <label for="radio-notes">Notes:</label>
+                    <textarea class="form-control" rows="2" name="radio-notes" id="radio-notes"></textarea>
                 </div>
             </div>
     </form>
@@ -94,7 +94,7 @@
                 </table>
             </div>
         </div>
-        <button id="checkOut" type="button" class="btn btn-inactive">Check Out Radio</button>
+        <button id="radio-checkOut" type="button" class="btn btn-inactive">Check Out Radio</button>
     </div>
 </div>
 
