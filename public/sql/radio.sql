@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2016 at 09:13 PM
+-- Generation Time: Apr 01, 2016 at 09:40 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -45,13 +45,15 @@ CREATE TABLE `radio` (
 --
 
 INSERT INTO `radio` (`radioId`, `controlNum`, `modelNum`, `manufacturer`, `dateOfPurchase`, `radioStatus`, `headphones`, `battery`, `wave`, `radioCondition`, `notes`) VALUES
-(1, 1, '123456', 'Radio Electronics', '2010-01-02', 'Checked In', 'yes', 'no', 'long', 'fair', ''),
+(1, 1, '333333', 'Radio Electronics', '2010-01-02', 'Checked In', 'yes', 'no', 'long', 'fair', 'some notes'),
 (2, 2, '111111', 'Radio Research Inc.', '2016-02-10', 'Checked Out', 'no', 'no', 'short', 'good', ''),
 (3, 3, '222222', 'United Radio Systems, LLC', '2016-02-03', 'inactive', 'yes', 'no', 'long', 'poor', ''),
 (4, 4, '131313', 'Acme Radios', '2010-01-01', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
 (5, 5, '321321', 'Radio Inc.', '2016-02-26', 'Checked In', 'yes', 'no', 'short', 'good', ''),
 (15, 6, '151515', 'Acme Radios', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
-(16, 7, '161616', 'Radio manufacturers', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', '');
+(16, 7, '161616', 'Radio manufacturers', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
+(17, 10, '123456', 'test', '0000-00-00', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
+(18, 12, '111111', 'test', '0000-00-00', 'Checked In', 'yes', 'yes', 'short', 'good', '');
 
 --
 -- Indexes for dumped tables
@@ -71,7 +73,7 @@ ALTER TABLE `radio`
 -- AUTO_INCREMENT for table `radio`
 --
 ALTER TABLE `radio`
-  MODIFY `radioId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `radioId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
