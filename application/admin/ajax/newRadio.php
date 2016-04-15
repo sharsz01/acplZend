@@ -5,8 +5,11 @@ require('config/dbConnect.php');
 $return = array();
 
 $SQL = "INSERT INTO radio (controlNum, modelNum, manufacturer, dateOfPurchase, radioStatus, headphones, battery, wave, radioCondition, notes)".
-	" VALUES ('".$_REQUEST['controlNum']."', '".$_REQUEST['modelNum']."', '".$_REQUEST['manufacturer']."', '".$_REQUEST['dateOfPurchase']."', '".
-	"Checked In', '".$_REQUEST['headphones']."', '".$_REQUEST['battery']."', '".$_REQUEST['wave']."', '".$_REQUEST['radioCondition']."', '".$_REQUEST['notes']."');";
+	" VALUES ('".$_REQUEST['radio-controlNum']."', '".$_REQUEST['radio-modelNum']
+	."', '".$_REQUEST['radio-manufacturer']."', '".$_REQUEST['radio-dateOfPurchase']
+	."', '"."Checked In', '".$_REQUEST['radio-headphones']
+	."', '".$_REQUEST['radio-battery']."', '".$_REQUEST['radio-wave']
+	."', '".$_REQUEST['radio-radioCondition']."', '".$_REQUEST['radio-notes']."');";
 	
 $result = mysqli_query($db, $SQL);
 $return['success'] = $result;
