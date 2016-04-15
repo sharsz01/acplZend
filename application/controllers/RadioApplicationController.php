@@ -156,7 +156,8 @@ class RadioApplicationController extends Zend_Controller_Action {
             'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
             'dateSigned' => date("Y-m-d"),
-            'notes' => '',
+            'notes' => '', // Default
+            'alert_status' => 'Unread' // Default
         ));
     }
 
@@ -167,7 +168,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $bday = strtotime($listenerVals['Birthdate']);
         $bdayFormat = date("Y-m-d", $bday);
         // ============================================
-        
+
         $user->createUser(array(
             'dateRegistered' => '0000-00-00', // Default
             'ipRegistered' => '', // Default
@@ -206,7 +207,8 @@ class RadioApplicationController extends Zend_Controller_Action {
             'signature' => $statementVals['Signature'],
             'dateSigned' => date("Y-m-d"),
             'mailTo' => $otherInfoVals['MailTo'],
-            'notes' => '',
+            'notes' => '', // Default
+            'alert_status' => 'Unread' // Default
         ));
     }
 
