@@ -39,7 +39,7 @@ body {
 	margin: 0.5em;
 }
 
-#userRadios {
+#userRadios, #organizationRadios {
 	height: 10em;
 	overflow: scroll;
 	border: 1px solid #ccc;
@@ -61,4 +61,11 @@ body {
 
 .handle{
     padding: 10px;
+    //background-color: gray;
 }
+
+.user-close, .org-close, .radio-close{
+	float: left;
+	padding-right: 15px;
+}
+
