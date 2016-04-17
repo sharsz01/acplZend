@@ -1,6 +1,6 @@
 <div id="radios" class="tab-pane fade">
     <h3 style="float: left;">Radios</h3>
-
+    
     <div id="importExport" style="float: right; margin: 10px 0px;">
         <form method="POST" action="" style="float: right;">
             <input type="submit" onclick="exportRadio()" class="btn btn-primary" name="exportRadios" value="Export" style="float: right;">
@@ -11,7 +11,7 @@
             <input type="file" class="btn btn-default" name="userFile" style="float: right; margin-right: 20px;">
         </form>
     </div>
-
+    
     <div id="radioList">
         <div class="panel-group">
             <div class="panel panel-default">
@@ -60,7 +60,7 @@
                                         <div class="form-group">
                                             <label for="radio-search-radioStatus">Status:</label>
                                             <select class="form-control" id="radio-search-radioStatus">
-                                                <option></option>
+												<option></option>
                                                 <option>Checked In</option>
                                                 <option>Checked Out</option>
                                                 <option>Inactive</option>
@@ -115,14 +115,14 @@
                                     <label for="radio-search-notes">Notes:</label>
                                     <textarea class="form-control" rows="2" id="radio-search-notes"></textarea>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <button id="radio-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button id="radio-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
-                                    </div>
-                                </div>
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="radio-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="radio-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
@@ -142,67 +142,32 @@
                 <div id="collapse4" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div id="tabRow">
-                            <div style="float: left;"><button type="button" id="radio-controlNumBtn" class="inactiveBtns btn btn-default">Control #</button></div>
-                            <div style="float: left;"><button type="button" id="radio-modelNumBtn" class="inactiveBtns btn btn-default">Model #</button></div>
-                            <div style="float: left;"><button type="button" id="radio-manufacturerBtn" class="inactiveBtns btn btn-default">Manufacturer</button></div>
-                            <div style="float: left;"><button type="button" id="radio-dopBtn" class="inactiveBtns btn btn-default">Date Of Purchase</button></div>
-                            <div style="float: left;"><button type="button" id="radio-statusBtn" class="inactiveBtns btn btn-default">Status</button></div>
-                            <div style="float: left;"><button type="button" id="radio-headphonesBtn" class="inactiveBtns btn btn-default">Headphones</button></div>
-                            <div style="float: left;"><button type="button" id="radio-batteryBtn" class="inactiveBtns btn btn-default">Battery</button></div>
-                            <div style="float: left;"><button type="button" id="radio-waveBtn" class="inactiveBtns btn btn-default">Wave</button></div>
-                            <div style="float: left;"><button type="button" id="radio-conditionBtn" class="inactiveBtns btn btn-default">Condition</button></div>
-                            <div style="float: left;"><button type="button" id="radio-notesBtn" class="inactiveBtns btn btn-default">Notes</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Date Of Purchase</button></div>
+                            <div style="float: left;"><button type="button" class="btn btn-default">Note</button></div>
                             <div style="clear: both;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <button type="button" id="clearRadioTable" class="btn btn-danger">Clear Table</button>
-            <button type="button" id="radioTableDefaults" class="btn btn-default">Default</button>
-        </div>
-
         <div class="table-responsive">
-            <table id="radiosTable" class="table table-striped table-bordered table-hover table-condensed" width="100%">
+            <table id="radiosTable" class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th name="rTable-controlNum">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Control Number
-                </th>
-                <th name="rTable-modelNum">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Model Number
-                </th>
-                <th name="rTable-manufacturer">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Manufacturer
-                </th>
-                <th name="rTable-dop">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>DOP
-                </th>
-                <th name="rTable-status">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Status
-                </th>
-                <th name="rTable-headphones">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Headphones
-                </th>
-                <th name="rTable-battery">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Battery
-                </th>
-                <th name="rTable-wave">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Wave
-                </th>
-                <th name="rTable-condition">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Condition
-                </th>
-                <th name="rTable-notes">
-                <div class="handle"></div><div class="close radio-close glyphicon glyphicon-remove-circle"></div>Notes
-                </th>
-                </tr>
+                        <th><div class="handle"></div>Control Number</th>
+                        <th><div class="handle"></div>Model Number</th>
+                        <th><div class="handle"></div>Manufacturer</th>
+                        <th><div class="handle"></div>DOP</th>
+                        <th><div class="handle"></div>Status</th>
+                        <th><div class="handle"></div>Headphones</th>
+                        <th><div class="handle"></div>Battery</th>
+                        <th><div class="handle"></div>Wave</th>
+                        <th><div class="handle"></div>Condition</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $fields = array("controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition", "notes");
+                    $fields = array("controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition");
                     $SQL = "SELECT * FROM radio;";
                     $result = mysqli_query($db, $SQL);
 
@@ -218,49 +183,49 @@
             </table>
         </div>
     </div>
-
+    
 </div>
 
 <script>
-    function exportRadio()
-    {
-        //get the radio table as displayed on the web page
-        var table = document.getElementById("radiosTable").innerHTML;
-        //this is used to strip html code out of the table
-        //this is needed to properly export
-        var data = table.replace(/<td>/g, '')
-                .replace(/<tr>/g, '')
-                .replace(/<thead>/g, '')
-                .replace(/<\/thead>/g, '')
-                .replace(/<tr role="row">/g, '')
-                .replace(/<div class="handle">/g, '')
-                .replace(/<\/div>/g, '')
-                .replace(/<\/th>/g, ',')
-                .replace(/<tbody>/g, '')
-                .replace(/<\/tbody>/g, '')
-                .replace(/(<tr id="radiosTable" data-id=".." class="radiosTable odd" role="row">)/g, '')
-                .replace(/(<tr id="radiosTable" data-id=".." class="radiosTable even" role="row">)/g, '')
-                .replace(/(<tr id="radiosTable" data-id="." class="radiosTable odd" role="row">)/g, '')
-                .replace(/(<tr id="radiosTable" data-id="." class="radiosTable even" role="row">)/g, '')
-                .replace(/<\/td>/g, ',')
-                .replace(/\t/g, '')
-                .replace(/   */g, '')
-                .replace(/\r?\n|\r/g, '')
-                .replace(/<\/tr>/g, '\r\n')
-                .replace(/<th class=.sort.{0,200}px.../g, '')
-                .replace(/<tr data-id.{1,50}>/g, '')
-                .replace(/<td class="sorting_1">/g, '');
-        //get the date
-        var date = new Date();
-        //prepare a link for the .csv file to be downloaded from
-        var link = document.createElement('a');
-        //create the file
-        link.download = "radioExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
-        //populate the file with data
-        link.href = "data:application/csv," + escape(data);
-        //simulate the user clicking, and thus downloading the file
-        link.click();
-
-        //window.prompt("copy", data);
-    }
+	function exportRadio()
+	{
+		//get the radio table as displayed on the web page
+		var table = document.getElementById("radiosTable").innerHTML;
+		//this is used to strip html code out of the table
+		//this is needed to properly export
+		var data = table.replace(/<td>/g, '')
+						.replace(/<tr>/g, '')
+						.replace(/<thead>/g, '')
+						.replace(/<\/thead>/g, '')
+						.replace(/<tr role="row">/g, '')
+						.replace(/<div class="handle">/g, '')
+						.replace(/<\/div>/g, '')
+						.replace(/<\/th>/g, ',')
+						.replace(/<tbody>/g, '')
+						.replace(/<\/tbody>/g, '')
+						.replace(/(<tr id="radiosTable" data-id=".." class="radiosTable odd" role="row">)/g, '')
+						.replace(/(<tr id="radiosTable" data-id=".." class="radiosTable even" role="row">)/g, '')
+						.replace(/(<tr id="radiosTable" data-id="." class="radiosTable odd" role="row">)/g, '')
+						.replace(/(<tr id="radiosTable" data-id="." class="radiosTable even" role="row">)/g, '')
+						.replace(/<\/td>/g, ',')
+						.replace(/\t/g, '')
+						.replace(/   */g, '')
+						.replace(/\r?\n|\r/g, '')
+						.replace(/<\/tr>/g, '\r\n')
+						.replace(/<th class=.sort.{0,200}px.../g, '')
+						.replace(/<tr data-id.{1,50}>/g, '')
+						.replace(/<td class="sorting_1">/g, '');
+		//get the date
+		var date = new Date();
+		//prepare a link for the .csv file to be downloaded from
+		var link = document.createElement('a');
+		//create the file
+		link.download = "radioExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+		//populate the file with data
+		link.href = "data:application/csv," + escape(data);
+		//simulate the user clicking, and thus downloading the file
+		link.click();
+		
+		//window.prompt("copy", data);
+	}
 </script>

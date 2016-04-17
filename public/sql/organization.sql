@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2016 at 09:40 PM
+-- Generation Time: Apr 17, 2016 at 08:07 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -51,7 +51,7 @@ CREATE TABLE `organization` (
   `type` varchar(42) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `medium` varchar(42) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `signature` varchar(30) NOT NULL,
-  `notes` varchar(512) NOT NULL
+  `notes` varchar(2048) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

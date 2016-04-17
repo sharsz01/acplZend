@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php $db = mysqli_connect('localhost', 'root', '', 'audioreadingservice') or die('Error: ' . mysqli_connect_error($db)); ?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -52,8 +53,6 @@
 
             <div class="tab-content">
                 <?php
-				require('../configs/dbConnect.php');
-				
                 require('tabs/home.php');
                 require('tabs/userList.php');
                 require('tabs/userDetails.php');

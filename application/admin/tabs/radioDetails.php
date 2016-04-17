@@ -80,21 +80,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>01/01/2015</td>
-                            <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-                        </tr>
-                        <tr>
-                            <td>Jane Doe</td>
-                            <td>01/01/2013</td>
-                            <td>01/01/2014</td>
-                        </tr>
+						
                     </tbody>
                 </table>
             </div>
         </div>
-        <button id="radio-checkOut" type="button" class="btn btn-inactive">Check Out Radio</button>
     </div>
 </div>
 

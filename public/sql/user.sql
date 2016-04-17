@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2016 at 09:40 PM
+-- Generation Time: Apr 17, 2016 at 08:07 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `userId` int(12) NOT NULL,
-  `dateRegistered` varchar(15) NOT NULL,
+  `dateRegistered` date NOT NULL,
   `ipRegistered` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `firstName` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `lastName` varchar(42) COLLATE latin1_general_ci NOT NULL,
-  `birthday` varchar(15) NOT NULL,
+  `birthday` date NOT NULL,
   `street` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `streetLine2` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `city` varchar(30) COLLATE latin1_general_ci NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `user` (
   `medium` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `signature` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `mailTo` varchar(30) COLLATE latin1_general_ci NOT NULL,
-  `notes` varchar(512) COLLATE latin1_general_ci NOT NULL
+  `notes` varchar(2048) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --

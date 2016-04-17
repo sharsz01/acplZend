@@ -55,17 +55,14 @@ body {
 	width: 100%;
 }
 
+#user-check-out-form input, #organization-check-out-form input {
+	width: 150px;
+}
+
 .hidden {
 	display: hidden;
 }
 
 .handle{
     padding: 10px;
-    //background-color: gray;
 }
-
-.user-close, .org-close, .radio-close{
-	float: left;
-	padding-right: 15px;
-}
-
