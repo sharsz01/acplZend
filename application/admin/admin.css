@@ -65,4 +65,10 @@ body {
 
 .handle{
     padding: 10px;
+    //background-color: gray;
+}
+
+.user-close, .org-close, .radio-close{
+	float: left;
+	padding-right: 15px;
 }

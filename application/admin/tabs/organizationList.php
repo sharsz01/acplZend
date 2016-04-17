@@ -186,50 +186,144 @@
                 <div id="org-inactive-collapse" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div id="tabRow">
-                            <button type="button" class="btn btn-default">Organization Type</button>
-                            <button type="button" class="btn btn-default">Staff Position Title</button>
-                            <button type="button" class="btn btn-default">Street Line 2</button>
-                            <button type="button" class="btn btn-default">City</button>
-                            <button type="button" class="btn btn-default">State</button>
-                            <button type="button" class="btn btn-default">Zip</button>
-                            <button type="button" class="btn btn-default">Cell Phone #</button>
+                            <button type="button" id="org-organizationNameBtn" class="inactiveBtns btn btn-default">Organization Name</button>
+                            <button type="button" id="org-organizationTypeBtn" class="inactiveBtns btn btn-default">Organization Type</button>
+                            <button type="button" id="org-firstNameBtn" class="inactiveBtns btn btn-default">Staff First Name</button>
+                            <button type="button" id="org-lastNameBtn" class="inactiveBtns btn btn-default">Staff Last Name</button>
+                            <button type="button" id="org-positionTitleBtn" class="inactiveBtns btn btn-default">Staff Position Title</button>
+                            <button type="button" id="org-streetBtn" class="inactiveBtns btn btn-default">Street</button>
+                            <button type="button" id="org-streetLine2Btn" class="inactiveBtns btn btn-default">Street Line 2</button>
+                            <button type="button" id="org-cityBtn" class="inactiveBtns btn btn-default">City</button>
+                            <button type="button" id="org-stateBtn" class="inactiveBtns btn btn-default">State</button>
+                            <button type="button" id="org-zipBtn" class="inactiveBtns btn btn-default">Zip</button>
+                            <button type="button" id="org-phoneBtn" class="inactiveBtns btn btn-default">Office Phone #</button>
+                            <button type="button" id="org-phone2Btn" class="inactiveBtns btn btn-default">Cell Phone #</button>
+                            <button type="button" id="org-emailBtn" class="inactiveBtns btn btn-default">Email</button>
+                            <button type="button" id="org-numRadiosBtn" class="inactiveBtns btn btn-default"># of Radios</button>
+                            <button type="button" id="org-numLicensedBedsBtn" class="inactiveBtns btn btn-default"># of Licensed Beds</button>
+                            <button type="button" id="org-numResidentialUnitsBtn" class="inactiveBtns btn btn-default"># of Residential Units</button>
+                            <button type="button" id="org-howLearnBtn" class="inactiveBtns btn btn-default">How Service Was Learned</button>
+                            <button type="button" id="org-statusBtn" class="inactiveBtns btn btn-default">Status</button>
+                            <button type="button" id="org-mediumBtn" class="inactiveBtns btn btn-default">Medium</button>
                             <div style="clear: both;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+		
+		<div class="form-group">
+            <button type="button" id="clearOrgTable" class="btn btn-danger">Clear Table</button>
+            <button type="button" id="orgTableDefaults" class="btn btn-default">Default</button>
+        </div>
+		
         <div class="table-responsive">
-            <table id="organizationsTable" class="table table-striped table-bordered table-hover table-condensed">
+            <table id="organizationsTable" class="table table-striped table-bordered table-hover table-condensed" width="100%">
                 <thead>
                     <tr>
-                        <th><div class="handle"></div>
-                            Organization Name
-                        </th>
-                        <th><div class="handle"></div>
-                            Staff First Name
-                        </th>
-                        <th><div class="handle"></div>
-                            Staff Last Name
-                        </th>
-                        <th><div class="handle"></div>
-                            Street Line
-                        </th>
-                        <th><div class="handle"></div>
-                            Office Phone #
-                        </th>
-                        <th><div class="handle"></div>
-                            # of Radios
-                        </th>
-                        <th><div class="handle"></div>
-                            Email
-                        </th>
+                        <th name="oTable-organizationName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Organization Name
+						</th>
+							<th name="oTable-organizationType">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Organization Type 
+						</th>
+						<th name="oTable-firstName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff First Name
+						</th>
+						<th name="oTable-lastName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff Last Name
+						</th>
+						<th name="oTable-positionTitle">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff Position Title
+						</th>
+						<th name="oTable-street">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Street Line
+						</th>
+						<th name="oTable-streetLine2">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Street Line 2
+						</th>
+						<th name="oTable-city">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							City
+						</th>
+						<th name="oTable-state">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							State
+						</th>
+						<th name="oTable-zip">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Zip
+						</th>
+						<th name="oTable-phone">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Office Phone #
+						</th>
+						<th name="oTable-phone2">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Cell Phone #
+						</th>
+						<th name="oTable-email">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Email
+						</th>
+						<th name="oTable-numRadios">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Radios
+						</th>
+
+						<th name="oTable-numLicensedBeds">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Licensed Beds 
+						</th>
+						<th name="oTable-numResidentialUnits">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Residential Units
+						</th>
+						<th name="oTable-howLearn">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							How They Learned About Service
+						</th>
+						<th name="oTable-status">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Status
+						</th>
+						<th name="oTable-medium">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Medium
+						</th>
                     </tr>
                 <thead>
                 <tbody>
                     <?php
-                    $fields = array("organizationName", "firstName", "lastName", "street", "phone", "numRadios", "email");
+                    $fields = array("organizationName", "organizationType", "firstName", "lastName", "positionTitle", "street", 
+						"streetLine2", "city", "state", "zip", "phone", "phone2", "email", "numRadios", "numLicensedBeds", 
+						"numResidentialUnits", "howLearn", "status", "medium");
                     $SQL = "SELECT * FROM organization;";
                     $result = mysqli_query($db, $SQL);
 
@@ -249,42 +343,42 @@
 
 <script>
 	function exportOrg()
-	{
-		//get the organization table as displayed on the web page
-		var table = document.getElementById("organizationsTable").innerHTML;
-		//this is used to strip html code out of the table.
-		//this is needed to properly export
-		var data = table.replace(/<td>/g, '')
-						.replace(/<tr>/g, '')
-						.replace(/<thead>/g, '')
-						.replace(/<\/thead>/g, '')
-						.replace(/<tr role="row">/g, '')
-						.replace(/<div class="handle">/g, '')
-						.replace(/<\/div>/g, '')
-						.replace(/<\/th>/g, ',')
-						.replace(/<tbody>/g, '')
-						.replace(/<\/tbody>/g, '')
-						.replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable odd" role="row">)/g, '')
-						.replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable even" role="row">)/g, '')
-						.replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable odd" role="row">)/g, '')
-						.replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable even" role="row">)/g, '')
-						.replace(/<\/td>/g, ',')
-						.replace(/\t/g, '')
-						.replace(/   */g, '')
-						.replace(/\r?\n|\r/g, '')
-						.replace(/<\/tr>/g, '\r\n')
-						.replace(/<th class=.sort.{0,200}px.../g, '')
-						.replace(/<tr data-id.{1,50}>/g, '')
-						.replace(/<td class="sorting_1">/g, '');
-		//get the date
-		var date = new Date();
-		//prepare a link for the .csv file to be downloaded from
-		var link = document.createElement('a');
-		//create the file
-		link.download = "organizationExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
-		//populate the file with data
-		link.href = "data:application/csv," + escape(data);
-		//simulate the user clicking, and thus downloading the file
-		link.click();
-	}
+    {
+        //get the organization table as displayed on the web page
+        var table = document.getElementById("organizationsTable").innerHTML;
+        //this is used to strip html code out of the table.
+        //this is needed to properly export
+        var data = table.replace(/<td>/g, '')
+                .replace(/<tr>/g, '')
+                .replace(/<thead>/g, '')
+                .replace(/<\/thead>/g, '')
+                .replace(/<tr role="row">/g, '')
+                .replace(/<div class="handle">/g, '')
+                .replace(/<\/div>/g, '')
+                .replace(/<\/th>/g, ',')
+                .replace(/<tbody>/g, '')
+                .replace(/<\/tbody>/g, '')
+                .replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable odd" role="row">)/g, '')
+                .replace(/(<tr id="organizationsTable" data-id=".." class="organizationsTable even" role="row">)/g, '')
+                .replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable odd" role="row">)/g, '')
+                .replace(/(<tr id="organizationsTable" data-id="." class="organizationsTable even" role="row">)/g, '')
+                .replace(/<\/td>/g, ',')
+                .replace(/\t/g, '')
+                .replace(/   */g, '')
+                .replace(/\r?\n|\r/g, '')
+                .replace(/<\/tr>/g, '\r\n')
+                .replace(/<th class=.sort.{0,200}px.../g, '')
+                .replace(/<tr data-id.{1,50}>/g, '')
+                .replace(/<td class="sorting_1">/g, '');
+        //get the date
+        var date = new Date();
+        //prepare a link for the .csv file to be downloaded from
+        var link = document.createElement('a');
+        //create the file
+        link.download = "organizationExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+        //populate the file with data
+        link.href = "data:application/csv," + escape(data);
+        //simulate the user clicking, and thus downloading the file
+        link.click();
+    }
 </script>
