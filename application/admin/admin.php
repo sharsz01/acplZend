@@ -48,6 +48,8 @@
 
                 <li><a id="radios-tab" data-toggle="tab" href="#radios">Radios</a></li>
                 <li><a id="radio-details-tab" data-toggle="tab" href="#radio-details">Radio Details</a></li>
+                
+                <li><a id="userManagment-tab" data-toggle="tab" href="#userManagement">User Management</a></li>
             </ul>
 
             <div class="tab-content">
@@ -60,6 +62,7 @@
                 require('tabs/organizationDetails.php');
                 require('tabs/radioList.php');
                 require('tabs/radioDetails.php');
+                require('tabs/userManagement.php');
                 ?>
             </div>
         </div>
