@@ -539,7 +539,7 @@
         //prepare a link for the .csv file to be downloaded from
         var link = document.createElement('a');
         //create the file
-        link.download = "userExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+        link.download = "listenerExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
         //populate the file with data
         link.href = "data:application/csv," + escape(data);
         //simulate the user clicking, and thus downloading the file
