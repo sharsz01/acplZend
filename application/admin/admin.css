@@ -23,6 +23,13 @@ body {
     float: left;
 }
 
+#userControls{
+	height: 50em;
+	padding: 1em;
+	width: 100%;
+	float: left;
+}
+
 #usersTable, #radiosTable, #organizationsTable {
 	cursor: pointer;
 }
