@@ -510,6 +510,7 @@
         //this is used to strip heml code out of the table
         //this is needed to properly export
         var data = table.replace(/<td>/g, '')
+				.replace(/,/g, '')
                 .replace(/<tr>/g, '')
                 .replace(/<thead>/g, '')
                 .replace(/<\/thead>/g, '')
@@ -529,6 +530,8 @@
                 .replace(/                    /g, '')
                 .replace(/                /g, '')
                 .replace(/\r?\n|\r/g, '')
+		.replace(/<th name.*?">/g, '')
+		.replace(/<div class.*?">/g, '')
                 .replace(/<\/tr>/g, '\r\n')
                 .replace(/<td class="sorting_1">/g, '');
         //get the date
