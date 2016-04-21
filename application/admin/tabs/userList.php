@@ -510,7 +510,7 @@
         //this is used to strip heml code out of the table
         //this is needed to properly export
         var data = table.replace(/<td>/g, '')
-				.replace(/,/g, '')
+		.replace(/,/g, '')
                 .replace(/<tr>/g, '')
                 .replace(/<thead>/g, '')
                 .replace(/<\/thead>/g, '')
