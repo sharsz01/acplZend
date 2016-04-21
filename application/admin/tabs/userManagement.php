@@ -1,5 +1,5 @@
 <div id="userManagment" class="tab-pane fade">
-    <h3 style="float: left;">User Managment</h3>
+    <h3 style="float: left;">User Management</h3>
     <div id="userControls">
 		<div id="updatePassword">
 			<button id="updatePasswordBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button>
