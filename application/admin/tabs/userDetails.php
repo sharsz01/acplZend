@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	
-    <h3>User Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
+    <h3>Listener Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
 
     <form id="user-details-form">
         <input type="hidden" name="ind-userId" id="ind-userId" />
