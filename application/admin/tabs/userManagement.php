@@ -1,4 +1,4 @@
-<div id="userManagment" class="tab-pane fade">
+<div id="userManagement" class="tab-pane fade">
     <h3 style="float: left;">User Management</h3>
     <div id="userControls">
 		<div id="updatePassword">
