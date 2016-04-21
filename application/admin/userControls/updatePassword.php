@@ -30,6 +30,7 @@
 		if($newPassword == $newPasswordAgain)
 		{
 			mysql_query("update login_master set password = '".md5($newPassword)."' where username = '".$username."'");
+			header('Location: '.$_SERVER['HTTP_REFERER']);
 		}
 		else
 		{
@@ -89,5 +90,4 @@
 				};
 			</script>';
 	}
-	header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>
