@@ -53,6 +53,7 @@
 		{
 			//add the new user to the database
 			mysql_query("insert into login_master (username,password) values('".$username."','".md5($password)."')");
+			header('Location: '.$_SERVER['HTTP_REFERER']);
 		}
 		else
 		{
@@ -83,5 +84,4 @@
 				</script>';
 		}
 	}
-	header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>
