@@ -63,7 +63,7 @@
 												<option></option>
                                                 <option>Checked In</option>
                                                 <option>Checked Out</option>
-                                                <option>Inactive</option>
+                                                <option>Recycled</option>
                                             </select>
                                         </div>
                                     </div>
