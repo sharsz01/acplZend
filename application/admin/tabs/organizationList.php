@@ -349,6 +349,7 @@
         //this is used to strip html code out of the table.
         //this is needed to properly export
         var data = table.replace(/<td>/g, '')
+		.replace(/,/g, '')
                 .replace(/<tr>/g, '')
                 .replace(/<thead>/g, '')
                 .replace(/<\/thead>/g, '')
@@ -366,6 +367,8 @@
                 .replace(/\t/g, '')
                 .replace(/   */g, '')
                 .replace(/\r?\n|\r/g, '')
+		.replace(/<th name.*?">/g, '')
+		.replace(/<div class.*?">/g, '')
                 .replace(/<\/tr>/g, '\r\n')
                 .replace(/<th class=.sort.{0,200}px.../g, '')
                 .replace(/<tr data-id.{1,50}>/g, '')
