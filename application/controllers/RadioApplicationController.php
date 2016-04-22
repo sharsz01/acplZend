@@ -132,7 +132,7 @@ class RadioApplicationController extends Zend_Controller_Action {
         $org = new Application_Model_User('organization');
 
         $org->createUser(array(
-            'dateRegistered' => '0000-00-00', // Default
+            'dateRegistered' => date("Y-m-d"), // Default
             'ipRegistered' => '', // Default
             'organizationName' => $organizationVals['OrgName'],
             'organizationType' => $organizationVals['OrgType'],
@@ -152,10 +152,8 @@ class RadioApplicationController extends Zend_Controller_Action {
             'numResidentialUnits' => $organizationVals['ResUnitsNum'],
             'howLearn' => $organizationVals['HowLearn'],
             'status' => 'Applicant', // Default
-            'type' => 'Organization', // Default
             'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => date("Y-m-d"),
             'notes' => '', // Default
             'alert_status' => 'Unread' // Default
         ));
@@ -170,12 +168,12 @@ class RadioApplicationController extends Zend_Controller_Action {
         // ============================================
 
         $user->createUser(array(
-            'dateRegistered' => '0000-00-00', // Default
+            'dateRegistered' => date("Y-m-d"), // Default
             'ipRegistered' => '', // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
             'birthday' => $listenerVals['Birthdate'],
-            'birthday' => $bdayFormat,
+            //'birthday' => $bdayFormat,
             'street' => $listenerVals['Address'],
             'streetLine2' => $listenerVals['AlternativeAddress'],
             'phone' => $listenerVals['HomePhone'],
@@ -202,10 +200,8 @@ class RadioApplicationController extends Zend_Controller_Action {
             'income' => $listenerVals['Income'],
             'inHomeNum' => $listenerVals['NumberInHome'],
             'status' => 'Applicant', // Default
-            'type' => 'Individual', // Default
             'medium' => 'Radio', // Default
             'signature' => $statementVals['Signature'],
-            'dateSigned' => date("Y-m-d"),
             'mailTo' => $otherInfoVals['MailTo'],
             'notes' => '', // Default
             'alert_status' => 'Unread' // Default
