@@ -38,7 +38,8 @@ CREATE TABLE `login_master` (
 
 INSERT INTO `login_master` (`id`, `username`, `password`) VALUES
 (1, 'test', 'e80b5017098950fc58aad83c8c14978e'),
-(2, 'user', 'e10adc3949ba59abbe56e057f20f883e');
+(2, 'user', 'e10adc3949ba59abbe56e057f20f883e'),
+(3, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99');
 
 --
 -- Indexes for dumped tables
