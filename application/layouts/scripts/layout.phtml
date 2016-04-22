@@ -15,11 +15,12 @@
             <?php $this->headScript()->prependFile($this->baseUrl('/js/jquery.dateselector.min.js')) ?>
             <?php $this->headScript()->prependFile($this->baseUrl('/js/moment.min.js')) ?>
             <?php $this->headScript()->prependFile($this->baseUrl('/js/dist/jquery.date-dropdowns.js')) ?>
-            <?php $this->headScript()->prependFile($this->baseUrl('/js/mask/jquery.maskedinput.js')) ?>
+            <?php $this->headScript()->prependFile($this->baseUrl('/js/mask/jquery.maskedinput.min.js')) ?>
+            <?php $this->headScript()->prependFile($this->baseUrl('/js/mask/jquery.inputmask.bundle.min.js')) ?>
 
             <!-- js file for admin interface ---------------- uncomment later -->
             <?php //$this->headScript()->prependFile($this->baseUrl('/js/admin.js')) ?>
-            
+
             <?php $this->headScript()->prependFile($this->baseUrl('/js/bootstrap-3.3.5.min.js')) ?>
             <?php echo $this->headScript()->prependFile($this->baseUrl('/js/jquery-1.11.3.min.js')) ?>
 
@@ -43,12 +44,12 @@
                     <!--
                     <li role="presentation">
                         <a href="<?php
-                        //echo $this->url(
-                          //      array('controller' => 'Admin', 'action' => 'admin'), 'default', true)
-                        ?>">Admin Interface</a>
+                    //echo $this->url(
+                    //      array('controller' => 'Admin', 'action' => 'admin'), 'default', true)
+                    ?>">Admin Interface</a>
                     </li>
                     -->
-                    
+
                     <li role="presentation">
                         <a href="<?php
                         echo $this->url(
@@ -70,12 +71,12 @@
                                         array('controller' => 'RadioApplication', 'action' => 'organization-form'), 'default', true)
                                 ?>">Application for Organizations</a></li>
 
-                            <li role="separator" class="divider"></li>
-
+                            
+<!--                            <li role="separator" class="divider"></li>
                             <li role="presentation" ><a href="<?php
-                                echo $this->url(
-                                        array('controller' => 'ReturnRadio', 'action' => 'return'), 'default', true)
-                                ?>">Return a Radio</a></li>
+                                //echo $this->url(
+                                        //array('controller' => 'ReturnRadio', 'action' => 'return'), 'default', true)
+                                ?>">Return a Radio</a></li>-->
                         </ul>
                     </li>
                 </ul>
