@@ -20,11 +20,11 @@ $SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered'] . "'
         . "', disability='" . $_REQUEST['ind-disability'] . "', otherDisability='" . $_REQUEST['ind-otherDisability'] . "', howLearn='" . $_REQUEST['ind-howLearn']
         . "', race='" . $_REQUEST['ind-race'] . "', income='" . $_REQUEST['ind-income']
         . "', inHomeNum='" . $_REQUEST['ind-inHomeNum'] . "', status='" . $_REQUEST['ind-status']
-        . "', type='" . $_REQUEST['ind-type'] . "', medium='" . $_REQUEST['ind-medium']
+        . "', medium='" . $_REQUEST['ind-medium']
         . "', signature='" . $_REQUEST['ind-signature'] . "', mailTo='" . $_REQUEST['ind-mailTo']
-		. "', notes='" . $_REQUEST['ind-notes']
+        . "', notes='" . $_REQUEST['ind-notes'] . "', alert_status='" . $_REQUEST['ind-alertStatus']
         . "' WHERE userId='" . $_REQUEST['ind-userId'] . "';";
-		
+
 $result = mysqli_query($db, $SQL);
 
 $return['success'] = $result;

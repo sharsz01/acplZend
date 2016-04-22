@@ -13,9 +13,9 @@ $SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistere
         . "', state='" . $_REQUEST['org-state'] . "', zip='" . $_REQUEST['org-zip']
         . "', phone='" . $_REQUEST['org-phone'] . "', phone2='" . $_REQUEST['org-phone2']
         . "', email='" . $_REQUEST['org-email'] . "', numRadios='" . $_REQUEST['org-numRadios']
-		. "', numLicensedBeds='" . $_REQUEST['org-numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['org-numResidentialUnits']
+	. "', numLicensedBeds='" . $_REQUEST['org-numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['org-numResidentialUnits']
         . "', howLearn='" . $_REQUEST['org-howLearn'] . "', signature='" . $_REQUEST['org-signature']
-        . "', notes='" . $_REQUEST['org-notes']
+        . "', notes='" . $_REQUEST['org-notes'] . "', alert_status'" . $_REQUEST['org-alertStatus']
         . "' WHERE organizationId='" . $_REQUEST['org-organizationId'] . "';";
 
 $result = mysqli_query($db, $SQL);
