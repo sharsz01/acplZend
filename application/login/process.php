@@ -1,5 +1,8 @@
 
 <?php
+	ini_set('session.gc_maxlifetime', 43800*60);
+	ini_set('session.cookie_lifetime', 43800*60);
+	session_start();
 	$link = mysql_connect("localhost", "root", "") or die("Cannot Connect");
 	mysql_select_db("audioreadingservice", $link) or die("Cannot select database");
 		

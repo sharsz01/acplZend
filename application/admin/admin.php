@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -37,8 +40,8 @@
 
             <ul class="nav nav-tabs">
                 <li class="active"><a id="home-tab" data-toggle="tab" href="#home">Home</a></li>
-                <li><a id="users-tab" data-toggle="tab" href="#users">Users</a></li>
-                <li><a id="user-details-tab" data-toggle="tab" href="#user-details">User Details</a></li>
+                <li><a id="users-tab" data-toggle="tab" href="#users">Listeners</a></li>
+                <li><a id="user-details-tab" data-toggle="tab" href="#user-details">Listener Details</a></li>
 
                 <li><a id="organizations-tab" data-toggle="tab" href="#organizations">Organizations</a></li>
                 <li><a id="organization-details-tab" data-toggle="tab" href="#organization-details">Organization Details</a></li>

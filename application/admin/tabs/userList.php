@@ -1,6 +1,6 @@
 <div id="users" class="tab-pane fade">
-    <h3 style="float: left;">Users</h3>
-
+    <h3 style="float: left;">Listeners</h3>
+    
     <div id="importExport" style="float: right; margin: 10px 0px;">
         <form method="POST" action="" style="float: right;">
             <input type="submit" onclick="exportUser()" class="btn btn-primary" name="exportUsers" value="Export" style="float: right;">
@@ -11,7 +11,7 @@
             <input type="file" class="btn btn-default" name="userFile" style="float: right; margin-right: 20px;">
         </form>
     </div>
-
+    
     <div id="userList">
         <div class="panel-group">
             <div class="panel panel-default">
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+								<div class="form-group">
                                     <label for="user-search-email">Email:</label>
                                     <input type="email" class="form-control" id="user-search-email">
                                 </div>
@@ -163,7 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+								<div class="form-group">
                                     <label for="user-search-contactEmail">Contact Email:</label>
                                     <input type="email" class="form-control" id="user-search-contactEmail">
                                 </div>
@@ -176,7 +176,7 @@
                                         <div class="form-group">
                                             <label for="user-search-status">Status:</label>
                                             <select class="form-control" id="user-search-status">
-                                                <option></option>
+												<option></option>
                                                 <option>Applicant</option>
                                                 <option>Active</option>
                                                 <option>Inactive</option>
@@ -187,7 +187,7 @@
                                         <div class="form-group">
                                             <label for="user-search-medium">Medium:</label>
                                             <select class="form-control" id="user-search-medium">
-                                                <option></option>
+												<option></option>
                                                 <option>Radio</option>
                                                 <option>Mobile App</option>
                                                 <option>PBS 39.4</option>
@@ -195,18 +195,18 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+									<div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="user-search-mailTo">Mail To:</label>
                                             <select class="form-control" id="user-search-mailTo">
-                                                <option></option>
+												<option></option>
                                                 <option>toListener</option>
                                                 <option>toContact</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+								<div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="user-search-disability">Disability:</label>
@@ -219,14 +219,14 @@
                                             <input type="text" class="form-control" id="user-search-otherDisability">
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+									<div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="user-search-howLearn">How Learn:</label>
                                             <input type="text" class="form-control" id="user-search-howLearn">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+								<div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="user-search-race">Race:</label>
@@ -239,21 +239,21 @@
                                             <input type="text" class="form-control" id="user-search-income">
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+									<div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="user-search-inHomeNum">People in Home:</label>
                                             <input type="text" class="form-control" id="user-search-inHomeNum">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <button id="user-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button id="user-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
-                                    </div>
-                                </div>
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="user-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="user-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
@@ -314,12 +314,12 @@
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
+		
+		<div class="form-group">
             <button type="button" id="clearUserTable" class="btn btn-danger">Clear Table</button>
             <button type="button" id="userTableDefaults" class="btn btn-default">Default</button>
         </div>
-
+		
         <div class="table-responsive">
             <table id="usersTable" class="table table-striped table-bordered table-hover table-condensed" width="100%">
                 <thead>
@@ -520,17 +520,18 @@
             </table>
         </div>
     </div>
-
+	
 </div>
 
 <script>
-    function exportUser()
+	function exportUser()
     {
         //get the users table as diaplyed on the web page
         var table = document.getElementById("usersTable").innerHTML;
         //this is used to strip heml code out of the table
         //this is needed to properly export
         var data = table.replace(/<td>/g, '')
+		.replace(/,/g, '')
                 .replace(/<tr>/g, '')
                 .replace(/<thead>/g, '')
                 .replace(/<\/thead>/g, '')
@@ -550,6 +551,8 @@
                 .replace(/                    /g, '')
                 .replace(/                /g, '')
                 .replace(/\r?\n|\r/g, '')
+		.replace(/<th name.*?">/g, '')
+		.replace(/<div class.*?">/g, '')
                 .replace(/<\/tr>/g, '\r\n')
                 .replace(/<td class="sorting_1">/g, '');
         //get the date
@@ -557,7 +560,7 @@
         //prepare a link for the .csv file to be downloaded from
         var link = document.createElement('a');
         //create the file
-        link.download = "userExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
+        link.download = "listenerExport_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".csv";
         //populate the file with data
         link.href = "data:application/csv," + escape(data);
         //simulate the user clicking, and thus downloading the file

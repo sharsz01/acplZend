@@ -1,5 +1,31 @@
 <div id="user-details" class="tab-pane fade">
-    <h3>User Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
+	
+	<!-- Modal -->
+	<div id="user-check-out-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Enter Radios to Check Out</h4>
+				</div>
+				<div class="modal-body">
+					<form id="user-check-out-form">
+						
+					</form>
+					<button type="button" class="btn btn-primary btn-sm" id="user-add-radio-btn">Add Radio</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="user-check-out-btn">Check Out</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+    <h3>Listener Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
 
     <form id="user-details-form">
         <input type="hidden" name="ind-userId" id="ind-userId" />
@@ -251,23 +277,20 @@
                         <table class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Radio ID</th>
+                                    <th>Control Number</th>
                                     <th>Checked Out</th>
                                     <th>Check In</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>123456</td>
-                                    <td>01/01/2015</td>
-                                    <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
-
+                <!-- Trigger the modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-check-out-modal" id="user-check-out-modal-btn">Check Out Radio</button>
+				
             </div>
         </div>
     </form>

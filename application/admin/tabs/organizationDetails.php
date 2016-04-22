@@ -1,4 +1,30 @@
 <div id="organization-details" class="tab-pane fade">
+
+	<!-- Modal -->
+	<div id="organization-check-out-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Enter Radios to Check Out</h4>
+				</div>
+				<div class="modal-body">
+					<form id="organization-check-out-form">
+						
+					</form>
+					<button type="button" class="btn btn-primary btn-sm" id="organization-add-radio-btn">Add Radio</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="organization-check-out-btn">Check Out</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
     <h3>Organization Details <button id="newOrganization" type="button" class="btn btn-primary btn-sm">New Organization</button></h3>
 
     <form id="organization-details-form">
@@ -190,22 +216,19 @@
                         <table class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Radio ID</th>
+                                    <th>Control Number</th>
                                     <th>Checked Out</th>
                                     <th>Check In</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>123456</td>
-                                    <td>01/01/2015</td>
-                                    <td><button id="checkIn" type="button" class="btn btn-xs btn-primary">Check In</button></td>
-                                </tr>
+								
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <button id="checkOut" type="button" class="btn btn-primary">Check Out Radio</button>
+                 <!-- Trigger the modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#organization-check-out-modal" id="organization-check-out-modal-btn">Check Out Radio</button>
 
             </div>
         </div>
