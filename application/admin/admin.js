@@ -43,9 +43,9 @@ $(document).ready(function () {
 
     function populateRadioDetails(id) {
         var radioId = {type: 'binary', value: id};
-		if(!$('#newRadioCancelBtn').hasClass('hidden'))
-			$('#newRadioCancelBtn').click();
-		
+        if (!$('#newRadioCancelBtn').hasClass('hidden'))
+            $('#newRadioCancelBtn').click();
+
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -275,11 +275,11 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#radioList').load(location.href + " #radioList>*", "");
                     alert("Radio Saved.");
-					document.location.reload(true);
+                    document.location.reload(true);
                 }
             },
             error: function (e) {
-				alert("Fail to save");
+                alert("Fail to save");
                 console.log(e);
             }
         });
@@ -295,11 +295,11 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#userList').load(location.href + " #userList>*", "");
                     alert("User Saved.");
-					document.location.reload(true);
+                    document.location.reload(true);
                 }
             },
             error: function (e) {
-				alert("Fail to save");
+                alert("Fail to save");
                 console.log(e);
             }
         });
@@ -315,7 +315,7 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#organizationList').load(location.href + " #organizationList>*", "");
                     alert("Organization Saved.");
-					document.location.reload(true);
+                    document.location.reload(true);
                 }
             },
             error: function (e) {
@@ -393,7 +393,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-				alert("Failed the new radio");
+                alert("Failed the new radio");
                 console.log(e);
             }
         });
@@ -419,7 +419,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-				alert("Failed the new user");
+                alert("Failed the new user");
                 console.log(e);
             }
         });
@@ -441,7 +441,7 @@ $(document).ready(function () {
                     $('#organizationCancelBtn').removeClass('hidden');
                     $('#newOrganization').removeClass('hidden');
                     alert("New Organization Saved.");
-					document.location.reload(true);
+                    document.location.reload(true);
                 }
             },
             error: function (e) {
@@ -480,37 +480,37 @@ $(document).ready(function () {
         $('#newOrganization').removeClass('hidden');
     });
 
-	// ====================================================== Search Radios
-	
-	function reloadRadios() {
-		var searchData={};
-		if($('#radio-search-controlNum').val())
-			searchData.controlNum = {type: 'like', value: $('#radio-search-controlNum').val()};
-		if($('#radio-search-modelNum').val())
-			searchData.modelNum = {type: 'like', value: $('#radio-search-modelNum').val()};
-		if($('#radio-search-manufacturer').val())
-			searchData.manufacturer = {type: 'like', value: $('#radio-search-manufacturer').val()};
-		
-		var dateFrom = $('#radio-search-dateOfPurchaseFrom').val();
-		var dateTo = $('#radio-search-dateOfPurchaseTo').val()
-		if(dateFrom) {
-			if(!dateTo)
-				dateTo = dateFrom;
-			searchData.dateOfPurchase = {type: 'range', value1: dateFrom, value2: dateTo};
-		}
-		if($('#radio-search-radioStatus').val())
-			searchData.radioStatus = {type: 'binary', value: $('#radio-search-radioStatus').val()};
-		if($('#radio-search-headphones').val())
-			searchData.headphones = {type: 'binary', value: $('#radio-search-headphones').val()};
-		if($('#radio-search-battery').val())
-			searchData.battery = {type: 'binary', value: $('#radio-search-battery').val()};
-		if($('#radio-search-wave').val())
-			searchData.wave = {type: 'binary', value: $('#radio-search-wave').val()};
-		if($('#radio-search-radioCondition').val())
-			searchData.radioCondition = {type: 'binary', value: $('#radio-search-radioCondition').val()};
-		if($('#radio-search-notes').val())
-			searchData.notes = {type: 'like', value: $('#radio-search-notes').val()};
-		
+    // ====================================================== Search Radios
+
+    function reloadRadios() {
+        var searchData = {};
+        if ($('#radio-search-controlNum').val())
+            searchData.controlNum = {type: 'like', value: $('#radio-search-controlNum').val()};
+        if ($('#radio-search-modelNum').val())
+            searchData.modelNum = {type: 'like', value: $('#radio-search-modelNum').val()};
+        if ($('#radio-search-manufacturer').val())
+            searchData.manufacturer = {type: 'like', value: $('#radio-search-manufacturer').val()};
+
+        var dateFrom = $('#radio-search-dateOfPurchaseFrom').val();
+        var dateTo = $('#radio-search-dateOfPurchaseTo').val()
+        if (dateFrom) {
+            if (!dateTo)
+                dateTo = dateFrom;
+            searchData.dateOfPurchase = {type: 'range', value1: dateFrom, value2: dateTo};
+        }
+        if ($('#radio-search-radioStatus').val())
+            searchData.radioStatus = {type: 'binary', value: $('#radio-search-radioStatus').val()};
+        if ($('#radio-search-headphones').val())
+            searchData.headphones = {type: 'binary', value: $('#radio-search-headphones').val()};
+        if ($('#radio-search-battery').val())
+            searchData.battery = {type: 'binary', value: $('#radio-search-battery').val()};
+        if ($('#radio-search-wave').val())
+            searchData.wave = {type: 'binary', value: $('#radio-search-wave').val()};
+        if ($('#radio-search-radioCondition').val())
+            searchData.radioCondition = {type: 'binary', value: $('#radio-search-radioCondition').val()};
+        if ($('#radio-search-notes').val())
+            searchData.notes = {type: 'like', value: $('#radio-search-notes').val()};
+
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -518,19 +518,19 @@ $(document).ready(function () {
             data: {search: searchData},
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
-					$('#radiosTable tbody').empty();
+                    $('#radiosTable tbody').empty();
                     var result = ajaxValues.result;
                     //var fields = ["controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition"];
                     var fields = getRadioFields();
                     for (var index in result) {
-						var row;
-						row += '<tr data-id=' + result[index].radioId + ' class="radioRow">';
-						for (var field in fields) {
-							row += '<td>' + result[index][fields[field]] + '</td>';
-						}
-						row += '</tr>';
-						$('#radiosTable tbody').append(row);
-						row = '';
+                        var row;
+                        row += '<tr data-id=' + result[index].radioId + ' class="radioRow">';
+                        for (var field in fields) {
+                            row += '<td>' + result[index][fields[field]] + '</td>';
+                        }
+                        row += '</tr>';
+                        $('#radiosTable tbody').append(row);
+                        row = '';
                     }
                 }
             },
@@ -538,94 +538,94 @@ $(document).ready(function () {
                 console.log(e);
             }
         });
-	}
-	
-	$('#radio-search-btn').on('click', function () {
-		reloadRadios();
+    }
+
+    $('#radio-search-btn').on('click', function () {
+        reloadRadios();
     });
-	
-	$('#radio-search-clear-btn').on('click', function () {
-		$('#radio-search-collapse').find(':input').val('');
-		reloadRadios();
-	});
-	
-	// ====================================================== Search Users
-	
-	function reloadUsers() {
-		var searchData={};
-		if($('#user-search-firstName').val())
-			searchData.firstName = {type: 'like', value: $('#user-search-firstName').val()};
-		if($('#user-search-lastName').val())
-			searchData.lastName = {type: 'like', value: $('#user-search-lastName').val()};
-		
-		var dateFrom = $('#user-search-dobFrom').val();
-		var dateTo = $('#user-search-dobTo').val()
-		if(dateFrom) {
-			if(!dateTo)
-				dateTo = dateFrom;
-			searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
-		}
-		if($('#user-search-address').val())
-			searchData.street = {type: 'like', value: $('#user-search-address').val()};
-		if($('#user-search-address2').val())
-			searchData.streetLine2 = {type: 'like', value: $('#user-search-address2').val()};
-		if($('#user-search-city').val())
-			searchData.city = {type: 'like', value: $('#user-search-city').val()};
-		if($('#user-search-state').val())
-			searchData.state = {type: 'like', value: $('#user-search-state').val()};
-		if($('#user-search-zip').val())
-			searchData.zip = {type: 'like', value: $('#user-search-zip').val()};
-		if($('#user-search-phone').val())
-			searchData.phone = {type: 'like', value: $('#user-search-phone').val()};
-		if($('#user-search-phone2').val())
-			searchData.phone2 = {type: 'like', value: $('#user-search-phone2').val()};
-		if($('#user-search-email').val())
-			searchData.email = {type: 'like', value: $('#user-search-email').val()};
-		if($('#user-search-notes').val())
-			searchData.notes = {type: 'like', value: $('#user-search-notes').val()};
-		
-		if($('#user-search-contactFirstName').val())
-			searchData.contactFirstName = {type: 'like', value: $('#user-search-contactFirstName').val()};
-		if($('#user-search-contactLastName').val())
-			searchData.contactLastName = {type: 'like', value: $('#user-search-contactLastName').val()};
-		if($('#user-search-contactAddress').val())
-			searchData.contactStreet = {type: 'like', value: $('#user-search-contactAddress').val()};
-		if($('#user-search-contactAddress2').val())
-			searchData.contactStreetLine2 = {type: 'like', value: $('#user-search-contactAddress2').val()};
-		if($('#user-search-contactCity').val())
-			searchData.contactCity = {type: 'like', value: $('#user-search-contactCity').val()};
-		if($('#user-search-contactState').val())
-			searchData.contactState = {type: 'like', value: $('#user-search-contactState').val()};
-		if($('#user-search-contactZip').val())
-			searchData.contactZip = {type: 'like', value: $('#user-search-contactZip').val()};
-		if($('#user-search-contactPhone').val())
-			searchData.contactPhone = {type: 'like', value: $('#user-search-contactPhone').val()};
-		if($('#user-search-contactPhone2').val())
-			searchData.contactPhone2 = {type: 'like', value: $('#user-search-contactPhone2').val()};
-		if($('#user-search-contactEmail').val())
-			searchData.contactEmail = {type: 'like', value: $('#user-search-contactEmail').val()};
-		if($('#user-search-contactRelationship').val())
-			searchData.contactRelationship = {type: 'like', value: $('#user-search-contactRelationship').val()};
-		
-		if($('#user-search-status').val())
-			searchData.status = {type: 'binary', value: $('#user-search-status').val()};
-		if($('#user-search-medium').val())
-			searchData.medium = {type: 'binary', value: $('#user-search-medium').val()};
-		if($('#user-search-mailTo').val())
-			searchData.mailTo = {type: 'binary', value: $('#user-search-mailTo').val()};
-		if($('#user-search-disability').val())
-			searchData.disability = {type: 'like', value: $('#user-search-disability').val()};
-		if($('#user-search-otherDisability').val())
-			searchData.otherDisability = {type: 'like', value: $('#user-search-otherDisability').val()};
-		if($('#user-search-howLearn').val())
-			searchData.howLearn = {type: 'like', value: $('#user-search-howLearn').val()};
-		if($('#user-search-race').val())
-			searchData.race = {type: 'like', value: $('#user-search-race').val()};
-		if($('#user-search-income').val())
-			searchData.income = {type: 'like', value: $('#user-search-income').val()};
-		if($('#user-search-inHomeNum').val())
-			searchData.inHomeNum = {type: 'like', value: $('#user-search-inHomeNum').val()};
-		
+
+    $('#radio-search-clear-btn').on('click', function () {
+        $('#radio-search-collapse').find(':input').val('');
+        reloadRadios();
+    });
+
+    // ====================================================== Search Users
+
+    function reloadUsers() {
+        var searchData = {};
+        if ($('#user-search-firstName').val())
+            searchData.firstName = {type: 'like', value: $('#user-search-firstName').val()};
+        if ($('#user-search-lastName').val())
+            searchData.lastName = {type: 'like', value: $('#user-search-lastName').val()};
+
+        var dateFrom = $('#user-search-dobFrom').val();
+        var dateTo = $('#user-search-dobTo').val()
+        if (dateFrom) {
+            if (!dateTo)
+                dateTo = dateFrom;
+            searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
+        }
+        if ($('#user-search-address').val())
+            searchData.street = {type: 'like', value: $('#user-search-address').val()};
+        if ($('#user-search-address2').val())
+            searchData.streetLine2 = {type: 'like', value: $('#user-search-address2').val()};
+        if ($('#user-search-city').val())
+            searchData.city = {type: 'like', value: $('#user-search-city').val()};
+        if ($('#user-search-state').val())
+            searchData.state = {type: 'like', value: $('#user-search-state').val()};
+        if ($('#user-search-zip').val())
+            searchData.zip = {type: 'like', value: $('#user-search-zip').val()};
+        if ($('#user-search-phone').val())
+            searchData.phone = {type: 'like', value: $('#user-search-phone').val()};
+        if ($('#user-search-phone2').val())
+            searchData.phone2 = {type: 'like', value: $('#user-search-phone2').val()};
+        if ($('#user-search-email').val())
+            searchData.email = {type: 'like', value: $('#user-search-email').val()};
+        if ($('#user-search-notes').val())
+            searchData.notes = {type: 'like', value: $('#user-search-notes').val()};
+
+        if ($('#user-search-contactFirstName').val())
+            searchData.contactFirstName = {type: 'like', value: $('#user-search-contactFirstName').val()};
+        if ($('#user-search-contactLastName').val())
+            searchData.contactLastName = {type: 'like', value: $('#user-search-contactLastName').val()};
+        if ($('#user-search-contactAddress').val())
+            searchData.contactStreet = {type: 'like', value: $('#user-search-contactAddress').val()};
+        if ($('#user-search-contactAddress2').val())
+            searchData.contactStreetLine2 = {type: 'like', value: $('#user-search-contactAddress2').val()};
+        if ($('#user-search-contactCity').val())
+            searchData.contactCity = {type: 'like', value: $('#user-search-contactCity').val()};
+        if ($('#user-search-contactState').val())
+            searchData.contactState = {type: 'like', value: $('#user-search-contactState').val()};
+        if ($('#user-search-contactZip').val())
+            searchData.contactZip = {type: 'like', value: $('#user-search-contactZip').val()};
+        if ($('#user-search-contactPhone').val())
+            searchData.contactPhone = {type: 'like', value: $('#user-search-contactPhone').val()};
+        if ($('#user-search-contactPhone2').val())
+            searchData.contactPhone2 = {type: 'like', value: $('#user-search-contactPhone2').val()};
+        if ($('#user-search-contactEmail').val())
+            searchData.contactEmail = {type: 'like', value: $('#user-search-contactEmail').val()};
+        if ($('#user-search-contactRelationship').val())
+            searchData.contactRelationship = {type: 'like', value: $('#user-search-contactRelationship').val()};
+
+        if ($('#user-search-status').val())
+            searchData.status = {type: 'binary', value: $('#user-search-status').val()};
+        if ($('#user-search-medium').val())
+            searchData.medium = {type: 'binary', value: $('#user-search-medium').val()};
+        if ($('#user-search-mailTo').val())
+            searchData.mailTo = {type: 'binary', value: $('#user-search-mailTo').val()};
+        if ($('#user-search-disability').val())
+            searchData.disability = {type: 'like', value: $('#user-search-disability').val()};
+        if ($('#user-search-otherDisability').val())
+            searchData.otherDisability = {type: 'like', value: $('#user-search-otherDisability').val()};
+        if ($('#user-search-howLearn').val())
+            searchData.howLearn = {type: 'like', value: $('#user-search-howLearn').val()};
+        if ($('#user-search-race').val())
+            searchData.race = {type: 'like', value: $('#user-search-race').val()};
+        if ($('#user-search-income').val())
+            searchData.income = {type: 'like', value: $('#user-search-income').val()};
+        if ($('#user-search-inHomeNum').val())
+            searchData.inHomeNum = {type: 'like', value: $('#user-search-inHomeNum').val()};
+
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -633,92 +633,90 @@ $(document).ready(function () {
             data: {search: searchData},
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
-					$('#usersTable tbody').empty();
+                    $('#usersTable tbody').empty();
                     var result = ajaxValues.result;
                     //var fields = ["firstName", "lastName", "email", "birthday", "street"];
                     var fields = getUserFields();
 //                    alert("The field list is: " + fields.toString());
                     for (var index in result) {
-						var row;
-						row += '<tr data-id=' + result[index].userId + ' class="userRow">';
-						for (var field in fields) {
-							row += '<td>' + result[index][fields[field]] + '</td>';
-						}
-						row += '</tr>';
-						$('#usersTable tbody').append(row);
-						row = '';
+                        var row;
+                        row += '<tr data-id=' + result[index].userId + ' class="userRow">';
+                        for (var field in fields) {
+                            row += '<td>' + result[index][fields[field]] + '</td>';
+                        }
+                        row += '</tr>';
+                        $('#usersTable tbody').append(row);
+                        row = '';
                     }
-
-
                 }
             },
             error: function (e) {
                 console.log(e);
             }
         });
-	}
-	
-	$('#user-search-btn').on('click', function () {
-		reloadUsers();
+    }
+
+    $('#user-search-btn').on('click', function () {
+        reloadUsers();
     });
-	
-	$('#user-search-clear-btn').on('click', function () {
-		$('#user-search-collapse').find(':input').val('');
-		reloadUsers();
-	});
-	
-	// ====================================================== Search Orgs
-	
-	function reloadOrgs() {
-		var searchData={};
-		if($('#org-search-organizationName').val())
-			searchData.organizationName = {type: 'like', value: $('#org-search-organizationName').val()};
-		if($('#org-search-organizationType').val())
-			searchData.organizationType = {type: 'like', value: $('#org-search-organizationType').val()};
-		if($('#org-search-firstName').val())
-			searchData.firstName = {type: 'like', value: $('#org-search-firstName').val()};
-		if($('#org-search-lastName').val())
-			searchData.lastName = {type: 'like', value: $('#org-search-lastName').val()};
-		if($('#org-search-positionTitle').val())
-			searchData.positionTitle = {type: 'like', value: $('#org-search-positionTitle').val()};
-		if($('#org-search-radiosReqNum').val())
-			searchData.numRadios = {type: 'like', value: $('#org-search-radiosReqNum').val()};
-		if($('#org-search-licBedsNum').val())
-			searchData.numLicensedBeds = {type: 'like', value: $('#org-search-licBedsNum').val()};
-		if($('#org-search-resUnitsNum').val())
-			searchData.numResidentialUnits = {type: 'like', value: $('#org-search-resUnitsNum').val()};
-		if($('#org-search-notes').val())
-			searchData.notes = {type: 'like', value: $('#org-search-notes').val()};
-		
-		if($('#org-search-address').val())
-			searchData.street = {type: 'like', value: $('#org-search-address').val()};
-		if($('#org-search-address2').val())
-			searchData.streetLine2 = {type: 'like', value: $('#org-search-address2').val()};
-		if($('#org-search-city').val())
-			searchData.city = {type: 'like', value: $('#org-search-city').val()};
-		if($('#org-search-state').val())
-			searchData.state = {type: 'like', value: $('#org-search-state').val()};
-		if($('#org-search-zip').val())
-			searchData.zip = {type: 'like', value: $('#org-search-zip').val()};
-		if($('#org-search-phone').val())
-			searchData.phone = {type: 'like', value: $('#org-search-phone').val()};
-		if($('#org-search-phone2').val())
-			searchData.phone2 = {type: 'like', value: $('#org-search-phone2').val()};
-		if($('#org-search-email').val())
-			searchData.email = {type: 'like', value: $('#org-search-email').val()};
-		if($('#org-search-howLearn').val())
-			searchData.howLearn = {type: 'like', value: $('#org-search-howLearn').val()};
-		if($('#org-search-status').val())
-			searchData.status = {type: 'like', value: $('#org-search-status').val()};
-		
-		var dateFrom = $('#user-search-dobFrom').val();
-		var dateTo = $('#user-search-dobTo').val()
-		if(dateFrom) {
-			if(!dateTo)
-				dateTo = dateFrom;
-			searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
-		}
-		
+
+    $('#user-search-clear-btn').on('click', function () {
+        $('#user-search-collapse').find(':input').val('');
+        reloadUsers();
+    });
+
+    // ====================================================== Search Orgs
+
+    function reloadOrgs() {
+        var searchData = {};
+        if ($('#org-search-organizationName').val())
+            searchData.organizationName = {type: 'like', value: $('#org-search-organizationName').val()};
+        if ($('#org-search-organizationType').val())
+            searchData.organizationType = {type: 'like', value: $('#org-search-organizationType').val()};
+        if ($('#org-search-firstName').val())
+            searchData.firstName = {type: 'like', value: $('#org-search-firstName').val()};
+        if ($('#org-search-lastName').val())
+            searchData.lastName = {type: 'like', value: $('#org-search-lastName').val()};
+        if ($('#org-search-positionTitle').val())
+            searchData.positionTitle = {type: 'like', value: $('#org-search-positionTitle').val()};
+        if ($('#org-search-radiosReqNum').val())
+            searchData.numRadios = {type: 'like', value: $('#org-search-radiosReqNum').val()};
+        if ($('#org-search-licBedsNum').val())
+            searchData.numLicensedBeds = {type: 'like', value: $('#org-search-licBedsNum').val()};
+        if ($('#org-search-resUnitsNum').val())
+            searchData.numResidentialUnits = {type: 'like', value: $('#org-search-resUnitsNum').val()};
+        if ($('#org-search-notes').val())
+            searchData.notes = {type: 'like', value: $('#org-search-notes').val()};
+
+        if ($('#org-search-address').val())
+            searchData.street = {type: 'like', value: $('#org-search-address').val()};
+        if ($('#org-search-address2').val())
+            searchData.streetLine2 = {type: 'like', value: $('#org-search-address2').val()};
+        if ($('#org-search-city').val())
+            searchData.city = {type: 'like', value: $('#org-search-city').val()};
+        if ($('#org-search-state').val())
+            searchData.state = {type: 'like', value: $('#org-search-state').val()};
+        if ($('#org-search-zip').val())
+            searchData.zip = {type: 'like', value: $('#org-search-zip').val()};
+        if ($('#org-search-phone').val())
+            searchData.phone = {type: 'like', value: $('#org-search-phone').val()};
+        if ($('#org-search-phone2').val())
+            searchData.phone2 = {type: 'like', value: $('#org-search-phone2').val()};
+        if ($('#org-search-email').val())
+            searchData.email = {type: 'like', value: $('#org-search-email').val()};
+        if ($('#org-search-howLearn').val())
+            searchData.howLearn = {type: 'like', value: $('#org-search-howLearn').val()};
+        if ($('#org-search-status').val())
+            searchData.status = {type: 'like', value: $('#org-search-status').val()};
+
+        var dateFrom = $('#user-search-dobFrom').val();
+        var dateTo = $('#user-search-dobTo').val()
+        if (dateFrom) {
+            if (!dateTo)
+                dateTo = dateFrom;
+            searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
+        }
+
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -726,19 +724,19 @@ $(document).ready(function () {
             data: {search: searchData},
             success: function (ajaxValues) {
                 if (ajaxValues.success) {
-					$('#organizationsTable tbody').empty();
+                    $('#organizationsTable tbody').empty();
                     var result = ajaxValues.result;
                     //var fields = ["organizationName", "firstName", "lastName", "street", "phone", "numRadios", "email"];
                     var fields = getOrganizationFields();
                     for (var index in result) {
-						var row;
-						row += '<tr data-id=' + result[index].organizationId + ' class="organizationRow">';
-						for (var field in fields) {
-							row += '<td>' + result[index][fields[field]] + '</td>';
-						}
-						row += '</tr>';
-						$('#organizationsTable tbody').append(row);
-						row = '';
+                        var row;
+                        row += '<tr data-id=' + result[index].organizationId + ' class="organizationRow">';
+                        for (var field in fields) {
+                            row += '<td>' + result[index][fields[field]] + '</td>';
+                        }
+                        row += '</tr>';
+                        $('#organizationsTable tbody').append(row);
+                        row = '';
                     }
                 }
             },
@@ -746,17 +744,17 @@ $(document).ready(function () {
                 console.log(e);
             }
         });
-	}
-	
-	$('#org-search-btn').on('click', function () {
-		reloadOrgs();
+    }
+
+    $('#org-search-btn').on('click', function () {
+        reloadOrgs();
     });
-	
-	$('#org-search-clear-btn').on('click', function () {
-		$('#org-search-collapse').find(':input').val('');
-		reloadOrgs();
-	});
-	
+
+    $('#org-search-clear-btn').on('click', function () {
+        $('#org-search-collapse').find(':input').val('');
+        reloadOrgs();
+    });
+
     // ====================================================== UI functionality
 
     var userDTable = $('#usersTable').DataTable({
@@ -764,23 +762,15 @@ $(document).ready(function () {
         "paging": false,
         "bFilter": false,
         "bInfo": false,
-        "resizableColumns": true,
         "colReorder": true
     });
-    
-    var userDTable = $('#organizationsTable').DataTable({
-        "scrollCollapse": true,
-        "paging": false,
-        "bFilter": false,
-        "bInfo": false
-    });
-    
-    var userDTable = $('#radiosTable').DataTable({
+
+    var organizationDTable = $('#organizationsTable').DataTable({
         "scrollCollapse": true,
         "paging": false,
         "bFilter": false,
         "bInfo": false,
-        "colReorder": true,
+        "colReorder": true
     });
 
     var radioDTable = $('#radiosTable').DataTable({
@@ -788,10 +778,10 @@ $(document).ready(function () {
         "paging": false,
         "bFilter": false,
         "bInfo": false,
-        "colReorder": true,
+        "colReorder": true
     });
 
-	// =============================================
+    // =============================================
 
     $('#clearUserTable').on('click', function () {
         clearUsersTable();
@@ -1387,9 +1377,6 @@ $(document).ready(function () {
     setOrganizationDefaults();
     setRadioDefaults();
 
-    //getUserFields();
-
-//    alert('All visible columns: ' + userDTable.columns().visible().join(', '));
 
 });
 
