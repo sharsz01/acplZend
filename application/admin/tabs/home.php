@@ -2,7 +2,7 @@
     <h3>Notifications</h3>
     <div id="alertList">
 
-		<?php require('alerts.php'); ?>
-	
+        <?php require('alerts.php'); ?>
+
     </div>
 </div>

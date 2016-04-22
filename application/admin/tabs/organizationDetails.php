@@ -144,10 +144,10 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="org-type">Type:</label>
-                            <select class="form-control" name="org-type" id="org-type">
-                                <option>Individual</option>
-                                <option selected="selected">Organization</option>
+                            <label for="org-alertStatus">Alert Status:</label>
+                            <select class="form-control" name="org-alertStatus" id="org-alertStatus">
+                                <option value="Read">Read</option>
+                                <option value="Unread">Unread</option>
                             </select>
                         </div>
                     </div>

@@ -139,35 +139,35 @@
                                     <label for="org-search-email">Email:</label>
                                     <input type="email" class="form-control" id="org-search-email">
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
+								
+								<div class="row">
+									<div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="org-search-howLearn">How Learn:</label>
                                             <input type="text" class="form-control" id="org-search-howLearn">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+									<div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="org-search-status">Status:</label>
                                             <select class="form-control" id="org-search-status">
-                                                <option></option>
+												<option></option>
                                                 <option>Applicant</option>
                                                 <option>Active</option>
                                                 <option>Inactive</option>
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <button id="org-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button id="org-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
-                                    </div>
-                                </div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6">
+										<button id="org-search-btn" type="button" class="btn btn-primary btn-block">Search</button>
+									</div>
+									<div class="col-sm-6">
+										<button id="org-search-clear-btn" type="button" class="btn btn-default btn-block">Clear Search</button>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
@@ -186,144 +186,144 @@
                 <div id="org-inactive-collapse" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div id="tabRow">
-                            <button type="button" id="org-organizationNameBtn" class="inactiveBtns btn btn-default">Organization Name</button>
-                            <button type="button" id="org-organizationTypeBtn" class="inactiveBtns btn btn-default">Organization Type</button>
-                            <button type="button" id="org-firstNameBtn" class="inactiveBtns btn btn-default">Staff First Name</button>
-                            <button type="button" id="org-lastNameBtn" class="inactiveBtns btn btn-default">Staff Last Name</button>
-                            <button type="button" id="org-positionTitleBtn" class="inactiveBtns btn btn-default">Staff Position Title</button>
-                            <button type="button" id="org-streetBtn" class="inactiveBtns btn btn-default">Street</button>
-                            <button type="button" id="org-streetLine2Btn" class="inactiveBtns btn btn-default">Street Line 2</button>
-                            <button type="button" id="org-cityBtn" class="inactiveBtns btn btn-default">City</button>
-                            <button type="button" id="org-stateBtn" class="inactiveBtns btn btn-default">State</button>
-                            <button type="button" id="org-zipBtn" class="inactiveBtns btn btn-default">Zip</button>
-                            <button type="button" id="org-phoneBtn" class="inactiveBtns btn btn-default">Office Phone #</button>
-                            <button type="button" id="org-phone2Btn" class="inactiveBtns btn btn-default">Cell Phone #</button>
-                            <button type="button" id="org-emailBtn" class="inactiveBtns btn btn-default">Email</button>
-                            <button type="button" id="org-numRadiosBtn" class="inactiveBtns btn btn-default"># of Radios</button>
-                            <button type="button" id="org-numLicensedBedsBtn" class="inactiveBtns btn btn-default"># of Licensed Beds</button>
-                            <button type="button" id="org-numResidentialUnitsBtn" class="inactiveBtns btn btn-default"># of Residential Units</button>
-                            <button type="button" id="org-howLearnBtn" class="inactiveBtns btn btn-default">How Service Was Learned</button>
-                            <button type="button" id="org-statusBtn" class="inactiveBtns btn btn-default">Status</button>
-                            <button type="button" id="org-mediumBtn" class="inactiveBtns btn btn-default">Medium</button>
+                            <button type="button" id="org-organizationNameBtn" class="inactiveOrgBtns btn btn-default">Organization Name</button>
+                            <button type="button" id="org-organizationTypeBtn" class="inactiveOrgBtns btn btn-default">Organization Type</button>
+                            <button type="button" id="org-firstNameBtn" class="inactiveOrgBtns btn btn-default">Staff First Name</button>
+                            <button type="button" id="org-lastNameBtn" class="inactiveOrgBtns btn btn-default">Staff Last Name</button>
+                            <button type="button" id="org-positionTitleBtn" class="inactiveOrgBtns btn btn-default">Staff Position Title</button>
+                            <button type="button" id="org-streetBtn" class="inactiveOrgBtns btn btn-default">Street</button>
+                            <button type="button" id="org-streetLine2Btn" class="inactiveOrgBtns btn btn-default">Street Line 2</button>
+                            <button type="button" id="org-cityBtn" class="inactiveOrgBtns btn btn-default">City</button>
+                            <button type="button" id="org-stateBtn" class="inactiveOrgBtns btn btn-default">State</button>
+                            <button type="button" id="org-zipBtn" class="inactiveOrgBtns btn btn-default">Zip</button>
+                            <button type="button" id="org-phoneBtn" class="inactiveOrgBtns btn btn-default">Office Phone #</button>
+                            <button type="button" id="org-phone2Btn" class="inactiveOrgBtns btn btn-default">Cell Phone #</button>
+                            <button type="button" id="org-emailBtn" class="inactiveOrgBtns btn btn-default">Email</button>
+                            <button type="button" id="org-numRadiosBtn" class="inactiveOrgBtns btn btn-default"># of Radios</button>
+                            <button type="button" id="org-numLicensedBedsBtn" class="inactiveOrgBtns btn btn-default"># of Licensed Beds</button>
+                            <button type="button" id="org-numResidentialUnitsBtn" class="inactiveOrgBtns btn btn-default"># of Residential Units</button>
+                            <button type="button" id="org-howLearnBtn" class="inactiveOrgBtns btn btn-default">How Service Was Learned</button>
+                            <button type="button" id="org-statusBtn" class="inactiveOrgBtns btn btn-default">Status</button>
+                            <button type="button" id="org-mediumBtn" class="inactiveOrgBtns btn btn-default">Medium</button>
                             <div style="clear: both;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
+		
+		<div class="form-group">
             <button type="button" id="clearOrgTable" class="btn btn-danger">Clear Table</button>
             <button type="button" id="orgTableDefaults" class="btn btn-default">Default</button>
         </div>
-
+		
         <div class="table-responsive">
             <table id="organizationsTable" class="table table-striped table-bordered table-hover table-condensed" width="100%">
                 <thead>
                     <tr>
-                        <th name="oTable-organizationName">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Organization Name
-                </th>
-                <th name="oTable-organizationType">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Organization Type 
-                </th>
-                <th name="oTable-firstName">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Staff First Name
-                </th>
-                <th name="oTable-lastName">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Staff Last Name
-                </th>
-                <th name="oTable-positionTitle">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Staff Position Title
-                </th>
-                <th name="oTable-street">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Street Line
-                </th>
-                <th name="oTable-streetLine2">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Street Line 2
-                </th>
-                <th name="oTable-city">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                City
-                </th>
-                <th name="oTable-state">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                State
-                </th>
-                <th name="oTable-zip">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Zip
-                </th>
-                <th name="oTable-phone">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Office Phone #
-                </th>
-                <th name="oTable-phone2">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Cell Phone #
-                </th>
-                <th name="oTable-email">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Email
-                </th>
-                <th name="oTable-numRadios">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                # of Radios
-                </th>
+                        <th id="oTable-organizationName" name="oTable-organizationName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Organization Name
+						</th>
+							<th id="oTable-organizationType" name="oTable-organizationType">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Organization Type 
+						</th>
+						<th id="oTable-firstName" name="oTable-firstName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff First Name
+						</th>
+						<th id="oTable-lastName" name="oTable-lastName">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff Last Name
+						</th>
+						<th id="oTable-positionTitle" name="oTable-positionTitle">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Staff Position Title
+						</th>
+						<th id="oTable-street" name="oTable-street">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Street Line
+						</th>
+						<th id="oTable-streetLine2" name="oTable-streetLine2">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Street Line 2
+						</th>
+						<th id="oTable-city" name="oTable-city">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							City
+						</th>
+						<th id="oTable-state" name="oTable-state">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							State
+						</th>
+						<th id="oTable-zip" name="oTable-zip">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Zip
+						</th>
+						<th id="oTable-phone" name="oTable-phone">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Office Phone #
+						</th>
+						<th id="oTable-phone2" name="oTable-phone2">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Cell Phone #
+						</th>
+						<th id="oTable-email" name="oTable-email">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Email
+						</th>
+						<th id="oTable-numRadios" name="oTable-numRadios">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Radios
+						</th>
 
-                <th name="oTable-numLicensedBeds">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                # of Licensed Beds 
-                </th>
-                <th name="oTable-numResidentialUnits">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                # of Residential Units
-                </th>
-                <th name="oTable-howLearn">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                How They Learned About Service
-                </th>
-                <th name="oTable-status">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Status
-                </th>
-                <th name="oTable-medium">
-                <div class="handle"></div>
-                <div class="close org-close glyphicon glyphicon-remove-circle"></div>
-                Medium
-                </th>
-
-
-                </tr>
+						<th id="oTable-numLicensedBeds" name="oTable-numLicensedBeds">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Licensed Beds 
+						</th>
+						<th id="oTable-numResidentialUnits" name="oTable-numResidentialUnits">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							# of Residential Units
+						</th>
+						<th id="oTable-howLearn" name="oTable-howLearn">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							How They Learned About Service
+						</th>
+						<th id="oTable-status" name="oTable-status">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Status
+						</th>
+						<th id="oTable-medium" name="oTable-medium">
+							<div class="handle"></div>
+							<div class="close org-close glyphicon glyphicon-remove-circle"></div>
+							Medium
+						</th>
+                    </tr>
                 <thead>
                 <tbody>
                     <?php
-                    $fields = array("organizationName", "organizationType", "firstName", "lastName", "positionTitle", "street", "streetLine2", "city", "state", "zip", "phone", "phone2", "email", "numRadios", "numLicensedBeds", "numResidentialUnits", "howLearn", "status", "medium");
+                    $fields = array("organizationName", "organizationType", "firstName", "lastName", "positionTitle", "street", 
+						"streetLine2", "city", "state", "zip", "phone", "phone2", "email", "numRadios", "numLicensedBeds", 
+						"numResidentialUnits", "howLearn", "status", "medium");
                     $SQL = "SELECT * FROM organization;";
                     $result = mysqli_query($db, $SQL);
 
@@ -342,7 +342,7 @@
 </div>
 
 <script>
-    function exportOrg()
+	function exportOrg()
     {
         //get the organization table as displayed on the web page
         var table = document.getElementById("organizationsTable").innerHTML;

@@ -195,10 +195,10 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="ind-type">Type:</label>
-                            <select class="form-control" name="ind-type" id="ind-type">
-                                <option>Individual</option>
-                                <option>Organization</option>
+                            <label for="ind-alertStatus">Alert Status:</label>
+                            <select class="form-control" name="ind-alertStatus" id="ind-alertStatus">
+                                <option value="Read">Read</option>
+                                <option value="Unread">Unread</option>
                             </select>
                         </div>
                     </div>

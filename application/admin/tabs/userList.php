@@ -273,40 +273,40 @@
                 <div id="user-inactive-collapse" class="panel-collapse collapse">
                     <div class="panel-footer">
                         <div id="tabRow">
-                            <div style="float: left;"><button type="button" id="user-firstNameBtn" class="inactiveBtns btn btn-default">First Name</button></div>
-                            <div style="float: left;"><button type="button" id="user-lastNameBtn" class="inactiveBtns btn btn-default">Last Name</button></div>
-                            <div style="float: left;"><button type="button" id="user-dobBtn" class="inactiveBtns btn btn-default">DOB</button></div>
-                            <div style="float: left;"><button type="button" id="user-streetBtn" class="inactiveBtns btn btn-default">Street</button></div>
+                            <div style="float: left;"><button type="button" id="user-firstNameBtn" class="inactiveUserBtns btn btn-default">First Name</button></div>
+                            <div style="float: left;"><button type="button" id="user-lastNameBtn" class="inactiveUserBtns btn btn-default">Last Name</button></div>
+                            <div style="float: left;"><button type="button" id="user-dobBtn" class="inactiveUserBtns btn btn-default">DOB</button></div>
+                            <div style="float: left;"><button type="button" id="user-streetBtn" class="inactiveUserBtns btn btn-default">Street</button></div>
 
-                            <div style="float: left;"><button type="button" id="user-streetLine2Btn" class="inactiveBtns btn btn-default">Street Line 2</button></div>
-                            <div style="float: left;"><button type="button" id="user-cityBtn" class="inactiveBtns btn btn-default">City</button></div>
-                            <div style="float: left;"><button type="button" id="user-stateBtn" class="inactiveBtns btn btn-default">State</button></div>
-                            <div style="float: left;"><button type="button" id="user-zipBtn" class="inactiveBtns btn btn-default">Zip</button></div>
+                            <div style="float: left;"><button type="button" id="user-streetLine2Btn" class="inactiveUserBtns btn btn-default">Street Line 2</button></div>
+                            <div style="float: left;"><button type="button" id="user-cityBtn" class="inactiveUserBtns btn btn-default">City</button></div>
+                            <div style="float: left;"><button type="button" id="user-stateBtn" class="inactiveUserBtns btn btn-default">State</button></div>
+                            <div style="float: left;"><button type="button" id="user-zipBtn" class="inactiveUserBtns btn btn-default">Zip</button></div>
 
-                            <div style="float: left;"><button type="button" id="user-phoneBtn" class="inactiveBtns btn btn-default">Phone</button></div>
-                            <div style="float: left;"><button type="button" id="user-phone2Btn" class="inactiveBtns btn btn-default">Alternate Phone</button></div>
-                            <div style="float: left;"><button type="button" id="user-emailBtn" class="inactiveBtns btn btn-default">Email</button></div>
+                            <div style="float: left;"><button type="button" id="user-phoneBtn" class="inactiveUserBtns btn btn-default">Phone</button></div>
+                            <div style="float: left;"><button type="button" id="user-phone2Btn" class="inactiveUserBtns btn btn-default">Alternate Phone</button></div>
+                            <div style="float: left;"><button type="button" id="user-emailBtn" class="inactiveUserBtns btn btn-default">Email</button></div>
 
 
-                            <div style="float: left;"><button type="button" id="user-contactFirstNameBtn" class="inactiveBtns btn btn-default">Contact First</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactLastNameBtn" class="inactiveBtns btn btn-default">Contact Last</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactStreetBtn" class="inactiveBtns btn btn-default">Contact Street</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactStreetLine2Btn" class="inactiveBtns btn btn-default">Contact Street Line 2</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactCityBtn" class="inactiveBtns btn btn-default">Contact City</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactStateBtn" class="inactiveBtns btn btn-default">Contact State</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactZipBtn" class="inactiveBtns btn btn-default">Contact Zip</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactEmailBtn" class="inactiveBtns btn btn-default">Contact Email</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactPhoneBtn" class="inactiveBtns btn btn-default">Contact Phone</button></div>
-                            <div style="float: left;"><button type="button" id="user-contactPhone2Btn" class="inactiveBtns btn btn-default">Contact Alternate Phone</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactFirstNameBtn" class="inactiveUserBtns btn btn-default">Contact First</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactLastNameBtn" class="inactiveUserBtns btn btn-default">Contact Last</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactStreetBtn" class="inactiveUserBtns btn btn-default">Contact Street</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactStreetLine2Btn" class="inactiveUserBtns btn btn-default">Contact Street Line 2</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactCityBtn" class="inactiveUserBtns btn btn-default">Contact City</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactStateBtn" class="inactiveUserBtns btn btn-default">Contact State</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactZipBtn" class="inactiveUserBtns btn btn-default">Contact Zip</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactEmailBtn" class="inactiveUserBtns btn btn-default">Contact Email</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactPhoneBtn" class="inactiveUserBtns btn btn-default">Contact Phone</button></div>
+                            <div style="float: left;"><button type="button" id="user-contactPhone2Btn" class="inactiveUserBtns btn btn-default">Contact Alternate Phone</button></div>
 
-                            <div style="float: left;"><button type="button" id="user-disabilityBtn" class="inactiveBtns btn btn-default">Disability</button></div>
-                            <div style="float: left;"><button type="button" id="user-otherDisabilityBtn" class="inactiveBtns btn btn-default">Other Disability</button></div>
-                            <div style="float: left;"><button type="button" id="user-raceBtn" class="inactiveBtns btn btn-default">Race</button></div>
-                            <div style="float: left;"><button type="button" id="user-incomeBtn" class="inactiveBtns btn btn-default">Income</button></div>
-                            <div style="float: left;"><button type="button" id="user-inHomeNumBtn" class="inactiveBtns btn btn-default"># in Home</button></div>
-                            <div style="float: left;"><button type="button" id="user-dateRegisteredBtn" class="inactiveBtns btn btn-default">Date Registered</button></div>
-                            <div style="float: left;"><button type="button" id="user-mailToBtn" class="inactiveBtns btn btn-default">Mail To</button></div>
-
+                            <div style="float: left;"><button type="button" id="user-disabilityBtn" class="inactiveUserBtns btn btn-default">Disability</button></div>
+                            <div style="float: left;"><button type="button" id="user-otherDisabilityBtn" class="inactiveUserBtns btn btn-default">Other Disability</button></div>
+                            <div style="float: left;"><button type="button" id="user-raceBtn" class="inactiveUserBtns btn btn-default">Race</button></div>
+                            <div style="float: left;"><button type="button" id="user-incomeBtn" class="inactiveUserBtns btn btn-default">Income</button></div>
+                            <div style="float: left;"><button type="button" id="user-inHomeNumBtn" class="inactiveUserBtns btn btn-default"># in Home</button></div>
+                            <div style="float: left;"><button type="button" id="user-statusBtn" class="inactiveUserBtns btn btn-default">Status</button></div>
+                            <div style="float: left;"><button type="button" id="user-dateRegisteredBtn" class="inactiveUserBtns btn btn-default">Date Registered</button></div>
+                            <div style="float: left;"><button type="button" id="user-mailToBtn" class="inactiveUserBtns btn btn-default">Mail To</button></div>
                             <div style="clear: both;"></div>
 
                         </div>
@@ -324,43 +324,171 @@
             <table id="usersTable" class="table table-striped table-bordered table-hover table-condensed" width="100%">
                 <thead>
                     <tr>
-                        <th name="uTable-firstName"> <div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> First</th>
-                <th name="uTable-lastName"> <div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Last</th>
-                <th name="uTable-dob"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> DOB</th>
-                <th name="uTable-street"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Street Line</th>
+                        <th id="uTable-firstName" name="uTable-firstName">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                First
+                </th>
+                <th id="uTable-lastName" name="uTable-lastName">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Last
+                </th>
+                <th id="uTable-dob" name="uTable-dob">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                DOB
+                </th>
+                <th id="uTable-street" name="uTable-street">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Street Line
+                </th>
 
-                <th name="uTable-streetLine2"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Street Line 2</th>
-                <th name="uTable-city"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> City</th>
-                <th name="uTable-state"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> State</th>
-                <th name="uTable-zip"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Zip</th>
-                <th name="uTable-phone"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Phone</th>
-                <th name="uTable-phone2"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Alt Phone</th>
-                <th name="uTable-email"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Email</th>
-                <th name="uTable-contactFirstName"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact First Name</th>
-                <th name="uTable-contactLastName"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Last Name</th>
-                <th name="uTable-contactRelationship"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Relationship</th>
-                <th name="uTable-contactStreet"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Street Line</th>
-                <th name="uTable-contactStreetLine2"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Street Line 2</th>
-                <th name="uTable-contactCity"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact City</th>
-                <th name="uTable-contactState"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact State</th>
-                <th name="uTable-contactZip"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Zip</th>
-                <th name="uTable-contactPhone"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Phone</th>
-                <th name="uTable-contactPhone2"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Alt Phone</th>
-                <th name="uTable-contactEmail"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Contact Email</th>
-                <th name="uTable-disability"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Disability</th>
-                <th name="uTable-otherDisability"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Other Disability</th>
-                <th name="uTable-howLearn"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> How Learn</th>
-                <th name="uTable-race"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Race</th>
-                <th name="uTable-income"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Income</th>
-                <th name="uTable-inHomeNum"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> # in Home</th>
-                <th name="uTable-dateRegistered"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Date Registered</th>
-                <th name="uTable-mailTo"><div class="handle"></div> <div class="close user-close glyphicon glyphicon-remove-circle"></div> Mail To</th> 
+                <th id="uTable-streetLine2" name="uTable-streetLine2">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Street Line 2
+                </th>
+                <th id="uTable-city" name="uTable-city">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                City
+                </th>
+                <th id="uTable-state" name="uTable-state">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                State
+                </th>
+                <th id="uTable-zip" name="uTable-zip">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Zip
+                </th>
+                <th id="uTable-phone" name="uTable-phone">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Phone
+                </th>
+                <th id="uTable-phone2" name="uTable-phone2">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Alt Phone
+                </th>
+                <th id="uTable-email" name="uTable-email">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Email
+                </th>
+                <th id="uTable-contactFirstName" name="uTable-contactFirstName">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact First Name
+                </th>
+                <th id="uTable-contactLastName" name="uTable-contactLastName">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Last Name
+                </th>
+                <th id="uTable-contactRelationship" name="uTable-contactRelationship">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Relationship
+                </th>
+                <th id="uTable-contactStreet" name="uTable-contactStreet">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Street Line
+                </th>
+                <th id="uTable-contactStreetLine2" name="uTable-contactStreetLine2">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Street Line 2
+                </th>
+                <th id="uTable-contactCity" name="uTable-contactCity">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact City
+                </th>
+                <th id="uTable-contactState" name="uTable-contactState">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact State
+                </th>
+                <th id="uTable-contactZip" name="uTable-contactZip">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Zip
+                </th>
+                <th id="uTable-contactPhone" name="uTable-contactPhone">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Phone
+                </th>
+                <th id="uTable-contactPhone2" name="uTable-contactPhone2">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Alt Phone
+                </th>
+                <th id="uTable-contactEmail" name="uTable-contactEmail">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Contact Email
+                </th>
+                <th id="uTable-disability" name="uTable-disability">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Disability
+                </th>
+                <th id="uTable-otherDisability" name="uTable-otherDisability">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Other Disability
+                </th>
+                <th id="uTable-howLearn" name="uTable-howLearn">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                How Learn
+                </th>
+                <th id="uTable-race" name="uTable-race">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Race
+                </th>
+                <th id="uTable-income" name="uTable-income">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Income
+                </th>
+                <th id="uTable-inHomeNum" name="uTable-inHomeNum">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                # in Home
+                </th>
+                <th id="uTable-status" name="uTable-status">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Status
+                </th>
+                <th id="uTable-dateRegistered" name="uTable-dateRegistered">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Date Registered
+                </th>
+                <th id="uTable-mailTo" name="uTable-mailTo">
+                <div class="handle"></div>
+                <div class="close user-close glyphicon glyphicon-remove-circle"></div>
+                Mail To
+                </th> 
                 </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $fields = array("firstName", "lastName", "birthday", "street", "streetLine2", "city", "state", "zip", "phone", "phone2", "email", "contactFirstName", "contactLastName", "contactRelationship", "contactStreet", "contactStreetLine2", "contactCity", "contactState", "contactZip", "contactPhone", "contactPhone2", "contactEmail", "disability", "otherDisability", "howLearn", "race", "income", "inHomeNum", "dateRegistered", "mailTo");
-
+                    $fields = array("firstName", "lastName", "birthday", "street", "streetLine2", "city", "state", "zip",
+                        "phone", "phone2", "email", "contactFirstName", "contactLastName", "contactRelationship",
+                        "contactStreet", "contactStreetLine2", "contactCity", "contactState", "contactZip", "contactPhone",
+                        "contactPhone2", "contactEmail", "disability", "otherDisability", "howLearn", "race", "income",
+                        "inHomeNum", "status", "dateRegistered", "mailTo");
 
                     $SQL = "SELECT * FROM user;";
                     $result = mysqli_query($db, $SQL);
@@ -368,9 +496,24 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo('<tr id="userRow" data-id="' . $row['userId'] . '" class="userRow">');
                         foreach ($fields as $field) {
-                            echo('<td>' . $row[$field] . '</td>');
+                            if (strpos($field, 'phone') !== false) {
+                                //echo('<td class="phone-number">' . formatPhone($row[$field]) . '</td>');
+                                echo('<td class="phone-number">' . ($row[$field]) . '</td>');
+                            } else {
+                                echo('<td>' . $row[$field] . '</td>');
+                            }
                         }
                         echo('</tr>');
+                    }
+
+                    function formatPhone($phone) {
+                        if (strlen($phone) < 10) { // Phone number not given
+                            return "";
+                        } else if (strlen($phone) < 11) {  // area code and phone number
+                            return substr($phone, 0, 3) . '.' . substr($phone, 3, 3) . '.' . substr($phone, 6);
+                        } else {
+                            return substr($phone, 0, 1) . '.' . substr($phone, 1, 3) . '.' . substr($phone, 4, 3) . '.' . substr($phone, 7);
+                        }
                     }
                     ?>
                 </tbody>
