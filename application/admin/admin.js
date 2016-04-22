@@ -517,7 +517,8 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#radiosTable tbody').empty();
                     var result = ajaxValues.result;
-                    var fields = ["controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition"];
+                    //var fields = ["controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition"];
+                    var fields = getRadioFields();
                     for (var index in result) {
                         var row;
                         row += '<tr data-id=' + result[index].radioId + ' class="radioRow">';
@@ -631,7 +632,9 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#usersTable tbody').empty();
                     var result = ajaxValues.result;
-                    var fields = ["firstName", "lastName", "email", "birthday", "street"];
+                    //var fields = ["firstName", "lastName", "email", "birthday", "street"];
+                    var fields = getUserFields();
+//                    alert("The field list is: " + fields.toString());
                     for (var index in result) {
                         var row;
                         row += '<tr data-id=' + result[index].userId + ' class="userRow">';
@@ -642,6 +645,8 @@ $(document).ready(function () {
                         $('#usersTable tbody').append(row);
                         row = '';
                     }
+
+
                 }
             },
             error: function (e) {
@@ -720,7 +725,8 @@ $(document).ready(function () {
                 if (ajaxValues.success) {
                     $('#organizationsTable tbody').empty();
                     var result = ajaxValues.result;
-                    var fields = ["organizationName", "firstName", "lastName", "street", "phone", "numRadios", "email"];
+                    //var fields = ["organizationName", "firstName", "lastName", "street", "phone", "numRadios", "email"];
+                    var fields = getOrganizationFields();
                     for (var index in result) {
                         var row;
                         row += '<tr data-id=' + result[index].organizationId + ' class="organizationRow">';
@@ -1278,48 +1284,102 @@ $(document).ready(function () {
         val = val + "Btn";
         return val;
     }
-    
-    function replaceDismissId(id){
-        var val = id.split("-");
+
+    function replaceId(str) {
+        var val = str.split("-");
         return val;
     }
-    
-    $('.viewListener').click(function(){
-       var id = this.id;
-       populateIndividualDetails(id);
-       $('#user-details-tab').click();
+
+    $('.viewListener').click(function () {
+        var id = this.id;
+        populateIndividualDetails(id);
+        $('#user-details-tab').click();
     });
-    
-    $('.viewOrg').click(function(){
-       var id = this.id;
-       populateOrganizationDetails(id);
-       $('#organization-details-tab').click();
+
+    $('.viewOrg').click(function () {
+        var id = this.id;
+        populateOrganizationDetails(id);
+        $('#organization-details-tab').click();
         //alert(id);
     });
-    
-    $('.dismiss').click(function(){
-       var id = this.id;
-       var arr = replaceDismissId(id);
-       
-       var type = arr[0];   // either individual or organization
-       id = arr[1];
-        
-        if(type.toLowerCase().indexOf("user") >= 0){
+
+    $('.dismiss').click(function () {
+        var id = this.id;
+        var arr = replaceId(id);
+
+        var type = arr[0];   // either individual or organization
+        id = arr[1];
+
+        if (type.toLowerCase().indexOf("user") >= 0) {
             populateIndividualDetails(id);
         }
-        else{
+        else {
             populateOrganizationDetails(id);
-        }       
-        
+        }
+
         $(this).parent().parent().parent().fadeOut("slow");
-       
+
     });
+
+    // Get the list of currently activated fields for listeners - used for search function
+    function getUserFields() {
+        var len = getLen(userDTable);
+        var header = '';
+        var list = [];
+
+        for (i = 0; i < len; i++) {
+            if (userDTable.column(i).visible() === true) {
+                header = userDTable.column(i).header();
+                header = $(header).attr('id');
+                list.push(replaceId(header)[1]);
+            }
+        }
+        return list;
+    }
+
+    // Get the list of currently activated fields for organizations - used for search function
+    function getOrganizationFields() {
+        var len = getLen(organizationDTable);
+        var header = '';
+        var list = [];
+
+        for (i = 0; i < len; i++) {
+            if (organizationDTable.column(i).visible() === true) {
+                header = organizationDTable.column(i).header();
+                header = $(header).attr('id');
+                list.push(replaceId(header)[1]);
+            }
+        }
+        return list;
+    }
+
+    // Get the list of currently activated fields for radios - used for search function
+    function getRadioFields() {
+        var len = getLen(radioDTable);
+        var header = '';
+        var list = [];
+
+        for (i = 0; i < len; i++) {
+            if (radioDTable.column(i).visible() === true) {
+                header = radioDTable.column(i).header();
+                header = $(header).attr('id');
+                list.push(replaceId(header)[1]);
+            }
+        }
+        return list;
+    }
+
+    function getLen(table) {
+        return table.columns().nodes().length;
+    }
 
     setUserDefaults();
     setOrganizationDefaults();
     setRadioDefaults();
 
+    //getUserFields();
 
+//    alert('All visible columns: ' + userDTable.columns().visible().join(', '));
 
 });
 
