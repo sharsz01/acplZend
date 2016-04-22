@@ -81,32 +81,15 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             ),
         ));
 
-        /*
-          $listener->addElement('date', 'Birthdate', array(
-          'class' => 'form-control',
-          'label' => 'Date of Birth *',
-          'required' => false,    // change to true when ready
-          'decorators' => array('ViewHelper', 'Label', 'Errors'),
-          ));
-         */
-
-        /*
         $listener->addElement('text', 'Birthdate', array(
-            'class' => 'dateselector-fdt',
-            'label' => 'Date of Birth *',
-            'required' => false, // change to true when ready
-            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-        ));
-        */
-        
-        $listener->addElement('text', 'Birthdate', array(
+            'data-inputmask' => "'alias': 'mm/dd/yyyy'",
             'class' => 'form-control date',
-            'placeholder' => 'ex. mm-dd-YYYY',
+            'placeholder' => 'mm/dd/yyyy',
             'label' => 'Date of Birth *',
-            'required' => false,    // change to true
+            'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
         ));
-        
+
         $listener->addElement('text', 'Address', array(
             'class' => 'form-control',
             'label' => 'Street Address *',
@@ -296,12 +279,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 'Email' => ' Email',
             )
         ));
-//
-//        $listener->addElement('checkbox', 'LargePrint', array(
-//            'label' => 'Large Print',
-//        ));
-//        $listener->getElement('LargePrint')->setCheckedValue('Yes');
-//        $listener->getElement('LargePrint')->setUnCheckedValue('No');
     }
 
     public function addContactFields($contact) {
@@ -452,21 +429,6 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
                 array('Alpha', true, array('allowWhiteSpace' => true)),
             ),
         ));
-
-        /*
-        $statement->addElement('text', 'SignatureDate', array(
-            'class' => 'dateselector-fdt',
-            'label' => 'Date * ',
-            //'required' => true,   // change to true when ready
-            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-        ));*/
-
-//        $statement->addElement('date', 'SignatureDate', array(
-//            'class' => 'form-control',
-//            'label' => 'Date *',
-//            'required' => true,
-//            'decorators' => array('ViewHelper', 'Label', 'Errors'),
-//        ));
 
         $statement->addElement('checkbox', 'Agree', array(
             'id' => 'agree',
