@@ -10,10 +10,6 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
-        <!-- Drag tables -->
-        <script src="jquery.dragtable.js"></script>
-        <link rel="stylesheet" type="text/css" href="dragtable.css" />
-
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -27,9 +23,10 @@
         <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.3.1/css/colReorder.dataTables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/colreorder/1.3.1/js/dataTables.colReorder.min.js"></script>
 
         <link href='admin.css' rel='stylesheet' type='text/css'>
-
         <script type="text/javascript" src="admin.js"></script>
     </head>
 
@@ -48,12 +45,14 @@
 
                 <li><a id="radios-tab" data-toggle="tab" href="#radios">Radios</a></li>
                 <li><a id="radio-details-tab" data-toggle="tab" href="#radio-details">Radio Details</a></li>
+                
+                <li><a id="userManagment-tab" data-toggle="tab" href="#userManagement">User Management</a></li>
             </ul>
 
             <div class="tab-content">
                 <?php
-				require('../configs/dbConnect.php');
-				
+                require('../configs/dbConnect.php');
+
                 require('tabs/home.php');
                 require('tabs/userList.php');
                 require('tabs/userDetails.php');
@@ -61,6 +60,7 @@
                 require('tabs/organizationDetails.php');
                 require('tabs/radioList.php');
                 require('tabs/radioDetails.php');
+                require('tabs/userManagement.php');
                 ?>
             </div>
         </div>

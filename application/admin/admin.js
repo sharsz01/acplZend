@@ -1,4 +1,46 @@
 $(document).ready(function () {
+
+    function getCheckOuts(userId, userType) {
+        var type;
+        if (userType == 'ind') {
+            type = 'user';
+        } else if (userType = 'org') {
+            type = 'organization';
+        } else {
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'ajax/getCheckOuts.php',
+            data: {userId: userId, userType: userType},
+            success: function (ajaxvalues) {
+                $('#' + type + 'Radios tbody').empty();
+                var html;
+                var result = ajaxvalues.result;
+                if (result.length == 0) {
+                    $('#' + type + 'Radios tbody').append('<tr><td>No radios checked out</td></tr>');
+                } else {
+                    for (var index in result) {
+                        html += '<tr>';
+                        html += '<td>' + result[index].controlNum + '</td>';
+                        html += '<td>' + result[index].dateOut + '</td>';
+                        if (result[index].dateIn == '0000-00-00')
+                            html += '<td><button type="button" class="radio-check-in-btn btn btn-xs btn-primary" data-id="'
+                                    + result[index].checkOutId + '" data-num="' + result[index].controlNum + '">Check In</button></td>';
+                        else
+                            html += '<td>' + result[index].dateIn + '</td>';
+                        html += '</tr>';
+                    }
+                    $('#' + type + 'Radios tbody').append(html);
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
     function populateRadioDetails(id) {
         var radioId = {type: 'binary', value: id};
         if (!$('#newRadioCancelBtn').hasClass('hidden'))
@@ -20,7 +62,7 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-                console.log(e.message);
+                console.log(e);
             }
         });
     }
@@ -29,7 +71,7 @@ $(document).ready(function () {
         var userId = {type: 'binary', value: id};
         if (!$('#newUserCancelBtn').hasClass('hidden'))
             $('#newUserCancelBtn').click();
-
+        getCheckOuts(id, 'ind');
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -55,7 +97,7 @@ $(document).ready(function () {
         var organizationId = {type: 'binary', value: id};
         if (!$('#newOrganizationCancelBtn').hasClass('hidden'))
             $('#newOrganizationCancelBtn').click();
-
+        getCheckOuts(id, 'org');
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -72,10 +114,134 @@ $(document).ready(function () {
                 }
             },
             error: function (e) {
-                console.log(e.message);
+                console.log(e);
             }
         });
     }
+
+    // ============================================= check out functionality
+
+    $('#user-check-out-modal-btn').on('click', function () {
+        $('#user-check-out-form').empty();
+        $('#user-check-out-form').append('<input type="text" class="form-control user-controlNum" placeholder="Control Number">');
+    });
+
+    $('#organization-check-out-modal-btn').on('click', function () {
+        $('#organization-check-out-form').empty();
+        $('#organization-check-out-form').append('<input type="text" class="form-control organization-controlNum" placeholder="Control Number">');
+    });
+
+    $('#user-add-radio-btn').on('click', function () {
+        $('#user-check-out-form').append('<input type="text" class="form-control user-controlNum" placeholder="Control Number">');
+    });
+
+    $('#organization-add-radio-btn').on('click', function () {
+        $('#organization-check-out-form').append('<input type="text" class="form-control organization-controlNum" placeholder="Control Number">');
+    });
+
+    $('#user-check-out-form, #organization-check-out-form').on('input', '.user-controlNum, .organization-controlNum', function (event) {
+        var timeout = setTimeout(function () {
+            clearTimeout(timeout);
+            if ($(event.target).val() == '') {
+                $(event.target).next('.glyphicon').remove();
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: 'ajax/checkControlNum.php',
+                    data: 'controlNum=' + $(event.target).val(),
+                    success: function (ajaxvalues) {
+                        if (ajaxvalues.result == '') {
+                            $(event.target).next('.glyphicon').remove();
+                            $(event.target).after('<span class="glyphicon glyphicon-remove-circle"></span>');
+                        } else if (ajaxvalues.result[0].radioStatus == 'Checked In') {
+                            $(event.target).next('.glyphicon').remove();
+                            $(event.target).after('<span class="glyphicon glyphicon-ok-circle"></span>');
+                        } else if (ajaxvalues.result[0].radioStatus == 'Checked Out') {
+                            $(event.target).next('.glyphicon').remove();
+                            $(event.target).after('<span class="glyphicon glyphicon-ban-circle"></span>');
+                        } else {
+                            $(event.target).next('.glyphicon').remove();
+                            $(event.target).after('<span class="glyphicon glyphicon-remove-circle"></span>');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+        }, 1000);
+    });
+
+    $('#user-check-out-btn, #organization-check-out-btn').on('click', function (event) {
+        var data = {};
+        var index = 0;
+        if ($(event.target).attr('id') == 'user-check-out-btn') {
+            data.userType = 'ind';
+            type = 'user';
+        } else if ($(event.target).attr('id') == 'organization-check-out-btn') {
+            data.userType = 'org';
+            type = 'organization';
+        } else {
+            alert('error');
+            return;
+        }
+        data.userId = $('#' + data.userType + '-' + type + 'Id').val();
+        data.inputList = {};
+        $('#' + type + '-check-out-form input').each(function () {
+            if ($(this).val().length != 0) {
+                data.inputList[index] = $(this).val();
+                index++;
+            }
+        });
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'ajax/checkOutRadio.php',
+            data: data,
+            success: function (ajaxvalues) {
+                if (ajaxvalues.success) {
+                    alert('Radios checked out successfully');
+                    $('#' + type + '-check-out-modal').modal('hide');
+                    getCheckOuts(data.userId, data.userType);
+                } else {
+                    console.log(ajaxvalues.error);
+                    alert(ajaxvalues.error);
+                    getCheckOuts(data.userId, data.userType);
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    });
+
+    $('#userRadios, #organizationRadios').on('click', '.radio-check-in-btn, .organization-check-in-btn', function (event) {
+        var type, userType;
+        if ($(event.delegateTarget).attr('id') == 'userRadios') {
+            userType = 'ind';
+            type = '#ind-userId';
+        } else if ($(event.delegateTarget).attr('id') == 'organizationRadios') {
+            userType = 'org';
+            type = '#org-organizationId';
+        } else {
+            alert('error');
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'ajax/checkInRadio.php',
+            data: {checkOutId: $(event.target).attr('data-id'), controlNum: $(event.target).attr('data-num')},
+            success: function (ajaxvalues) {
+                getCheckOuts($(type).val(), userType);
+                alert('Radio checked in successfully');
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    });
 
     // =============================================
 
@@ -222,7 +388,7 @@ $(document).ready(function () {
                     $('#radioSaveBtn').removeClass('hidden');
                     $('#radioCancelBtn').removeClass('hidden');
                     $('#newRadio').removeClass('hidden');
-                    alert("Radio Saved.");
+                    alert("New Radio Saved.");
                     document.location.reload(true);
                 }
             },
@@ -247,7 +413,7 @@ $(document).ready(function () {
                     $('#userSaveBtn').removeClass('hidden');
                     $('#userCancelBtn').removeClass('hidden');
                     $('#newUser').removeClass('hidden');
-                    alert("User Saved.");
+                    alert("New User Saved.");
                     document.location.reload(true);
                 }
             },
@@ -583,44 +749,31 @@ $(document).ready(function () {
     });
 
     // ====================================================== UI functionality
+
     var userDTable = $('#usersTable').DataTable({
         "scrollCollapse": true,
         "paging": false,
         "bFilter": false,
-        "bInfo": false
+        "bInfo": false,
+        "resizableColumns": true,
+        "colReorder": true
     });
 
     var organizationDTable = $('#organizationsTable').DataTable({
         "scrollCollapse": true,
         "paging": false,
         "bFilter": false,
-        "bInfo": false
+        "bInfo": false,
+        "colReorder": true,
     });
 
     var radioDTable = $('#radiosTable').DataTable({
         "scrollCollapse": true,
         "paging": false,
         "bFilter": false,
-        "bInfo": false
+        "bInfo": false,
+        "colReorder": true,
     });
-
-    // rearrange columns
-    addDraggable();
-
-    // add draggable functionality to rearrange columns
-    function addDraggable() {
-        $('#usersTable').dragtable({
-            dragHandle: '.handle'
-        });
-
-        $('#organizationsTable').dragtable({
-            dragHandle: '.handle'
-        });
-
-        $('#radiosTable').dragtable({
-            dragHandle: '.handle'
-        });
-    }
 
     // =============================================
 
@@ -650,67 +803,79 @@ $(document).ready(function () {
 
     // Removes all fields and displays an empty table
     function clearUsersTable() {
-        var len = $('#usersTable th').length;
-        for (i = 0; i < 30; i++) {
+        var len = userDTable.columns().nodes().length;
 
+        for (i = 0; i < len; i++) {
             userDTable.column(i).visible(false);
         }
 
-        $('.inactiveBtns').show();
+        $('.inactiveUserBtns').show();
     }
 
     // Removes all fields and displays an empty table
     function clearOrganizationTable() {
-        var len = $('#organizationsTable th').length;
-        for (i = 0; i < 19; i++) {
+        var len = organizationDTable.columns().nodes().length;
+
+        for (i = 0; i < len; i++) {
             organizationDTable.column(i).visible(false);
         }
 
-        $('.inactiveBtns').show();
+        $('.inactiveOrgBtns').show();
     }
 
     // Removes all fields and displays an empty table
     function clearRadioTable() {
-        var len = $('#radiosTable th').length;
-        for (i = 0; i < 10; i++) {
+        var len = radioDTable.columns().nodes().length;
 
+        for (i = 0; i < len; i++) {
             radioDTable.column(i).visible(false);
         }
 
-        $('.inactiveBtns').show();
+        $('.inactiveRadioBtns').show();
     }
 
     // Shows default column list for individuals with radios
     function setUserDefaults() {
         clearUsersTable();
 
-        userDTable.column(0).visible(true);
-        userDTable.column(1).visible(true);
-        userDTable.column(2).visible(true);
-        userDTable.column(3).visible(true);
-        userDTable.column(8).visible(true);
-        userDTable.column(10).visible(true);
+        userDTable.colReorder.reset();	// Reset back to original order of table
+
+        // Default fields displayed for listeners
+        userDTable.column('#uTable-firstName').visible(true);
+        userDTable.column('#uTable-lastName').visible(true);
+        userDTable.column('#uTable-dob').visible(true);
+        userDTable.column('#uTable-street').visible(true);
+        userDTable.column('#uTable-phone').visible(true);
+        userDTable.column('#uTable-email').visible(true);
+        userDTable.column('#uTable-status').visible(true);
 
 
-        $('.inactiveBtns').show();
+        // Hide currently active buttons from inactive tab
+        $('.inactiveUserBtns').show();
         $('#user-firstNameBtn').hide();
         $('#user-lastNameBtn').hide();
         $('#user-dobBtn').hide();
         $('#user-streetBtn').hide();
         $('#user-phoneBtn').hide();
         $('#user-emailBtn').hide();
+        $('#user-status').hide();
     }
 
+    // Shows default column list for organizations with radios
     function setOrganizationDefaults() {
         clearOrganizationTable();
 
-        organizationDTable.column(0).visible(true);
-        organizationDTable.column(2).visible(true);
-        organizationDTable.column(3).visible(true);
-        organizationDTable.column(10).visible(true);
-        organizationDTable.column(12).visible(true);
+        organizationDTable.colReorder.reset();	// Reset back to original order of table
 
-        $('.inactiveBtns').show();
+        // Default fields displayed for organizations
+        organizationDTable.column('#oTable-organizationName').visible(true);
+        organizationDTable.column('#oTable-firstName').visible(true);
+        organizationDTable.column('#oTable-lastName').visible(true);
+        organizationDTable.column('#oTable-email').visible(true);
+        organizationDTable.column('#oTable-phone').visible(true);
+
+        // Hide currently active buttons from inactive tab
+        $('.inactiveOrgBtns').show();
         $('#org-organizationNameBtn').hide();
         $('#org-firstNameBtn').hide();
         $('#org-lastNameBtn').hide();
@@ -718,14 +883,22 @@ $(document).ready(function () {
         $('#org-phoneBtn').hide();
     }
 
+    // All fields except for the notes field are shown
     function setRadioDefaults() {
         clearRadioTable();
 
-        for (i = 0; i < 9; i++) {
+        radioDTable.colReorder.reset();	// Reset back to original order of table
+
+        var len = radioDTable.columns().nodes().length
+        for (i = 0; i < len; i++) {
             radioDTable.column(i).visible(true);
         }
 
-        $('.inactiveBtns').show();
+        // Notes field is only field not displayed by default
+        radioDTable.column('#rTable-notes').visible(false);
+
+        // Hide currently active buttons from inactive tab
+        $('.inactiveRadioBtns').show();
         $('#radio-controlNumBtn').hide();
         $('#radio-modelNumBtn').hide();
         $('#radio-manufacturerBtn').hide();
@@ -741,308 +914,303 @@ $(document).ready(function () {
     // ============================================== hide button from inactive tabs and show the corresponding column of data in the table
     $('#user-firstNameBtn').on('click', function () {
         $('#user-firstNameBtn').hide();
-        userDTable.column(0).visible(true);
+        userDTable.column('#uTable-firstName').visible(true);
+        //userDTable.column(0).visible(true);
     });
 
 
     $('#user-lastNameBtn').on('click', function () {
         $('#user-lastNameBtn').hide();
-        userDTable.column(1).visible(true);
+        userDTable.column('#uTable-lastName').visible(true);
     });
 
     $('#user-dobBtn').on('click', function () {
         $('#user-dobBtn').hide();
-        userDTable.column(2).visible(true);
+        userDTable.column('#uTable-dob').visible(true);
     });
 
     $('#user-streetBtn').on('click', function () {
         $('#user-streetBtn').hide();
-        userDTable.column(3).visible(true);
+        userDTable.column('#uTable-street').visible(true);
     });
 
     $('#user-streetLine2Btn').on('click', function () {
         $('#user-streetLine2Btn').hide();
-        userDTable.column(4).visible(true);
+        userDTable.column('#uTable-streetLine2').visible(true);
     });
 
     $('#user-cityBtn').on('click', function () {
         $('#user-cityBtn').hide();
-        userDTable.column(5).visible(true);
+        userDTable.column('#uTable-city').visible(true);
     });
 
     $('#user-stateBtn').on('click', function () {
         $('#user-stateBtn').hide();
-        userDTable.column(6).visible(true);
+        userDTable.column('#uTable-state').visible(true);
     });
 
     $('#user-zipBtn').on('click', function () {
         $('#user-zipBtn').hide();
-        userDTable.column(7).visible(true);
+        userDTable.column('#uTable-zip').visible(true);
     });
 
     $('#user-phoneBtn').on('click', function () {
         $('#user-phoneBtn').hide();
-        userDTable.column(8).visible(true);
+        userDTable.column('#uTable-phone').visible(true);
     });
 
     $('#user-phone2Btn').on('click', function () {
         $('#user-phone2Btn').hide();
-        userDTable.column(9).visible(true);
+        userDTable.column('#uTable-phone2').visible(true);
     });
 
     $('#user-emailBtn').on('click', function () {
         $('#user-emailBtn').hide();
-        userDTable.column(10).visible(true);
+        userDTable.column('#uTable-email').visible(true);
     });
 
     $('#user-contactFirstNameBtn').on('click', function () {
         $('#user-contactFirstNameBtn').hide();
-        userDTable.column(11).visible(true);
+        userDTable.column('#uTable-contactFirstName').visible(true);
     });
 
     $('#user-contactLastNameBtn').on('click', function () {
         $('#user-contactLastNameBtn').hide();
-        userDTable.column(12).visible(true);
+        userDTable.column('#uTable-contactLastName').visible(true);
     });
 
     $('#user-contactRelationshipBtn').on('click', function () {
         $('#user-contactRelationshipBtn').hide();
-        userDTable.column(13).visible(true);
+        userDTable.column('#uTable-contactRelationship').visible(true);
     });
 
     $('#user-contactStreetBtn').on('click', function () {
         $('#user-contactStreetBtn').hide();
-        userDTable.column(14).visible(true);
+        userDTable.column('#uTable-contactStreet').visible(true);
     });
 
     $('#user-contactStreetLine2Btn').on('click', function () {
         $('#user-contactStreetLine2Btn').hide();
-        userDTable.column(15).visible(true);
+        userDTable.column('#uTable-contactStreetLine2').visible(true);
     });
 
     $('#user-contactCityBtn').on('click', function () {
         $('#user-contactCityBtn').hide();
-        userDTable.column(16).visible(true);
+        userDTable.column('#uTable-contactCity').visible(true);
     });
 
     $('#user-contactStateBtn').on('click', function () {
         $('#user-contactStateBtn').hide();
-        userDTable.column(17).visible(true);
+        userDTable.column('#uTable-contactState').visible(true);
     });
 
     $('#user-contactZipBtn').on('click', function () {
         $('#user-contactZipBtn').hide();
-        userDTable.column(18).visible(true);
+        userDTable.column('#uTable-contactZip').visible(true);
     });
 
     $('#user-contactPhoneBtn').on('click', function () {
         $('#user-contactPhoneBtn').hide();
-        userDTable.column(19).visible(true);
+        userDTable.column('#uTable-contactPhone').visible(true);
     });
 
     $('#user-contactPhone2Btn').on('click', function () {
         $('#user-contactPhone2Btn').hide();
-        userDTable.column(20).visible(true);
+        userDTable.column('#uTable-contactPhone2').visible(true);
     });
 
     $('#user-contactEmailBtn').on('click', function () {
         $('#user-contactEmailBtn').hide();
-        userDTable.column(21).visible(true);
+        userDTable.column('#uTable-contactEmail').visible(true);
     });
 
     $('#user-disabilityBtn').on('click', function () {
         $('#user-disabilityBtn').hide();
-        userDTable.column(22).visible(true);
+        userDTable.column('#uTable-disability').visible(true);
     });
 
     $('#user-otherDisabilityBtn').on('click', function () {
         $('#user-otherDisabilityBtn').hide();
-        userDTable.column(23).visible(true);
+        userDTable.column('#uTable-otherDisability').visible(true);
     });
 
     $('#user-howLearnBtn').on('click', function () {
         $('#user-howLearnBtn').hide();
-        userDTable.column(24).visible(true);
+        userDTable.column('#uTable-howLearn').visible(true);
     });
 
     $('#user-raceBtn').on('click', function () {
         $('#user-raceBtn').hide();
-        userDTable.column(25).visible(true);
+        userDTable.column('#uTable-race').visible(true);
     });
 
     $('#user-incomeBtn').on('click', function () {
         $('#user-incomeBtn').hide();
-        userDTable.column(26).visible(true);
+        userDTable.column('#uTable-income').visible(true);
     });
 
     $('#user-inHomeNumBtn').on('click', function () {
         $('#user-inHomeNumBtn').hide();
-        userDTable.column(27).visible(true);
+        userDTable.column('#uTable-inHomeNum').visible(true);
     });
 
     $('#user-dateRegisteredBtn').on('click', function () {
         $('#user-dateRegisteredBtn').hide();
-        userDTable.column(28).visible(true);
+        userDTable.column('#uTable-dateRegistered').visible(true);
     });
 
     $('#user-mailToBtn').on('click', function () {
         $('#user-mailToBtn').hide();
-        userDTable.column(29).visible(true);
+        userDTable.column('#uTable-mailTo').visible(true);
     });
 
     // ============== Organizations
     $('#org-organizationNameBtn').on('click', function () {
         $('#org-organizationNameBtn').hide();
-        organizationDTable.column(0).visible(true);
+        organizationDTable.column('#oTable-organizationName').visible(true);
     });
 
     $('#org-organizationTypeBtn').on('click', function () {
         $('#org-organizationTypeBtn').hide();
-        organizationDTable.column(1).visible(true);
+        organizationDTable.column('#oTable-organizationType').visible(true);
     });
 
     $('#org-firstNameBtn').on('click', function () {
         $('#org-firstNameBtn').hide();
-        organizationDTable.column(2).visible(true);
+        organizationDTable.column('#oTable-firstName').visible(true);
     });
 
     $('#org-lastNameBtn').on('click', function () {
         $('#org-lastNameBtn').hide();
-        organizationDTable.column(3).visible(true);
+        organizationDTable.column('#oTable-lastName').visible(true);
     });
 
     $('#org-positionTitleBtn').on('click', function () {
         $('#org-positionTitleBtn').hide();
-        organizationDTable.column(4).visible(true);
+        organizationDTable.column('#oTable-positionTitle').visible(true);
     });
 
     $('#org-streetBtn').on('click', function () {
         $('#org-streetBtn').hide();
-        organizationDTable.column(5).visible(true);
+        organizationDTable.column('#oTable-street').visible(true);
     });
 
     $('#org-streetLine2Btn').on('click', function () {
         $('#org-streetLine2Btn').hide();
-        organizationDTable.column(6).visible(true);
+        organizationDTable.column('#oTable-streetLine2').visible(true);
     });
 
     $('#org-cityBtn').on('click', function () {
         $('#org-cityBtn').hide();
-        organizationDTable.column(7).visible(true);
+        organizationDTable.column('#oTable-city').visible(true);
     });
 
     $('#org-stateBtn').on('click', function () {
         $('#org-stateBtn').hide();
-        organizationDTable.column(8).visible(true);
+        organizationDTable.column('#oTable-state').visible(true);
     });
 
     $('#org-zipBtn').on('click', function () {
         $('#org-zipBtn').hide();
-        organizationDTable.column(9).visible(true);
+        organizationDTable.column('#oTable-zip').visible(true);
     });
 
     $('#org-phoneBtn').on('click', function () {
         $('#org-phoneBtn').hide();
-        organizationDTable.column(10).visible(true);
+        organizationDTable.column('#oTable-phone').visible(true);
     });
 
     $('#org-phone2Btn').on('click', function () {
         $('#org-phone2Btn').hide();
-        organizationDTable.column(11).visible(true);
+        organizationDTable.column('#oTable-phone2').visible(true);
     });
 
     $('#org-emailBtn').on('click', function () {
         $('#org-emailBtn').hide();
-        organizationDTable.column(12).visible(true);
+        organizationDTable.column('#oTable-email').visible(true);
     });
 
     $('#org-numRadiosBtn').on('click', function () {
         $('#org-numRadiosBtn').hide();
-        organizationDTable.column(13).visible(true);
+        organizationDTable.column('#oTable-numRadios').visible(true);
     });
 
     $('#org-numLicensedBedsBtn').on('click', function () {
         $('#org-numLicensedBedsBtn').hide();
-        organizationDTable.column(14).visible(true);
+        organizationDTable.column('#oTable-numLicensedBeds').visible(true);
     });
 
     $('#org-numResidentialUnitsBtn').on('click', function () {
         $('#org-numResidentialUnitsBtn').hide();
-        organizationDTable.column(15).visible(true);
+        organizationDTable.column('#oTable-numResidentialUnits').visible(true);
     });
 
     $('#org-howLearnBtn').on('click', function () {
         $('#org-howLearnBtn').hide();
-        organizationDTable.column(16).visible(true);
+        organizationDTable.column('#oTable-howLearn').visible(true);
     });
 
     $('#org-statusBtn').on('click', function () {
         $('#org-statusBtn').hide();
-        organizationDTable.column(17).visible(true);
+        organizationDTable.column('#oTable-status').visible(true);
     });
 
     $('#org-mediumBtn').on('click', function () {
         $('#org-mediumBtn').hide();
-        organizationDTable.column(18).visible(true);
+        organizationDTable.column('#oTable-medium').visible(true);
     });
 
-    // =====================
+    // ===================== Radios
 
     $('#radio-controlNumBtn').on('click', function () {
         $('#radio-controlNumBtn').hide();
-        radioDTable.column(0).visible(true);
+        radioDTable.column('#rTable-controlNum').visible(true);
     });
 
     $('#radio-modelNumBtn').on('click', function () {
         $('#radio-modelNumBtn').hide();
-        radioDTable.column(1).visible(true);
+        radioDTable.column('#rTable-modelNum').visible(true);
     });
 
     $('#radio-manufacturerBtn').on('click', function () {
         $('#radio-manufacturerBtn').hide();
-        radioDTable.column(2).visible(true);
+        radioDTable.column('#rTable-manufacturer').visible(true);
     });
 
     $('#radio-dopBtn').on('click', function () {
         $('#radio-dopBtn').hide();
-        radioDTable.column(3).visible(true);
+        radioDTable.column('#rTable-dop').visible(true);
     });
 
     $('#radio-statusBtn').on('click', function () {
         $('#radio-statusBtn').hide();
-        radioDTable.column(4).visible(true);
+        radioDTable.column('#rTable-status').visible(true);
     });
 
     $('#radio-headphonesBtn').on('click', function () {
         $('#radio-headphonesBtn').hide();
-        radioDTable.column(5).visible(true);
+        radioDTable.column('#rTable-headphones').visible(true);
     });
 
     $('#radio-batteryBtn').on('click', function () {
         $('#radio-batteryBtn').hide();
-        radioDTable.column(6).visible(true);
+        radioDTable.column('#rTable-battery').visible(true);
     });
 
     $('#radio-waveBtn').on('click', function () {
         $('#radio-waveBtn').hide();
-        radioDTable.column(7).visible(true);
+        radioDTable.column('#rTable-wave').visible(true);
     });
 
     $('#radio-conditionBtn').on('click', function () {
         $('#radio-conditionBtn').hide();
-        radioDTable.column(8).visible(true);
+        radioDTable.column('#rTable-condition').visible(true);
     });
 
     $('#radio-notesBtn').on('click', function () {
         $('#radio-notesBtn').hide();
-        radioDTable.column(9).visible(true);
+        radioDTable.column('#rTable-notes').visible(true);
     });
-
-    $('#radio-Btn').on('click', function () {
-        $('#radio-Btn').hide();
-        radioDTable.column(10).visible(true);
-    });
-
 
 
 
@@ -1110,10 +1278,48 @@ $(document).ready(function () {
         val = val + "Btn";
         return val;
     }
+    
+    function replaceDismissId(id){
+        var val = id.split("-");
+        return val;
+    }
+    
+    $('.viewListener').click(function(){
+       var id = this.id;
+       populateIndividualDetails(id);
+       $('#user-details-tab').click();
+    });
+    
+    $('.viewOrg').click(function(){
+       var id = this.id;
+       populateOrganizationDetails(id);
+       $('#organization-details-tab').click();
+        //alert(id);
+    });
+    
+    $('.dismiss').click(function(){
+       var id = this.id;
+       var arr = replaceDismissId(id);
+       
+       var type = arr[0];   // either individual or organization
+       id = arr[1];
+        
+        if(type.toLowerCase().indexOf("user") >= 0){
+            populateIndividualDetails(id);
+        }
+        else{
+            populateOrganizationDetails(id);
+        }       
+        
+        $(this).parent().parent().parent().fadeOut("slow");
+       
+    });
 
     setUserDefaults();
     setOrganizationDefaults();
     setRadioDefaults();
+
+
 
 });
 
