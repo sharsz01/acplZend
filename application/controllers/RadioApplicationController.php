@@ -24,7 +24,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->lock();
 
                 // redirect to the confirmation page
-                return $this->_redirect('radio-application/confirm');
+                return $this->_redirect('radio-application/individualConfirm');
             } else {
                 
             }
@@ -46,7 +46,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->lock();
 
                 // redirect to the confirmation
-                return $this->_redirect('radio-application/confirm2');
+                return $this->_redirect('radio-application/organizationConfirm');
             } else {
                 
             }
