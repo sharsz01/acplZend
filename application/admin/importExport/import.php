@@ -249,6 +249,10 @@
 	
 	function convertDate($oldDate)
 	{
+		if ($oldDate == "-")
+		{
+			return $oldDate;
+		}
 		$pieces = explode("/", $oldDate);
 		$newDate = $pieces[2] . "-" . $pieces[0] . "-" . $pieces[1];
 		
