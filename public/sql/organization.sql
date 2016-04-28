@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `organization` (
   `organizationId` int(12) NOT NULL,
-  `dateRegistered` varchar(15) NOT NULL,
+  `dateRegistered` date NOT NULL,
   `ipRegistered` varchar(20) NOT NULL,
   `organizationName` varchar(30) NOT NULL,
   `organizationType` varchar(30) NOT NULL,
