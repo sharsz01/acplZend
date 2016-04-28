@@ -1,0 +1,96 @@
+body {
+    background-color: #fefefe;
+}
+
+#body {
+    margin: 1em;
+}
+
+#alertList {
+    height: 50em;
+    overflow: scroll;
+    border: 1px solid #bbb;
+    padding: 1em;
+    width: 100%;
+}
+
+#userList, #radioList, #organizationList {
+    height: 50em;
+    overflow: scroll;
+    border: 1px solid #ccc;
+    padding: 1em;
+    width: 100%;
+    float: left;
+}
+
+#userControls{
+    height: 50em;
+    padding: 1em;
+    width: 100%;
+    float: left;
+}
+
+#userControls{
+	height: 50em;
+	padding: 1em;
+	width: 100%;
+	float: left;
+}
+
+#usersTable, #radiosTable, #organizationsTable {
+    cursor: pointer;
+}
+
+#usersTable td, #radiosTable td, #organizationsTable td{
+    white-space: nowrap;
+}
+
+#tabRow button {
+    margin: 0.5em;
+}
+
+#saveBtn {
+    margin: 0.5em;
+}
+
+#cancelBtn {
+    margin: 0.5em;
+}
+
+#userRadios, #organizationRadios {
+    height: 10em;
+    overflow: scroll;
+    border: 1px solid #ccc;
+    padding: 1em;
+    width: 100%;
+}
+
+#radioCheckouts {
+    height: 30em;
+    overflow: scroll;
+    border: 1px solid #ccc;
+    padding: 1em;
+    width: 100%;
+}
+
+#user-check-out-form input, #organization-check-out-form input {
+    width: 150px;
+}
+
+#user-check-out-form input, #organization-check-out-form input {
+	width: 150px;
+}
+
+.hidden {
+    display: hidden;
+}
+
+.handle{
+    padding: 10px;
+    //background-color: gray;
+}
+
+.user-close, .org-close, .radio-close{
+    float: left;
+    padding-right: 15px;
+}
