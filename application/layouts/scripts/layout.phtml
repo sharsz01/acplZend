@@ -7,14 +7,14 @@
             <!-- css files -->
             <?php $this->headLink()->appendStylesheet($this->baseUrl('/css/bootstrap-3.3.5.min.css')) ?>
             <?php $this->headLink()->appendStylesheet($this->baseUrl('/css/site.css')) ?>
-            <?php $this->headLink()->appendStylesheet($this->baseUrl('/css/dateselector.css')) ?>
+            <?php //$this->headLink()->appendStylesheet($this->baseUrl('/css/dateselector.css')) ?>
             <?php echo $this->headLink()->appendStylesheet($this->baseUrl('/css/styles.css')) ?>
             <?php //echo $this->headLink()->appendStylesheet($this->baseUrl('/css/admin.css')) ?>
 
             <!-- javascript files -->
-            <?php $this->headScript()->prependFile($this->baseUrl('/js/jquery.dateselector.min.js')) ?>
-            <?php $this->headScript()->prependFile($this->baseUrl('/js/moment.min.js')) ?>
-            <?php $this->headScript()->prependFile($this->baseUrl('/js/dist/jquery.date-dropdowns.js')) ?>
+            <?php //$this->headScript()->prependFile($this->baseUrl('/js/jquery.dateselector.min.js')) ?>
+            <?php //$this->headScript()->prependFile($this->baseUrl('/js/moment.min.js')) ?>
+            <?php //$this->headScript()->prependFile($this->baseUrl('/js/dist/jquery.date-dropdowns.js')) ?>
             <?php $this->headScript()->prependFile($this->baseUrl('/js/mask/jquery.maskedinput.min.js')) ?>
             <?php $this->headScript()->prependFile($this->baseUrl('/js/mask/jquery.inputmask.bundle.min.js')) ?>
 
@@ -50,13 +50,15 @@
                     </li>
                     -->
 
+                    <!-- Delete this to remove admin link from homepage
                     <li role="presentation">
-                        <a href="<?php
+                        <a href="<?php /*
                         echo $this->url(
                                 array('controller' => 'Login', 'action' => 'login'), 'default', true)
-                        ?>">Admin</a>
+                        */?>">Admin</a>
                     </li>
-
+                    -->
+                    
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Radio Applications<span class="caret"></span>
