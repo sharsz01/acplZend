@@ -16,34 +16,13 @@ if (!isset($_SESSION['userid'])) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>User Section</title>
     </head>
-
     <body>
-
         <p> 
-            Hi 
             <?php
-            if (isset($_SESSION['userid'])) {
-                echo $_SESSION['user'];
-            }
-
-            //header("location:databaseView.php");
-            //header("location:../admin.php");
-
             header("location:../admin/admin.php");
             //echo $this->url(array('controller' => 'Admin', 'action' => 'admin'), 'default', true)
             ?>
 
-            <br /><br />
-            <button id="redirect">View Database</button>
-
         </p>
-
-        <script>
-            var btn = document.getElementById('redirect');
-            btn.addEventListener('click', function () {
-                document.location.href = "databaseView.php";
-            });
-        </script>
-
     </body>
 </html>
