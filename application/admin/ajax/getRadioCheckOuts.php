@@ -5,19 +5,21 @@ require('config/dbConnect.php');
 $return = array();
 
 $SQL = "SELECT userId, userType, DATE_FORMAT(dateOut,'%m/%d/%Y') AS 'dateOut', DATE_FORMAT(dateIn,'%m/%d/%Y') AS 'dateIn' "
-			."FROM check_out WHERE radioId = '".$_REQUEST['radioId']."';";
+			."FROM check_out WHERE radioId = '".$_REQUEST['radioId']."' ORDER BY dateOut DESC;";
 
 $resultList = mysqli_query($db, $SQL);
 
+$return['html'] = '';
+
 if(mysqli_num_rows($resultList) == 0) {
-	$return['html'] = '<tr><td>No radios checked out</td></tr>';
+	$return['html'] .= '<tr><td>No radios checked out</td></tr>';
 	$return['success'] = true;
 	exit(json_encode($return));
 }
 
 while($row = mysqli_fetch_assoc($resultList)) {
 	
-	$html = '<tr class="checkOutRow" data-id="'.$row['userId'].'" data-type="'.$row['userType'].'">';
+	$return['html'] .= '<tr class="checkOutRow" data-id="'.$row['userId'].'" data-type="'.$row['userType'].'">';
 	
 	if($row['userType'] == 'ind') {
 		
@@ -26,7 +28,7 @@ while($row = mysqli_fetch_assoc($resultList)) {
 		
 		$result = mysqli_query($db, $SQL);
 		$name = mysqli_fetch_assoc($result);
-		$html .= '<td>'.$name['userName'].'</td>';
+		$return['html'] .= '<td>'.$name['userName'].'</td>';
 		
 	} else if ($row['userType'] == 'org') {
 		
@@ -35,7 +37,7 @@ while($row = mysqli_fetch_assoc($resultList)) {
 		
 		$result = mysqli_query($db, $SQL);
 		$name = mysqli_fetch_assoc($result);
-		$html .= '<td>'.$name['organizationName'].'</td>';
+		$return['html'] .= '<td>'.$name['organizationName'].'</td>';
 		
 	} else {
 		$return['success'] = false;
@@ -43,18 +45,17 @@ while($row = mysqli_fetch_assoc($resultList)) {
 		exit(json_encode($return));
 	}
 	
-	$html .= '<td>'.$row['dateOut'].'</td>';
+	$return['html'] .= '<td>'.$row['dateOut'].'</td>';
 	
 	if($row['dateIn'] == '00/00/0000')
-		$html .= '<td>Checked Out</td>';
+		$return['html'] .= '<td>Checked Out</td>';
 	else
-		$html .= '<td>'.$row['dateIn'].'</td>';
+		$return['html'] .= '<td>'.$row['dateIn'].'</td>';
 	
-	$html .= '</tr>';
+	$return['html'] .= '</tr>';
 
 }
 
-$return['html'] = $html;
 $return['success'] = true;
 
 echo json_encode($return);
