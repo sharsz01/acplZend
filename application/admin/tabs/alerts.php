@@ -41,8 +41,8 @@ function buildUserAlert($userId, $fname, $lname, $date) {
     echo('<div class="panel panel-primary"><div class="panel-heading">Unread alert - Individual Application</div><div class="row">');
 
     echo('<div class="col-sm-10"><div class="panel-body">' . $msg . '</div></div>');
-    echo('<div class="col-sm-2"><button id="' . $userId . '" type="button" class="viewListener btn btn-primary" style="margin: 10px;">View Details</button></div>');
-    echo('<div class="pull-right col-sm-2"><button id="dismissUser-' . $userId . '" type="button" class="dismiss btn btn-warning" style="margin: 10px;">Dismiss</button></div>');
+    echo('<div class="col-sm-2"><button id="' . $userId . '" type="button" class="pull-right viewListener btn btn-primary" style="margin: 10px;">View Details</button></div>');
+    echo('<div class="pull-right col-sm-2"><button id="dismissUser-' . $userId . '" type="button" class="pull-right dismiss btn btn-warning" style="margin: 10px;">Dismiss</button></div>');
 
     echo('</div></div>');
 }
@@ -53,8 +53,8 @@ function buildOrganizationAlert($orgId, $orgName, $date) {
     echo('<div class="panel panel-primary"><div class="panel-heading">Unread alert - Organization Application</div><div class="row">');
 
     echo('<div class="col-sm-10"><div class="panel-body">' . $msg . '</div></div>');
-    echo('<div class="col-sm-2"><button id="' . $orgId . '" type="button" class="viewOrg btn btn-primary" style="margin: 10px;">View Details</button></div>');
-    echo('<div class="pull-right col-sm-2"><button id="dismissOrg-' . $orgId . '" type="button" class="dismiss btn btn-warning" style="margin: 10px;">Dismiss</button></div>');
+    echo('<div class="col-sm-2"><button id="' . $orgId . '" type="button" class="pull-right viewOrg btn btn-primary" style="margin: 10px;">View Details</button></div>');
+    echo('<div class="pull-right col-sm-2"><button id="dismissOrg-' . $orgId . '" type="button" class="pull-right dismiss btn btn-warning" style="margin: 10px;">Dismiss</button></div>');
 
     echo('</div></div>');
 }
