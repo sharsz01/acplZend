@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `userId` int(12) NOT NULL,
-  `dateRegistered` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `dateRegistered` date COLLATE latin1_general_ci NOT NULL,
   `ipRegistered` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `firstName` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `lastName` varchar(42) COLLATE latin1_general_ci NOT NULL,
-  `birthday` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `birthday` date COLLATE latin1_general_ci NOT NULL,
   `street` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `streetLine2` varchar(42) COLLATE latin1_general_ci NOT NULL,
   `city` varchar(30) COLLATE latin1_general_ci NOT NULL,

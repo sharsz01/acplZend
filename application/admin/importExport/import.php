@@ -65,7 +65,9 @@
 				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					mysql_query("REPLACE INTO user VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."','".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."','".$data[32]."','".$data[33]."','".$data[34]."','".$data[35]."','".$data[36]."')");
+					$dateRegistered_CorrectFormat = convertDate($data[1]);
+					$birthday_CorrectFormat = convertDate($data[5]);
+					mysql_query("REPLACE INTO user VALUES('".$data[0]."','".$dateRegistered_CorrectFormat."','".$data[2]."','".$data[3]."','".$data[4]."','".$birthday_CorrectFormat."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."','".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."','".$data[32]."','".$data[33]."','".$data[34]."','".$data[35]."','".$data[36]."')");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -144,7 +146,8 @@
 				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					mysql_query("REPLACE INTO radio VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."')");
+					$dateOfPurchase_CorrectFormat = convertDate($data[4]);
+					mysql_query("REPLACE INTO radio VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$dateOfPurchase_CorrectFormat."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."')");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -223,7 +226,8 @@
 				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					mysql_query("REPLACE INTO organization VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24].")");
+					$orgDateReg_CorrectFormat = convertData($data[1]);
+					mysql_query("REPLACE INTO organization VALUES('".$data[0]."','".$orgDateReg_CorrectFormat."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24].")");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -242,4 +246,17 @@
 			header('Location: ' . $_SERVER['HTTP_REFERER']);
 		}
 	}
+	
+	function convertDate($oldDate)
+	{
+		if ($oldDate == "-")
+		{
+			return $oldDate;
+		}
+		$pieces = explode("/", $oldDate);
+		$newDate = $pieces[2] . "-" . $pieces[0] . "-" . $pieces[1];
+		
+		return $newDate;
+	}
 ?>
+
