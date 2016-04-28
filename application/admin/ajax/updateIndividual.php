@@ -5,7 +5,7 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered'] . "', ipRegistered='" . $_REQUEST['ind-ipRegistered']
+$SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered']// . "', ipRegistered='" . $_REQUEST['ind-ipRegistered']
         . "', firstName='" . $_REQUEST['ind-firstName'] . "', lastName='" . $_REQUEST['ind-lastName']
         . "', birthday='" . $_REQUEST['ind-birthday'] . "', street='" . $_REQUEST['ind-street']
         . "', streetLine2='" . $_REQUEST['ind-streetLine2'] . "', city='" . $_REQUEST['ind-city']

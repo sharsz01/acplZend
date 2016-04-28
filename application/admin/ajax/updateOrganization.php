@@ -5,7 +5,7 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistered'] . "', ipRegistered='" . $_REQUEST['org-ipRegistered']
+$SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistered']//. "', ipRegistered='" . $_REQUEST['org-ipRegistered']
         . "', organizationName='" . $_REQUEST['org-organizationName'] . "', organizationType='" . $_REQUEST['org-organizationType']
         . "', firstName='" . $_REQUEST['org-firstName'] . "', lastName='" . $_REQUEST['org-lastName']
         . "', positionTitle='" . $_REQUEST['org-positionTitle'] . "', street='" . $_REQUEST['org-street']
@@ -13,15 +13,17 @@ $SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistere
         . "', state='" . $_REQUEST['org-state'] . "', zip='" . $_REQUEST['org-zip']
         . "', phone='" . $_REQUEST['org-phone'] . "', phone2='" . $_REQUEST['org-phone2']
         . "', email='" . $_REQUEST['org-email'] . "', numRadios='" . $_REQUEST['org-numRadios']
-	. "', numLicensedBeds='" . $_REQUEST['org-numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['org-numResidentialUnits']
-        . "', howLearn='" . $_REQUEST['org-howLearn'] . "', signature='" . $_REQUEST['org-signature']
-        . "', notes='" . $_REQUEST['org-notes'] . "', alert_status'" . $_REQUEST['org-alertStatus']
+        . "', numLicensedBeds='" . $_REQUEST['org-numLicensedBeds'] . "', numResidentialUnits='" . $_REQUEST['org-numResidentialUnits']
+        . "', howLearn='" . $_REQUEST['org-howLearn']
+        . "', status='" . $_REQUEST['org-status'] . "', medium='" . $_REQUEST['org-medium']
+        . "', signature='" . $_REQUEST['org-signature']
+        . "', notes='" . $_REQUEST['org-notes'] . "', alert_status='" . $_REQUEST['org-alertStatus']
         . "' WHERE organizationId='" . $_REQUEST['org-organizationId'] . "';";
 
 $result = mysqli_query($db, $SQL);
 
 $return['success'] = $result;
+//$return['theid'] = $_REQUEST['org-organizationId'];
 
 echo json_encode($return);
-
 ?>

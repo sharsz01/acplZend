@@ -4,8 +4,8 @@ require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "INSERT INTO user (dateRegistered, ipRegistered, firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, phone2, email, contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, status, medium, signature, mailTo, notes, alert_status)" .
-        "VALUES ('" . $_REQUEST['ind-dateRegistered'] . "', '" . $_REQUEST['ind-ipRegistered']
+$SQL = "INSERT INTO user (dateRegistered, firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, phone2, email, contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, status, medium, signature, mailTo, notes, alert_status)" .
+        "VALUES ('" . $_REQUEST['ind-dateRegistered']// . "', '" . $_REQUEST['ind-ipRegistered']
         . "', '" . $_REQUEST['ind-firstName'] . "', '" . $_REQUEST['ind-lastName']
         . "', '" . $_REQUEST['ind-birthday'] . "', '" . $_REQUEST['ind-street']
         . "', '" . $_REQUEST['ind-streetLine2'] . "', '" . $_REQUEST['ind-city']

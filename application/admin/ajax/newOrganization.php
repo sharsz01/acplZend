@@ -4,11 +4,11 @@ require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "INSERT INTO organization (dateRegistered, ipRegistered, organizationName,"
+$SQL = "INSERT INTO organization (dateRegistered, organizationName,"
         . "organizationType, firstName, lastName, positionTitle, street, streetLine2,"
         . "city, state, zip, phone, phone2, email, numRadios, numLicensedBeds,"
         . "numResidentialUnits, howLearn, signature, notes)" .
-        "VALUES ('" . $_REQUEST['org-dateRegistered'] . "', '" . $_REQUEST['org-ipRegistered']
+        "VALUES ('" . $_REQUEST['org-dateRegistered']// . "', '" . $_REQUEST['org-ipRegistered']
         . "', '" . $_REQUEST['org-organizationName'] . "', '" . $_REQUEST['org-organizationType']
         . "', '" . $_REQUEST['org-firstName'] . "', '" . $_REQUEST['org-lastName']
         . "', '" . $_REQUEST['org-positionTitle'] . "', '" . $_REQUEST['org-street']
