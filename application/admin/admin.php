@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
-	session_start();
+session_start();
+
+// Ensure user is authenticated to access admin interface
+if (!($_SESSION["authenticated"])) { 
+    header("location:../login/loginForm.php");
+} else {
+    // user is authenticated - show admin interface
+}
 ?>
 <html>
     <head>
@@ -8,8 +15,7 @@
         <meta content="width=device-width" name="viewport">
         <title>ARS Admin</title>
 
-        <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-
+        <script type="text/javascript" src="../../public/js/jquery-1.11.3.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
@@ -29,8 +35,13 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.3.1/css/colReorder.dataTables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/colreorder/1.3.1/js/dataTables.colReorder.min.js"></script>
 
-        <link href='admin.css' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="admin.js"></script>
+        <!-- for input masks -->
+        <script type="text/javascript" src="../../public/js/mask/jquery.inputmask.bundle.min.js"></script>
+        <script type="text/javascript" src="../../public/js/mask/jquery.maskedinput.min.js"></script>
+        
+        
+        <link href='../../public/css/admin.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="../../public/js/admin.js"></script>
     </head>
 
     <body>
@@ -48,7 +59,7 @@
 
                 <li><a id="radios-tab" data-toggle="tab" href="#radios">Radios</a></li>
                 <li><a id="radio-details-tab" data-toggle="tab" href="#radio-details">Radio Details</a></li>
-                
+
                 <li><a id="userManagment-tab" data-toggle="tab" href="#userManagement">User Management</a></li>
             </ul>
 
