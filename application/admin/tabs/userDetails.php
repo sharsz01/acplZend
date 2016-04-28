@@ -1,30 +1,30 @@
 <div id="user-details" class="tab-pane fade">
-	
-	<!-- Modal -->
-	<div id="user-check-out-modal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Enter Radios to Check Out</h4>
-				</div>
-				<div class="modal-body">
-					<form id="user-check-out-form">
-						
-					</form>
-					<button type="button" class="btn btn-primary btn-sm" id="user-add-radio-btn">Add Radio</button>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="user-check-out-btn">Check Out</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				</div>
-			</div>
+    <!-- Modal -->
+    <div id="user-check-out-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-		</div>
-	</div>
-	
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Radios to Check Out</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="user-check-out-form">
+
+                    </form>
+                    <button type="button" class="btn btn-primary btn-sm" id="user-add-radio-btn">Add Radio</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="user-check-out-btn">Check Out</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <h3>Listener Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
 
     <form id="user-details-form">
@@ -51,7 +51,7 @@
                 <!-- Double check - dobFrom is not name from database - -->
                 <div class="form-group">
                     <label for="ind-birthday">Date of Birth (mm/dd/yyyy):</label>
-                    <input type="text" class="form-control" name="ind-birthday" id="ind-birthday">
+                    <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" name="ind-birthday" id="ind-birthday">
                 </div>
                 <div class="form-group">
                     <label for="ind-street">Address:</label>
@@ -89,13 +89,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="ind-phone">Phone:</label>
-                            <input type="tel" class="form-control" name="ind-phone" id="ind-phone">
+                            <input type="tel" class="phone form-control" name="ind-phone" id="ind-phone">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="ind-phone2">Alternate Phone:</label>
-                            <input type="tel" class="form-control" name="ind-phone2" id="ind-phone2">
+                            <input type="tel" class="phone form-control" name="ind-phone2" id="ind-phone2">
                         </div>
                     </div>
                 </div>
@@ -194,13 +194,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="ind-contactPhone">Contact Phone:</label>
-                            <input type="tel" class="form-control" name="ind-contactPhone" id="ind-contactPhone">
+                            <input type="tel" class="phone form-control" name="ind-contactPhone" id="ind-contactPhone">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="ind-contactPhone2">Contact Alternate Phone:</label>
-                            <input type="tel" class="form-control" name="ind-contactPhone2" id="ind-contactPhone2">
+                            <input type="tel" class="phone form-control" name="ind-contactPhone2" id="ind-contactPhone2">
                         </div>
                     </div>
                 </div>
@@ -250,6 +250,11 @@
                     <input type="text" class="form-control" name="ind-signature" id="ind-signature">
                 </div>
 
+                <div class="form-group">
+                    <label for="ind-dateRegistered">Date Registered:</label>
+                    <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" name="ind-dateRegistered" id="ind-dateRegistered">
+                </div>
+                <!--
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
@@ -257,6 +262,7 @@
                             <input type="text" class="form-control" name="ind-dateRegistered" id="ind-dateRegistered">
                         </div>
                     </div>
+                    
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="ind-ipRegistered">IP Registered:</label>
@@ -269,8 +275,9 @@
                             <input type="text" class="form-control" name="ind-dateSigned" id="ind-dateSigned">
                         </div>
                     </div>
+                    
                 </div>
-
+                -->
                 <label for="userRadios">Radios:</label>
                 <div id="userRadios">
                     <div class="table-responsive">
@@ -283,17 +290,55 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <!-- Trigger the modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-check-out-modal" id="user-check-out-modal-btn">Check Out Radio</button>
-				
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-check-out-modal" id="user-check-out-modal-btn">Check Out Radio</button>
+
             </div>
         </div>
     </form>
+    
+    <!-- Modal for creating new Individual listener records -->
+    <div class="modal fade" id="newListenerModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Listener</h4>
+                </div>
+                <div class="modal-body">
+                    <p>New Listener Saved.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <!-- Modal for saving changes for current Listeners -->
+    <div class="modal fade" id="listenerSaveModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Changes to Listener</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Listener Saved.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <button id="newUserSaveBtn" type="button" class="btn btn-primary hidden">Save New User</button>
     <button id="newUserCancelBtn" type="button" class="btn btn-default hidden">Cancel New User</button>

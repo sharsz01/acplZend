@@ -1,29 +1,29 @@
 <div id="organization-details" class="tab-pane fade">
 
-	<!-- Modal -->
-	<div id="organization-check-out-modal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
+    <!-- Modal -->
+    <div id="organization-check-out-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Enter Radios to Check Out</h4>
-				</div>
-				<div class="modal-body">
-					<form id="organization-check-out-form">
-						
-					</form>
-					<button type="button" class="btn btn-primary btn-sm" id="organization-add-radio-btn">Add Radio</button>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="organization-check-out-btn">Check Out</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				</div>
-			</div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Radios to Check Out</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="organization-check-out-form">
 
-		</div>
-	</div>
+                    </form>
+                    <button type="button" class="btn btn-primary btn-sm" id="organization-add-radio-btn">Add Radio</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="organization-check-out-btn">Check Out</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <h3>Organization Details <button id="newOrganization" type="button" class="btn btn-primary btn-sm">New Organization</button></h3>
 
@@ -104,13 +104,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="org-phone">Phone:</label>
-                            <input type="tel" class="form-control" name="org-phone" id="org-phone">
+                            <input type="tel" class="phone form-control" name="org-phone" id="org-phone">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="org-phone2">Alternate Phone:</label>
-                            <input type="tel" class="form-control" name="org-phone2" id="org-phone2">
+                            <input type="tel" class="phone form-control" name="org-phone2" id="org-phone2">
                         </div>
                     </div>
                 </div>
@@ -195,6 +195,12 @@
                     <input type="text" class="form-control" name="org-signature" id="org-signature">
                 </div>
 
+                <div class="form-group">
+                    <label for="org-dateRegistered">Date Registered:</label>
+                    <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" name="org-dateRegistered" id="org-dateRegistered">
+                </div>
+
+                <!--
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -209,6 +215,7 @@
                         </div>
                     </div>
                 </div>
+                -->
 
                 <label for="organizationRadios">Radios:</label>
                 <div id="organizationRadios">
@@ -222,17 +229,55 @@
                                 </tr>
                             </thead>
                             <tbody>
-								
+
                             </tbody>
                         </table>
                     </div>
                 </div>
-                 <!-- Trigger the modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#organization-check-out-modal" id="organization-check-out-modal-btn">Check Out Radio</button>
+                <!-- Trigger the modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#organization-check-out-modal" id="organization-check-out-modal-btn">Check Out Radio</button>
 
             </div>
         </div>
     </form>
+
+    <!-- Modal for saving changes for current Organizations -->
+    <div class="modal fade" id="orgSaveModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Changes to Organization</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Organization Saved.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for creating new Organization records -->
+    <div class="modal fade" id="newOrgModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Organization</h4>
+                </div>
+                <div class="modal-body">
+                    <p>New Organization Saved.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <button id="newOrganizationSaveBtn" type="button" class="btn btn-primary hidden">Save New Organization</button>
     <button id="newOrganizationCancelBtn" type="button" class="btn btn-default hidden">Cancel New Organization</button>
