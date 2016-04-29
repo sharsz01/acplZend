@@ -183,12 +183,12 @@
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Manufacturer
 						</th>
-						<th id="rTable-dop" name="rTable-dop">
+						<th id="rTable-dateOfPurchase" name="rTable-dateOfPurchase">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							DOP
 						</th>
-						<th id="rTable-status" name="rTable-status">
+						<th id="rTable-radioStatus" name="rTable-radioStatus">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Status
@@ -208,7 +208,7 @@
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Wave
 						</th>
-						<th id="rTable-condition" name="rTable-condition">
+						<th id="rTable-radioCondition" name="rTable-radioCondition">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Condition

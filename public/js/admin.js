@@ -866,7 +866,7 @@ $(document).ready(function () {
         // Default fields displayed for listeners
         userDTable.column('#uTable-firstName').visible(true);
         userDTable.column('#uTable-lastName').visible(true);
-        userDTable.column('#uTable-dob').visible(true);
+        userDTable.column('#uTable-birthday').visible(true);
         userDTable.column('#uTable-street').visible(true);
         userDTable.column('#uTable-phone').visible(true);
         userDTable.column('#uTable-email').visible(true);
@@ -881,7 +881,7 @@ $(document).ready(function () {
         $('#user-streetBtn').hide();
         $('#user-phoneBtn').hide();
         $('#user-emailBtn').hide();
-        $('#user-status').hide();
+        $('#user-statusBtn').hide();
     }
 
     // Shows default column list for organizations with radios
@@ -949,7 +949,7 @@ $(document).ready(function () {
 
     $('#user-dobBtn').on('click', function () {
         $('#user-dobBtn').hide();
-        userDTable.column('#uTable-dob').visible(true);
+        userDTable.column('#uTable-birthday').visible(true);
     });
 
     $('#user-streetBtn').on('click', function () {
@@ -1077,6 +1077,11 @@ $(document).ready(function () {
         userDTable.column('#uTable-inHomeNum').visible(true);
     });
 
+	$('#user-statusBtn').on('click', function () {
+        $('#user-statusBtn').hide();
+        userDTable.column('#uTable-status').visible(true);
+    });
+	
     $('#user-dateRegisteredBtn').on('click', function () {
         $('#user-dateRegisteredBtn').hide();
         userDTable.column('#uTable-dateRegistered').visible(true);
@@ -1202,12 +1207,12 @@ $(document).ready(function () {
 
     $('#radio-dopBtn').on('click', function () {
         $('#radio-dopBtn').hide();
-        radioDTable.column('#rTable-dop').visible(true);
+        radioDTable.column('#rTable-dateOfPurchase').visible(true);
     });
 
     $('#radio-statusBtn').on('click', function () {
         $('#radio-statusBtn').hide();
-        radioDTable.column('#rTable-status').visible(true);
+        radioDTable.column('#rTable-radioStatus').visible(true);
     });
 
     $('#radio-headphonesBtn').on('click', function () {
@@ -1227,7 +1232,7 @@ $(document).ready(function () {
 
     $('#radio-conditionBtn').on('click', function () {
         $('#radio-conditionBtn').hide();
-        radioDTable.column('#rTable-condition').visible(true);
+        radioDTable.column('#rTable-radioCondition').visible(true);
     });
 
     $('#radio-notesBtn').on('click', function () {

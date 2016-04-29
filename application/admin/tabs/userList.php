@@ -334,7 +334,7 @@
                 <div class="close user-close glyphicon glyphicon-remove-circle"></div>
                 Last
                 </th>
-                <th id="uTable-dob" name="uTable-dob">
+                <th id="uTable-birthday" name="uTable-birthday">
                 <div class="handle"></div>
                 <div class="close user-close glyphicon glyphicon-remove-circle"></div>
                 DOB
