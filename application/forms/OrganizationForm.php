@@ -91,9 +91,7 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', array('Label', array('class' => 'align')), 'Errors'),
-            'validators' => array(
-                "Alpha",
-            ),
+            
         ));
 
         $organization->addElement('text', 'Address', array(
