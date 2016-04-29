@@ -43,12 +43,28 @@ $(document).ready(function () {
             }
         });
     }
+	
+	function getRadioCheckOuts(radioId) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'ajax/getRadioCheckOuts.php',
+            data: {radioId: radioId},
+            success: function (ajaxvalues) {
+                $('#radioCheckouts tbody').empty();
+                $('#radioCheckouts tbody').append(ajaxvalues.html);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+	}
 
     function populateRadioDetails(id) {
         var radioId = {type: 'binary', value: id};
         if (!$('#newRadioCancelBtn').hasClass('hidden'))
             $('#newRadioCancelBtn').click();
-
+		getRadioCheckOuts(id);
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -264,6 +280,18 @@ $(document).ready(function () {
         var id = $(this).attr('data-id');
         $('#radio-details-tab').click();
         populateRadioDetails(id);
+    });
+	
+	$('#radioCheckouts').on('click', '.checkOutRow', function () {
+        var id = $(this).attr('data-id');
+		var type = $(this).attr('data-type');
+		if(type == 'ind') {
+			$('#user-details-tab').click();
+			populateIndividualDetails(id);
+		} else if (type == 'org') {
+			$('#organization-details-tab').click();
+			populateOrganizationDetails(id);
+		}
     });
 
     // =============================================
