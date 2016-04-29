@@ -24,7 +24,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->lock();
 
                 // redirect to the confirmation page
-                return $this->_redirect('radio-application/individualConfirm');
+                return $this->_redirect('radio-application/individual-confirm');
             } else {
                 
             }
@@ -46,7 +46,7 @@ class RadioApplicationController extends Zend_Controller_Action {
                 $addRadioFormNamespace->lock();
 
                 // redirect to the confirmation
-                return $this->_redirect('radio-application/organizationConfirm');
+                return $this->_redirect('radio-application/organization-confirm');
             } else {
                 
             }
@@ -56,7 +56,7 @@ class RadioApplicationController extends Zend_Controller_Action {
 
     // ========================================================== confirmation actions
     // Confirmation for individual form
-    public function confirmAction() {
+    public function individualConfirmAction() {
         // retrieve data saved in the first stage
         $sessionData = new Zend_Session_Namespace('data');
 
@@ -89,7 +89,7 @@ class RadioApplicationController extends Zend_Controller_Action {
     }
 
     // Confirmation for organizational form
-    public function confirm2Action() {
+    public function organizationConfirmAction() {
         // retrieve data saved in the first stage
         $sessionData = new Zend_Session_Namespace('data');
 
@@ -172,8 +172,8 @@ class RadioApplicationController extends Zend_Controller_Action {
             'ipRegistered' => '', // Default
             'firstName' => $listenerVals['FirstName'],
             'lastName' => $listenerVals['LastName'],
-            'birthday' => $listenerVals['Birthdate'],
-            //'birthday' => $bdayFormat,
+            //'birthday' => $listenerVals['Birthdate'],
+            'birthday' => $bdayFormat,
             'street' => $listenerVals['Address'],
             'streetLine2' => $listenerVals['AlternativeAddress'],
             'phone' => $listenerVals['HomePhone'],
