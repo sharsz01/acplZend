@@ -1,5 +1,10 @@
 $(document).ready(function () {
+    
+    // Force browser to reload to top of page
+    $('html').animate({scrollTop:0}, 1);
+    $('body').animate({scrollTop:0}, 1);
 
+    // Add input masks for phone and date
     $(":input").inputmask();
     $(".phone").mask("(999) 999-9999");
 
