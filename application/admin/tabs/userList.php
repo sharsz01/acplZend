@@ -490,7 +490,11 @@
                         "contactPhone2", "contactEmail", "disability", "otherDisability", "howLearn", "race", "income",
                         "inHomeNum", "status", "dateRegistered", "mailTo");
 
-                    $SQL = "SELECT * FROM user;";
+                    $SQL = "SELECT userId, DATE_FORMAT(dateRegistered,'%m/%d/%Y') AS 'dateRegistered', ipRegistered, firstName, lastName, "
+								."DATE_FORMAT(birthday,'%m/%d/%Y') AS 'birthday', street, streetLine2, city, state, zip, phone, phone2, email, "
+								."contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, "
+								."contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, "
+								."status, medium, signature, mailTo, notes, alert_status FROM user;";
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {

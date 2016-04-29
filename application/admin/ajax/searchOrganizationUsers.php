@@ -4,7 +4,9 @@ require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "SELECT * FROM organization ";
+$SQL = "SELECT organizationId, DATE_FORMAT(dateRegistered,'%m/%d/%Y') AS 'dateRegistered', ipRegistered, organizationName, "
+			."organizationType, firstName, lastName, positionTitle, street, streetLine2, city, state, zip, phone, phone2, email, numRadios, "
+			."numLicensedBeds, numResidentialUnits, howLearn, status, medium, signature, notes, alert_status FROM organization ";
 $count = 1;
 
 if (array_key_exists('search', $_REQUEST)) {

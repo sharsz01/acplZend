@@ -223,7 +223,8 @@
                 <tbody>
                     <?php
                     $fields = array("controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition", "notes");
-                    $SQL = "SELECT * FROM radio;";
+                    $SQL = "SELECT radioId, controlNum, modelNum, manufacturer, DATE_FORMAT(dateOfpurchase,'%m/%d/%Y') AS 'dateOfPurchase', "
+								."radioStatus, headphones, battery, wave, radioCondition, notes FROM radio;";
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {
