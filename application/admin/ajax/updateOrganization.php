@@ -5,8 +5,8 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE organization SET dateRegistered='" . $_REQUEST['org-dateRegistered']//. "', ipRegistered='" . $_REQUEST['org-ipRegistered']
-        . "', organizationName='" . $_REQUEST['org-organizationName'] . "', organizationType='" . $_REQUEST['org-organizationType']
+$SQL = "UPDATE organization SET dateRegistered=STR_TO_DATE('" . $_REQUEST['org-dateRegistered'] ."', '%m/%d/%Y')"//. "', ipRegistered='" . $_REQUEST['org-ipRegistered']
+        . ", organizationName='" . $_REQUEST['org-organizationName'] . "', organizationType='" . $_REQUEST['org-organizationType']
         . "', firstName='" . $_REQUEST['org-firstName'] . "', lastName='" . $_REQUEST['org-lastName']
         . "', positionTitle='" . $_REQUEST['org-positionTitle'] . "', street='" . $_REQUEST['org-street']
         . "', streetLine2='" . $_REQUEST['org-streetLine2'] . "', city='" . $_REQUEST['org-city']

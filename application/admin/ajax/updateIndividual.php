@@ -5,9 +5,9 @@ require('config/dbConnect.php');
 $return = array();
 
 
-$SQL = "UPDATE user SET dateRegistered='" . $_REQUEST['ind-dateRegistered']// . "', ipRegistered='" . $_REQUEST['ind-ipRegistered']
-        . "', firstName='" . $_REQUEST['ind-firstName'] . "', lastName='" . $_REQUEST['ind-lastName']
-        . "', birthday='" . $_REQUEST['ind-birthday'] . "', street='" . $_REQUEST['ind-street']
+$SQL = "UPDATE user SET dateRegistered=STR_TO_DATE('" . $_REQUEST['ind-dateRegistered'] ."', '%m/%d/%Y')"//. "', ipRegistered='" . $_REQUEST['ind-ipRegistered']
+        . ", firstName='" . $_REQUEST['ind-firstName'] . "', lastName='" . $_REQUEST['ind-lastName']
+        . "', birthday=STR_TO_DATE('" . $_REQUEST['ind-birthday'] . "', '%m/%d/%Y'), street='" . $_REQUEST['ind-street']
         . "', streetLine2='" . $_REQUEST['ind-streetLine2'] . "', city='" . $_REQUEST['ind-city']
         . "', state='" . $_REQUEST['ind-state'] . "', zip='" . $_REQUEST['ind-zip']
         . "', phone='" . $_REQUEST['ind-phone'] . "', phone='" . $_REQUEST['ind-phone2']
