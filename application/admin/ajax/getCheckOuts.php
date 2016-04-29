@@ -9,7 +9,7 @@ $SQL = "SELECT c.checkOutId, r.controlNum, DATE_FORMAT(c.dateOut,'%m/%d/%Y') AS 
 			."LEFT JOIN radio r "
 			."ON (c.radioId = r.radioId) "
 			."WHERE c.userType = '".$_REQUEST['userType']."' "
-			."AND c.userId = '".$_REQUEST['userId']."';";
+			."AND c.userId = '".$_REQUEST['userId']."' ORDER BY c.dateOut DESC;";
 
 $result = mysqli_query($db, $SQL);
 
