@@ -33,7 +33,7 @@ $(document).ready(function () {
                         html += '<tr>';
                         html += '<td>' + result[index].controlNum + '</td>';
                         html += '<td>' + result[index].dateOut + '</td>';
-                        if (result[index].dateIn == '0000-00-00')
+                        if (result[index].dateIn == '00/00/0000')
                             html += '<td><button type="button" class="radio-check-in-btn btn btn-xs btn-primary" data-id="'
                                     + result[index].checkOutId + '" data-num="' + result[index].controlNum + '">Check In</button></td>';
                         else
