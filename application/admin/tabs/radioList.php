@@ -43,13 +43,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="radio-search-dateOfPurchaseFrom">Date of Purchase (from) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="radio-search-dateOfPurchaseFrom">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="radio-search-dateOfPurchaseFrom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="radio-search-dateOfPurchaseTo">Date of Purchase (to) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="radio-search-dateOfPurchaseTo">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="radio-search-dateOfPurchaseTo">
                                         </div>
                                     </div>
                                 </div>

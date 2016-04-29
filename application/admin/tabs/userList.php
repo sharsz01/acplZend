@@ -45,13 +45,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="user-search-dobFrom">Date of Birth (from) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="user-search-dobFrom">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="user-search-dobFrom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="user-search-dobTo">Date of Birth (to) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="user-search-dobTo">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="user-search-dobTo">
                                         </div>
                                     </div>
                                 </div>

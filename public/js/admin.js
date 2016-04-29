@@ -541,7 +541,9 @@ $(document).ready(function () {
         if (dateFrom) {
             if (!dateTo)
                 dateTo = dateFrom;
-            searchData.dateOfPurchase = {type: 'range', value1: dateFrom, value2: dateTo};
+			var begin = new Date(dateFrom);
+			var end = new Date(dateTo);
+            searchData.dateOfPurchase = {type: 'range', value1: begin.getFullYear()+'-'+(begin.getMonth()+1)+'-'+begin.getDate(), value2: end.getFullYear()+'-'+(end.getMonth()+1)+'-'+end.getDate()};
         }
         if ($('#radio-search-radioStatus').val())
             searchData.radioStatus = {type: 'binary', value: $('#radio-search-radioStatus').val()};
@@ -604,11 +606,13 @@ $(document).ready(function () {
             searchData.lastName = {type: 'like', value: $('#user-search-lastName').val()};
 
         var dateFrom = $('#user-search-dobFrom').val();
-        var dateTo = $('#user-search-dobTo').val()
+        var dateTo = $('#user-search-dobTo').val();
         if (dateFrom) {
             if (!dateTo)
                 dateTo = dateFrom;
-            searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
+			var begin = new Date(dateFrom);
+			var end = new Date(dateTo);
+            searchData.birthday = {type: 'range', value1: begin.getFullYear()+'-'+(begin.getMonth()+1)+'-'+begin.getDate(), value2: end.getFullYear()+'-'+(end.getMonth()+1)+'-'+end.getDate()};
         }
         if ($('#user-search-address').val())
             searchData.street = {type: 'like', value: $('#user-search-address').val()};

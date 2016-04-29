@@ -9,6 +9,7 @@ $SQL = "SELECT userId, DATE_FORMAT(dateRegistered,'%m/%d/%Y') AS 'dateRegistered
 			."contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, "
 			."contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, "
 			."status, medium, signature, mailTo, notes, alert_status FROM user ";
+
 $count = 1;
 
 if (array_key_exists('search', $_REQUEST)) {
