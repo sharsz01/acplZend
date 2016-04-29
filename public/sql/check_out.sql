@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2016 at 08:07 AM
+-- Generation Time: Apr 29, 2016 at 06:06 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -42,10 +42,16 @@ CREATE TABLE `check_out` (
 INSERT INTO `check_out` (`checkOutId`, `radioId`, `userId`, `userType`, `dateOut`, `dateIn`) VALUES
 (1, 1, 6, 'org', '2016-04-16', '2016-04-17'),
 (2, 1, 10, 'ind', '2016-04-17', '2016-04-17'),
-(3, 2, 10, 'ind', '2016-04-17', '0000-00-00'),
-(4, 1, 6, 'org', '2016-04-17', '0000-00-00'),
-(5, 3, 6, 'org', '2016-04-17', '0000-00-00'),
-(6, 4, 6, 'org', '2016-04-17', '0000-00-00');
+(3, 2, 10, 'ind', '2016-04-17', '2016-04-17'),
+(4, 1, 6, 'org', '2016-04-17', '2016-04-28'),
+(5, 3, 6, 'org', '2016-04-17', '2016-04-28'),
+(6, 4, 6, 'org', '2016-04-17', '2016-04-28'),
+(7, 2, 10, 'ind', '2016-04-17', '2016-04-28'),
+(8, 1, 10, 'ind', '2016-04-28', '2016-04-28'),
+(9, 3, 10, 'ind', '2016-04-28', '2016-04-28'),
+(10, 1, 6, 'org', '2016-04-28', '2016-04-28'),
+(11, 2, 6, 'org', '2016-04-28', '2016-04-28'),
+(12, 3, 6, 'org', '2016-04-28', '2016-04-28');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +71,7 @@ ALTER TABLE `check_out`
 -- AUTO_INCREMENT for table `check_out`
 --
 ALTER TABLE `check_out`
-  MODIFY `checkOutId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `checkOutId` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
