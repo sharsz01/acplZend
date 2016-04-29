@@ -252,40 +252,20 @@
                 $('#submit').removeAttr('disabled');
             }
         });
-        
+
+         // Scroll to first error instance
+        var err = $('.errors');
+        if(err.length){
+            $('html, body').animate({
+               scrollTop: $('.errors:visible:first').parent().offset().top 
+            }, 1000);
+        }
+
         // =========== masked input
-		
-		$(":input").inputmask();
-		
+        $(":input").inputmask();
         $(".phone").mask("(999) 999-9999");
-        //$(".date").mask("99-99-9999");
 
-        // ======== date dropdowns
-
-        /*
-         $('#listenerForm-Birthdate').dateSelector({
-         cssFramework: 'bootstrap',
-         minYear: 1930,
-         });*/
-
-
-        /*
-         $("#listenerForm-Birthdate").dateDropdowns({
-         submitFieldName: '#listenerForm-Birthdate',
-         displayFormat: 'mdy'
-         });
-         
-         var d = "";
-         $("#listenerForm-Birthdate").change(function () {
-         d = $("#listenerForm-Birthdate").val();
-         $("#listenerForm-Birthdate").val(d);
-         });
-         */
-
-
-
-
-
+       
     });
 </script>
 
