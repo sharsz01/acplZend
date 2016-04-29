@@ -4,7 +4,8 @@ require('config/dbConnect.php');
 
 $return = array();
 
-$SQL = "SELECT * FROM radio";
+$SQL = "SELECT radioId, controlNum, modelNum, manufacturer, DATE_FORMAT(dateOfpurchase,'%m/%d/%Y') AS 'dateOfPurchase', "
+			."radioStatus, headphones, battery, wave, radioCondition, notes FROM radio ";
 $count = 1;
 
 if(array_key_exists('search', $_REQUEST)) {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2016 at 08:07 AM
+-- Generation Time: Apr 29, 2016 at 06:06 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -45,10 +45,10 @@ CREATE TABLE `radio` (
 --
 
 INSERT INTO `radio` (`radioId`, `controlNum`, `modelNum`, `manufacturer`, `dateOfPurchase`, `radioStatus`, `headphones`, `battery`, `wave`, `radioCondition`, `notes`) VALUES
-(1, 1, '333333', 'Radio Electronics', '2010-01-02', 'Checked Out', 'yes', 'no', 'long', 'fair', 'some notes'),
-(2, 2, '111111', 'Radio Research Inc.', '2016-02-10', 'Checked Out', 'no', 'no', 'short', 'good', ''),
-(3, 3, '222222', 'United Radio Systems, LLC', '2016-02-03', 'Checked Out', 'yes', 'no', 'long', 'poor', ''),
-(4, 4, '131313', 'Acme Radios', '2010-01-01', 'Checked Out', 'yes', 'yes', 'short', 'good', ''),
+(1, 1, '333333', 'Radio Electronics', '2010-01-02', 'Checked In', 'yes', 'no', 'long', 'fair', 'some notes'),
+(2, 2, '111111', 'Radio Research Inc.', '2016-02-10', 'Checked In', 'no', 'no', 'short', 'good', ''),
+(3, 3, '222222', 'United Radio Systems, LLC', '2016-02-03', 'Checked In', 'yes', 'no', 'long', 'poor', ''),
+(4, 4, '131313', 'Acme Radios', '2010-01-01', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
 (5, 5, '321321', 'Radio Inc.', '2016-02-26', 'Checked In', 'yes', 'no', 'short', 'good', ''),
 (15, 6, '151515', 'Acme Radios', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', ''),
 (16, 7, '161616', 'Radio manufacturers', '2016-02-26', 'Checked In', 'yes', 'yes', 'short', 'good', ''),

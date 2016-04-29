@@ -43,13 +43,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="radio-search-dateOfPurchaseFrom">Date of Purchase (from) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="radio-search-dateOfPurchaseFrom">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="radio-search-dateOfPurchaseFrom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="radio-search-dateOfPurchaseTo">Date of Purchase (to) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="radio-search-dateOfPurchaseTo">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="radio-search-dateOfPurchaseTo">
                                         </div>
                                     </div>
                                 </div>
@@ -183,12 +183,12 @@
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Manufacturer
 						</th>
-						<th id="rTable-dop" name="rTable-dop">
+						<th id="rTable-dateOfPurchase" name="rTable-dateOfPurchase">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							DOP
 						</th>
-						<th id="rTable-status" name="rTable-status">
+						<th id="rTable-radioStatus" name="rTable-radioStatus">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Status
@@ -208,7 +208,7 @@
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Wave
 						</th>
-						<th id="rTable-condition" name="rTable-condition">
+						<th id="rTable-radioCondition" name="rTable-radioCondition">
 							<div class="handle"></div>
 							<div class="close radio-close glyphicon glyphicon-remove-circle"></div>
 							Condition
@@ -223,7 +223,8 @@
                 <tbody>
                     <?php
                     $fields = array("controlNum", "modelNum", "manufacturer", "dateOfPurchase", "radioStatus", "headphones", "battery", "wave", "radioCondition", "notes");
-                    $SQL = "SELECT * FROM radio;";
+                    $SQL = "SELECT radioId, controlNum, modelNum, manufacturer, DATE_FORMAT(dateOfpurchase,'%m/%d/%Y') AS 'dateOfPurchase', "
+								."radioStatus, headphones, battery, wave, radioCondition, notes FROM radio;";
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {

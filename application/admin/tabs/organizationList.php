@@ -324,7 +324,9 @@
                     $fields = array("organizationName", "organizationType", "firstName", "lastName", "positionTitle", "street", 
 						"streetLine2", "city", "state", "zip", "phone", "phone2", "email", "numRadios", "numLicensedBeds", 
 						"numResidentialUnits", "howLearn", "status", "medium");
-                    $SQL = "SELECT * FROM organization;";
+                    $SQL = "SELECT organizationId, DATE_FORMAT(dateRegistered,'%m/%d/%Y') AS 'dateRegistered', ipRegistered, organizationName, "
+								."organizationType, firstName, lastName, positionTitle, street, streetLine2, city, state, zip, phone, phone2, email, numRadios, "
+								."numLicensedBeds, numResidentialUnits, howLearn, status, medium, signature, notes, alert_status FROM organization;";
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {

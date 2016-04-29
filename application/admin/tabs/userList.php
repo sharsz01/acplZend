@@ -45,13 +45,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="user-search-dobFrom">Date of Birth (from) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="user-search-dobFrom">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="user-search-dobFrom">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="user-search-dobTo">Date of Birth (to) (mm/dd/yyyy):</label>
-                                            <input type="text" class="form-control" id="user-search-dobTo">
+                                            <input type="text" data-inputmask="'alias': 'mm/dd/yyyy'" class="form-control" id="user-search-dobTo">
                                         </div>
                                     </div>
                                 </div>
@@ -334,7 +334,7 @@
                 <div class="close user-close glyphicon glyphicon-remove-circle"></div>
                 Last
                 </th>
-                <th id="uTable-dob" name="uTable-dob">
+                <th id="uTable-birthday" name="uTable-birthday">
                 <div class="handle"></div>
                 <div class="close user-close glyphicon glyphicon-remove-circle"></div>
                 DOB
@@ -490,7 +490,11 @@
                         "contactPhone2", "contactEmail", "disability", "otherDisability", "howLearn", "race", "income",
                         "inHomeNum", "status", "dateRegistered", "mailTo");
 
-                    $SQL = "SELECT * FROM user;";
+                    $SQL = "SELECT userId, DATE_FORMAT(dateRegistered,'%m/%d/%Y') AS 'dateRegistered', ipRegistered, firstName, lastName, "
+								."DATE_FORMAT(birthday,'%m/%d/%Y') AS 'birthday', street, streetLine2, city, state, zip, phone, phone2, email, "
+								."contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, "
+								."contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, "
+								."status, medium, signature, mailTo, notes, alert_status FROM user;";
                     $result = mysqli_query($db, $SQL);
 
                     while ($row = mysqli_fetch_assoc($result)) {

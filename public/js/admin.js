@@ -48,12 +48,28 @@ $(document).ready(function () {
             }
         });
     }
+	
+	function getRadioCheckOuts(radioId) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'ajax/getRadioCheckOuts.php',
+            data: {radioId: radioId},
+            success: function (ajaxvalues) {
+                $('#radioCheckouts tbody').empty();
+                $('#radioCheckouts tbody').append(ajaxvalues.html);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+	}
 
     function populateRadioDetails(id) {
         var radioId = {type: 'binary', value: id};
         if (!$('#newRadioCancelBtn').hasClass('hidden'))
             $('#newRadioCancelBtn').click();
-
+		getRadioCheckOuts(id);
         $.ajax({
             type: 'POST',
             dataType: 'json',
@@ -269,6 +285,18 @@ $(document).ready(function () {
         var id = $(this).attr('data-id');
         $('#radio-details-tab').click();
         populateRadioDetails(id);
+    });
+	
+	$('#radioCheckouts').on('click', '.checkOutRow', function () {
+        var id = $(this).attr('data-id');
+		var type = $(this).attr('data-type');
+		if(type == 'ind') {
+			$('#user-details-tab').click();
+			populateIndividualDetails(id);
+		} else if (type == 'org') {
+			$('#organization-details-tab').click();
+			populateOrganizationDetails(id);
+		}
     });
 
     // =============================================
@@ -518,7 +546,9 @@ $(document).ready(function () {
         if (dateFrom) {
             if (!dateTo)
                 dateTo = dateFrom;
-            searchData.dateOfPurchase = {type: 'range', value1: dateFrom, value2: dateTo};
+			var begin = new Date(dateFrom);
+			var end = new Date(dateTo);
+            searchData.dateOfPurchase = {type: 'range', value1: begin.getFullYear()+'-'+(begin.getMonth()+1)+'-'+begin.getDate(), value2: end.getFullYear()+'-'+(end.getMonth()+1)+'-'+end.getDate()};
         }
         if ($('#radio-search-radioStatus').val())
             searchData.radioStatus = {type: 'binary', value: $('#radio-search-radioStatus').val()};
@@ -581,11 +611,13 @@ $(document).ready(function () {
             searchData.lastName = {type: 'like', value: $('#user-search-lastName').val()};
 
         var dateFrom = $('#user-search-dobFrom').val();
-        var dateTo = $('#user-search-dobTo').val()
+        var dateTo = $('#user-search-dobTo').val();
         if (dateFrom) {
             if (!dateTo)
                 dateTo = dateFrom;
-            searchData.birthday = {type: 'range', value1: dateFrom, value2: dateTo};
+			var begin = new Date(dateFrom);
+			var end = new Date(dateTo);
+            searchData.birthday = {type: 'range', value1: begin.getFullYear()+'-'+(begin.getMonth()+1)+'-'+begin.getDate(), value2: end.getFullYear()+'-'+(end.getMonth()+1)+'-'+end.getDate()};
         }
         if ($('#user-search-address').val())
             searchData.street = {type: 'like', value: $('#user-search-address').val()};
@@ -871,7 +903,7 @@ $(document).ready(function () {
         // Default fields displayed for listeners
         userDTable.column('#uTable-firstName').visible(true);
         userDTable.column('#uTable-lastName').visible(true);
-        userDTable.column('#uTable-dob').visible(true);
+        userDTable.column('#uTable-birthday').visible(true);
         userDTable.column('#uTable-street').visible(true);
         userDTable.column('#uTable-phone').visible(true);
         userDTable.column('#uTable-email').visible(true);
@@ -886,7 +918,7 @@ $(document).ready(function () {
         $('#user-streetBtn').hide();
         $('#user-phoneBtn').hide();
         $('#user-emailBtn').hide();
-        $('#user-status').hide();
+        $('#user-statusBtn').hide();
     }
 
     // Shows default column list for organizations with radios
@@ -954,7 +986,7 @@ $(document).ready(function () {
 
     $('#user-dobBtn').on('click', function () {
         $('#user-dobBtn').hide();
-        userDTable.column('#uTable-dob').visible(true);
+        userDTable.column('#uTable-birthday').visible(true);
     });
 
     $('#user-streetBtn').on('click', function () {
@@ -1082,6 +1114,11 @@ $(document).ready(function () {
         userDTable.column('#uTable-inHomeNum').visible(true);
     });
 
+	$('#user-statusBtn').on('click', function () {
+        $('#user-statusBtn').hide();
+        userDTable.column('#uTable-status').visible(true);
+    });
+	
     $('#user-dateRegisteredBtn').on('click', function () {
         $('#user-dateRegisteredBtn').hide();
         userDTable.column('#uTable-dateRegistered').visible(true);
@@ -1207,12 +1244,12 @@ $(document).ready(function () {
 
     $('#radio-dopBtn').on('click', function () {
         $('#radio-dopBtn').hide();
-        radioDTable.column('#rTable-dop').visible(true);
+        radioDTable.column('#rTable-dateOfPurchase').visible(true);
     });
 
     $('#radio-statusBtn').on('click', function () {
         $('#radio-statusBtn').hide();
-        radioDTable.column('#rTable-status').visible(true);
+        radioDTable.column('#rTable-radioStatus').visible(true);
     });
 
     $('#radio-headphonesBtn').on('click', function () {
@@ -1232,7 +1269,7 @@ $(document).ready(function () {
 
     $('#radio-conditionBtn').on('click', function () {
         $('#radio-conditionBtn').hide();
-        radioDTable.column('#rTable-condition').visible(true);
+        radioDTable.column('#rTable-radioCondition').visible(true);
     });
 
     $('#radio-notesBtn').on('click', function () {

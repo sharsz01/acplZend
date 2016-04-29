@@ -251,7 +251,7 @@
 	{
 		if ($oldDate == "-")
 		{
-			return $oldDate;
+			return "0000-00-00";
 		}
 		$pieces = explode("/", $oldDate);
 		$newDate = $pieces[2] . "-" . $pieces[0] . "-" . $pieces[1];

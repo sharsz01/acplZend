@@ -9,20 +9,19 @@
  */
 
 
-//mail('simon_sharudin1@msn.com', 'Sample mail', 'Sample Content', 'From: ohgreatone91@gmail.com');
 //require('PHPMailer/class.phpmailer.php');
 require 'PHPMailer/PHPMailerAutoload.php';
 require 'listenerList.php';
 require 'organizationList.php';
 
 $nameFrom = 'Audio Reader';
-$emailFrom = 'ohgreatone91@gmail.com';
-$pw = 'towns799**';
+$emailFrom = 'arst10tmp@gmail.com';
+$pw = 'slsTv03*';
 
 $mail = new PHPMailer();
 $mail->CharSet = 'UTF-8';
 
-$subject = 'Update';
+$subject = 'Radio Application Update';
 
 // Message content for individuals
 $signature = '<p><br /><br />-Georgean Johnson-Coffey</p>'
@@ -72,7 +71,6 @@ foreach ($listeners as $list) {
 
 // Send initial email to organizations
 foreach ($organizations as $org) {
-    $mail->Subject = 'Org update';
     $mail->MsgHTML($organizationBody);
     $mail->AddAddress($org[2], $org[0]);
 
