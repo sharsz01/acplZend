@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `radio` (
   `radioId` int(12) NOT NULL,
-  `controlNum` int(24) NOT NULL,
+  `controlNum` varchar(24) NOT NULL,
   `modelNum` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `manufacturer` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `dateOfPurchase` date NOT NULL,
