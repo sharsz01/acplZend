@@ -91,8 +91,8 @@
 			}
 			//close file and return to previous page
 			fclose($handle);
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
 		}
+		echo "<script> window.location.replace('../admin.php') </script>";
 	}
 	
 	if (isset($_POST['importRadios']))
@@ -179,8 +179,8 @@
 			}
 			//close file and return to previous page
 			fclose($handle);
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
 		}
+		echo "<script> window.location.replace('../admin.php') </script>";
 	}
 	
 	if (isset($_POST['importOrganization']))
@@ -266,8 +266,8 @@
 			}
 			//close file and return to previous page
 			fclose($handle);
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
 		}
+	    echo "<script> window.location.replace('../admin.php') </script>";
 	}
 	
 	function convertDate($oldDate)
