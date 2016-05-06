@@ -8,7 +8,7 @@
 		
 	if(isset($_COOKIE["user"]) && isset($_COOKIE["pass"]))
 	{
-		$res = mysql_query("select * from login_master where username = '".$_COOKIE['user']."'");
+		$res = mysql_query("select * from login_master where username = '".mysql_real_escape_string($_COOKIE['user'])."'");
 		$row = mysql_fetch_assoc($res);
 		
 		if(md5($_COOKIE["pass"])==$row['password'])
@@ -29,7 +29,7 @@
 	}
 	else if(isset($_POST['submit']))
 	{
-		$res = mysql_query("select * from login_master where username = '".$_POST['user']."'");
+		$res = mysql_query("select * from login_master where username = '".mysql_real_escape_string($_POST['user'])."'");
 		$row = mysql_fetch_assoc($res);
 		
 		if(md5($_POST['pass'])==$row['password'])
