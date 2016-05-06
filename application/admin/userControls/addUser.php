@@ -8,9 +8,9 @@
 
 <?php
 	//variables for the creation of a new user
-	$username = $_POST['newUsername'];
-	$password = $_POST['newUserPassword'];
-	$passwordAgain = $_POST['newUserPasswordAgain'];
+	$username = mysql_real_escape_string($_POST['newUsername']);
+	$password = mysql_real_escape_string($_POST['newUserPassword']);
+	$passwordAgain = mysql_real_escape_string($_POST['newUserPasswordAgain']);
 	
 	//set up database connection
 	$link = mysql_connect("localhost", "root", "") or die("Cannot Connect");
