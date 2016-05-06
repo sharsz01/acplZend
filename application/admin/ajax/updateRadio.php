@@ -2,6 +2,12 @@
 
 require('config/dbConnect.php');
 
+function array_map_callback($a) {
+	global $db;
+	return mysqli_real_escape_string($db, $a);
+}
+$_REQUEST = array_map('array_map_callback', $_REQUEST);
+
 $return = array();
 
 $SQL = "UPDATE radio SET controlNum='".$_REQUEST['radio-controlNum']."', modelNum='".$_REQUEST['radio-modelNum']

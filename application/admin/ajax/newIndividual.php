@@ -2,6 +2,12 @@
 
 require('config/dbConnect.php');
 
+function array_map_callback($a) {
+	global $db;
+	return mysqli_real_escape_string($db, $a);
+}
+$_REQUEST = array_map('array_map_callback', $_REQUEST);
+
 $return = array();
 
 $SQL = "INSERT INTO user (dateRegistered, firstName, lastName, birthday, street, streetLine2, city, state, zip, phone, phone2, email, contactFirstName, contactLastName, contactRelationship, contactStreet, contactStreetLine2, contactCity, contactState, contactZip, contactPhone, contactPhone2, contactEmail, disability, otherDisability, howLearn, race, income, inHomeNum, status, medium, signature, mailTo, notes, alert_status)" .

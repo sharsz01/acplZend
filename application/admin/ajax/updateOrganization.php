@@ -2,8 +2,13 @@
 
 require('config/dbConnect.php');
 
-$return = array();
+function array_map_callback($a) {
+	global $db;
+	return mysqli_real_escape_string($db, $a);
+}
+$_REQUEST = array_map('array_map_callback', $_REQUEST);
 
+$return = array();
 
 $SQL = "UPDATE organization SET dateRegistered=STR_TO_DATE('" . $_REQUEST['org-dateRegistered'] ."', '%m/%d/%Y')"//. "', ipRegistered='" . $_REQUEST['org-ipRegistered']
         . ", organizationName='" . $_REQUEST['org-organizationName'] . "', organizationType='" . $_REQUEST['org-organizationType']
