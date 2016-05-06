@@ -8,10 +8,10 @@
 
 <?php
 	//get the variables from the html page
-	$username = $_POST['username'];
-	$currentPassword = $_POST['currentPassword'];
-	$newPassword = $_POST['newPassword'];
-	$newPasswordAgain = $_POST['newPasswordAgain'];
+	$username = mysql_real_escape_string($_POST['username']);
+	$currentPassword = mysql_real_escape_string($_POST['currentPassword']);
+	$newPassword = mysql_real_escape_string($_POST['newPassword']);
+	$newPasswordAgain = mysql_real_escape_string($_POST['newPasswordAgain']);
 	
 	//establish a connection to the database
 	$link = mysql_connect("localhost", "root", "") or die("Cannot Connect");
