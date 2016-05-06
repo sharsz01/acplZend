@@ -65,9 +65,17 @@
 				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					$dateRegistered_CorrectFormat = convertDate($data[1]);
-					$birthday_CorrectFormat = convertDate($data[5]);
-					mysql_query("REPLACE INTO user VALUES('".$data[0]."','".$dateRegistered_CorrectFormat."','".$data[2]."','".$data[3]."','".$data[4]."','".$birthday_CorrectFormat."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."','".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."','".$data[32]."','".$data[33]."','".$data[34]."','".$data[35]."','".$data[36]."')");
+					//loop over the data and verify it is safe to query
+					for ($c=0; $c < $num; $c++)
+					{
+						$data[$c] = mysql_real_escape_string($data[$c]);
+					}
+					
+					//convert dateRegistered and birthday to the correct format
+					$data[1] = convertDate($data[1]);
+					$data[5] = convertDate($data[5]);
+					
+					mysql_query("REPLACE INTO user VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."','".$data[27]."','".$data[28]."','".$data[29]."','".$data[30]."','".$data[31]."','".$data[32]."','".$data[33]."','".$data[34]."','".$data[35]."','".$data[36]."')");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -143,11 +151,19 @@
 				$num = count($data);
 				//if this isn't the first row (and not the row titles)
 				//run the query
-				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					$dateOfPurchase_CorrectFormat = convertDate($data[4]);
-					mysql_query("REPLACE INTO radio VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$dateOfPurchase_CorrectFormat."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."')");
+					//loop over the data and verify it is safe to query
+					for ($c=0; $c < $num; $c++)
+					{
+						$data[$c] = mysql_real_escape_string($data[$c]);
+					}
+					
+					//convert dateOfPurchase to correct format
+					$data[4] = convertDate($data[4]);
+					
+					//query the database and insert the files
+					mysql_query("REPLACE INTO radio VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."')");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -226,8 +242,15 @@
 				//change temp to an actual table containing user information
 				if ($row != 1)
 				{
-					$orgDateReg_CorrectFormat = convertData($data[1]);
-					mysql_query("REPLACE INTO organization VALUES('".$data[0]."','".$orgDateReg_CorrectFormat."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24].")");
+					//loop over the data and verify it is safe to query
+					for ($c=0; $c < $num; $c++)
+					{
+						$data[$c] = mysql_real_escape_string($data[$c]);
+					}
+					//update dateRegistered to the correct date
+					$data[1] = convertDate($date[1]);
+					//query the database and add the values
+					mysql_query("REPLACE INTO organization VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24].")");
 					echo "<br />\n";
 				}
 				//used for column titles
@@ -251,8 +274,13 @@
 	{
 		if ($oldDate == "-")
 		{
-			return "0000-00-00";
+			return "1900-01-01";
 		}
+		if (strpos($oldDate, '-') !== false)
+		{
+			return $oldDate;
+		}
+		
 		$pieces = explode("/", $oldDate);
 		$newDate = $pieces[2] . "-" . $pieces[0] . "-" . $pieces[1];
 		
