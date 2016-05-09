@@ -57,6 +57,7 @@
                                 <option>good</option>
                                 <option>fair</option>
                                 <option>poor</option>
+                                <option>recycled</option>
                             </select>
                         </div>
                     </div>
