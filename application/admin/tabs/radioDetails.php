@@ -57,7 +57,17 @@
                                 <option>good</option>
                                 <option>fair</option>
                                 <option>poor</option>
-                                <option>recycled</option>
+                            </select>
+                        </div>
+                    </div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="radio-search-radioStatus">Status:</label>
+                            <select class="form-control" id="radio-search-radioStatus">
+								<option></option>
+                                <option>Checked In</option>
+                                <option>Checked Out</option>
+                                <option>Recycled</option>
                             </select>
                         </div>
                     </div>
