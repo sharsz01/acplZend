@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <h3>Listener Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New User</button></h3>
+    <h3>Listener Details <button id="newUser" type="button" class="btn btn-primary btn-sm">New Listener</button></h3>
 
     <form id="user-details-form">
         <input type="hidden" name="ind-userId" id="ind-userId" />
@@ -340,8 +340,8 @@
         </div>
     </div>
 
-    <button id="newUserSaveBtn" type="button" class="btn btn-primary hidden">Save New User</button>
-    <button id="newUserCancelBtn" type="button" class="btn btn-default hidden">Cancel New User</button>
+    <button id="newUserSaveBtn" type="button" class="btn btn-primary hidden">Save New Listener</button>
+    <button id="newUserCancelBtn" type="button" class="btn btn-default hidden">Cancel New Listener</button>
     <button id="userSaveBtn" type="button" class="btn btn-primary">Save Changes</button>
     <button id="userCancelBtn" type="button" class="btn btn-default">Cancel Changes</button>
 
