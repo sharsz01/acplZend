@@ -15,7 +15,7 @@ $SQL = "UPDATE user SET dateRegistered=STR_TO_DATE('" . $_REQUEST['ind-dateRegis
         . "', birthday=STR_TO_DATE('" . $_REQUEST['ind-birthday'] . "', '%m/%d/%Y'), street='" . $_REQUEST['ind-street']
         . "', streetLine2='" . $_REQUEST['ind-streetLine2'] . "', city='" . $_REQUEST['ind-city']
         . "', state='" . $_REQUEST['ind-state'] . "', zip='" . $_REQUEST['ind-zip']
-        . "', phone='" . $_REQUEST['ind-phone'] . "', phone='" . $_REQUEST['ind-phone2']
+        . "', phone='" . $_REQUEST['ind-phone'] . "', phone2='" . $_REQUEST['ind-phone2']
         . "', email='" . $_REQUEST['ind-email'] . "', contactFirstName='" . $_REQUEST['ind-contactFirstName']
         . "', contactLastName='" . $_REQUEST['ind-contactLastName'] . "', contactRelationship='" . $_REQUEST['ind-contactRelationship']
         . "', contactStreet='" . $_REQUEST['ind-contactStreet'] . "', contactStreetLine2='" . $_REQUEST['ind-contactStreetLine2']
