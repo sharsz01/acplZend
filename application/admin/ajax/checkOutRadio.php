@@ -6,7 +6,7 @@ $return = array();
 
 if(array_key_exists('userId', $_REQUEST)) {
 	
-	$SQL = "SELECT radioId, radioStatus FROM radio WHERE controlNum IN (".implode(', ', $_REQUEST['inputList']).") AND radioStatus = 'Checked In';";
+	$SQL = "SELECT radioId, radioStatus FROM radio WHERE controlNum IN ('".implode("', '", $_REQUEST['inputList'])."') AND radioStatus = 'Checked In';";
 	$resultList = mysqli_query($db, $SQL);
 	
 	if(mysqli_num_rows($resultList) != count($_REQUEST['inputList'])) {
