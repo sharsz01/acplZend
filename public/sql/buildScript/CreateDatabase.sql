@@ -1,5 +1,8 @@
 -- Create the database 'audioreadingservice'
-CREATE DATABASE audioreadingservice
+CREATE DATABASE audioreadingservice;
+
+-- Select the 'audioreadingservice' database in which to add the tables
+USE audioreadingservice;
 
 -- Create table 'user'
 -- Table containing Listener information
