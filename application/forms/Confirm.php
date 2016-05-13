@@ -15,7 +15,6 @@ class Application_Form_Confirm extends Zend_Form
             'class' => 'btn btn-default',
             'ignore' => true,
             'label' => "Go Back and Edit",
-            'onclick' => "history.back()",
             'decorators' => array('ViewHelper'),
         ));
         
