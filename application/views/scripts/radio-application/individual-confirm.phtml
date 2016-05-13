@@ -79,7 +79,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" class="review-label" style="border:none;">Email:</th>
-                                                    <td style="border:none;"><?php echo $listenerData['Email']; ?></td>
+                                                    <td id="listenerEmail" style="border:none;"><?php echo $listenerData['Email']; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -196,7 +196,7 @@
                                                         </tr>
                                                         <tr>
                                                             <th scope="row" class="review-label" style="border:none;">Email:</th>
-                                                            <td style="border:none;"><?php echo $contactData['Email']; ?></td>
+                                                            <td id="contactEmail" style="border:none;"><?php echo $contactData['Email']; ?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -256,3 +256,27 @@
         ?>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+	
+		function sendEmail(){
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: '../../../application/email/listenerApplicationEmail.php',
+				data: {email: $('#listenerEmail').html(), contact: $('#contactEmail').html()},
+				
+			});
+		}
+	
+		$('.go-back').on('click', function(){
+			history.back();
+		});
+       
+		$('.confirm-app').on('click', function(){
+			sendEmail();
+		});
+	   
+    });
+</script>
