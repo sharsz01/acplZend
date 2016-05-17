@@ -273,7 +273,7 @@ $(document).ready(function () {
 			data.userType = 'ind';
 			data.userId = -1;
 			data.inputList = {};
-			data.inputList[0] = $('#radio-radioId').val();
+			data.inputList[0] = $('#radio-controlNum').val();
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',
