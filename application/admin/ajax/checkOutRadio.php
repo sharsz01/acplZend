@@ -16,10 +16,16 @@ if(array_key_exists('userId', $_REQUEST)) {
 	}
 	
 	while($row = mysqli_fetch_assoc($resultList)) {
+		
+		if ($_REQUEST['userId'] == -1) {
+			$status = 'Recycled';
+		} else {
+			$status = 'Checked Out';
+		}
 			
 		$SQL = "INSERT INTO check_out (radioId, userId, userType, dateOut, dateIn) VALUES ".
 		"('".$row['radioId']."', '".$_REQUEST['userId']."', '".$_REQUEST['userType']."', CURDATE(), '0000-00-00'); ".
-		"UPDATE radio SET radioStatus = 'Checked Out' WHERE radioId = '".$row['radioId']."'";
+		"UPDATE radio SET radioStatus = '".$status."' WHERE radioId = '".$row['radioId']."'";
 		$result = mysqli_multi_query($db, $SQL);
 		
 		if(!$result) {

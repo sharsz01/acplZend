@@ -60,17 +60,6 @@
                             </select>
                         </div>
                     </div>
-					<div class="col-sm-3">
-						<div class="form-group">
-							<label for="radio-search-radioStatus">Status:</label>
-                            <select class="form-control" id="radio-search-radioStatus">
-								<option></option>
-                                <option>Checked In</option>
-                                <option>Checked Out</option>
-                                <option>Recycled</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="radio-notes">Notes:</label>
@@ -96,6 +85,7 @@
                 </table>
             </div>
         </div>
+		<button type="button" class="btn btn-default" id="radio-recycle-btn">Recycle This Radio</button>
     </div>
 </div>
 

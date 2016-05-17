@@ -21,7 +21,15 @@ while($row = mysqli_fetch_assoc($resultList)) {
 	
 	$return['html'] .= '<tr class="checkOutRow" data-id="'.$row['userId'].'" data-type="'.$row['userType'].'">';
 	
-	if($row['userType'] == 'ind') {
+	 if ($row['userId'] == -1) {
+		 
+		$return['html'] .= '<td>Radio Recycled</td>';
+		$return['html'] .= '<td>'.$row['dateOut'].'</td>';
+		$return['html'] .= '<td>Recycled</td>';
+		$return['html'] .= '</tr>';
+		continue;
+		 
+	 } else if($row['userType'] == 'ind') {
 		
 		$SQL = "SELECT CONCAT(firstName, ' ', lastName) AS 'userName' "
 				."FROM user WHERE userId = '".$row['userId']."';";

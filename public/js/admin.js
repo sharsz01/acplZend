@@ -266,6 +266,34 @@ $(document).ready(function () {
             }
         });
     });
+	
+	$('#radio-recycle-btn').on('click', function() {
+		if(confirm('Are you sure?')) {
+			var data = {};
+			data.userType = 'ind';
+			data.userId = -1;
+			data.inputList = {};
+			data.inputList[0] = $('#radio-radioId').val();
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: 'ajax/checkOutRadio.php',
+				data: data,
+				success: function (ajaxvalues) {
+					if (ajaxvalues.success) {
+						alert('Radio recycled successfully');
+						populateRadioDetails($('#radio-radioId').val());
+					} else {
+						console.log(ajaxvalues.error);
+						alert(ajaxvalues.error);
+					}
+				},
+				error: function (e) {
+					console.log(e);
+				}
+			});
+		}
+	});
 
     // =============================================
 
