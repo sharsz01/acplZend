@@ -246,7 +246,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="ind-signature">User Signature:</label>
+                    <label for="ind-signature">Listener Signature:</label>
                     <input type="text" class="form-control" name="ind-signature" id="ind-signature">
                 </div>
 
