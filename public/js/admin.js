@@ -422,6 +422,7 @@ $(document).ready(function () {
         $('#radioSaveBtn').addClass('hidden');
         $('#radioCancelBtn').addClass('hidden');
         $('#newRadio').addClass('hidden');
+        clearRadioCheckOutTable();
     });
 
     $('#newUser').on('click', function () {
@@ -431,6 +432,7 @@ $(document).ready(function () {
         $('#userSaveBtn').addClass('hidden');
         $('#userCancelBtn').addClass('hidden');
         $('#newUser').addClass('hidden');
+        clearUserOrOrganizationRadioTable('user');
     });
 
     $('#newOrganization').on('click', function () {
@@ -440,6 +442,7 @@ $(document).ready(function () {
         $('#organizationSaveBtn').addClass('hidden');
         $('#organizationCancelBtn').addClass('hidden');
         $('#newOrganization').addClass('hidden');
+        clearUserOrOrganizationRadioTable('organization');
     });
 
     // =============================================
@@ -920,6 +923,17 @@ $(document).ready(function () {
         }
 
         $('.inactiveRadioBtns').show();
+    }
+
+    // Removes all records in userRadios table
+    function clearUserOrOrganizationRadioTable(type) {
+        $('#' + type + 'Radios tbody').empty();
+        $('#' + type + 'Radios tbody').append('<tr><td>No radios checked out</td></tr>');
+    }
+
+    function clearRadioCheckOutTable() {
+        $('#radioCheckouts tbody').empty();
+        $('#radioCheckouts tbody').append('<tr><td>No radios checked out</td></tr>');
     }
 
     // Shows default column list for individuals with radios
