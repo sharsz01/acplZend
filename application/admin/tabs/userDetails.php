@@ -236,6 +236,7 @@
                                 <option>Mobile App</option>
                                 <option>PBS 39.4</option>
                                 <option>Streaming</option>
+                                <option>Podcast</option>
                             </select>
                         </div>
                     </div>
