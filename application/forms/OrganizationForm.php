@@ -79,9 +79,9 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                "Alpha",
-            ),
+            //'validators' => array(
+            //   "Alpha",
+            //),
         ));
 
         $organization->addElement('text', 'PositionTitle', array(
@@ -252,9 +252,9 @@ class Application_Form_OrganizationForm extends Zend_Form {
             'label' => 'Staff Signature *',
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alpha', true, array('allowWhiteSpace' => true)),
-            ),
+            //'validators' => array(
+            //    array('Alpha', true, array('allowWhiteSpace' => true)),
+            //),
         ));
 
         /*
