@@ -76,9 +76,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                "Alpha",
-            ),
+            //'validators' => array(
+            //    "Alpha",
+            //),
         ));
 
         $listener->addElement('text', 'Birthdate', array(
@@ -186,9 +186,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'size' => 62,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alnum', true, array('allowWhiteSpace' => true)),
-            ),
+            //'validators' => array(
+            //   array('Alnum', true, array('allowWhiteSpace' => true)),
+            //),
         ));
 
         $listener->addElement('text', 'OtherDisability', array(
@@ -301,9 +301,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'required' => true,
             'filters' => array('StringTrim'),
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                "Alpha",
-            ),
+            //'validators' => array(
+            //    "Alpha",
+            //),
         ));
 
         $contact->addElement('text', 'Relationship', array(
@@ -425,9 +425,9 @@ class Application_Form_RadioApplicationForm extends Zend_Form {
             'label' => 'Signature of responsible party *',
             'required' => true,
             'decorators' => array('ViewHelper', 'Label', 'Errors'),
-            'validators' => array(
-                array('Alpha', true, array('allowWhiteSpace' => true)),
-            ),
+            //'validators' => array(
+            //    array('Alpha', true, array('allowWhiteSpace' => true)),
+            //),
         ));
 
         $statement->addElement('checkbox', 'Agree', array(
